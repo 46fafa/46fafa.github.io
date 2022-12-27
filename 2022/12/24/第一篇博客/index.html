@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="zh-Hans">
 
 <head>
     
@@ -12,19 +12,19 @@
     
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="起因某日，网上冲浪，偶然发现自己在用的青柠起始页作者毛若昕的博客     后来又通过大佬的友链访问了许多的个人博客,于是我也有了搭建博客的想法,经过一个下午技术的熏陶(太菜了😂,许多教程没看懂)最后选择的是Hexo+github+netlify方案，主要参考爱扑bug的熊和–Fomalhaut两位up主的视频教程爱扑bug的熊这位up的教程偏向理论，由于本人完全没经验，up的图文教程看不太懂，而">
+    <meta name="description" content="起因学校里某日，网上冲浪，偶然发现自己在用的青柠起始页作者毛若昕的博客通过大佬的友链访问了许多大佬的博客,之后就有了自己搭建博客的想法, 但是由于懒惰🙄,一直没有动手.直到放假闲来无事,才想着来试试 方案参考经过一个下午技术的熏陶(太菜了😂,许多教程没看懂,所以翻了很多博客,视频~) 视频教程爱扑bug的熊 和–Fomalhaut两位up主的视频 图文教程其中hexo+github部署步骤的图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一篇博客">
 <meta property="og:url" content="https://46fafa.netlify.app/2022/12/24/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
 <meta property="og:site_name" content="Jarvis">
-<meta property="og:description" content="起因某日，网上冲浪，偶然发现自己在用的青柠起始页作者毛若昕的博客     后来又通过大佬的友链访问了许多的个人博客,于是我也有了搭建博客的想法,经过一个下午技术的熏陶(太菜了😂,许多教程没看懂)最后选择的是Hexo+github+netlify方案，主要参考爱扑bug的熊和–Fomalhaut两位up主的视频教程爱扑bug的熊这位up的教程偏向理论，由于本人完全没经验，up的图文教程看不太懂，而">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="起因学校里某日，网上冲浪，偶然发现自己在用的青柠起始页作者毛若昕的博客通过大佬的友链访问了许多大佬的博客,之后就有了自己搭建博客的想法, 但是由于懒惰🙄,一直没有动手.直到放假闲来无事,才想着来试试 方案参考经过一个下午技术的熏陶(太菜了😂,许多教程没看懂,所以翻了很多博客,视频~) 视频教程爱扑bug的熊 和–Fomalhaut两位up主的视频 图文教程其中hexo+github部署步骤的图">
+<meta property="og:locale">
 <meta property="og:image" content="https://raw.githubusercontent.com/46fafa/blog-img/main/1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/46fafa/blog-img/main/2.png">
 <meta property="article:published_time" content="2022-12-24T13:06:37.000Z">
-<meta property="article:modified_time" content="2022-12-27T08:21:48.742Z">
+<meta property="article:modified_time" content="2022-12-27T10:50:04.654Z">
 <meta property="article:author" content="Jarvis">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/46fafa/blog-img/main/1.png">
     
@@ -33,11 +33,11 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1672129348481">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1672138245439">
     
-    <link rel="stylesheet" href="/css/style.css?v=1672129348481">
+    <link rel="stylesheet" href="/css/style.css?v=1672138245439">
     
-        <link rel="stylesheet" href="/custom.css?v=1672129348481">
+        <link rel="stylesheet" href="/custom.css?v=1672138245439">
     
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -110,6 +110,58 @@
     </div>
 </div>
     
+    
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/探索/">探索</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+    
+    
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/hexo/" style="font-size: 10px;">hexo</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(5);
+        var tags_length = parseInt(1);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+    
     <!-- 一言 -->
 
   <div class="nexmoe-widget-wrap">
@@ -181,18 +233,18 @@
 
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-        <a><i class="nexmoefont icon-areachart"></i>约278字</a>
+        <a><i class="nexmoefont icon-areachart"></i>约184字</a>
         <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要1分钟</a>
     
 </div>
 
-      <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>某日，网上冲浪，偶然发现自己在用的<a target="_blank" rel="noopener" href="https://limestart.cn/">青柠起始页</a>作者<a target="_blank" rel="noopener" href="https://maorx.cn/">毛若昕</a>的博客 </p>
-<img  src="https://raw.githubusercontent.com/46fafa/blog-img/main/1.png"  style="width: 400px;"> 
-
-<p>后来又通过大佬的友链访问了许多的个人博客,于是我也有了搭建博客的想法,经过一个下午技术的熏陶(太菜了😂,许多教程没看懂)<br>最后选择的是Hexo+github+netlify方案，主要参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qD4y1z783/?spm_id_from=333.337.search-card.all.click&vd_source=258020edca69c60087ab3235f74cfbbe">爱扑bug的熊</a>和<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1G84y1B7NH/?spm_id_from=333.788&vd_source=258020edca69c60087ab3235f74cfbbe">–Fomalhaut</a>两位up主的视频教程<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qD4y1z783/?spm_id_from=333.337.search-card.all.click&vd_source=258020edca69c60087ab3235f74cfbbe">爱扑bug的熊</a>这位up的教程偏向理论，由于本人完全没经验，up的<a href="(https://blog.cuijiacai.com/blog-building/)">图文教程</a>看不太懂，而视频偏理论，刚开始确实是看的我一脸懵逼🤣，于是我后面找到了<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1G84y1B7NH/?spm_id_from=333.788&vd_source=258020edca69c60087ab3235f74cfbbe">–Fomalhaut</a>这位up的操作视频，步骤很详细，完全的傻瓜操作，还有<a target="_blank" rel="noopener" href="https://www.fomal.cc/posts/e593433d.html">图文教程</a>,方便复制代码<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1G84y1B7NH/?spm_id_from=333.788&vd_source=258020edca69c60087ab3235f74cfbbe">–Fomalhaut</a><strong>hexo+github</strong>框架搭建完成后up选择使用versel部署，但是我使用后发现访问博客需要科学上网(也许是我操作问题😖)<br>所以后面我选择用<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qD4y1z783/?spm_id_from=333.337.search-card.all.click&vd_source=258020edca69c60087ab3235f74cfbbe">爱扑bug的熊</a>的方案<a target="_blank" rel="noopener" href="https://www.netlify.com/">netlify</a>部署到云端，最后成功访问。</p>
-<blockquote>
-<p>效果图展示 </p>
-</blockquote>
+      <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>学校里某日，网上冲浪，偶然发现自己在用的<a target="_blank" rel="noopener" href="https://limestart.cn/">青柠起始页</a>作者<a target="_blank" rel="noopener" href="https://maorx.cn/">毛若昕</a>的博客<br><img  src="https://raw.githubusercontent.com/46fafa/blog-img/main/1.png"><br>通过大佬的友链访问了许多大佬的博客,之后就有了自己搭建博客的想法, 但是由于懒惰🙄,一直没有动手.直到放假闲来无事,才想着来试试</p>
+<h2 id="方案参考"><a href="#方案参考" class="headerlink" title="方案参考"></a>方案参考</h2><p>经过一个下午技术的熏陶(太菜了😂,许多教程没看懂,所以翻了很多博客,视频~)</p>
+<p><strong>视频教程</strong><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qD4y1z783/?spm_id_from=333.337.search-card.all.click&vd_source=258020edca69c60087ab3235f74cfbbe">爱扑bug的熊</a> 和<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1G84y1B7NH/?spm_id_from=333.788&vd_source=258020edca69c60087ab3235f74cfbbe">–Fomalhaut</a>两位up主的视频</p>
+<p><strong>图文教程</strong><br>其中<strong>hexo+github</strong>部署步骤的图文教程参考<a target="_blank" rel="noopener" href="https://www.fomal.cc/posts/e593433d.html">–Fomalhaut的博客</a><br>netlify建站参考<a target="_blank" rel="noopener" href="https://blog.cuijiacai.com/blog-building/">爱扑bug的熊的博客</a></p>
+<h2 id="效果图展示"><a href="#效果图展示" class="headerlink" title="效果图展示"></a>效果图展示</h2><ul>
+<li>主题:<a target="_blank" rel="noopener" href="https://github.com/theme-nexmoe/hexo-theme-nexmoe">Nexmoe</a></li>
+</ul>
 <img src="https://raw.githubusercontent.com/46fafa/blog-img/main/2.png"  style="width: 400px;">
 
 
@@ -218,7 +270,7 @@
         <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%8E%A2%E7%B4%A2/">探索</a>
     
     
-        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a>
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/hexo/" rel="tag">hexo</a>
     
 </div>
 
@@ -277,7 +329,7 @@
 
  
 
-<script async src="/js/app.js?v=1672129348481"></script>
+<script async src="/js/app.js?v=1672138245440"></script>
 
 
 
