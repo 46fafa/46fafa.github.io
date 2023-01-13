@@ -2,7 +2,98 @@
 
 <html lang="zh-Hans">
 
-<head>
+<head><!-- hexo injector head_begin start --><style type="text/css">.douban-card-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 400px;
+}
+
+.douban-card {
+    display: flex;
+    margin: 30px 10px;
+    padding: 15px;
+    border-radius: 15px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.douban-card:hover {
+    text-decoration: none;
+}
+
+.douban-card-bgimg {
+    position: absolute;
+    width: 115%;
+    height: 115%;
+    filter: blur(15px) brightness(0.6);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.douban-card-img {
+    position: relative;
+    height: 130px;
+    width: 80px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.douban-card-left:hover .douban-card-img {
+    filter: blur(5px) brightness(0.6);
+    transform: perspective(800px) rotateX(180deg);
+}
+
+.douban-card-left .douban-card-img {
+    transition: all 500ms ease;
+}
+
+.douban-card-left {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.douban-card-left .douban-card-status {
+    height: 130px;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 30%;
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+    transition: all 500ms ease;
+}
+
+.douban-card-left:hover .douban-card-status {
+    transform: perspective(800px) rotateX(0deg);
+}
+
+.douban-card-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 12px;
+    font-size: 16px;
+    font-family: "Courier New", Courier, monospace;
+    line-height: 1.3;
+    color: antiquewhite;
+}
+
+.douban-card-item {
+    margin-top: 4px;
+}
+</style><!-- hexo injector head_begin end -->
     
     <title>2022 - Jarvis</title>
     <meta charset="UTF-8">
@@ -12,16 +103,16 @@
     
 
     <link rel="shortcut icon" href="https://img-1316473855.cos.ap-chengdu.myqcloud.com/avatar.jpg" type="image/png" />
-    <meta name="description" content="2022今年最大事件就是疫情政策的变化吧,行程码下线了年初时还是坚定防疫不动摇,年末就彻底放开了,本以为全面放开后能刺激消费,恢复实体经济,结果是大家都害怕感染,躲在家里不出来,也有人疯狂买买买,不过不是在商店而是药店. 中国奇谭最近网上挺火的动画,有空去看看 读过一些书 俗世奇人 小王子 平凡的世界(还没看完) 月亮与六便士 黄金时代 今年要多读书">
+    <meta name="description" content="2022今年最大事件就是疫情政策的变化吧,行程码下线了年初时还是坚定防疫不动摇,年末就彻底放开了,本以为全面放开后能刺激消费,恢复实体经济,结果是大家都害怕感染,躲在家里不出来,也有人疯狂买买买,不过不是在商店而是药店. 中国奇谭最近网上挺火的动画,有空去看看 读过一些书">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2022">
 <meta property="og:url" content="https://46fafa.netlify.app/2023/01/12/2022/">
 <meta property="og:site_name" content="Jarvis">
-<meta property="og:description" content="2022今年最大事件就是疫情政策的变化吧,行程码下线了年初时还是坚定防疫不动摇,年末就彻底放开了,本以为全面放开后能刺激消费,恢复实体经济,结果是大家都害怕感染,躲在家里不出来,也有人疯狂买买买,不过不是在商店而是药店. 中国奇谭最近网上挺火的动画,有空去看看 读过一些书 俗世奇人 小王子 平凡的世界(还没看完) 月亮与六便士 黄金时代 今年要多读书">
+<meta property="og:description" content="2022今年最大事件就是疫情政策的变化吧,行程码下线了年初时还是坚定防疫不动摇,年末就彻底放开了,本以为全面放开后能刺激消费,恢复实体经济,结果是大家都害怕感染,躲在家里不出来,也有人疯狂买买买,不过不是在商店而是药店. 中国奇谭最近网上挺火的动画,有空去看看 读过一些书">
 <meta property="og:locale">
 <meta property="og:image" content="https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp">
 <meta property="article:published_time" content="2023-01-12T09:08:27.000Z">
-<meta property="article:modified_time" content="2023-01-13T11:44:06.865Z">
+<meta property="article:modified_time" content="2023-01-13T12:51:37.746Z">
 <meta property="article:author" content="Jarvis">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp">
@@ -31,11 +122,11 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1673610382209">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1673614353468">
     
-    <link rel="stylesheet" href="/css/style.css?v=1673610382209">
+    <link rel="stylesheet" href="/css/style.css?v=1673614353468">
     
-        <link rel="stylesheet" href="/custom.css?v=1673610382209">
+        <link rel="stylesheet" href="/custom.css?v=1673614353468">
     
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Jarvis" type="application/atom+xml">
 </head>
@@ -250,20 +341,125 @@
 
       <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
     
-        <a><i class="nexmoefont icon-areachart"></i>约153字</a>
+        <a><i class="nexmoefont icon-areachart"></i>约285字</a>
         <a><i class="nexmoefont icon-time-circle-fill"></i>预计需要1分钟</a>
     
 </div>
 
       <h2 id="2022"><a href="#2022" class="headerlink" title="2022"></a>2022</h2><p>今年最大事件就是疫情政策的变化吧,行程码下线了<br>年初时还是坚定防疫不动摇,年末就彻底放开了,本以为全面放开后能刺激消费,恢复实体经济,结果是大家都害怕感染,躲在家里不出来,也有人疯狂买买买,不过不是在商店而是药店.</p>
 <h2 id="中国奇谭"><a href="#中国奇谭" class="headerlink" title="中国奇谭"></a>中国奇谭</h2><p>最近网上挺火的动画,有空去看看<br><img data-fancybox="gallery" src="https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp" alt="904662152" data-caption="904662152" loading="lazy"></p>
-<h2 id="读过一些书"><a href="#读过一些书" class="headerlink" title="读过一些书"></a>读过一些书</h2><ul>
-<li>俗世奇人</li>
-<li>小王子</li>
-<li>平凡的世界(还没看完)</li>
-<li>月亮与六便士</li>
-<li>黄金时代<br> <del>今年要多读书</del></li>
-</ul>
+<h2 id="读过一些书"><a href="#读过一些书" class="headerlink" title="读过一些书"></a>读过一些书</h2><table>
+<thead>
+<tr>
+<th><div class="douban-card-block">
+    <a class="douban-card" target="_blank" rel="noopener" href="https://book.douban.com/subject/27013741">
+        <div bg-lazy class="douban-card-bgimg" style="background-image: url('https://images.weserv.nl/?url=https://img9.doubanio.com/view/subject/s/public/s29419096.jpg');">
+        </div>
+        <div class="douban-card-left">
+            <div bg-lazy class="douban-card-img" style="background-image: url('https://images.weserv.nl/?url=https://img9.doubanio.com/view/subject/s/public/s29419096.jpg');">
+            </div>
+            <div class="douban-card-status">见字如晤</div>
+        </div>
+        <div class="douban-card-right" style="line-height: 1.7;">
+            <div class="douban-card-item"><span>书名: </span><strong>黄金时代</strong></div>
+            <div class="douban-card-item"><span>作者: </span><span>王小波</span></div>
+            <div class="douban-card-item"><span>出版年份: </span><span>2017-4</span></div>
+            <div class="douban-card-item"><span>评分: </span><span>8.7</span></div>
+        </div>
+    </a>
+</div></th>
+<th><div class="douban-card-block">
+    <a class="douban-card" target="_blank" rel="noopener" href="https://book.douban.com/subject/1084336">
+        <div bg-lazy class="douban-card-bgimg" style="background-image: url('https://images.weserv.nl/?url=https://img2.doubanio.com/view/subject/s/public/s1103152.jpg');">
+        </div>
+        <div class="douban-card-left">
+            <div bg-lazy class="douban-card-img" style="background-image: url('https://images.weserv.nl/?url=https://img2.doubanio.com/view/subject/s/public/s1103152.jpg');">
+            </div>
+            <div class="douban-card-status">见字如晤</div>
+        </div>
+        <div class="douban-card-right" style="line-height: 1.7;">
+            <div class="douban-card-item"><span>书名: </span><strong>小王子</strong></div>
+            <div class="douban-card-item"><span>作者: </span><span>[法国]安东尼·德·圣-埃克苏佩里</span></div>
+            <div class="douban-card-item"><span>出版年份: </span><span>2003-8</span></div>
+            <div class="douban-card-item"><span>评分: </span><span>9.1</span></div>
+        </div>
+    </a>
+</div></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><div class="douban-card-block">
+    <a class="douban-card" target="_blank" rel="noopener" href="https://book.douban.com/subject/34924477">
+        <div bg-lazy class="douban-card-bgimg" style="background-image: url('https://images.weserv.nl/?url=https://img1.doubanio.com/view/subject/s/public/s33571357.jpg');">
+        </div>
+        <div class="douban-card-left">
+            <div bg-lazy class="douban-card-img" style="background-image: url('https://images.weserv.nl/?url=https://img1.doubanio.com/view/subject/s/public/s33571357.jpg');">
+            </div>
+            <div class="douban-card-status">见字如晤</div>
+        </div>
+        <div class="douban-card-right" style="line-height: 1.7;">
+            <div class="douban-card-item"><span>书名: </span><strong>俗世奇人全本</strong></div>
+            <div class="douban-card-item"><span>作者: </span><span>冯骥才</span></div>
+            <div class="douban-card-item"><span>出版年份: </span><span>2020-1</span></div>
+            <div class="douban-card-item"><span>评分: </span><span>8.5</span></div>
+        </div>
+    </a>
+</div></td>
+<td><div class="douban-card-block">
+    <a class="douban-card" target="_blank" rel="noopener" href="https://book.douban.com/subject/27064488">
+        <div bg-lazy class="douban-card-bgimg" style="background-image: url('https://images.weserv.nl/?url=https://img1.doubanio.com/view/subject/s/public/s29652928.jpg');">
+        </div>
+        <div class="douban-card-left">
+            <div bg-lazy class="douban-card-img" style="background-image: url('https://images.weserv.nl/?url=https://img1.doubanio.com/view/subject/s/public/s29652928.jpg');">
+            </div>
+            <div class="douban-card-status">见字如晤</div>
+        </div>
+        <div class="douban-card-right" style="line-height: 1.7;">
+            <div class="douban-card-item"><span>书名: </span><strong>活着</strong></div>
+            <div class="douban-card-item"><span>作者: </span><span>余华</span></div>
+            <div class="douban-card-item"><span>出版年份: </span><span>2017-6-1</span></div>
+            <div class="douban-card-item"><span>评分: </span><span>9.4</span></div>
+        </div>
+    </a>
+</div></td>
+</tr>
+<tr>
+<td><div class="douban-card-block">
+    <a class="douban-card" target="_blank" rel="noopener" href="https://book.douban.com/subject/26183853">
+        <div bg-lazy class="douban-card-bgimg" style="background-image: url('https://images.weserv.nl/?url=https://img9.doubanio.com/view/subject/s/public/s27994695.jpg');">
+        </div>
+        <div class="douban-card-left">
+            <div bg-lazy class="douban-card-img" style="background-image: url('https://images.weserv.nl/?url=https://img9.doubanio.com/view/subject/s/public/s27994695.jpg');">
+            </div>
+            <div class="douban-card-status">见字如晤</div>
+        </div>
+        <div class="douban-card-right" style="line-height: 1.7;">
+            <div class="douban-card-item"><span>书名: </span><strong>菊与刀</strong></div>
+            <div class="douban-card-item"><span>作者: </span><span>(美)鲁思•本尼迪克特</span></div>
+            <div class="douban-card-item"><span>出版年份: </span><span>2015-2</span></div>
+            <div class="douban-card-item"><span>评分: </span><span>7.8</span></div>
+        </div>
+    </a>
+</div></td>
+<td><div class="douban-card-block">
+    <a class="douban-card" target="_blank" rel="noopener" href="https://book.douban.com/subject/36028331">
+        <div bg-lazy class="douban-card-bgimg" style="background-image: url('https://images.weserv.nl/?url=https://img9.doubanio.com/view/subject/s/public/s34285934.jpg');">
+        </div>
+        <div class="douban-card-left">
+            <div bg-lazy class="douban-card-img" style="background-image: url('https://images.weserv.nl/?url=https://img9.doubanio.com/view/subject/s/public/s34285934.jpg');">
+            </div>
+            <div class="douban-card-status">见字如晤</div>
+        </div>
+        <div class="douban-card-right" style="line-height: 1.7;">
+            <div class="douban-card-item"><span>书名: </span><strong>月亮与六便士</strong></div>
+            <div class="douban-card-item"><span>作者: </span><span>[英]毛姆</span></div>
+            <div class="douban-card-item"><span>出版年份: </span><span>2022-8</span></div>
+            <div class="douban-card-item"><span>评分: </span><span>9.3</span></div>
+        </div>
+    </a>
+</div></td>
+</tr>
+</tbody></table>
 
   </article>
 
@@ -357,7 +553,7 @@ var dsqjs = new DisqusJS({
 
  
 
-<script async src="/js/app.js?v=1673610382210"></script>
+<script async src="/js/app.js?v=1673614353474"></script>
 
 
 
