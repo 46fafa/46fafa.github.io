@@ -3,12 +3,16 @@
   <entry>
     <title>2022</title>
     <url>/2023/01/12/2022/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h2 id="2022"><a href="#2022" class="headerlink" title="2022"></a>2022</h2><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote>
 <p>年初 他们去了很远的地方冒险,那是一片由钢筋水泥铸成同时又掺杂梦想的丛林,就在最近,年轻的冒险家马上就要回来了,无论有没有战利品,他们都会回来参加一年一度的盛大节日,满载而归的勇士们通常会举行一种传统的四人竞技活动,等到战利品全部留在美好的家乡,勇士们就会带着家乡的美好祝愿继续回到那片丛林开始新的冒险之旅.——过年</p>
 </blockquote>
 <span id="more"></span>
 
-<p>今年最大事件就是疫情政策的变化吧,行程码下线了<br>年初时还是坚定防疫不动摇,年末就彻底放开了,本以为全面放开后能刺<br>激消费,恢复实体经济,结果是大家都害怕感染,躲在家里不出来,也有人<br>疯狂买买买,不过不是在商店而是药店.</p>
+<h3 id="疫情"><a href="#疫情" class="headerlink" title="疫情"></a>疫情</h3><p>今年最大事件就是疫情政策的变化吧,行程码下线了年初时还是坚定防疫不动摇,年末就彻底放开了,本以为全面放开后能刺激消费,恢复实体经济,结果是大家都害怕感染,躲在家里不出来,也有人疯狂买买买,不过不是在商店而是药店.</p>
+<h3 id="奖学金"><a href="#奖学金" class="headerlink" title="奖学金"></a>奖学金</h3><p>大一的时候综测摆了一点点,导致错失奖学金😭</p>
+<h3 id="兴趣"><a href="#兴趣" class="headerlink" title="兴趣"></a>兴趣</h3><p>我总是喜欢折腾看上去很高级的东西(虽然总是没深入),博客也是这样,这次希望我能坚持下去.</p>
+<p>从室友江哥那里了解到单片机这个东西后一直也想去折腾一下,因为懒鬼的属性,鸽了很久🤣,刚好最近逛博客看到一个很简单的小项目利用esp8266+sg90舵机+arduino+点灯科技实现一个关灯神器,看了一下步骤和材料都比较简单,复刻的成本不高,最近会入手试试,开学还能拿到宿舍用,不知道为什么最后一个上床的人总是会忘记关灯😂</p>
+<p>暂时这么多,想到什么再来更新吧~</p>
 <h2 id="中国奇谭"><a href="#中国奇谭" class="headerlink" title="中国奇谭"></a>中国奇谭</h2><p>最近网上挺火的动画,有空去看看</p>
 <p><img src="https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp" alt="904662152"></p>
 <h2 id="读过一些书"><a href="#读过一些书" class="headerlink" title="读过一些书"></a>读过一些书</h2><table>
@@ -141,10 +145,10 @@
 </ul>
 <img src="https://jsd.cky.codes/gh/46fafa/blog-img@main/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A24.png"  style="width: 400px;">
 
-
-
-
-
+<ul>
+<li>更换主题为Next</li>
+</ul>
+<p><img src="https://img-1316473855.cos.ap-chengdu.myqcloud.com/theme-Next.webp" alt="theme-Next"></p>
 ]]></content>
       <categories>
         <category>探索</category>
