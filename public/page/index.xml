@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on Clouder&#39;s Blog</title>
+        <link>https://www.codein.icu/page/</link>
+        <description>Recent content in Pages on Clouder&#39;s Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Sat, 10 Apr 2021 12:27:48 +0800</lastBuildDate><atom:link href="https://www.codein.icu/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Privacy Policy</title>
+        <link>https://www.codein.icu/privacy-policy/</link>
+        <pubDate>Sat, 10 Apr 2021 12:27:48 +0800</pubDate>
+        
+        <guid>https://www.codein.icu/privacy-policy/</guid>
+        <description>&lt;p&gt;本网站(Clouder&amp;rsquo;s Blog)是由 Hugo 生成的静态网站，因此其本身不会收集您的任何数据。&lt;/p&gt;
+&lt;p&gt;但它集成了一些第三方服务，而它们有可能会收集您的信息。以下是第三方服务清单。&lt;/p&gt;
+&lt;h2 id=&#34;第三方服务&#34;&gt;第三方服务&lt;/h2&gt;
+&lt;h3 id=&#34;google-analytics&#34;&gt;Google Analytics&lt;/h3&gt;
+&lt;p&gt;Google Analytics，谷歌分析，是用于收集访客数据，进行分析以优化网站内容的工具。&lt;/p&gt;
+&lt;p&gt;它会收集以下数据：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;页面访问量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;滚动&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;跳出点击&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;站内搜索&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;文件下载&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;访客位置(基于 IP 地址)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我已经在 Hugo 相关配置中启用了 &lt;code&gt;respectDoNotTrack&lt;/code&gt; 和 &lt;code&gt;anonymizeIP&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;此外，个性化广告已被我禁用。&lt;/p&gt;
+&lt;p&gt;如果您需要更详细的信息，请查看 &lt;a class=&#34;link&#34; href=&#34;https://policies.google.com/privacy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Google&amp;rsquo;s Privacy Policy&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;utterances&#34;&gt;Utterances&lt;/h3&gt;
+&lt;p&gt;Utterances 是一个基于 Github Issues 的轻量化评论系统，本站的评论由该服务负责。&lt;/p&gt;
+&lt;p&gt;它是一个开源项目，承诺不追踪用户。但使用该评论系统，你必须登陆 Github 帐号，因此您在 Github 上的个人信息会被公开。&lt;/p&gt;
+&lt;p&gt;如果您需要更详细的信息，请查看 &lt;a class=&#34;link&#34; href=&#34;https://github.com/utterance/utterances&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Utterances Github Repo&lt;/a&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;作为一个独立博主，我无意收集您的数据。&lt;/p&gt;
+&lt;p&gt;如果您非常关心您的隐私，请使用专门的隐私工具。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>归档</title>
+        <link>https://www.codein.icu/archives/</link>
+        <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.codein.icu/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>友链</title>
+        <link>https://www.codein.icu/links/</link>
+        <pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate>
+        
+        <guid>https://www.codein.icu/links/</guid>
+        <description>&lt;p&gt;&lt;em&gt;We are isolated, we are associated.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;欢迎互换友链。&lt;/p&gt;
+&lt;p&gt;不定时尝试访问，若失效将被标记，长时间失效将被移除。&lt;/p&gt;
+&lt;p&gt;申请格式：&lt;br&gt;
+网站标题: Clouder&amp;rsquo;s Blog.&lt;br&gt;
+网站描述: A student who enjoys tech &amp;amp; life.&lt;br&gt;
+网站地址: &lt;a class=&#34;link&#34; href=&#34;https://www.codein.icu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.codein.icu/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可选用的本站 Logo: &lt;a class=&#34;link&#34; href=&#34;https://cdn.jsdelivr.net/gh/Clouder0/myPics/img/selficon2.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://cdn.jsdelivr.net/gh/Clouder0/myPics/img/selficon2.png&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.sh1mar.in/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Avimitin&amp;rsquo;s Blog&lt;/a&gt;: 龙王的博客。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.azusemisa.top&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Islauso&amp;rsquo;s Blog&lt;/a&gt;: 小神犇的博客。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://flandre.love&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;feiko&lt;/a&gt;: OI 之光。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.aigeek.top&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AiGeek&lt;/a&gt;: 盲目的跟从和愚昧是不可原谅的。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tntofu.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tntofu&lt;/a&gt;: 一名学生，深爱着这个世界。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://miku.ie&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AweRailgun&lt;/a&gt;: 爱折腾的萌新。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://lvbibir.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lvbibir&amp;rsquo;s Blog&lt;/a&gt;： life is a fucking movie.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://wangjiezhe.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;如鱼饮水，冷暖自知&lt;/a&gt;：蓝田生美玉，西风栽冷香。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.notgou.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NotGou.&lt;/a&gt;：NotGou Blog Lite.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://taurusxin.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TaurusXin&amp;rsquo;s Blog&lt;/a&gt;: 永远年轻 永远热泪盈眶.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youngjuning.js.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;洛竹的博客&lt;/a&gt;：真理无穷，一寸欢喜。&lt;/p&gt;
+&lt;p&gt;(失效) &lt;a class=&#34;link&#34; href=&#34;https://furrysp.me&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SurpriseLon’s Blog&lt;/a&gt;: あなたは主人公になりたいですか？&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>关于</title>
+        <link>https://www.codein.icu/about/</link>
+        <pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate>
+        
+        <guid>https://www.codein.icu/about/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Where the Cloud is? Mildly it escapes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;了解更多信息，请访问我的&lt;a class=&#34;link&#34; href=&#34;https://about.codein.icu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;个人简介网站&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我的 Biolink: &lt;a class=&#34;link&#34; href=&#34;https://bio.link/clouder&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://bio.link/clouder&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;我是 Clouder，哈工大深圳校区的计算机本科生，热爱科技，享受生活。&lt;/p&gt;
+&lt;p&gt;高中曾经学习算法竞赛两年左右，现已退役。&lt;/p&gt;
+&lt;p&gt;由于我目前已使用思源笔记进行个人知识管理，本网站仅包含部分挑选出的文章。&lt;/p&gt;
+&lt;p&gt;大部分文章只有中文版本，部分文章有英文版本。&lt;/p&gt;
+&lt;h2 id=&#34;events&#34;&gt;Events&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2019 CSP-S: 广东省二等奖，广东省排名 200+，全国排名 2000+&lt;/li&gt;
+&lt;li&gt;2020 BBCC(Big Bay Computer Competition): 团体赛第三名，个人赛第九名。&lt;/li&gt;
+&lt;li&gt;2020 CSP-S: 广东省一等奖，广东省排名 10+，全国排名 100+&lt;/li&gt;
+&lt;li&gt;2021 NOIWC: 银牌，全国排名 300+&lt;/li&gt;
+&lt;li&gt;2021: 正式退役，转战高考。&lt;/li&gt;
+&lt;li&gt;2022: 高考数学暴死。&lt;/li&gt;
+&lt;li&gt;2022: 入学 HITsz.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>搜索</title>
+        <link>https://www.codein.icu/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://www.codein.icu/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
