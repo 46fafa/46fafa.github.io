@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>liberal&#39;Blog</title>
-        <link>https://example.com/en/</link>
-        <description>Recent content on liberal&#39;Blog</description>
+        <title>Pages on liberal&#39;Blog</title>
+        <link>https://example.com/en/page/</link>
+        <description>Recent content in Pages on liberal&#39;Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/en/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/en/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>归档</title>
         <link>https://example.com/en/archives/</link>
         <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>

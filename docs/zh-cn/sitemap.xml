@@ -36,29 +36,9 @@
   </url><url>
     <loc>https://example.com/categories/%E6%9D%82%E8%AE%B0/</loc>
     <lastmod>2023-04-13T12:34:30+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://example.com/en/categories/%E6%9D%82%E8%AE%B0/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://example.com/categories/%E6%9D%82%E8%AE%B0/"
-                />
   </url><url>
     <loc>https://example.com/categories/tech/</loc>
     <lastmod>2023-04-13T12:34:10+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://example.com/en/categories/tech/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://example.com/categories/tech/"
-                />
   </url><url>
     <loc>https://example.com/p/%E5%B0%8F%E7%B1%B38%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2023-04-13T12:34:10+08:00</lastmod>
@@ -71,9 +51,29 @@
   </url><url>
     <loc>https://example.com/page/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://example.com/en/page/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://example.com/page/"
+                />
   </url><url>
     <loc>https://example.com/archives/</loc>
     <lastmod>2021-04-02T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://example.com/en/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://example.com/archives/"
+                />
   </url><url>
     <loc>https://example.com/categories/other/</loc>
     <lastmod>2021-03-27T11:57:00+08:00</lastmod>
@@ -90,9 +90,29 @@
   </url><url>
     <loc>https://example.com/links/</loc>
     <lastmod>2021-03-27T11:57:00+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://example.com/en/links/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://example.com/links/"
+                />
   </url><url>
     <loc>https://example.com/about/</loc>
     <lastmod>2021-03-27T11:16:22+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://example.com/en/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://example.com/about/"
+                />
   </url><url>
     <loc>https://example.com/tags/</loc>
     <xhtml:link
@@ -107,5 +127,15 @@
                 />
   </url><url>
     <loc>https://example.com/search/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://example.com/en/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://example.com/search/"
+                />
   </url>
 </urlset>
