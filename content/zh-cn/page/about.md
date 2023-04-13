@@ -6,6 +6,11 @@ author: "liberal"
 type: page
 categories:
   - Other
+menu:
+    main:
+        weight: -50
+        params:
+            icon: user
 ---
 
  我是liberal
