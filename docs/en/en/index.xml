@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Ens on liberal&#39;Blog</title>
+        <link>https://example.com/en/en/</link>
+        <description>Recent content in Ens on liberal&#39;Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/en/en/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>归档</title>
+        <link>https://example.com/en/en/page/archives/</link>
+        <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/en/en/page/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>友链</title>
+        <link>https://example.com/en/en/page/links/</link>
+        <pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate>
+        
+        <guid>https://example.com/en/en/page/links/</guid>
+        <description>&lt;p&gt;&lt;em&gt;We are isolated, we are associated.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;欢迎互换友链。&lt;/p&gt;
+&lt;p&gt;不定时尝试访问，若失效将被标记，长时间失效将被移除。&lt;/p&gt;
+&lt;p&gt;申请格式：&lt;br&gt;
+网站标题: Clouder&amp;rsquo;s Blog.&lt;br&gt;
+网站描述: A student who enjoys tech &amp;amp; life.&lt;br&gt;
+网站地址: &lt;a class=&#34;link&#34; href=&#34;https://www.codein.icu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.codein.icu/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可选用的本站 Logo: &lt;a class=&#34;link&#34; href=&#34;https://cdn.jsdelivr.net/gh/Clouder0/myPics/img/selficon2.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://cdn.jsdelivr.net/gh/Clouder0/myPics/img/selficon2.png&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.sh1mar.in/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Avimitin&amp;rsquo;s Blog&lt;/a&gt;: 龙王的博客。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.azusemisa.top&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Islauso&amp;rsquo;s Blog&lt;/a&gt;: 小神犇的博客。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://flandre.love&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;feiko&lt;/a&gt;: OI 之光。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.aigeek.top&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AiGeek&lt;/a&gt;: 盲目的跟从和愚昧是不可原谅的。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://tntofu.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tntofu&lt;/a&gt;: 一名学生，深爱着这个世界。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://miku.ie&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AweRailgun&lt;/a&gt;: 爱折腾的萌新。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://lvbibir.cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Lvbibir&amp;rsquo;s Blog&lt;/a&gt;： life is a fucking movie.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://wangjiezhe.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;如鱼饮水，冷暖自知&lt;/a&gt;：蓝田生美玉，西风栽冷香。&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.notgou.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;NotGou.&lt;/a&gt;：NotGou Blog Lite.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://taurusxin.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TaurusXin&amp;rsquo;s Blog&lt;/a&gt;: 永远年轻 永远热泪盈眶.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://youngjuning.js.org&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;洛竹的博客&lt;/a&gt;：真理无穷，一寸欢喜。&lt;/p&gt;
+&lt;p&gt;(失效) &lt;a class=&#34;link&#34; href=&#34;https://furrysp.me&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SurpriseLon’s Blog&lt;/a&gt;: あなたは主人公になりたいですか？&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>关于</title>
+        <link>https://example.com/en/en/page/about/</link>
+        <pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate>
+        
+        <guid>https://example.com/en/en/page/about/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Where the Cloud is? Mildly it escapes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;了解更多信息，请访问我的&lt;a class=&#34;link&#34; href=&#34;https://about.codein.icu/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;个人简介网站&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我的 Biolink: &lt;a class=&#34;link&#34; href=&#34;https://bio.link/clouder&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://bio.link/clouder&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;我是 Clouder，哈工大深圳校区的计算机本科生，热爱科技，享受生活。&lt;/p&gt;
+&lt;p&gt;高中曾经学习算法竞赛两年左右，现已退役。&lt;/p&gt;
+&lt;p&gt;由于我目前已使用思源笔记进行个人知识管理，本网站仅包含部分挑选出的文章。&lt;/p&gt;
+&lt;p&gt;大部分文章只有中文版本，部分文章有英文版本。&lt;/p&gt;
+&lt;h2 id=&#34;events&#34;&gt;Events&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;2019 CSP-S: 广东省二等奖，广东省排名 200+，全国排名 2000+&lt;/li&gt;
+&lt;li&gt;2020 BBCC(Big Bay Computer Competition): 团体赛第三名，个人赛第九名。&lt;/li&gt;
+&lt;li&gt;2020 CSP-S: 广东省一等奖，广东省排名 10+，全国排名 100+&lt;/li&gt;
+&lt;li&gt;2021 NOIWC: 银牌，全国排名 300+&lt;/li&gt;
+&lt;li&gt;2021: 正式退役，转战高考。&lt;/li&gt;
+&lt;li&gt;2022: 高考数学暴死。&lt;/li&gt;
+&lt;li&gt;2022: 入学 HITsz.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>搜索</title>
+        <link>https://example.com/en/en/page/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.com/en/en/page/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>
