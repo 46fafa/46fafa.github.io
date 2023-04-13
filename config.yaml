@@ -8,6 +8,7 @@ publishDir: docs
 languages:
     en:
         languageName: English
+        contentDir: content/en
         title: liberal'Blog
         weight: 10
         menu:
@@ -267,7 +268,7 @@ markup:
     goldmark:
         renderer:
             ## Set to true if you have HTML content inside Markdown
-            unsafe: false
+            unsafe: true
     tableOfContents:
         endLevel: 4
         ordered: true
