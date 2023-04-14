@@ -8,7 +8,6 @@ publishDir: docs
 languages:
     en:
         languageName: English
-        contentDir: content/en
         title: liberal'Blog
         weight: 10
         menu:
@@ -72,7 +71,8 @@ languages:
 disqusShortname: hugo-theme-stack
 
 # GA Tracking ID
-googleAnalytics:
+googleAnalytics: G-KSKRE06P26
+
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
@@ -268,7 +268,7 @@ markup:
     goldmark:
         renderer:
             ## Set to true if you have HTML content inside Markdown
-            unsafe: true
+            unsafe: false
     tableOfContents:
         endLevel: 4
         ordered: true
