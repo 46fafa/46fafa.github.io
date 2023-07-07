@@ -64,19 +64,6 @@ languages:
               url: https://twitter.com
               params:
                 icon: brand-twitter
-outputs:
-  home:
-  - HTML
-  - RSS
-  - JSON
-  page:
-  - HTML
-  section:
-  - HTML
-  search:
-  - HTML
-  pdf:
-  - PDF
 
 
 
