@@ -5,7 +5,7 @@ paginate: 5
 title: Example Site
 publishDir: docs
 
-languages:
+languages:              
     zh-cn:
         contentDir: content/zh-cn
         languageName: 中文
@@ -169,7 +169,7 @@ params:
     widgets:
         homepage:
             - type: search
-            - type: archives
+            - type: /archives
               params:
                   limit: 5
             - type: categories
