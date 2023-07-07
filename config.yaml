@@ -6,35 +6,6 @@ title: Example Site
 publishDir: docs
 
 languages:
-    en:
-        languageName: English
-        title: liberal'Blog
-        weight: 10
-        menu:
-          main:
-            - identifier: home
-              name: 首页
-              url: /
-              weight: -100
-              params:
-                icon: home
-            - identifier: feed
-              name: 订阅
-              url: /index.xml
-              weight: 90
-              params:
-                icon: rss
-          social:
-            - identifier: github
-              name: Github
-              url: https://github.com/46fafa
-              params:
-                icon: brand-github
-            - identifier: twitter
-              name: Twitter
-              url: https://twitter.com
-              params:
-                icon: brand-twitter
     zh-cn:
         contentDir: content/zh-cn
         languageName: 中文
