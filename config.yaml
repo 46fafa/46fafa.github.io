@@ -65,7 +65,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: favicon.gif
+    favicon: favicon.png
     footer:
         since: 2020
         customText:
@@ -80,7 +80,7 @@ params:
         avatar:
             enabled: true
             local: true
-            src: img/avatar.jpg
+            src: img/avatar.png
 
     article:
         math: true
