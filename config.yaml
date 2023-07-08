@@ -65,7 +65,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: /favicon.gif
+    favicon: favicon.gif
     footer:
         since: 2020
         customText:
