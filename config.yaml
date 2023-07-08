@@ -1,4 +1,4 @@
-baseurl: https://example.com
+baseurl: https://ideal30d.top/
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
@@ -58,6 +58,7 @@ hasCJKLanguage: true
 permalinks:
     post: /p/:slug/
     page: /:slug/
+    search: /search/
 
 params:
     mainSections:
@@ -169,7 +170,7 @@ params:
     widgets:
         homepage:
             - type: search
-            - type: /archives
+            - type: archives
               params:
                   limit: 5
             - type: categories

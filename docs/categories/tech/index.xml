@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>tech on liberal&#39;Blog</title>
-        <link>https://example.com/categories/tech/</link>
+        <link>https://ideal30d.top/categories/tech/</link>
         <description>Recent content in tech on liberal&#39;Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 13 Apr 2023 12:34:10 +0800</lastBuildDate><atom:link href="https://example.com/categories/tech/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 13 Apr 2023 12:34:10 +0800</lastBuildDate><atom:link href="https://ideal30d.top/categories/tech/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>小米8折腾记录</title>
-        <link>https://example.com/p/%E5%B0%8F%E7%B1%B38%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
+        <link>https://ideal30d.top/p/%E5%B0%8F%E7%B1%B38%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
         <pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate>
         
-        <guid>https://example.com/p/%E5%B0%8F%E7%B1%B38%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
+        <guid>https://ideal30d.top/p/%E5%B0%8F%E7%B1%B38%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
         <description>&lt;p&gt;这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p&gt;
 &lt;p&gt;我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[&lt;a class=&#34;link&#34; href=&#34;https://blog.k8s.li/android-tasker.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;tasker 神器&lt;/a&gt;],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p&gt;
