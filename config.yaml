@@ -65,7 +65,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: /favicon.ico
+    favicon: /favicon.icocover
     footer:
         since: 2020
         customText:
@@ -184,7 +184,7 @@ params:
     opengraph:
         twitter:
             # Your Twitter username
-            site:
+            site: sanxun22
 
             # Available values: summary, summary_large_image
             card: summary_large_image
@@ -200,7 +200,7 @@ params:
         toggle: true
 
         # Available values: auto, light, dark
-        default: auto
+        default: light
 
     imageProcessing:
         cover:
