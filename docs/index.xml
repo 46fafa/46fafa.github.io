@@ -12,7 +12,54 @@
         <pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate>
         
         <guid>https://ideal30d.top/p/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7/</guid>
-        <description></description>
+        <description>&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/lxgw/LxgwWenKai/main/documentation/wenkai-1.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;img&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;看到别人博客换了字体，超级好看，我也要😊！！&lt;/p&gt;
+&lt;p&gt;项目地址：https://github.com/lxgw/LxgwWenKai&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是使用的是&lt;a class=&#34;link&#34; href=&#34;%28https://moyu.ee/p/hugo-stack/#%e5%ad%97%e4%bd%93%e8%b0%83%e6%95%b4%29&#34; &gt;墨语&lt;/a&gt;提供的教程，在配置的过程中我遇到了一些问题，感谢博主的热心解答🎉&lt;/p&gt;
+&lt;p&gt;我的博客是部署在GitHub上，由于博客的主题文件是使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;hugo-theme-stack&lt;/a&gt;仓库作为博客的子模块，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你在本地修改了子模块中的文件并将其提交到远程仓库，仓库中相应的部分不会直接修改。&lt;/p&gt;
+&lt;p&gt;子模块是一个独立的仓库，它有自己的提交历史和版本控制。当你将子模块添加为你的项目的子模块时，实际上是将子模块仓库中的特定版本链接到你的项目中。&lt;/p&gt;
+&lt;p&gt;当你在本地对子模块的文件进行修改并提交后，这些修改只会影响到你本地的子模块副本。这些修改不会直接传播到原始的子模块仓库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为这个原因，按照博主文章提供的方法修改部署后没有效果&lt;img src=&#34;https://img-1316473855.cos.ap-chengdu.myqcloud.com/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230722000207898&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;解决方法是修改博客根目录下相同路径文件&lt;/p&gt;
+&lt;p&gt;比如我的博客主题文件目录为MyBlog\themes\hugo-theme-stack，现在修改文件的路径为MyBlog\assets\scss&lt;/p&gt;
+&lt;p&gt;修改后部署发布即可。&lt;/p&gt;
+&lt;h3 id=&#34;效果展示&#34;&gt;效果展示&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-1316473855.cos.ap-chengdu.myqcloud.com/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230722001413058&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>抖音热词</title>
