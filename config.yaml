@@ -35,6 +35,11 @@ languages:
               url: https://twitter.com
               params:
                 icon: brand-twitter
+            - identifier: douban
+              name: DouBan
+              url: https://book.douban.com/mine?status=collect
+              params:
+                icon: douban
 
 
 
