@@ -2,31 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ideal30d.top/categories/</loc>
+    <lastmod>2023-07-21T18:44:23+08:00</lastmod>
+  </url><url>
     <loc>https://ideal30d.top/</loc>
     <lastmod>2023-07-21T18:44:23+08:00</lastmod>
   </url><url>
     <loc>https://ideal30d.top/post/</loc>
     <lastmod>2023-07-21T18:44:23+08:00</lastmod>
   </url><url>
+    <loc>https://ideal30d.top/tags/</loc>
+    <lastmod>2023-07-21T18:44:23+08:00</lastmod>
+  </url><url>
+    <loc>https://ideal30d.top/categories/tech/</loc>
+    <lastmod>2023-07-21T18:44:23+08:00</lastmod>
+  </url><url>
     <loc>https://ideal30d.top/p/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7/</loc>
     <lastmod>2023-07-21T18:44:23+08:00</lastmod>
   </url><url>
-    <loc>https://ideal30d.top/categories/</loc>
-    <lastmod>2023-04-13T12:34:30+08:00</lastmod>
+    <loc>https://ideal30d.top/tags/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2023-07-21T18:44:23+08:00</lastmod>
   </url><url>
     <loc>https://ideal30d.top/p/%E6%8A%96%E9%9F%B3%E7%83%AD%E8%AF%8D/</loc>
+    <lastmod>2023-04-13T12:34:30+08:00</lastmod>
+  </url><url>
+    <loc>https://ideal30d.top/tags/%E6%80%9D%E8%80%83/</loc>
     <lastmod>2023-04-13T12:34:30+08:00</lastmod>
   </url><url>
     <loc>https://ideal30d.top/categories/%E6%9D%82%E8%AE%B0/</loc>
     <lastmod>2023-04-13T12:34:30+08:00</lastmod>
   </url><url>
-    <loc>https://ideal30d.top/categories/tech/</loc>
+    <loc>https://ideal30d.top/tags/%E5%88%B7%E6%9C%BA/</loc>
     <lastmod>2023-04-13T12:34:10+08:00</lastmod>
   </url><url>
     <loc>https://ideal30d.top/p/%E5%B0%8F%E7%B1%B38%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2023-04-13T12:34:10+08:00</lastmod>
   </url><url>
     <loc>https://ideal30d.top/p/2022/</loc>
+    <lastmod>2023-04-13T12:33:58+08:00</lastmod>
+  </url><url>
+    <loc>https://ideal30d.top/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</loc>
     <lastmod>2023-04-13T12:33:58+08:00</lastmod>
   </url><url>
     <loc>https://ideal30d.top/categories/other/</loc>
@@ -43,8 +58,6 @@
   </url><url>
     <loc>https://ideal30d.top/about/</loc>
     <lastmod>2021-03-27T11:16:22+08:00</lastmod>
-  </url><url>
-    <loc>https://ideal30d.top/tags/</loc>
   </url><url>
     <loc>https://ideal30d.top/search/</loc>
   </url>
