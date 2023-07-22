@@ -21,7 +21,7 @@ Hi👋，我是liberal，大学本科在读,专业是智能医学工程，实际
 
 #### 博客
 
-* Hugo：https://gohugo.io/
+* Hugo：[https://gohugo.io/](https://gohugo.io/)
 
 #### 数码
 
