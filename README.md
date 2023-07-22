@@ -15,6 +15,6 @@ Hi👋 我是liberal，大学本科在读
 
 📧：me19xy@gmail.com
 
-Twitter:[Les](https://twitter.com/sanxun22?t=X5h_WinlJuv6R3g3x1ajcg&s=09)
+Twitter:[Les](https://twitter.com/sanxun22)
 
 欢迎来找我聊天~

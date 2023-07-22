@@ -32,12 +32,12 @@ languages:
                 icon: brand-github
             - identifier: twitter
               name: Twitter
-              url: https://twitter.com
+              url: https://twitter.com/sanxun22
               params:
                 icon: brand-twitter
             - identifier: douban
               name: DouBan
-              url: https://book.douban.com/mine?status=collect
+              url: https://www.douban.com/people/199621238
               params:
                 icon: douban
 
