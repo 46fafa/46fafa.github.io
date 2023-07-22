@@ -443,7 +443,35 @@ if (!doNotTrack) {
 	
 	
 ></p>
-<p>解决方法是修改博客根目录下相同路径文件</p>
+<p>可以直接复制下面的代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">@import url(&#39;https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css&#39;);
+</span></span><span class="line"><span class="cl">@import url(&#39;https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css&#39;);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">:root {
+</span></span><span class="line"><span class="cl">    --zh-font-family: &#39;LXGW WenKai Lite&#39;;
+</span></span><span class="line"><span class="cl">    --base-font-family: var(--zh-font-family), sans-serif;
+</span></span><span class="line"><span class="cl">    --code-font-family: &#39;Cascadia Code&#39;, var(--zh-font-family), monospace;
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解决方法是修改博客根目录下相同路径文件</p>
 <p>比如我的博客主题文件目录为MyBlog\themes\hugo-theme-stack，现在修改文件的路径为MyBlog\assets\scss</p>
 <p>修改后部署发布即可。</p>
 <h3 id="效果展示">效果展示</h3>
