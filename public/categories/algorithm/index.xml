@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Algorithm on My New Hugo Site</title>
+        <link>http://example.org/categories/algorithm/</link>
+        <description>Recent content in Algorithm on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 10 Nov 2022 13:33:05 +0800</lastBuildDate><atom:link href="http://example.org/categories/algorithm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ICPC 2020 银川站</title>
+        <link>http://example.org/zh-cn/post/ccpc-2021-harbin/</link>
+        <pubDate>Thu, 10 Nov 2022 13:33:05 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/ccpc-2021-harbin/</guid>
+        <description>清早（指 9 点）拉上队友 VP，起床真是困难至极啊。
+人生第一把虚拟 Au，值得记录。虽然这个站人多队水，很是神奇，6 题 Au 的黄金时代。
+打完还剩一个多小时，刚好到饭点。
+A A 题居然是货真价实的签到题。把某维坐标改成零然后记不同的个数就行了。
+#include &amp;lt;algorithm&amp;gt; #include &amp;lt;cstdio&amp;gt; struct node { int x, y, z; bool operator&amp;lt;(const node&amp;amp; other) { if (x != other.x) return x &amp;lt; other.x; if (y != other.y) return y &amp;lt; other.y; return z &amp;lt; other.z; } } A[110], B[110]; int n; int main() { scanf(&amp;#34;%d&amp;#34;, &amp;amp;n); for (int i = 1; i &amp;lt;= n; ++i) scanf(&amp;#34;%d%d%d&amp;#34;, &amp;amp;A[i].</description>
+        </item>
+        <item>
+        <title>校内选拔赛补题</title>
+        <link>http://example.org/zh-cn/post/hitsztraining2/</link>
+        <pubDate>Mon, 24 Oct 2022 01:58:33 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/hitsztraining2/</guid>
+        <description>被队友带的一场比赛。
+只能说我的水平还是太低了，这种题都没法场上过掉。或者说我和 CF 终究是八字不合。
+CF1312D 给 $n,m$，求序列方案数，满足 $a_i \in [1,m]$，且 $a$ 严格单峰，$a$ 存在且仅存在一对相同的元素。
+推式子的题目。
+考虑峰值为 $p$，还需要 $n-1$ 个数，$n-2$ 个不同的值，从 $[1,p-1]$ 中选出相同值后，选其他值：$\dbinom{p-2}{n-3}$，然后排列在两侧。每个数要么在左侧，要么在右侧，而相同的值必须在异侧。
+也就是说，我们可以决定剩下的 $n-3$ 个数的左右位置。显然分配完之后，左侧、右侧的顺序是确定的。
+$$ \sum \limits _{p=1}^m (p-1) \times \dbinom{p-2}{n-3} \times 2^{n-3} $$
+特判一下，$n=2$ 时无解。
+这里需要快速计算组合数，考虑 $\dbinom{a}{b} = \dfrac{a!}{(a-b)!b!}$，计算阶乘、阶乘逆元即可。
+其实这个式子可以进一步简化。
+考虑选出 $n-2$ 个值后，最大值一定是峰值，钦定某个非最大值为重复值，然后其余值分为在左在右。
+$$ (n-2) \times \dbinom{m}{n-1} \times 2^{n-3} $$
+CF1187D 场上口胡了一个鬼畜的三维偏序。
+首先可以考虑处理出每个 $a_i$ 应当到达的位置 $to(i)$.
+每次选取相邻两个元素，实际上就可以实现类似于冒泡排序的效果。可以证明选择更长区间实现的操作，反复小操作同样能实现。
+那么就只考虑相邻交换。
+假设 $to(i) &amp;lt; i$，则要求 $i$ 一路能向左交换到 $to(i)$，路上遇到的值都要 $&amp;gt;a_i$ 才可以。特别的，如果某个 $a_j &amp;lt; a_i$，但是 $to(j) &amp;lt; to(i)$，那么可以先将 $a_j$ 往前挪走，不会对 $a_i$ 到达目标产生影响。</description>
+        </item>
+        <item>
+        <title>CCPC 2021 哈尔滨站</title>
+        <link>http://example.org/zh-cn/post/ccpc-2021-harbin/</link>
+        <pubDate>Tue, 18 Oct 2022 22:30:58 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/ccpc-2021-harbin/</guid>
+        <description>补题。
+E ​#ACM/数学#​
+$A_i = 2^{i-1} \bmod M$，给出 $A$，找出模数。如果模数不唯一，则无解。
+对于第一个 $A_i \neq 2^{i-1}$，它被模了，而上一个数没有被模，说明 $M \in (2^{i-2},2^{i-1}]$，则可以得到 $A_i = 2^{i-1} - M$，从而有 $M = 2^{i-1} - A_i$，这里注意，$M &amp;gt; A_i$ 也是要成立的。
+然后拿着这个模数检验整个序列，如果符合则是唯一解，否则无解。
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;ctype.h&amp;gt; #define int long long const int bufSize = 1e6; inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize], *p1 = buf, *p2 = buf; return p1 == p2 &amp;amp;&amp;amp; (p2 = (p1 = buf) + fread(buf, 1, bufSize, stdin), p1 == p2) ?</description>
+        </item>
+        <item>
+        <title>化三角矩阵计算行列式的算法实现</title>
+        <link>http://example.org/zh-cn/post/determinant-calc/</link>
+        <pubDate>Sun, 11 Sep 2022 12:07:00 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/determinant-calc/</guid>
+        <description>Introduction 行列式(Determinant) 是矩阵的重要属性。
+在手动计算行列式时，我们常常使用两种方法：
+按行/列进行拉普拉斯展开。 利用矩阵在任意行/列加减其他行列的任意倍后行列式不变的性质，化为三角矩阵后，计算主对角线元乘积求解。 前者的复杂度是 $O(n!)$ 级别的，在计算约 $12$ 阶的矩阵时就会需要超过 1s 的时间，而计算 $1000 \times 1000$ 的矩阵需要进行约：
+402387260077093773543702433923003985719374864210714632543799910429938512398629020592044208486969404800479988610197196058631666872994808558901323829669944590997424504087073759918823627727188732519779505950995276120874975462497043601418278094646496291056393887437886487337119181045825783647849977012476632889835955735432513185323958463075557409114262417474349347553428646576611667797396668820291207379143853719588249808126867838374559731746136085379534524221586593201928090878297308431392844403281231558611036976801357304216168747609675871348312025478589320767169132448426236131412508780208000261683151027341827977704784635868170164365024153691398281264810213092761244896359928705114964975419909342221566832572080821333186116811553615836546984046708975602900950537616475847728421889679646244945160765353408198901385442487984959953319101723355556602139450399736280750137837615307127761926849034352625200015888535147331611702103968175921510907788019393178114194545257223865541461062892187960223838971476088506276862967146674697562911234082439208160153780889893964518263243671616762179168909779911903754031274622289988005195444414282012187361745992642956581746628302955570299024324153181617210465832036786906117260158783520751516284225540265170483304226143974286933061690897968482590125458327168226458066526769958652682272807075781391858178889652208164348344825993266043367660176999612831860788386150279465955131156552036093988180612138558600301435694527224206344631797460594682573103790084024432438465657245014402821885252470935190620929023136493273497565513958720559654228749774011413346962715422845862377387538230483865688976461927383814900140767310446640259899490222221765904339901886018566526485061799702356193897017860040811889729918311021171229845901641921068884387121855646124960798722908519296819372388642614839657382291123125024186649353143970137428531926649875337218940694281434118520158014123344828015051399694290153483077644569099073152433278288269864602789864321139083506217095002597389863554277196742822248757586765752344220207573630569498825087968928162753848863396909959826280956121450994871701244516461260379029309120889086942028510640182154399457156805941872748998094254742173582401063677404595741785160829230135358081840096996372524230560855903700624271243416909004153690105933983835777939410970027753472000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+次运算。
+这样计算行列式的效率显然是极低的。而通过化三角矩阵，我们可以用 $O(n^3)$ 的复杂度完成行列式的求解。对于同样的矩阵，我们只需要进行 $1 \times 10^9$ 的运算。这对于中小规模的矩阵已经足够快速了。
+Prerequisites 对于矩阵 $\mathbf{A}$，记 $\begin{vmatrix}\mathbf{A}\end{vmatrix}$ 为其行列式的值。
+在进行算法实现之前，我们需要对用到的性质做一定了解。
+本文不会对性质进行证明，可以自行参考相关教材。
+行列式消元：
+$$ \begin{vmatrix} a_{1,1} &amp;amp; a_{1,2} &amp;amp; \cdots &amp;amp; a_{1n} \ \vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots \a_{i,1} + ka_{j,1} &amp;amp; a_{i,2} +ka_{j,2}&amp;amp; \cdots &amp;amp; a_{i,n}+ka_{j,n} \\vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \a_{n,1} &amp;amp; a_{n,2} &amp;amp; \cdots &amp;amp; a_{n,n}\end{vmatrix} = \begin{vmatrix} a_{1,1} &amp;amp; a_{1,2} &amp;amp; \cdots &amp;amp; a_{1n} \ \vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots \a_{i,1} &amp;amp; a_{i,2}&amp;amp; \cdots &amp;amp; a_{i,n} \\vdots &amp;amp; \vdots &amp;amp; \vdots &amp;amp; \a_{n,1} &amp;amp; a_{n,2} &amp;amp; \cdots &amp;amp; a_{n,n}\end{vmatrix} \tag{1} $$</description>
+        </item>
+        <item>
+        <title>[Atcoder]NEC Programming Contest 2022 (AtCoder Beginner Contest 267) 题解</title>
+        <link>http://example.org/zh-cn/post/abc267/</link>
+        <pubDate>Sun, 04 Sep 2022 12:45:29 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/abc267/</guid>
+        <description>场上写到 F 题，两道题没写出来。赛后补了一道题。
+果然我就只配当个 Beginner.
+E 可以说是 Dijkstra 的一种变体，挺有意思的。由于我们只关心最大值，那么删掉小于潜在最大值的点是有益无害的，那么从代价最小的点开始删，动态维护即可。
+#include &amp;lt;algorithm&amp;gt; #include &amp;lt;cstdio&amp;gt; #include &amp;lt;ctype.h&amp;gt; #include &amp;lt;queue&amp;gt; const int bufSize = 1e6; inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize], *p1 = buf, *p2 = buf; return p1 == p2 &amp;amp;&amp;amp; (p2 = (p1 = buf) + fread(buf, 1, bufSize, stdin), p1 == p2) ? EOF : *p1++; } inline void read(char* s) { static char c; for (; !</description>
+        </item>
+        <item>
+        <title>Learn Dijkstra For The Last Time</title>
+        <link>http://example.org/zh-cn/post/learn-dijkstra/</link>
+        <pubDate>Mon, 22 Aug 2022 12:03:16 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/learn-dijkstra/</guid>
+        <description>Introduction Dijkstra 算法是用于求解非负权图单源最短路的经典算法。
+市面上的大部分教程都仅仅停留在「如何实现 Dijkstra 算法」的层面。从应用角度，这当然无可厚非。但理解算法本身，也不失为一件乐事。
+问自己这样几个问题：
+Dijkstra 算法的每个过程是在干什么？ Dijkstra 算法为什么是正确的？ 也许你在小学就已经能熟练的打出 Dijkstra 的板子，拿它在各大 OJ 上厮杀。
+也许你曾经随便找一篇博文，花费 10min 把代码敲熟便「学会了」Dijkstra 算法。
+That is not true.
+在我给小 OIer 们准备上最短路课程时，我才真正意识到，其实我从未理解过 Dijkstra 算法。我可以手指不停地将它敲出来，也会记录最短路径、最短路计数之类的拓展，但我不明白它的 Key Inspiration 是什么，不理解它「为什么」这么做，「为什么」是正确的。
+我振臂高呼——「Tell Me Why!!!」
+于是我花费了许多时间，在网上查找相关资料，但要么只能查到诘屈聱牙的严谨理论证明，要么就是 csdn 之流的垃圾场上千篇一律的不求甚解。
+最后，我在 Stack Overflow 上找到了一篇回答，用一个形象的比喻解决了我的困惑。以此为立足点，刷新了我对 Dijkstra 的理解。也许这算是一种「Aha! moment」.
+这便是本文的由来。
+Analogy Start With BFS 我们曾经学过 BFS(Breath-First Search，宽度优先搜索)，如果没有学过的话建议先学习一下。
+BFS 同样可以求解最短路，不过它有着更强的限制条件——「边的距离相等」，或者说，「边权为 $1$」.
+在 BFS 的过程中，每个节点「首次」被访问，即为最短路。
+这个是很好理解的，因为我们第一轮 BFS 访问的节点距离起点距离为 $1$，第二轮距离为 $2$，以此类推，首次访问某节点，就一定通过了最短的路径。
+用一个形象的比喻：每一条边就像是一根 $1m$ 长的管道，从起点开始注水，水流速度为 $1m/s$，每个结点首次被水浸泡时，对应的是时间 $t$ 最小，而 $s = vt$，那么路程也最小，即最短路。</description>
+        </item>
+        <item>
+        <title>快速傅立叶变换学习笔记</title>
+        <link>http://example.org/zh-cn/post/fft/</link>
+        <pubDate>Sat, 27 Mar 2021 14:54:26 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/fft/</guid>
+        <description>快速傅里叶变换 离散傅里叶变换（Discrete Fourier Transform，缩写为 DFT），是傅里叶变换在时域和频域上都呈离散的形式，将信号的时域采样变换为其 DTFT 的频域采样。
+FFT 是一种高效实现 DFT 的算法，称为 快速傅立叶变换（Fast Fourier Transform，FFT）。它对傅里叶变换的理论并没有新的发现，但是对于在计算机系统或者说数字系统中应用离散傅立叶变换，可以说是进了一大步。快速数论变换(NTT) 是 快速傅里叶变换(FFT) 在数论基础上的实现。
+多项式的表示 点值表示法 $n$ 个点可以确定唯一的 $n-1$ 次多项式，证明可以考虑高斯消元。
+$$ f(x) = \sum \limits _{i=0}^{n-1} a_ix^i \iff f(x) = {(x_0,y_0),(x_1,y_1),\ldots,(x_n,y_n)} $$
+系数表示法 用多项式的各项系数来表示多项式。 $$f(x) = \sum \limits _{i=0}^{n-1} a_ix^i \iff f(x) = {a_0,a_1\ldots,a _{n-1}}$$
+将一个多项式由系数表示转化为点值表示，就是 DFT 的过程。
+将点值表示转化为系数表示，就是 IDFT 的过程。
+而 FFT 就是选取特殊的 $x$ 点来加速 DFT 与 IDFT 的过程。
+FFT 的经典应用是多项式乘法。
+考虑：将两个相乘的多项式转化为点值表示，将点值相乘后再转回系数表示，就完成了多项式乘法。
+假定 DFT 过程中选取的点相同，有：
+$$ \begin{aligned} &amp;amp; f(x) = {(x_0,f(x_0)),(x_1,f(x_1)),\ldots,(x_n,f(x_n))} \\ &amp;amp; g(x) = {(x_0,g(x_0)),(x_1,g(x_1)),\ldots,(x_n,g(x_n))} \\ \end{aligned} $$</description>
+        </item>
+        <item>
+        <title>Link Cut Tree 动态树学习笔记</title>
+        <link>http://example.org/zh-cn/post/lct/</link>
+        <pubDate>Sat, 23 Jan 2021 10:59:11 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/lct/</guid>
+        <description>简介 Link/Cut Tree 是一种数据结构，用于解决动态树问题。
+其又称 Link-Cut Tree，简称 LCT，但不叫动态树。动态树指一类问题。
+&amp;ldquo;Splay&amp;rdquo; 是 LCT 的基础，但 LCT 中的 Splay 在细节处不太一样，进行了一定的扩展。
+这是一个和 Splay 一样只需要几个核心函数就能实现一切的数据结构。
+问题引入 维护一棵树，在线询问，支持如下操作：
+修改两点间路径权值 查询两点间路径权值和 查询子树权值和 修改子树权值 断开并连接一些边，保证仍然是一棵树 如果没有最后一个操作，就是轻重链剖分的模板题。
+而有了最后一个操作，就是动态树问题。可以使用 LCT 求解。
+什么是动态树问题？
+维护一个森林，支持删边、加边，保证操作后仍是森林，维护有关信息。 一般的操作有两点连通性、两点路径权值和、连接两点、切断某条边、修改信息等。 我们回忆一下，如果没有修改树的形态的操作，轻重链剖分是如何解决此类问题的。
+对整棵树按子树大小进行剖分，重新标号。 重新标号后，在树上形成了若干以链为单位的连续区间，可以用支持区间操作的数据结构进行修改。 那么转向动态树问题，我们希望能指定一种剖分方式，让这个链式我们需要的链。
+实链剖分 实链剖分是一种动态的剖分方式。
+对于一个点连向它儿子的所有边，我们选择一条边进行剖分。
+被选择的边称为实边，其他边为虚边。
+实边连接的儿子称为实儿子。
+对于一条实边连接成的链，称为实链。
+实链剖分的剖分结果是可变的，可以灵活调整。
+我们使用 Splay 来维护实链。
+LCT 感性地说，LCT 利用若干 Splay 来维护动态的树链剖分，以期实现动态树上的区间操作。
+对于每条实链，建立一棵 Splay 来维护整条链的信息。
+辅助树(Auxiliary Tree) 性质 每棵辅助树维护的是对应的一棵原树。
+若干辅助树组成了 LCT，而 LCT 维护对应的森林。
+辅助树由多棵 Splay 组成，每棵 Splay 维护原树中的一条路径（实链）。
+中序遍历某棵 Splay，得到的点序列，对应于原树从上到下访问这条路径得到的点序列。</description>
+        </item>
+        <item>
+        <title>后缀树组学习笔记(Suffix Array)</title>
+        <link>http://example.org/zh-cn/post/sa/</link>
+        <pubDate>Fri, 22 Jan 2021 11:04:17 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/sa/</guid>
+        <description>简介 后缀数组(Suffix Array)，主要是两个数组： $sa$ 与 $rk$ .
+我们约定，后缀 $i$ 表示从 $i$ 开始的后缀。字符串下标从 $1$ 开始。
+其中， $sa[i]$ 代表所有后缀中，第 $i$ 小的后缀的编号。
+$rk[i]$ 代表后缀 $i$ 从小到大的排名。
+有： $sa[rk[i]] = i$ ， $rk[sa[i]] = i$ .
+上图是一个后缀数组的例子。
+可以发现，对于一个字符串，其所有后缀排序后，因为长度互不相同，得到的大小序列是唯一的。
+求法 一个显然的求法，就是遍历所有后缀，扔进去排序，时间复杂度 $O(n^2 \log n)$ ，缺乏实用性。
+在 OI 中，常常使用的是基于倍增和基数排序的求法，可以做到 $O(n \log n)$ 的时间复杂度。
+利用倍增思想，假设我们已经知道长度为 $w$ 的字符串的 $rk$ 数组，现在要求出长度为 $2w$ 的字符串的 $rk$ 数组。
+具体地， $rk[i]$ 此时代表 $s[i,\min(n,i + w - 1)]$ 在 ${s[i,\min(n,i+w-1]|i \in [1,n]}$ 中的排名。
+以 $rk[i]$ 为第一关键字， $rk[i + w]$ 为第二关键字，就可以求出长度为 $2w$ 的字符串的 $rk$ 数组。</description>
+        </item>
+        <item>
+        <title>NOIP2020 前练习笔记</title>
+        <link>http://example.org/zh-cn/post/noiptraining2020/</link>
+        <pubDate>Thu, 26 Nov 2020 11:10:13 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/noiptraining2020/</guid>
+        <description>P5290 [十二省联考 2019] 春节十二响 题面不是人话，翻译一下。
+给一棵树，每个点权值为 $w_i$，需要将节点分组。
+分组要求：每个组内的点，两两不存在祖先——后代关系。
+每个组的代价是组内的最大值，求最小的总代价。
+考虑对于 $u$ 相连的所有子树，每棵子树内的点都只能与非该子树内的点在同一段内，也就是说，每棵子树内的组都必须与其他子树的组结合。
+由于只与最大值有关，有一个贪心的想法：如果当前子树内某组结合后，不会改变原先的最大值，那么一定结合。
+然而需要考虑，当前子树每个组只能与其他子树每个组一一结合，何况还有当前子树内出现最大组，要求其他子树合并的情况，因此需要妥当考虑。
+可以发现，每次结合都会减少对应组代价的代价，因此：优先消去代价大的。
+两类：当前子树，其他子树，分别取出最大值，比大小，然后小的并入大的中。
+注意使用启发式合并，时间复杂度 $O(n\log n)$.
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;queue&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;cctype&amp;gt; using namespace std; const int bufSize = 1e6; #define DEBUG inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize],*p1 = buf,*p2 = buf; return p1==p2&amp;amp;&amp;amp;(p2=(p1=buf)+fread(buf,1,bufSize,stdin),p1==p2)?EOF:*p1++; } template&amp;lt;typename T&amp;gt; inline T read(T &amp;amp;r) { static char c; r = 0; for(c=nc();!</description>
+        </item>
+        <item>
+        <title>NOI 系列真题练习笔记</title>
+        <link>http://example.org/zh-cn/post/noiptrain/</link>
+        <pubDate>Fri, 20 Nov 2020 08:35:02 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/noiptrain/</guid>
+        <description>前言 NOIP 前开始做做真题，虽然每年都风格迥异，不过感受一下 OI 风格的题目还是有一定意义的。
+P1016 旅行家的预算 贪心地考虑，在一个油站，如果加油，要么加满，要么加到足够行驶到下一个加油点的油量，在下一个更便宜的加油点再加油。
+是否存在后效性呢？在下一个油站始终可以加满，所以应该没有。 当然，这鬼数据范围乱搜一下就完事了。
+#include &amp;lt;cstdio&amp;gt; const int maxn = 100; int n; double totaldis,C,per; double cost[maxn],dis[maxn]; double res = 1e18; void dfs(int now,double totalcost,double nowhave) { if(nowhave &amp;lt; 0) return; if(now == n) return (void)(res = res &amp;gt; totalcost ? totalcost : res); for(int i = now + 1;i&amp;lt;=n;++i) { double d = dis[i] - dis[now]; if(cost[i] &amp;lt;= cost[now] &amp;amp;&amp;amp; nowhave * per &amp;gt;= d) { dfs(i,totalcost,nowhave - d / per); return; } } //if no better choice can be reached without cost, then should choose one that is cheaper and tries to go there bool flag = 0; for(int i = now + 1;i&amp;lt;=n;++i) { double d = dis[i] - dis[now]; if(cost[i] &amp;lt;= cost[now]) { double needoil = (d - nowhave * per) / per; if(nowhave + needoil &amp;gt; C) continue; double need = needoil * cost[now]; dfs(i,totalcost + need,0); flag = 1; } } if(flag) return; //if no cheaper station, add here to full and tries to go.</description>
+        </item>
+        <item>
+        <title>树上路径求交</title>
+        <link>http://example.org/zh-cn/post/treepathintersection/</link>
+        <pubDate>Thu, 19 Nov 2020 16:36:02 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/treepathintersection/</guid>
+        <description>正文 树上路径求交，有一个结论：
+对于 $a \to b$ 与 $c \to d$ 的路径的交，首先求出 $l_1 = \operatorname{lca}(a,c)$，$l_2 = \operatorname{lca}(a,d)$，$l_3 = \operatorname{lca}(b,c)$，$l_4 = \operatorname{lca}(b,d)$.
+然后找出其中深度最大的两个点，记为 $p_1$，$p_2$，此时：
+$p_1 \neq p_2$，两条路径一定有交，且路径交的端点为 $p_1$ 与 $p_2$. $p_1 = p_2$，$\operatorname{dep}(p) \ge \max(\operatorname{dep}(\operatorname{lca}(a,b)),\operatorname{dep}(\operatorname{lca}(c,d)))$，两条路径有交，交点为 $p$ 点。 否则无交点。 那么就可以常数巨大地用树剖等求 $\operatorname{lca}$，然后若干次询问解决。
+当然，一个可能更优的做法是转欧拉序，然后用 RMQ 来解决，偷懒用个 ST 表可以做到 $O(1)$ 处理询问，在多次询问 $\operatorname{lca}$ 时可能有一定优势。
+然而实际上优势不大，因为预处理太慢了……
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;ctype.h&amp;gt; const int bufSize = 1e6; inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize], *p1 = buf, *p2 = buf; return p1 == p2 &amp;amp;&amp;amp; (p2 = (p1 = buf) + fread(buf, 1, bufSize, stdin), p1 == p2) ?</description>
+        </item>
+        <item>
+        <title>树上的边题解</title>
+        <link>http://example.org/zh-cn/post/lu141303/</link>
+        <pubDate>Thu, 19 Nov 2020 13:58:24 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/lu141303/</guid>
+        <description>题面 给一棵 $n$ 个点的树，定义 $f(l,r)$ 为：
+$\forall i \in [l,r]$，$j \in [l,r]$，都存在 $i \to j$ 的路径时，需要选择的最少树边数量。
+现在你要求出：
+$$ \sum \limits _{l=1}^n \sum \limits _{r=l}^n f(l,r) $$
+题解 枚举 $l$ 或者 $r$ 是没有前途的，时间复杂度的下界是 $O(n^2)$，并且无法在左端点移动时更新整体的答案，没有进一步优化的空间。
+因此换一个思路，考虑统计每条边的贡献。
+一条 $u \to v$ 的边，将原树分成两棵子树。该边会对答案产生贡献，当且仅当：
+$\exists i \in [l,r],j \in [l,r]$，满足 $i \in \operatorname{subtree}(u),j \in \operatorname{subtree}(v)$.
+对于一个编号序列 $1,2,3,\ldots,n$，每个编号只有两种状态：$i \in \operatorname{subtree}(u)$ 或 $i \in \operatorname{subtree}(v)$.
+选择的一个连续编号区间 $[l,r]$，钦定的边会产生贡献，当且仅当该区间内同时包含 $i \in \operatorname{subtree}(u)$ 与 $j \in \operatorname{subtree}(v)$.
+那么有一个自然的想法：维护每一段连续的相同状态的编号，即维护若干个线段 $[L,R]$ 满足 $\forall i \in [L,R], i \in \operatorname{subtree}(u \text{ or } v)$，那么对于每一条线段，只要 $l &amp;lt; L,r \ge R$ 或 $l \le L,r &amp;gt; R$ 就能满足条件。</description>
+        </item>
+        <item>
+        <title>[Atcoder][CF]简单题选做练习笔记 2</title>
+        <link>http://example.org/zh-cn/post/atcftrain2/</link>
+        <pubDate>Tue, 17 Nov 2020 10:06:09 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/atcftrain2/</guid>
+        <description>前言 接着上篇继续刷。文章太长了被迫拆分。
+AT5759 ThREE 构造题，我最讨厌的题型之一。
+$$ p_i \times p_j \equiv 0 \pmod 3 $$
+或者：
+$$ p_i + p_j \equiv 0 \pmod 3 $$
+第一个式子，要求 $p_i \equiv 0 \pmod 3$，第二个式子要求 $p_i \equiv 1 \pmod 3$ 且 $p_j \equiv 2 \pmod 3$ 或者反过来。
+一个简单的思路就是按 $i \bmod 3$ 进行分类，然后考虑怎么做。
+然后发现这个东西特别难做，因为距离为 $3$ 还会出现跨过祖先的点对。
+但是有一点是确定的，即距离为 $3$ 的点对深度奇偶性一定不同。虽然奇偶性不同的点不一定距离为 $3$，但如果保证奇偶性不同的点都能满足，那么距离为 $3$ 当然也满足。
+于是可以按深度分类，分为 $X$ 与 $Y$，即深度为奇与偶的集合。
+需要按数量进行讨论。
+$|X|,|Y| &amp;gt; \lfloor \dfrac{n}{3} \rfloor$
+两个都比较大的时候，将 $p_i \equiv 1 \pmod 3$ 与 $p_i \equiv 2 \pmod 3$ 分别放入，再把 $p_i \equiv 0 \pmod 3$ 的塞入剩下的位置。这样对于所有的奇偶性不同的点对，都有 $p_i \equiv 0 \pmod 3$ 或者 $p_i \equiv 1 \pmod 3$ 且 $p_j \equiv 2 \pmod 3$，因此可以满足。</description>
+        </item>
+        <item>
+        <title>[Atcoder][CF]简单题选做练习笔记</title>
+        <link>http://example.org/zh-cn/post/atcftrain/</link>
+        <pubDate>Thu, 12 Nov 2020 14:33:35 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/atcftrain/</guid>
+        <description>前言 板刷题单：https://www.luogu.com.cn/training/2018#problems
+AT5741 Fusing Slimes 可以想到，每种情况都对应一个长度为 $n - 1$ 的排列。
+考虑计算每条路径被经过了多少次， 先对原数组做差分。
+记 $d(i)$ 为 $i \to i + 1$ 的长度，$f(i)$ 为 $i \to i + 1$ 的路径被经过的期望次数。
+$E = \sum \limits _{i = 1}^{n-1}d(i) \times f(i)$
+考虑如何计算 $f(i)$。
+定义 $g(j,i)$ 为点 $j$ 向右融合经过 $i \to i + 1$ 这条路径的期望次数。
+有：$f(i) = \sum \limits _{j = 1}^i g(j,i)$
+问题在于计算 $g(j,i)$，考虑 $j$ 点能顺畅地右移到 $i + 1$，那么 $[j + 1,i]$ 间的点都已经右移。
+表现在序列上，就是 $j$ 的出现位置一定在 $[j + 1,i]$ 之后。</description>
+        </item>
+        <item>
+        <title>树形 DP 练习笔记</title>
+        <link>http://example.org/zh-cn/post/dpontreetraining/</link>
+        <pubDate>Wed, 04 Nov 2020 10:38:43 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/dpontreetraining/</guid>
+        <description>前言 板刷一个树形 DP 题单。
+笔记 动态规划并没有统一的套路，只有部分相似的思想。
+CF219D Choosing Capital for Treeland 有向边，可翻转，要求翻转后以某点为根可走到任一点。
+求最少翻转步数，以及可达到最小步数的根。
+一眼换根 DP，然而只是绿题。
+可以发现，初始以 $1$ 为根，然后假定以 $u$ 为根，有且仅有 $1 \to u$ 的贡献发生变化，那么可以直接枚举计算。
+#include &amp;lt;algorithm&amp;gt; #include &amp;lt;cstdio&amp;gt; using namespace std; const int maxn = 1e6 + 100; int n; struct node { int to, val, next; } E[maxn]; int head[maxn]; inline void add(int x, int y, int z) { static int tot = 0; E[++tot].to = y, E[tot].next = head[x], head[x] = tot, E[tot].</description>
+        </item>
+        <item>
+        <title>树上点与路径的问题的在线差分解法</title>
+        <link>http://example.org/zh-cn/post/treepath/</link>
+        <pubDate>Tue, 27 Oct 2020 16:13:02 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/treepath/</guid>
+        <description>前言 给出一棵树，在线给出若干条路径，在线询问某个点被多少条路径覆盖。 给出一棵树，在线给出若干个关键点，在线询问某条路径上覆盖了多少个关键点。 这两种问题，有着显而易见的轻重链剖分解法，甚至可以说是轻重链剖分的经典应用。
+然而，在某些时候，我们认为轻重链剖分 $O(\log^2 n)$ 的代价太大了。
+那么可以使用树上差分的思想，利用树状数组维护。
+点被路径覆盖 给出路径，询问某个点被多少条路径覆盖。
+考虑路径先全部给出怎么做。
+一个显然的做法是进行树上差分，将 $u \to v$ 的路径拆分成 $u \to lca$ 与 $v \to lca$，然后对 $fa(lca)$ 打 $-1$ 标记，对 $lca$ 打 $-1$ 标记，对 $u$ 和 $v$ 打 $1$ 标记即可。
+随后对全树进行一次搜索即可求出每个点被覆盖多少次。
+那么在线如何做呢？
+求出每个点的 dfs 序，然后使用树状数组维护单点修改、区间查询。
+对于每条路径，按照树上差分的方法进行单点修改。
+查询 $u$ 点被多少条路径覆盖，就查询 $u$ 的子树内的权值和。
+可以这么理解：在树上差分的过程中，$u$ 的子树内的标记，都能在搜索过程中转移到 $u$ 点，而相当于直接求出子树内的标记和来得到该点的值。
+例题：[HNOI2016]网络
+关键代码：
+if(Q[i].type == 2) { int num = Bit::ask(dfn[Q[i].u] + size[Q[i].u] - 1) - Bit::ask(dfn[Q[i].u] - 1); if (num == edgenum) q1[++cnt1] = Q[i]; else q2[++cnt2] = Q[i]; } else { int t = Q[i].</description>
+        </item>
+        <item>
+        <title>动态DP学习笔记</title>
+        <link>http://example.org/zh-cn/post/ddp/</link>
+        <pubDate>Fri, 23 Oct 2020 16:10:28 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/ddp/</guid>
+        <description>前言 动态 DP 问题是猫锟在 WC2018 讲的黑科技，一般用来解决树上的 DP 问题，同时支持点权（边权）修改操作。
+在 NOIP2018D2T3 考察后风靡 OI 圈。
+一般来说 ，将 DP 的状态转移方程写成矩阵形式，随后通过修改矩阵来实现修改功能。
+模板例题 Link
+给一棵带点权的树，求最大独立集大小。
+定义 $f(u,0)$ 代表不选 $u$ 点，以 $u$ 为子树中最大权独立集的大小，$f(u,1)$ 为选择 $u$ 点的大小。
+容易得到状态转移方程：
+$$f(u,0) = \sum \limits _{v \in son_u} \max(f(v,0),f(v,1))$$
+$$f(u,1) = w_u + \sum \limits _{v \in son_u} f(v,0)$$
+到了修改部分。
+对这棵树进行轻重链剖分，定义 $g(u,0)$ 为 $u$ 子树内不考虑重儿子，$u$ 点不选时的最大权独立集大小。
+$$g(u,0) = \sum \limits _{v \in son_u,v \ne heavyson(u)} \max(f(v,0),f(v,1))$$
+同样定义 $g(u,1)$ 为 $u$ 子树内不考虑重儿子，$u$ 点选择时最大权独立集大小。</description>
+        </item>
+        <item>
+        <title>轻重链剖分练习笔记</title>
+        <link>http://example.org/zh-cn/post/heavydecomposition/</link>
+        <pubDate>Wed, 21 Oct 2020 12:08:52 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/heavydecomposition/</guid>
+        <description>前言 轻重链剖分，常被称为树链剖分，是一种常用的维护树上信息的算法。 它以子树大小为依据，将节点划分为重儿子与轻儿子，从而使整棵树被剖分成若干条重链。 每个轻儿子都是一条重链的开始。一个节点只在一条重链上。 从树上任意一点到根节点，最多经过 $\log n$ 条连续的链。 利用这样的特殊性质，可以解决许多问题。 由于是练习笔记，本文不再赘述概念有关内容。
+练习题 CF383C Propagating tree Link
+给一棵树，点有初始权值。现在有修改与查询操作。 修改操作使 $x$ 的权值增加 $val$，使 $x$ 的儿子的权值减少 $val$，使 $x$ 的儿子的儿子的权值增加 $val \ldots$
+由于只操作子树，并不需要剖分性质，可以直接维护 dfs 序与子树大小。 修改操作相当于一次区间操作，思考如何实现增减的变化。 可以发现，正负与深度的奇偶有关。 维护一个数据结构，定义下标为奇数的位置的值为该点的额外权值，为偶数的位置的值为该点的额外权值的相反数，那么就可以用一次区间加来实现了。 初始权值可以直接单独记录下来，也可以初始化的时候插入数据结构中。
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;ctype.h&amp;gt; const int bufSize = 1e6; inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize], *p1 = buf, *p2 = buf; return p1 == p2 &amp;amp;&amp;amp; (p2 = (p1 = buf) + fread(buf, 1, bufSize, stdin), p1 == p2) ?</description>
+        </item>
+        <item>
+        <title>[笔记]高斯消元法与矩阵求逆</title>
+        <link>http://example.org/zh-cn/post/gauss/</link>
+        <pubDate>Thu, 10 Sep 2020 04:45:00 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/gauss/</guid>
+        <description>高斯消元 高斯消元法（Gauss-Jordan elimination）是求解线性方程组的经典算法，它在当代数学中有着重要的地位和价值，是线性代数课程教学的重要组成部分。
+高斯消元法除了用于线性方程组求解外，还可以用于行列式计算、求矩阵的逆，以及其他计算机和工程方面。
+夏建明等人之前提出了应用图形处理器 (GPU) 加速求解线性方程组的高斯消元法，所提出的算法与基于 CPU 的算法相比较取得更快的运算速度。二是提出各种变异高斯消元法以满足特定工作的需要。
+高斯消元可以用于求解多元线性方程组，形如：
+$$\begin{cases} a_{1,1}x_1 + a_{1,2}x_2 + \ldots + a_{1,n}x_n = b_1 \ a_{2,1}x_1 + a_{2,2}x_2 + \ldots + a_{2,n}x_n = b_2 \ \cdots \ a_{n,1}x_1 + a_{n,2}x_2 + \ldots + a_{n,n}x_n = b_n \end{cases}$$
+实现 将各项系数转化为矩阵。
+$$\left( \begin{matrix} a_{1,1} &amp;amp; a_{1,2} &amp;amp; \cdots &amp;amp; a_{1,n} &amp;amp; b_1 \ a_{2,1} &amp;amp; a_{2,2} &amp;amp; \cdots &amp;amp; a_{2,n} &amp;amp; b_2 \ \cdots &amp;amp; \cdots &amp;amp; \cdots &amp;amp; \cdots &amp;amp; \cdots \ a_{n,1} &amp;amp; a_{n,2} &amp;amp; \cdots &amp;amp; a_{n,n} &amp;amp; b_n \end{matrix} \right)$$</description>
+        </item>
+        <item>
+        <title>[OI题库]八月提高模拟题解</title>
+        <link>http://example.org/zh-cn/post/oitiku8mon/</link>
+        <pubDate>Thu, 03 Sep 2020 18:33:07 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/oitiku8mon/</guid>
+        <description>suffix 题意 如题面所述。
+解法 10pts 暴力做法即可。
+50pts 考虑链的情况。
+对于当前区间 $[1,r]$，若 $i$ 位置的数后无比它大的数，则可计入贡献。
+顺着遍历，维护单调不增栈，答案即为栈的大小。
+对于栈中每点，都保证了它后面无比它大的数，否则它将被弹出。
+时间复杂度 $O(n)$.
+#include &amp;lt;cstdio&amp;gt; const int maxn = 1e6 + 100; int n,fa[maxn],w[maxn]; int st[maxn],top; int main() { scanf(&amp;#34;%d&amp;#34;,&amp;amp;n); for (int i = 2; i &amp;lt;= n; ++i) scanf(&amp;#34;%d&amp;#34;, fa + i); for (int i = 1; i &amp;lt;= n; ++i) scanf(&amp;#34;%d&amp;#34;, w + i); for (int i = 1; i &amp;lt;= n; ++i) { while (top &amp;amp;&amp;amp; w[st[top]] &amp;lt; w[i]) --top; st[++top] = i; printf(&amp;#34;%d &amp;#34;, top); } return 0; } 70pts 考虑将链的做法拓展到树上。</description>
+        </item>
+        <item>
+        <title>[笔记]概率与期望</title>
+        <link>http://example.org/zh-cn/post/expectations/</link>
+        <pubDate>Thu, 20 Aug 2020 16:03:11 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/expectations/</guid>
+        <description>前言 今天学习一下期望 DP，写点笔记。 由于概率与期望是高中数学内容，已经学过了，不再过多描述。
+模型 写转移方程时算上概率罢了，常常用逆推。
+例题 学习知识点的最好方法就是刷题。
+SPOJ Favorite Dice 给一个 $n$ 面的骰子，问每面都被抛到的期望次数。
+设 $f(i)$ 为剩余 $i$ 面要被抛到的期望次数。 $f(n) = f(n-1) + 1$，第一次抛怎么抛都可以。 $f(n-1) = \dfrac{n-1}{n} \times f(n-2) + \dfrac{1}{n} \times f(n-1) + 1$ $f(n-2) = \dfrac{n-2}{n} \times f(n-3) + \dfrac{2}{n} \times f(n-2) + 1$ 依此类推，有： $f(n - i) = \dfrac{n - i}{n} \times f(n - i - 1) + \dfrac{i}{n} \times f(n - i) + 1$，化简得到： $\dfrac{n - i}{n} f(n-i) = \dfrac{n-i}{n} \times f(n-i-1) + 1$，继续化简得到： $f(n - i) = f(n - i - 1) + \dfrac{n}{n-i}$，用 $x$ 替换 $n - i$ 得到： $f(x) = f(x - 1) + \dfrac{n}{x}$</description>
+        </item>
+        <item>
+        <title>BSGS(大步小步算法)解离散对数问题</title>
+        <link>http://example.org/zh-cn/post/bsgs/</link>
+        <pubDate>Sat, 13 Jun 2020 14:58:04 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/bsgs/</guid>
+        <description>全名为 BabyStepGiantStep 的算法，用于求解离散对数问题。
+$$ A^x \equiv B \pmod{C} $$
+其中 $A,C$ 互质。
+考虑暴力枚举， $x = 0$ 时 $A^x \equiv 1$ ，而由费马小定理， $A^{C-1} \equiv 1$ ，往后就出现重复。那么只需要枚举 $[0,C-1)$ 即可。
+而利用分块思想可以简化计算。
+设 $x = i \times \sqrt{C} - j,i \in [1,\sqrt{C}],j \in [0,\sqrt{C}]$
+$A^{i \times \sqrt{C} - j} \equiv B \pmod{C}$
+$\dfrac{A^{i \times \sqrt{C}}}{A^j} \equiv B \pmod {C}$
+$\dfrac{A^{i \times \sqrt{C}}}{A^j \times B} \equiv 1 \pmod{C}$
+即 $\bmod C$ 意义下， $A^{i \times \sqrt{C}} = A^j \times B$</description>
+        </item>
+        <item>
+        <title>中国剩余定理学习笔记</title>
+        <link>http://example.org/zh-cn/post/chinese-remainder/</link>
+        <pubDate>Fri, 12 Jun 2020 12:56:40 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/chinese-remainder/</guid>
+        <description>中国剩余定理 $$ \begin{cases} x \equiv a_1 \pmod {p_1} \ x \equiv a_2 \pmod {p_2} \ \ldots \ x \equiv a_i \pmod {p_i} \end{cases} $$
+中国剩余定理用于求解模数两两互质的线性同余方程组。
+对于这种 $x \equiv a_i \pmod{p_i}$ 的线性同余方程组，在 $\bmod \prod \limits _{i=1}^n p_i$ 的意义下有唯一解。
+设 $M = \prod \limits _{i=1}^n p_i$ ，而 $M_i = \dfrac{M}{p_i}$ .
+则解 $x = \sum \limits _{i=1}^{n} M_i \times K_i$ ，其中 $K_i$ 满足：
+$$ M_i \times K_i \equiv a_i \pmod{p_i} $$
+对于任意的 $M_i \times K_i$ ，由于 $M_i$ 是所有剩余模数的积，则 $M_i \times K_i \equiv 0 \pmod{p_j} (j \neq i)$ ，因此在 $x$ 中加上 $M_i \times K_i$ 对满足 $x \equiv a_j \pmod{p_j} (j \neq i)$ 无影响。</description>
+        </item>
+        <item>
+        <title>欧拉函数、欧拉定理学习笔记</title>
+        <link>http://example.org/zh-cn/post/euler/</link>
+        <pubDate>Tue, 02 Jun 2020 12:55:27 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/euler/</guid>
+        <description>欧拉函数 欧拉函数， $\varphi(n)$ ， $\leq n$ 的与 $n$ 互质的数的个数。
+$\varphi(n) = \sum \limits _{i=1}^n \left[ i \nmid n \right]$
+例如， $\varphi(1) = 1$ ，而对于质数 $p$ ， $\varphi(p) = p - 1$ .
+引理 1 若 $p$ 为质数， $\varphi(p^k) = p^k - p^{k-1}$
+证明：
+$\forall i \leq p^k$ ，有 $\dfrac{p^k}{p}$ 个数满足 $x \mid p^k$ 。
+形如： $1,2,3,\ldots,p,p+1,p+2,\ldots,2p,\ldots,p^k$
+因此 $\varphi(p^k) = p^k - \dfrac{p^k}{p} = p^k - p^{k-1}$
+与唯一分解定理关系 由整数唯一分解定理，整数 $n$ 可以写作：</description>
+        </item>
+        <item>
+        <title>拓展欧几里德算法(exgcd)学习笔记</title>
+        <link>http://example.org/zh-cn/post/exgcd/</link>
+        <pubDate>Sat, 23 May 2020 13:38:12 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/exgcd/</guid>
+        <description>拓展欧几里得算法 解不定方程 $ax + by = c$ ，可以使用拓展欧几里得算法。
+首先解 $ax + by = \gcd (a,b)$ .
+欧几里得算法 证明 $\gcd(a,b) = \gcd(b,a \bmod b)$ ：
+设 $a = g \times k_1$ ， $b = g \times k_2$ ，其中 $k_1,k_2$ 互质。
+要证明 $\gcd(a,b) = \gcd(b,a\bmod b)$ ，即证 $g = \gcd(g \times k_2, (g \times k_1 )\bmod (g \times k_2))$ .
+将 $g$ 消去，即证 $\gcd(k_2,k_1 \bmod k_2) = 1$ .
+假设有公因子 $x$ ，则：</description>
+        </item>
+        <item>
+        <title>哈希表</title>
+        <link>http://example.org/zh-cn/post/hashtable/</link>
+        <pubDate>Fri, 08 May 2020 12:52:20 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/hashtable/</guid>
+        <description>哈希表 哈希表，又称散列表，是一种储存键值对的数据结构。
+哈希表的基础思想是拿空间换时间，哈希表的期望复杂度是 $O(1)$ 的。
+一般来说，对于某 key 值，哈希后得到对应的下标，代表其在哈希表中的位置。
+$\texttt{hashtable}[\operatorname{hash}(key)] = \texttt{value}$
+哈希表的核心就在于 $\operatorname{hash}$ 函数。
+哈希冲突 哈希冲突是哈希表极力避免的情况。由于对 key 值进行哈希，不能保证不同 key 值的哈希一定不同，因此可能出现 $x_1 \neq x_2$ ，使得 $\operatorname{hash}(x_1) = \operatorname{hash}(x_2)$ ，即出现哈希冲突。
+如果不考虑哈希冲突，就会出现误判的情况。而要解决哈希冲突，往往会使哈希表复杂度退化。
+不同的实现方法，本质上就是用不同方法避免哈希冲突。
+桶 可以将桶看做一种特殊的哈希表，存储整数型的键值对。
+$\operatorname{hash}(x) = x$
+这样能保证在值域范围内不冲突，key 值与其哈希值一一对应，在值域不大时是一种良好的数据结构。
+inline int hash(int x){return x;} bool ht[maxn]; inline bool find(int x){return ht[hash(x)];} inline void insert(int x){ht[hash(x)] = true;} 单模数哈希表 单模数哈希表是使用广泛、代码简单的一种实现方式。
+在值域范围较大，无法承受其空间时，可以对值取模来减少使用空间。
+const int mod = 10000103;//usually a prime bool ht[mod + 100]; inline int hash(int x){return ((x % mod) + mod) % mod;} inline bool find(int x){return ht[hash(x)];} inline void insert(int x){ht[hash(x)] = true;} 上述代码就是一种简单的实现。</description>
+        </item>
+        <item>
+        <title>树上背包的优化</title>
+        <link>http://example.org/zh-cn/post/backpack-on-tree-optimize/</link>
+        <pubDate>Sun, 12 Apr 2020 22:00:53 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/backpack-on-tree-optimize/</guid>
+        <description>加入 本文为笔者年少无知时所作，大体内容应该问题不大，但可能夸大了运用指针带来的优化效果。
+请各位读者批判地阅读吧……
+正文 例题链接
+本文旨在介绍树上背包的优化。
+可见例题，例题中 $N,M \in [1,100000]$ 的数据量让 $O(nm^2)$ 的朴素树上背包 T 到飞起，我们需要考虑优化。
+个人会将各种优化讲到极限（当然是本蒟蒻的极限）。
+根据一番学习，我也认为上下界优化最简单易理解……
+上下界优化这位神犇的博客相当不错了：戳我 % 他
+我也口胡两句吧。
+普通做法：
+for (j=m+1;j&amp;gt;=1;--j)//枚举背包容量 for (k=1;k&amp;lt;j;++k)//枚举在子树中选择多少 f[u][j]=max(f[u][j],f[u][k]+f[v][j-k]); 那么 size 优化非常简单好想：
+for (j=min(m+1,size[u]);j&amp;gt;=1;--j)//枚举背包容量 for (k=1;k&amp;lt;j&amp;amp;&amp;amp;k&amp;lt;=size[v];++k)//枚举在子树中选择多少 f[u][j]=max(f[u][j],f[u][k]+f[v][j-k]); 道理也很简单，选完就那么多，肯定不能枚举到超过的。
+于是能 AC 这道题，用时 17s。
+但再想想，我们选择的$k$的下界其实也是会被约束的。
+因为选到$j$的总容量的时候，假定前面的全部取完，$k$都必须要到达一个值才能满足条件。
+例子：
+$size[u] = size[son1] + size[son2] + size[son3]$
+我们枚举时，比如 $j = size[son1] + size[son2] + a$ 的情况，
+我们至少要在 $son3$ 中取 $a$ 个节点才能达到此容量。
+因此就能得到上下界优化：
+void dfs(int u) { siz[u]=1; f[u][1]=a[u]; int i,j,k,v; for (i=head[u];i;i=nxt[i]) { v=to[i]; dfs(v); for (j=min(m+1,siz[u]+siz[v]);j&amp;gt;=2;--j)//这里做了小改动，因为1的更新肯定没有意义 for (k=max(1,j-siz[u]);k&amp;lt;=siz[v]&amp;amp;&amp;amp;k&amp;lt;j;++k) f[u][j]=max(f[u][j],f[u][j-k]+f[v][k]); siz[u]+=siz[v]; } } 这里对 size 数组的更新做了特殊处理，可以更方便地得到前面所有子树的节点数总和。 于是更进一步，达到了 12s 的成绩。</description>
+        </item>
+        <item>
+        <title>[GoogleInterview]连续子序列问题</title>
+        <link>http://example.org/zh-cn/post/gci-subarray/</link>
+        <pubDate>Wed, 01 Apr 2020 11:47:19 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/gci-subarray/</guid>
+        <description>Before the Beginning 本文为 Clouder 原创文章，原文链接为 https://www.codein.icu/gci-subarray/，转载时请将本段放在文章开头显眼处。如进行了二次创作，请明确标明。
+前言 在颓废地水 Telegram 的时候，在 Codeforces 群里看到有人发了张谷歌面试的题的图，还是有那么一些意思的，向神犇求助后有所收获，写一篇题解。
+题目难度不大，如何优雅地解决才是问题。
+题面 给定一个无序数组 $A$，长度为 $N$，元素皆为非负整数，要求找到一段连续的子序列使得其和为 $S$。
+思路 暴力的思路非常简单，枚举左右端点乱搞就是了。复杂度大概是 $O(n^3)$ 的。
+考虑稍加优化，预处理出前缀和，依然枚举左右端点，复杂度为 $O(n^2)$。
+这是最直观的想法了，然而要求复杂度为 $O(n)$，就必须找到更优的算法。
+哈希表法 既然有了前缀和，那么这一段子序列可以用数学语言来表示一下：
+$S = s_i - s_j(j \leq i)$
+其中 $s$ 代表前缀和。
+稍加变换，就可以变为：
+$s_i - S = s_j(j \leq i)$
+问题转化为是否存在 $j \in [1,i]$ 使得 $s_j = s_i - S$。
+那么可以顺着扫一遍，判断之前是否有 $s_j = s_i - S$，再将 $s_i$ 的值记录下来。
+伪代码：
+for(int i = 1;i&amp;lt;=n;++i) { s[i] = s[i - 1] + a[i]; if(map[s[i] - S] !</description>
+        </item>
+        
+    </channel>
+</rss>

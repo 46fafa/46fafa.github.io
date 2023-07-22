@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>ccpc on My New Hugo Site</title>
+        <link>http://example.org/tags/ccpc/</link>
+        <description>Recent content in ccpc on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Tue, 18 Oct 2022 22:30:58 +0800</lastBuildDate><atom:link href="http://example.org/tags/ccpc/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>CCPC 2021 哈尔滨站</title>
+        <link>http://example.org/zh-cn/post/ccpc-2021-harbin/</link>
+        <pubDate>Tue, 18 Oct 2022 22:30:58 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/ccpc-2021-harbin/</guid>
+        <description>补题。
+E ​#ACM/数学#​
+$A_i = 2^{i-1} \bmod M$，给出 $A$，找出模数。如果模数不唯一，则无解。
+对于第一个 $A_i \neq 2^{i-1}$，它被模了，而上一个数没有被模，说明 $M \in (2^{i-2},2^{i-1}]$，则可以得到 $A_i = 2^{i-1} - M$，从而有 $M = 2^{i-1} - A_i$，这里注意，$M &amp;gt; A_i$ 也是要成立的。
+然后拿着这个模数检验整个序列，如果符合则是唯一解，否则无解。
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;ctype.h&amp;gt; #define int long long const int bufSize = 1e6; inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize], *p1 = buf, *p2 = buf; return p1 == p2 &amp;amp;&amp;amp; (p2 = (p1 = buf) + fread(buf, 1, bufSize, stdin), p1 == p2) ?</description>
+        </item>
+        
+    </channel>
+</rss>

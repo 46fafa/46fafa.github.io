@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>dynamic-programming on My New Hugo Site</title>
+        <link>http://example.org/tags/dynamic-programming/</link>
+        <description>Recent content in dynamic-programming on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 04 Nov 2020 10:38:43 +0800</lastBuildDate><atom:link href="http://example.org/tags/dynamic-programming/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>树形 DP 练习笔记</title>
+        <link>http://example.org/zh-cn/post/dpontreetraining/</link>
+        <pubDate>Wed, 04 Nov 2020 10:38:43 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/dpontreetraining/</guid>
+        <description>前言 板刷一个树形 DP 题单。
+笔记 动态规划并没有统一的套路，只有部分相似的思想。
+CF219D Choosing Capital for Treeland 有向边，可翻转，要求翻转后以某点为根可走到任一点。
+求最少翻转步数，以及可达到最小步数的根。
+一眼换根 DP，然而只是绿题。
+可以发现，初始以 $1$ 为根，然后假定以 $u$ 为根，有且仅有 $1 \to u$ 的贡献发生变化，那么可以直接枚举计算。
+#include &amp;lt;algorithm&amp;gt; #include &amp;lt;cstdio&amp;gt; using namespace std; const int maxn = 1e6 + 100; int n; struct node { int to, val, next; } E[maxn]; int head[maxn]; inline void add(int x, int y, int z) { static int tot = 0; E[++tot].to = y, E[tot].next = head[x], head[x] = tot, E[tot].</description>
+        </item>
+        <item>
+        <title>动态DP学习笔记</title>
+        <link>http://example.org/zh-cn/post/ddp/</link>
+        <pubDate>Fri, 23 Oct 2020 16:10:28 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/ddp/</guid>
+        <description>前言 动态 DP 问题是猫锟在 WC2018 讲的黑科技，一般用来解决树上的 DP 问题，同时支持点权（边权）修改操作。
+在 NOIP2018D2T3 考察后风靡 OI 圈。
+一般来说 ，将 DP 的状态转移方程写成矩阵形式，随后通过修改矩阵来实现修改功能。
+模板例题 Link
+给一棵带点权的树，求最大独立集大小。
+定义 $f(u,0)$ 代表不选 $u$ 点，以 $u$ 为子树中最大权独立集的大小，$f(u,1)$ 为选择 $u$ 点的大小。
+容易得到状态转移方程：
+$$f(u,0) = \sum \limits _{v \in son_u} \max(f(v,0),f(v,1))$$
+$$f(u,1) = w_u + \sum \limits _{v \in son_u} f(v,0)$$
+到了修改部分。
+对这棵树进行轻重链剖分，定义 $g(u,0)$ 为 $u$ 子树内不考虑重儿子，$u$ 点不选时的最大权独立集大小。
+$$g(u,0) = \sum \limits _{v \in son_u,v \ne heavyson(u)} \max(f(v,0),f(v,1))$$
+同样定义 $g(u,1)$ 为 $u$ 子树内不考虑重儿子，$u$ 点选择时最大权独立集大小。</description>
+        </item>
+        <item>
+        <title>[笔记]概率与期望</title>
+        <link>http://example.org/zh-cn/post/expectations/</link>
+        <pubDate>Thu, 20 Aug 2020 16:03:11 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/expectations/</guid>
+        <description>前言 今天学习一下期望 DP，写点笔记。 由于概率与期望是高中数学内容，已经学过了，不再过多描述。
+模型 写转移方程时算上概率罢了，常常用逆推。
+例题 学习知识点的最好方法就是刷题。
+SPOJ Favorite Dice 给一个 $n$ 面的骰子，问每面都被抛到的期望次数。
+设 $f(i)$ 为剩余 $i$ 面要被抛到的期望次数。 $f(n) = f(n-1) + 1$，第一次抛怎么抛都可以。 $f(n-1) = \dfrac{n-1}{n} \times f(n-2) + \dfrac{1}{n} \times f(n-1) + 1$ $f(n-2) = \dfrac{n-2}{n} \times f(n-3) + \dfrac{2}{n} \times f(n-2) + 1$ 依此类推，有： $f(n - i) = \dfrac{n - i}{n} \times f(n - i - 1) + \dfrac{i}{n} \times f(n - i) + 1$，化简得到： $\dfrac{n - i}{n} f(n-i) = \dfrac{n-i}{n} \times f(n-i-1) + 1$，继续化简得到： $f(n - i) = f(n - i - 1) + \dfrac{n}{n-i}$，用 $x$ 替换 $n - i$ 得到： $f(x) = f(x - 1) + \dfrac{n}{x}$</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1/13/20 : Course overview &#43; the shell 1/14/20 : Shell Tools and Scripting 1/15/20 : Editors (Vim) 1/16/20 : Data Wrangling 1/21/20 : Command-line Environment 1/22/20 : Version Control (Git) 1/23/20 : Debugging and Profiling 1/27/20 : Metaprogramming 1/28/20 : Security and Cryptography 1/29/20 : Potpourri Lesson 1 For this course, you need to be using a Unix shell like Bash or ZSH. If you are on Linux or macOS, you don’t have to do anything special.'>
+<title>MIT Missing Semester Exercises</title>
+
+<link rel='canonical' href='http://example.org/en/post/mit-missing/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='MIT Missing Semester Exercises'>
+<meta property='og:description' content='1/13/20 : Course overview &#43; the shell 1/14/20 : Shell Tools and Scripting 1/15/20 : Editors (Vim) 1/16/20 : Data Wrangling 1/21/20 : Command-line Environment 1/22/20 : Version Control (Git) 1/23/20 : Debugging and Profiling 1/27/20 : Metaprogramming 1/28/20 : Security and Cryptography 1/29/20 : Potpourri Lesson 1 For this course, you need to be using a Unix shell like Bash or ZSH. If you are on Linux or macOS, you don’t have to do anything special.'>
+<meta property='og:url' content='http://example.org/en/post/mit-missing/'>
+<meta property='og:site_name' content='My New Hugo Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='En' /><meta property='article:tag' content='linux' /><meta property='article:tag' content='shell' /><meta property='article:published_time' content='2022-08-21T22:57:10&#43;08:00'/><meta property='article:modified_time' content='2022-08-21T22:57:10&#43;08:00'/>
+<meta name="twitter:title" content="MIT Missing Semester Exercises">
+<meta name="twitter:description" content="1/13/20 : Course overview &#43; the shell 1/14/20 : Shell Tools and Scripting 1/15/20 : Editors (Vim) 1/16/20 : Data Wrangling 1/21/20 : Command-line Environment 1/22/20 : Version Control (Git) 1/23/20 : Debugging and Profiling 1/27/20 : Metaprogramming 1/28/20 : Security and Cryptography 1/29/20 : Potpourri Lesson 1 For this course, you need to be using a Unix shell like Bash or ZSH. If you are on Linux or macOS, you don’t have to do anything special.">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script> 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">My New Hugo Site</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/en/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/programming/" >
+                Programming
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/en/post/mit-missing/">MIT Missing Semester Exercises</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 21, 2022</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <ul>
+<li><strong>1/13/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/course-shell/"  target="_blank" rel="noopener"
+    >Course overview + the shell</a></li>
+<li><strong>1/14/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/shell-tools/"  target="_blank" rel="noopener"
+    >Shell Tools and Scripting</a></li>
+<li><strong>1/15/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/editors/"  target="_blank" rel="noopener"
+    >Editors (Vim)</a></li>
+<li><strong>1/16/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/data-wrangling/"  target="_blank" rel="noopener"
+    >Data Wrangling</a></li>
+<li><strong>1/21/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/command-line/"  target="_blank" rel="noopener"
+    >Command-line Environment</a></li>
+<li><strong>1/22/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/version-control/"  target="_blank" rel="noopener"
+    >Version Control (Git)</a></li>
+<li><strong>1/23/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/debugging-profiling/"  target="_blank" rel="noopener"
+    >Debugging and Profiling</a></li>
+<li><strong>1/27/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/metaprogramming/"  target="_blank" rel="noopener"
+    >Metaprogramming</a></li>
+<li><strong>1/28/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/security/"  target="_blank" rel="noopener"
+    >Security and Cryptography</a></li>
+<li><strong>1/29/20</strong> : <a class="link" href="https://missing.csail.mit.edu/2020/potpourri/"  target="_blank" rel="noopener"
+    >Potpourri</a></li>
+</ul>
+<h2 id="lesson-1">Lesson 1</h2>
+<ol>
+<li>
+<p>For this course, you need to be using a Unix shell like Bash or ZSH. If you are on Linux or macOS, you don’t have to do anything special. If you are on Windows, you need to make sure you are not running cmd.exe or PowerShell; you can use <a class="link" href="https://docs.microsoft.com/en-us/windows/wsl/"  target="_blank" rel="noopener"
+    >Windows Subsystem for Linux</a> or a Linux virtual machine to use Unix-style command-line tools. To make sure you’re running an appropriate shell, you can try the command <code>echo $SHELL</code>. If it says something like <code>/bin/bash</code> or <code>/usr/bin/zsh</code>, that means you’re running the right program.</p>
+</li>
+<li>
+<p>Create a new directory called <code>missing</code> under <code>/tmp</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /tmp
+</span></span><span style="display:flex;"><span>mkdir missing
+</span></span></code></pre></div></li>
+<li>
+<p>Look up the <code>touch</code> program. The <code>man</code> program is your friend.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>man touch
+</span></span></code></pre></div></li>
+<li>
+<p>Use <code>touch</code> to create a new file called <code>semester</code> in <code>missing</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /tmp/missing
+</span></span><span style="display:flex;"><span>touch semester
+</span></span></code></pre></div></li>
+<li>
+<p>Write the following into that file, one line at a time:</p>
+<pre tabindex="0"><code>#!/bin/sh
+curl --head --silent https://missing.csail.mit.edu
+</code></pre><p>The first line might be tricky to get working. It’s helpful to know that <code>#</code> starts a comment in Bash, and <code>!</code> has a special meaning even within double-quoted (<code>&quot;</code>) strings. Bash treats single-quoted strings (<code>'</code>) differently: they will do the trick in this case. See the Bash <a class="link" href="https://www.gnu.org/software/bash/manual/html_node/Quoting.html"  target="_blank" rel="noopener"
+    >quoting</a> manual page for more information.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat <span style="color:#e6db74">&#39;#!/bin/sh&#39;</span> &gt;&gt; semester
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&#39;curl --head --silent https://missing.csail.mit.edu&#39;</span> &gt;&gt; semester
+</span></span></code></pre></div></li>
+<li>
+<p>Try to execute the file, i.e. type the path to the script (<code>./semester</code>) into your shell and press enter. Understand why it doesn’t work by consulting the output of <code>ls</code> (hint: look at the permission bits of the file).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./semester
+</span></span><span style="display:flex;"><span>ls -l
+</span></span></code></pre></div><p>The file semester has no execution permission.</p>
+</li>
+<li>
+<p>Run the command by explicitly starting the <code>sh</code> interpreter, and giving it the file <code>semester</code> as the first argument, i.e. <code>sh semester</code>. Why does this work, while <code>./semester</code> didn’t?</p>
+</li>
+<li>
+<p>Look up the <code>chmod</code> program (e.g. use <code>man chmod</code>).</p>
+</li>
+<li>
+<p>Use <code>chmod</code> to make it possible to run the command <code>./semester</code> rather than having to type <code>sh semester</code>. How does your shell know that the file is supposed to be interpreted using <code>sh</code>? See this page on the <a class="link" href="https://en.wikipedia.org/wiki/Shebang_%28Unix%29"  target="_blank" rel="noopener"
+    >shebang</a> line for more information.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x semester
+</span></span></code></pre></div></li>
+<li>
+<p>Use <code>|</code> and <code>&gt;</code> to write the “last modified” date output by <code>semester</code> into a file called <code>last-modified.txt</code> in your home directory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>date -r test | cat &gt; ~/last-modified.txt
+</span></span></code></pre></div></li>
+<li>
+<p>Write a command that reads out your laptop battery’s power level or your desktop machine’s CPU temperature from <code>/sys</code>. Note: if you’re a macOS user, your OS doesn’t have sysfs, so you can skip this exercise.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /sys/class/power_supply/BAT0/capacity
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="lesson-2">Lesson 2</h2>
+<ol>
+<li>
+<p>Read <a class="link" href="https://www.man7.org/linux/man-pages/man1/ls.1.html"  target="_blank" rel="noopener"
+    ><code>man ls</code></a> and write an <code>ls</code> command that lists files in the following manner</p>
+<ul>
+<li>Includes all files, including hidden files</li>
+<li>Sizes are listed in human readable format (e.g. 454M instead of 454279954)</li>
+<li>Files are ordered by recency</li>
+<li>Output is colorized</li>
+</ul>
+<p>A sample output would look like this</p>
+<pre tabindex="0"><code> -rw-r--r--   1 user group 1.1M Jan 14 09:53 baz
+ drwxr-xr-x   5 user group  160 Jan 14 09:53 .
+ -rw-r--r--   1 user group  514 Jan 14 06:42 bar
+ -rw-r--r--   1 user group 106M Jan 13 12:12 foo
+ drwx------+ 47 user group 1.5K Jan 12 18:08 ..
+</code></pre><p>Sol:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -lhat --color<span style="color:#f92672">=</span>auto
+</span></span></code></pre></div></li>
+<li>
+<p>Write bash functions <code>marco</code> and <code>polo</code> that do the following. Whenever you execute <code>marco</code> the current working directory should be saved in some manner, then when you execute <code>polo</code>, no matter what directory you are in, <code>polo</code> should <code>cd</code> you back to the directory where you executed <code>marco</code>. For ease of debugging you can write the code in a file <code>marco.sh</code> and (re)load the definitions to your shell by executing <code>source marco.sh</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>marco<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	cur<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>polo<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	cd $cur
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Say you have a command that fails rarely. In order to debug it you need to capture its output but it can be time consuming to get a failure run. Write a bash script that runs the following script until it fails and captures its standard output and error streams to files and prints everything at the end. Bonus points if you can also report how many runs it took for the script to fail.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span> <span style="color:#75715e">#!/usr/bin/env bash</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span> RANDOM <span style="color:#f92672">%</span> <span style="color:#ae81ff">100</span> <span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> n -eq <span style="color:#ae81ff">42</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Something went wrong&#34;</span>
+</span></span><span style="display:flex;"><span>    &gt;&amp;<span style="color:#ae81ff">2</span> echo <span style="color:#e6db74">&#34;The error was using magic numbers&#34;</span>
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> echo <span style="color:#e6db74">&#34;Everything went according to plan&#34;</span>
+</span></span></code></pre></div><p>Sol:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>n<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>./run.sh &gt;/dev/null
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">[[</span> $? -ne <span style="color:#ae81ff">1</span> <span style="color:#f92672">]]</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    n<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span> $n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">))</span>
+</span></span><span style="display:flex;"><span>    echo $n
+</span></span><span style="display:flex;"><span>    ./run.sh &gt;/dev/null
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Error!&#34;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>As we covered in the lecture <code>find</code>’s <code>-exec</code> can be very powerful for performing operations over the files we are searching for. However, what if we want to do something with <strong>all</strong> the files, like creating a zip file? As you have seen so far commands will take input from both arguments and STDIN. When piping commands, we are connecting STDOUT to STDIN, but some commands like <code>tar</code> take inputs from arguments. To bridge this disconnect there’s the <a class="link" href="https://www.man7.org/linux/man-pages/man1/xargs.1.html"  target="_blank" rel="noopener"
+    ><code>xargs</code></a> command which will execute a command using STDIN as arguments. For example <code>ls | xargs rm</code> will delete the files in the current directory.<br>
+Your task is to write a command that recursively finds all HTML files in the folder and makes a zip with them. Note that your command should work even if the files have spaces (hint: check <code>-d</code> flag for <code>xargs</code>).<br>
+If you’re on macOS, note that the default BSD <code>find</code> is different from the one included in <a class="link" href="https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands"  target="_blank" rel="noopener"
+    >GNU coreutils</a>. You can use <code>-print0</code> on <code>find</code> and the <code>-0</code> flag on <code>xargs</code>. As a macOS user, you should be aware that command-line utilities shipped with macOS may differ from the GNU counterparts; you can install the GNU versions if you like by <a class="link" href="https://formulae.brew.sh/formula/coreutils"  target="_blank" rel="noopener"
+    >using brew</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>find . -name <span style="color:#e6db74">&#34;*.html&#34;</span> | xargs -d <span style="color:#e6db74">&#34;\n&#34;</span> tar cf target.tar
+</span></span></code></pre></div></li>
+<li>
+<p>(Advanced) Write a command or script to recursively find the most recently modified file in a directory. More generally, can you list all files by recency?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tac &lt;<span style="color:#f92672">(</span>find . -exec sh -c <span style="color:#e6db74">&#34;date -r {} | xargs echo -n; echo -n &#39;|&#39;; echo -n {}; echo ;&#34;</span> <span style="color:#ae81ff">\;</span> | sort<span style="color:#f92672">)</span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="lesson-5">Lesson 5</h2>
+<h2 id="job-control">Job control</h2>
+<ol>
+<li>
+<p>From what we have seen, we can use some <code>ps aux | grep</code> commands to get our jobs’ pids and then kill them, but there are better ways to do it. Start a <code>sleep 10000</code> job in a terminal, background it with <code>Ctrl-Z</code> and continue its execution with <code>bg</code>. Now use <a class="link" href="https://www.man7.org/linux/man-pages/man1/pgrep.1.html"  target="_blank" rel="noopener"
+    ><code>pgrep</code></a> to find its pid and <a class="link" href="http://man7.org/linux/man-pages/man1/pgrep.1.html"  target="_blank" rel="noopener"
+    ><code>pkill</code></a> to kill it without ever typing the pid itself. (Hint: use the <code>-af</code> flags).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sleep <span style="color:#ae81ff">10000</span> &amp;
+</span></span><span style="display:flex;"><span>pgrep sleep | kill
+</span></span></code></pre></div></li>
+<li>
+<p>Say you don’t want to start a process until another completes. How would you go about it? In this exercise, our limiting process will always be <code>sleep 60 &amp;</code>. One way to achieve this is to use the <a class="link" href="https://www.man7.org/linux/man-pages/man1/wait.1p.html"  target="_blank" rel="noopener"
+    ><code>wait</code></a> command. Try launching the sleep command and having an <code>ls</code> wait until the background process finishes.<br>
+However, this strategy will fail if we start in a different bash session, since <code>wait</code> only works for child processes. One feature we did not discuss in the notes is that the <code>kill</code> command’s exit status will be zero on success and nonzero otherwise. <code>kill -0</code> does not send a signal but will give a nonzero exit status if the process does not exist. Write a bash function called <code>pidwait</code> that takes a pid and waits until the given process completes. You should use <code>sleep</code> to avoid wasting CPU unnecessarily.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>pidwait<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    kill -0 $1
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#f92672">[[</span> $? -ne <span style="color:#ae81ff">1</span> <span style="color:#f92672">]]</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        sleep <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        kill -0 $1
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>    echo Done.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="terminal-multiplexer">Terminal multiplexer</h2>
+<ol>
+<li>Follow this <code>tmux</code> <a class="link" href="https://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/"  target="_blank" rel="noopener"
+    >tutorial</a> and then learn how to do some basic customizations following <a class="link" href="https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/"  target="_blank" rel="noopener"
+    >these steps</a>.</li>
+</ol>
+<h2 id="aliases">Aliases</h2>
+<ol>
+<li>
+<p>Create an alias <code>dc</code> that resolves to <code>cd</code> for when you type it wrongly.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias dc<span style="color:#f92672">=</span>cd
+</span></span></code></pre></div></li>
+<li>
+<p>Run <code>history | awk '{$1=&quot;&quot;;print substr($0,2)}' | sort | uniq -c | sort -n | tail -n 10</code> to get your top 10 most used commands and consider writing shorter aliases for them. Note: this works for Bash; if you’re using ZSH, use <code>history 1</code> instead of just <code>history</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>history | sed -E <span style="color:#e6db74">&#39;s/\s+[0-9]+\s+//&#39;</span> | sort | uniq -c | sort -n | tail -n <span style="color:#ae81ff">10</span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="dotfiles">Dotfiles</h2>
+<p>Let’s get you up to speed with dotfiles.</p>
+<ol>
+<li>Create a folder for your dotfiles and set up version control.</li>
+<li>Add a configuration for at least one program, e.g. your shell, with some customization (to start off, it can be something as simple as customizing your shell prompt by setting <code>$PS1</code>).</li>
+<li>Set up a method to install your dotfiles quickly (and without manual effort) on a new machine. This can be as simple as a shell script that calls <code>ln -s</code> for each file, or you could use a <a class="link" href="https://dotfiles.github.io/utilities/"  target="_blank" rel="noopener"
+    >specialized utility</a>.</li>
+<li>Test your installation script on a fresh virtual machine.</li>
+<li>Migrate all of your current tool configurations to your dotfiles repository.</li>
+<li>Publish your dotfiles on GitHub.</li>
+</ol>
+<blockquote>
+<p>I would recommend <code>yadm</code> for managing dotfiles.</p>
+</blockquote>
+<h2 id="lesson-6">Lesson 6</h2>
+<ol>
+<li>
+<p>If you don’t have any past experience with Git, either try reading the first couple chapters of <a class="link" href="https://git-scm.com/book/en/v2"  target="_blank" rel="noopener"
+    >Pro Git</a> or go through a tutorial like <a class="link" href="https://learngitbranching.js.org/"  target="_blank" rel="noopener"
+    >Learn Git Branching</a>. As you’re working through it, relate Git commands to the data model.</p>
+</li>
+<li>
+<p>Clone the <a class="link" href="https://github.com/missing-semester/missing-semester"  target="_blank" rel="noopener"
+    >repository for the class website</a>.</p>
+<ol>
+<li>
+<p>Explore the version history by visualizing it as a graph.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --graph
+</span></span></code></pre></div></li>
+<li>
+<p>Who was the last person to modify <code>README.md</code>? (Hint: use <code>git log</code> with an argument).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git log --raw
+</span></span></code></pre></div></li>
+<li>
+<p>What was the commit message associated with the last modification to the <code>collections:</code> line of <code>_config.yml</code>? (Hint: use <code>git blame</code> and <code>git show</code>).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git blame _config.yml -L <span style="color:#ae81ff">18</span>
+</span></span><span style="display:flex;"><span>git show a88b4eac
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>
+<p>One common mistake when learning Git is to commit large files that should not be managed by Git or adding sensitive information. Try adding a file to a repository, making some commits and then deleting that file from history (you may want to look at <a class="link" href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/"  target="_blank" rel="noopener"
+    >this</a>).</p>
+</li>
+<li>
+<p>Clone some repository from GitHub, and modify one of its existing files. What happens when you do <code>git stash</code>? What do you see when running <code>git log --all --oneline</code>? Run <code>git stash pop</code> to undo what you did with <code>git stash</code>. In what scenario might this be useful?</p>
+</li>
+<li>
+<p>Like many command line tools, Git provides a configuration file (or dotfile) called <code>~/.gitconfig</code>. Create an alias in <code>~/.gitconfig</code> so that when you run <code>git graph</code>, you get the output of <code>git log --all --graph --decorate --oneline</code>. Information about git aliases can be found <a class="link" href="https://git-scm.com/docs/git-config#Documentation/git-config.txt-alias"  target="_blank" rel="noopener"
+    >here</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    graph <span style="color:#f92672">=</span> log --all --graph --decorate --oneline
+</span></span></code></pre></div></li>
+<li>
+<p>You can define global ignore patterns in <code>~/.gitignore_global</code> after running <code>git config --global core.excludesfile ~/.gitignore_global</code>. Do this, and set up your global gitignore file to ignore OS-specific or editor-specific temporary files, like <code>.DS_Store</code>.</p>
+</li>
+<li>
+<p>Fork the <a class="link" href="https://github.com/missing-semester/missing-semester"  target="_blank" rel="noopener"
+    >repository for the class website</a>, find a typo or some other improvement you can make, and submit a pull request on GitHub (you may want to look at <a class="link" href="https://github.com/firstcontributions/first-contributions"  target="_blank" rel="noopener"
+    >this</a>).</p>
+</li>
+</ol>
+<hr>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/linux/">linux</a>
+        
+            <a href="/tags/shell/">shell</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 My New Hugo Site
+    </section>
+    
+    <section class="powerby">
+         with 
+        
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            </main>
+        </div>
+        <script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

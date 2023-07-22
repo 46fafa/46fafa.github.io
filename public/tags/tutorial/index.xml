@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>tutorial on My New Hugo Site</title>
+        <link>http://example.org/tags/tutorial/</link>
+        <description>Recent content in tutorial on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 03 May 2021 22:44:53 +0800</lastBuildDate><atom:link href="http://example.org/tags/tutorial/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Python 极速入门教程</title>
+        <link>http://example.org/zh-cn/post/python-tutorial/</link>
+        <pubDate>Mon, 03 May 2021 22:44:53 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/python-tutorial/</guid>
+        <description>前言 面向有编程经验者的极速入门指南。
+大部分内容简化于 W3School,翻译不一定准确，因此标注了英文。
+包括代码一共两万字符左右，预计阅读时间一小时。
+目前我的博客长文显示效果不佳，缺乏目录，因此可以考虑下载阅读。博客完全开源于 Github.
+[toc]
+语法(Syntax) 文件执行方式：python myfile.py
+强制缩进，缩进不能省略。缩进可以使用任意数量的空格。
+if 5 &amp;gt; 2: print(&amp;#34;Five is greater than two!&amp;#34;) if 5 &amp;gt; 2: print(&amp;#34;Five is greater than two!&amp;#34;) 注释(Comment) 注释语法：
+# Single Line Comment &amp;#34;&amp;#34;&amp;#34; Multiple Line Comment &amp;#34;&amp;#34;&amp;#34; 变量(Variables) 当变量被赋值时，其被创建。 没有显式声明变量的语法。
+x = 5 y = &amp;#34;Hello, World!&amp;#34; 可以转换类型。
+x = str(3) # x will be &amp;#39;3&amp;#39; y = int(3) # y will be 3 z = float(3) # z will be 3.</description>
+        </item>
+        
+    </channel>
+</rss>

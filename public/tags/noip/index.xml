@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>noip on My New Hugo Site</title>
+        <link>http://example.org/tags/noip/</link>
+        <description>Recent content in noip on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 26 Nov 2020 11:10:13 +0800</lastBuildDate><atom:link href="http://example.org/tags/noip/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>NOIP2020 前练习笔记</title>
+        <link>http://example.org/zh-cn/post/noiptraining2020/</link>
+        <pubDate>Thu, 26 Nov 2020 11:10:13 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/noiptraining2020/</guid>
+        <description>P5290 [十二省联考 2019] 春节十二响 题面不是人话，翻译一下。
+给一棵树，每个点权值为 $w_i$，需要将节点分组。
+分组要求：每个组内的点，两两不存在祖先——后代关系。
+每个组的代价是组内的最大值，求最小的总代价。
+考虑对于 $u$ 相连的所有子树，每棵子树内的点都只能与非该子树内的点在同一段内，也就是说，每棵子树内的组都必须与其他子树的组结合。
+由于只与最大值有关，有一个贪心的想法：如果当前子树内某组结合后，不会改变原先的最大值，那么一定结合。
+然而需要考虑，当前子树每个组只能与其他子树每个组一一结合，何况还有当前子树内出现最大组，要求其他子树合并的情况，因此需要妥当考虑。
+可以发现，每次结合都会减少对应组代价的代价，因此：优先消去代价大的。
+两类：当前子树，其他子树，分别取出最大值，比大小，然后小的并入大的中。
+注意使用启发式合并，时间复杂度 $O(n\log n)$.
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;queue&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;cctype&amp;gt; using namespace std; const int bufSize = 1e6; #define DEBUG inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize],*p1 = buf,*p2 = buf; return p1==p2&amp;amp;&amp;amp;(p2=(p1=buf)+fread(buf,1,bufSize,stdin),p1==p2)?EOF:*p1++; } template&amp;lt;typename T&amp;gt; inline T read(T &amp;amp;r) { static char c; r = 0; for(c=nc();!</description>
+        </item>
+        <item>
+        <title>NOI 系列真题练习笔记</title>
+        <link>http://example.org/zh-cn/post/noiptrain/</link>
+        <pubDate>Fri, 20 Nov 2020 08:35:02 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/noiptrain/</guid>
+        <description>前言 NOIP 前开始做做真题，虽然每年都风格迥异，不过感受一下 OI 风格的题目还是有一定意义的。
+P1016 旅行家的预算 贪心地考虑，在一个油站，如果加油，要么加满，要么加到足够行驶到下一个加油点的油量，在下一个更便宜的加油点再加油。
+是否存在后效性呢？在下一个油站始终可以加满，所以应该没有。 当然，这鬼数据范围乱搜一下就完事了。
+#include &amp;lt;cstdio&amp;gt; const int maxn = 100; int n; double totaldis,C,per; double cost[maxn],dis[maxn]; double res = 1e18; void dfs(int now,double totalcost,double nowhave) { if(nowhave &amp;lt; 0) return; if(now == n) return (void)(res = res &amp;gt; totalcost ? totalcost : res); for(int i = now + 1;i&amp;lt;=n;++i) { double d = dis[i] - dis[now]; if(cost[i] &amp;lt;= cost[now] &amp;amp;&amp;amp; nowhave * per &amp;gt;= d) { dfs(i,totalcost,nowhave - d / per); return; } } //if no better choice can be reached without cost, then should choose one that is cheaper and tries to go there bool flag = 0; for(int i = now + 1;i&amp;lt;=n;++i) { double d = dis[i] - dis[now]; if(cost[i] &amp;lt;= cost[now]) { double needoil = (d - nowhave * per) / per; if(nowhave + needoil &amp;gt; C) continue; double need = needoil * cost[now]; dfs(i,totalcost + need,0); flag = 1; } } if(flag) return; //if no cheaper station, add here to full and tries to go.</description>
+        </item>
+        
+    </channel>
+</rss>

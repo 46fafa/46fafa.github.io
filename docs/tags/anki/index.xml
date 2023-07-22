@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>anki on liberal&#39;Blog</title>
+        <link>https://ideal30d.top/tags/anki/</link>
+        <description>Recent content in anki on liberal&#39;Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 12 Jul 2021 21:14:57 +0800</lastBuildDate><atom:link href="https://ideal30d.top/tags/anki/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>AnkiLink 完全体构想</title>
+        <link>https://ideal30d.top/p/ankilink-complete/</link>
+        <pubDate>Mon, 12 Jul 2021 21:14:57 +0800</pubDate>
+        
+        <guid>https://ideal30d.top/p/ankilink-complete/</guid>
+        <description>&lt;p&gt;AnkiLink 完全实现，必须依赖有块级别 ID 绑定的编辑器。目前来看，思源笔记天然具有这个优势。&lt;/p&gt;
+&lt;p&gt;AnkiLink，之所以叫做「Link」，改名的时候就有考虑过。那就是双向性。&lt;br&gt;
+AnkiImporter 是起点而非终点，AnkiLink &lt;strong&gt;不仅仅要实现从「文档」到「Anki」，还要实现从「Anki」到「文档」的双向链接。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;目前对于导入，将 AnkiIn 单独抽象出来成为一个库之后，加入思源格式的 json 解析只是加一个 Parser 的问题，可以说兼容非常好做。&lt;br&gt;
+而主要难点就集中在&lt;strong&gt;如何获取需要导入的内容&lt;/strong&gt;，这个大概率要用到思源内部的数据库查询。&lt;br&gt;
+HTTP API 未开放之前，应该都只能观望。更具体地，对性能有要求，那么要查询的就是「有某种特殊标记的、在某个特定时间后被更改过的块」。&lt;/p&gt;
+&lt;p&gt;思源内部的「属性」为配置提供了绝佳平台。AnkiIn 库本身也已经实现了配置功能，再加一层转换，将思源的属性转化为 AnkiIn 的配置，就能无缝对接了。&lt;br&gt;
+这样一来，原本写在内容中的强干扰的配置就被屏蔽了。&lt;/p&gt;
+&lt;p&gt;为了性能，不可能解析导入所有潜在的块，而要进行配置。对于这个问题，AnkiIn 加入了 &lt;code&gt;skip&lt;/code&gt; 配置项，设定是否要跳过当前块。只需要将默认值设为 &lt;code&gt;true&lt;/code&gt;，然后手动设置 &lt;code&gt;false&lt;/code&gt;，就能做到选择性导入。&lt;br&gt;
+此外，还有一个树形依赖的问题。在 AnkiIn 的 Markdown Parser 中，对语义树进行了从上到下的搜索，而将父亲节点的配置顺延到儿子节点中，同时让儿子节点重载配置项。这意味着，如果沿用这个模式，我们必须拥有在思源中找到最顶层的有效节点的方法。&lt;br&gt;
+在 Markdown Parser 中，根节点天然是文档本身，而以块为粒度的思源结构却有希望做到更细化的程度。但这并不是简单的事情，所以可能还是要采用从最顶层节点开始遍历的方案。但还有一条路：自下向上地遍历。&lt;/p&gt;
+&lt;p&gt;在与思源的对接中，需要注意的是：修改内容的模式发生了变化。往常的 AnkiIn 的工作模式是这样的：写好一个文档，然后转换它。但是在 AnkiLink 中，我们希望能随时随地修改内容，并且随时随地更新。也就是说，&lt;strong&gt;碎片化的读写操作取代了原本的文档式的读写操作&lt;/strong&gt;，如果依然使用整个文档粒度的导入，那么效率是非常低下的。&lt;br&gt;
+但我们前面提到了，我们配置了 &lt;code&gt;skip&lt;/code&gt; 功能，**那么只要标记规范，实际上可以极大程度避免这个问题，无效的向下遍历会被快速剪枝，事实上需要遍历的只是有标记的子树。**但这样的效率有一个前提，**就是我们必须能以树形结构获取数据。**也就是说，我希望获取某个节点的儿子、父亲是谁，却不想要它的儿子、父亲的所有详细数据。&lt;br&gt;
+**基于文件的数据获取是没有这种优势的。**如果我们依然使用文本获取数据，那么不幸的是，为了获取树形结构，我们必须对整个文件进行读入、解析，最终回到了起点。所以我们还需要等待 HTTP API.&lt;/p&gt;
+&lt;p&gt;我们的使用场景可能是这样的：在 100 个文档中，每个文档修改了 1 个错别字。如果为了一百个错别字，就要将 100 个文档都从头解析一遍，我觉得这是不可接受的。&lt;br&gt;
+所以我的期望是这样：我们知道这一百个文档都修改了 1 个错别字，将这个错别字块找出来，然后寻找他的祖先，继承他祖先的所有属性，再回到它本身。&lt;br&gt;
+这样一来，对于一个小修改，我们只需要 $O(h)$ 的时间复杂度，只需要遍历树高个节点。&lt;br&gt;
+当然，这依然存在不足：如果节点们拥有同样的祖先，却依然反复查询获取，反而凭空增加了复杂度。自下而上的溯源会有这种弊端，但这是可以避免的。只需要在内存中做一个简单的缓存就能解决这个问题，虽然不是那么完美。&lt;/p&gt;
+&lt;p&gt;对于 Anki，我们将思源笔记的块 ID 直接存放在 Anki 的卡片中。当思源中发生了内容变更，我们只需要寻找对应的卡片，进行相应的修改。如果找不到相应的卡片，就进行添加。而对于删除就困难一些，因为我不知道思源是否会保存被删除的块的历史。如果没有的话，删除这一块，我希望留给 Anki 端来做。&lt;/p&gt;
+&lt;p&gt;还有一个困难，就是将思源格式解析为 Html，或者 Markdown 也可以。如果没有什么官方提供的方法，我可能又要手写一个 Parser&amp;hellip;预计只会支持到与 Markdown 同等级的语法。&lt;/p&gt;
+&lt;p&gt;做到这些之后，我们就可以实现思源笔记与 Anki 卡片的单向同步。只需要定期进行一次检查，看看有没有新增的块，再进行内容同步。这样，一个简单的单向同步就完成了。&lt;/p&gt;
+&lt;p&gt;而 Anki 到思源就更繁琐一些，我们必须从 0 开始。更具体的，我们希望做到在修改卡片的时候，修改的卡片内容能够同步到思源。&lt;br&gt;
+首先的想法是，通过 ID 很快可以找到卡片与思源对应的块，然后替换内容就可以了。但替换内容不是说说那么简单，将 Html 重新转换为思源格式，也并不是个简单的活。&lt;br&gt;
+思源官方实际上已经做过这样的事情了，希望后续沟通一下，可以避免重复造轮子。具体地，我们可以将 Html 转化为 Markdown 再转化为思源格式。而后者，在思源 1.2 升级时已经有官方的轮子了。&lt;/p&gt;
+&lt;p&gt;为了实现这个功能，必须使用 Anki 插件的形式进行开发。这触及到了我的知识盲区，但学习应该并不困难。我们的逻辑很简单：修改，同步，仅此而已。&lt;/p&gt;
+&lt;p&gt;还有上文提及到的删除，如果不能在思源修改时删除，那么就在 Anki 打开时自检验即可。对于所有从思源导入的卡片，我们依次查询对应的 ID 是否存在。一下子又多了好多个查询，感觉性能会很差。但考虑到日常生活的数据量，$O(n \log n)$ 的时间复杂度应该还是游刃有余。但通过 HTTP API 进行查询的话，恐怕还是有些延迟。&lt;br&gt;
+考虑到删除卡片是稀有操作，是否值得牺牲如此性能来实现，我觉得需要再次考虑。直接不写删除功能也是一种可能。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;UPD: 事实上思源已经偷偷支持了简单的 HTTP API 了，见 &lt;a class=&#34;link&#34; href=&#34;https://github.com/88250/Stairway-To-Heaven/blob/main/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/88250/Stairway-To-Heaven/blob/main/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以准备上手开发。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>AnkiImporter: markdown 文件导入 Anki 的小工具</title>
+        <link>https://ideal30d.top/p/anki-importer/</link>
+        <pubDate>Sat, 22 May 2021 21:14:57 +0800</pubDate>
+        
+        <guid>https://ideal30d.top/p/anki-importer/</guid>
+        <description>&lt;p&gt;这是我的一个小项目，在 &lt;a class=&#34;link&#34; href=&#34;https://github.com/Clouder0/AnkiImporter&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Github&lt;/a&gt; 上开源。&lt;br&gt;
+这里复制了一份中文版本的 README,更多信息请到仓库中查看。&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。&lt;br&gt;
+简单而强大的小工具。&lt;/p&gt;
+&lt;p&gt;导入 Anki 的轮子已经被造了一车了，但 AnkiImporter 能让你耳目一新。&lt;br&gt;
+遵循极简主义，AnkiImporter 采用自然语法，让你在流畅书写卡片的同时，免于纠结排版格式的问题。&lt;/p&gt;
+&lt;p&gt;特色：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过 AnkiConnect 直接导入 Anki&lt;/li&gt;
+&lt;li&gt;导出为 &lt;code&gt;apkg&lt;/code&gt; 文件&lt;/li&gt;
+&lt;li&gt;可读性佳的语法&lt;/li&gt;
+&lt;li&gt;支持 Markdown 渲染&lt;/li&gt;
+&lt;li&gt;支持 Html 语法&lt;/li&gt;
+&lt;li&gt;跨平台&lt;/li&gt;
+&lt;li&gt;发布二进制文件，免于安装 Python 环境&lt;/li&gt;
+&lt;li&gt;常用的内置 Note 类型
+&lt;ul&gt;
+&lt;li&gt;问答&lt;/li&gt;
+&lt;li&gt;完形填空&lt;/li&gt;
+&lt;li&gt;选择题(单选、多选)&lt;/li&gt;
+&lt;li&gt;列表完形填空&lt;/li&gt;
+&lt;li&gt;表格完形填空&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;易于拓展&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;使用这个工具，你无需牺牲原文档的可读性，就能与 Anki 对接。&lt;/p&gt;
+&lt;p&gt;这里是一个小例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;问题。  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;答案。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;一行问题。  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;多行答案。  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;第一行会被识别为问题。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;如果需要多行问题，可以考虑 &lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;br&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; 这样换行。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;可能有点过于极客了，可读性也不是很好。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;渲染 Markdown.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; 列表
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; 之类的东西
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;创建完形填空**只需要加粗**就可以**了**，有点像是**划重点**。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;h3 id=&#34;安装-ankiconnect&#34;&gt;安装 AnkiConnect&lt;/h3&gt;
+&lt;p&gt;安装 &lt;a class=&#34;link&#34; href=&#34;https://github.com/FooSoft/anki-connect&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;AnkiConnect&lt;/a&gt; 拓展.&lt;br&gt;
+Code:&lt;code&gt;2055492159&lt;/code&gt;&lt;br&gt;
+详细流程见 &lt;a class=&#34;link&#34; href=&#34;https://github.com/FooSoft/anki-connect&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;anki-connect repo&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;安装-python&#34;&gt;安装 Python&lt;/h3&gt;
+&lt;p&gt;安装最新版的 Python.&lt;/p&gt;
+&lt;p&gt;如果用二进制版本，跳过此步。&lt;/p&gt;
+&lt;h3 id=&#34;下载脚本&#34;&gt;下载脚本&lt;/h3&gt;
+&lt;p&gt;方法一（不推荐）：直接下载本仓库的 &lt;code&gt;src&lt;/code&gt; 文件夹。随后执行 &lt;code&gt;pip install -r src/requirements.txt&lt;/code&gt; 补全依赖。&lt;/p&gt;
+&lt;p&gt;方法二（推荐）：在 &lt;a class=&#34;link&#34; href=&#34;https://github.com/Clouder0/AnkiImporter/release&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Releases&lt;/a&gt; 中下载二进制版本，不需要 Python 环境，开箱即用。&lt;/p&gt;
+&lt;h3 id=&#34;导入测试牌组&#34;&gt;导入测试牌组&lt;/h3&gt;
+&lt;p&gt;这一步的意义在于，将几个内置的 Note 类型导入到 Anki 中。&lt;/p&gt;
+&lt;p&gt;它会创建一个名为 &lt;code&gt;Export&lt;/code&gt; 的牌组，还有一个名为 &lt;code&gt;#Export&lt;/code&gt; 的标签。&lt;br&gt;
+所有导入的卡片默认都会进入 &lt;code&gt;Export&lt;/code&gt; 牌组中，加上 &lt;code&gt;#Export&lt;/code&gt; 的标签。随后你可以在 Anki 中批量更改它们。&lt;/p&gt;
+&lt;p&gt;通过命令行参数，你可以指定导入的卡片所属的牌组、标签。例如： &lt;code&gt;./AnkiImporter test.md --tags tag1 tag2 --deck targetDeck&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/Clouder0/AnkiImporter/blob/main/tests/ExampleDeck.apkg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;下载测试牌组&lt;/a&gt; 并导入。&lt;/p&gt;
+&lt;p&gt;现在安装完成了。&lt;/p&gt;
+&lt;h2 id=&#34;使用方法&#34;&gt;使用方法&lt;/h2&gt;
+&lt;p&gt;这是一个命令行工具。&lt;/p&gt;
+&lt;p&gt;Windows 系统下, 打开 &lt;code&gt;cmd&lt;/code&gt; 或者任意你喜欢的终端，执行:&lt;br&gt;
+&lt;code&gt;{yourpath}\AnkiImporter.exe {yourfile}&lt;/code&gt;&lt;br&gt;
+如果用源码，执行：
+&lt;code&gt;python -m {yourpath}\src {yourfile}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;其余平台同理。&lt;/p&gt;
+&lt;p&gt;更多用法, 输入 &lt;code&gt;.\AnkiImporter -h&lt;/code&gt; 之类的东西查看。&lt;/p&gt;
+&lt;h3 id=&#34;导出为-apkg-文件&#34;&gt;导出为 apkg 文件&lt;/h3&gt;
+&lt;p&gt;如果你想导出为 apkg 文件，使用 &lt;code&gt;-o filename&lt;/code&gt; 参数。&lt;/p&gt;
+&lt;p&gt;例如从 &lt;code&gt;test2.md&lt;/code&gt; 生成 &lt;code&gt;test.apkg&lt;/code&gt;，输入:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python -m src tests/test2.md -o test.apkg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;笔记结构&#34;&gt;笔记结构&lt;/h2&gt;
+&lt;p&gt;被导入的笔记必须遵从一定的语法结构，才能被脚本识别。&lt;/p&gt;
+&lt;p&gt;一个「块」被识别为一个笔记，块是用两个换行符分割的内容块，下面有个例子帮助你更好地理解：&lt;/p&gt;
+&lt;p&gt;值得注意的是，Html 语法是支持的。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;这是一个块。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;这是一个  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;多行的块
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;这也是一个**块**
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;笔记类型&#34;&gt;笔记类型&lt;/h3&gt;
+&lt;h4 id=&#34;问答&#34;&gt;问答&lt;/h4&gt;
+&lt;p&gt;Anki 中最基础的类型。
+两行及以上的块，如果没有被识别为别的类型，最终会被识别为问答类型。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Question.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Answer.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;完形填空&#34;&gt;完形填空&lt;/h4&gt;
+&lt;p&gt;另一个基础类型。
+任何块中，第一行含有 &lt;code&gt;**加粗文本**&lt;/code&gt; 就会被识别为完形填空。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;This is a &lt;span class=&#34;gs&#34;&gt;**Cloze**&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;This is another &lt;span class=&#34;gs&#34;&gt;**Cloze**&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;with more than one &lt;span class=&#34;gs&#34;&gt;**line**&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;This is not a Cloze.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;But rather a &lt;span class=&#34;gs&#34;&gt;**Q&amp;amp;A**&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;选择题&#34;&gt;选择题&lt;/h4&gt;
+&lt;p&gt;选 A 还是选 B&amp;hellip;这是个问题。&lt;/p&gt;
+&lt;p&gt;这不是 Anki 内置的类型，但因为比较常用，被内置在本项目中。
+我导入了一个 &lt;a class=&#34;link&#34; href=&#34;https://github.com/ecator/anki-theme-monokaicloze-radios&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Monokaicloze&lt;/a&gt; 的修改版本来实现这个功能。&lt;/p&gt;
+&lt;p&gt;任何块，如果第二行以 &lt;code&gt;A&lt;/code&gt; 开头，就会被识别为一个选择题。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Question:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A Option1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B Option2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C Option3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;一些额外信息，类似于 Back Extra.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Question:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A Option1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;B Option2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C Option3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;AB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;I just want a simple Q&lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt;A.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; A simple Q&lt;span class=&#34;err&#34;&gt;&amp;amp;&lt;/span&gt;A. Use space to avoid being recognized as Choices.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;可以在第二行加一个空格来避免被识别为选择题。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;列表完形填空&#34;&gt;列表完形填空&lt;/h4&gt;
+&lt;p&gt;列表会被识别为完形填空。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; List Cloze
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Cloze &lt;span class=&#34;gs&#34;&gt;**as**&lt;/span&gt; a list
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; no need to contain a cloze in the first line
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; pretty &lt;span class=&#34;gs&#34;&gt;**handy**&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; but remember this may make a card huge!
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Example List QA
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; A list, or an outlined format, are now supported.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; SHJKD
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; lksfdhos
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; sdhfksaj
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; dskf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; sdkf
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	      &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; dfjs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	      &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; dfjs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; oipw3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; dppp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;表格完形填空&#34;&gt;表格完形填空&lt;/h4&gt;
+&lt;p&gt;表格也会被识别为完形填空。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Table is now supported too.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Syntax      | Description | Test Text     |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| :---        |    :----:   |          ---: |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Header      | Title       | Here&amp;#39;s this   |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Paragraph   | Text        | And more      |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A funny feature.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Table      | Cloze | is also supported |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| :---        |    :----:   |          ---: |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| H**e**ader      | Title       | Here&amp;#39;s this   |
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;| Parag**ra**ph   | Text        | And more      |
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;更多例子, 见 &lt;a class=&#34;link&#34; href=&#34;https://github.com/Clouder0/AnkiImporter/tree/main/tests&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tests&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;credit&#34;&gt;Credit&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/ankitects/anki&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;anki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/FooSoft/anki-connect&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;anki-connect&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/kerrickstaley/genanki&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;genanki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/trentm/python-markdown2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;markdown2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+&lt;p&gt;采用 GPL v3 协议开源。
+License is available &lt;a class=&#34;link&#34; href=&#34;https://github.com/Clouder0/AnkiImporter/blob/main/LICENSE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

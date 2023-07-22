@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='这是我的一个小项目，在 Github 上开源。 这里复制了一份中文版本的 README,更多信息请到仓库中查看。 Introduction AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。 简单而强大的'>
+<title>AnkiImporter: markdown 文件导入 Anki 的小工具</title>
+
+<link rel='canonical' href='https://ideal30d.top/p/anki-importer/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='AnkiImporter: markdown 文件导入 Anki 的小工具'>
+<meta property='og:description' content='这是我的一个小项目，在 Github 上开源。 这里复制了一份中文版本的 README,更多信息请到仓库中查看。 Introduction AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。 简单而强大的'>
+<meta property='og:url' content='https://ideal30d.top/p/anki-importer/'>
+<meta property='og:site_name' content='liberal&#39;Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='python' /><meta property='article:tag' content='anki' /><meta property='article:published_time' content='2021-05-22T21:14:57&#43;08:00'/><meta property='article:modified_time' content='2021-05-22T21:14:57&#43;08:00'/>
+<meta name="twitter:site" content="@sanxun22">
+    <meta name="twitter:creator" content="@sanxun22"><meta name="twitter:title" content="AnkiImporter: markdown 文件导入 Anki 的小工具">
+<meta name="twitter:description" content="这是我的一个小项目，在 Github 上开源。 这里复制了一份中文版本的 README,更多信息请到仓库中查看。 Introduction AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。 简单而强大的">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KSKRE06P26"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KSKRE06P26', { 'anonymize_ip': false });
+}
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script> 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "light");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">liberal&#39;Blog</a></h1>
+            <h2 class="site-description">独立思考,保持清醒</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://book.douban.com/mine?status=collect'
+                        target="_blank"
+                        title="DouBan"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-douban" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 20h16" />
+  <path d="M5 4h14" />
+  <path d="M8 8h8a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-2a2 2 0 0 1 2 -2z" />
+  <path d="M16 14l-2 6" />
+  <path d="M8 17l1 3" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/46fafa'
+                        target="_blank"
+                        title="Github"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>订阅</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#安装">安装</a>
+      <ol>
+        <li><a href="#安装-ankiconnect">安装 AnkiConnect</a></li>
+        <li><a href="#安装-python">安装 Python</a></li>
+        <li><a href="#下载脚本">下载脚本</a></li>
+        <li><a href="#导入测试牌组">导入测试牌组</a></li>
+      </ol>
+    </li>
+    <li><a href="#使用方法">使用方法</a>
+      <ol>
+        <li><a href="#导出为-apkg-文件">导出为 apkg 文件</a></li>
+      </ol>
+    </li>
+    <li><a href="#笔记结构">笔记结构</a>
+      <ol>
+        <li><a href="#笔记类型">笔记类型</a>
+          <ol>
+            <li><a href="#问答">问答</a></li>
+            <li><a href="#完形填空">完形填空</a></li>
+            <li><a href="#选择题">选择题</a></li>
+            <li><a href="#列表完形填空">列表完形填空</a></li>
+            <li><a href="#表格完形填空">表格完形填空</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#credit">Credit</a></li>
+    <li><a href="#license">License</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/programming/" >
+                Programming
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/anki-importer/">AnkiImporter: markdown 文件导入 Anki 的小工具</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 22, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>这是我的一个小项目，在 <a class="link" href="https://github.com/Clouder0/AnkiImporter"  target="_blank" rel="noopener"
+    >Github</a> 上开源。<br>
+这里复制了一份中文版本的 README,更多信息请到仓库中查看。</p>
+<h2 id="introduction">Introduction</h2>
+<p>AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。<br>
+简单而强大的小工具。</p>
+<p>导入 Anki 的轮子已经被造了一车了，但 AnkiImporter 能让你耳目一新。<br>
+遵循极简主义，AnkiImporter 采用自然语法，让你在流畅书写卡片的同时，免于纠结排版格式的问题。</p>
+<p>特色：</p>
+<ul>
+<li>通过 AnkiConnect 直接导入 Anki</li>
+<li>导出为 <code>apkg</code> 文件</li>
+<li>可读性佳的语法</li>
+<li>支持 Markdown 渲染</li>
+<li>支持 Html 语法</li>
+<li>跨平台</li>
+<li>发布二进制文件，免于安装 Python 环境</li>
+<li>常用的内置 Note 类型
+<ul>
+<li>问答</li>
+<li>完形填空</li>
+<li>选择题(单选、多选)</li>
+<li>列表完形填空</li>
+<li>表格完形填空</li>
+</ul>
+</li>
+<li>易于拓展</li>
+</ul>
+<hr>
+<p>使用这个工具，你无需牺牲原文档的可读性，就能与 Anki 对接。</p>
+<p>这里是一个小例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">问题。  
+</span></span><span class="line"><span class="cl">答案。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">一行问题。  
+</span></span><span class="line"><span class="cl">多行答案。  
+</span></span><span class="line"><span class="cl">第一行会被识别为问题。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">如果需要多行问题，可以考虑 <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span> 这样换行。
+</span></span><span class="line"><span class="cl">可能有点过于极客了，可读性也不是很好。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">渲染 Markdown.
+</span></span><span class="line"><span class="cl"><span class="k">-</span> 列表
+</span></span><span class="line"><span class="cl">    <span class="k">-</span> 之类的东西
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">创建完形填空**只需要加粗**就可以**了**，有点像是**划重点**。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="安装">安装</h2>
+<h3 id="安装-ankiconnect">安装 AnkiConnect</h3>
+<p>安装 <a class="link" href="https://github.com/FooSoft/anki-connect"  target="_blank" rel="noopener"
+    >AnkiConnect</a> 拓展.<br>
+Code:<code>2055492159</code><br>
+详细流程见 <a class="link" href="https://github.com/FooSoft/anki-connect"  target="_blank" rel="noopener"
+    >anki-connect repo</a>.</p>
+<h3 id="安装-python">安装 Python</h3>
+<p>安装最新版的 Python.</p>
+<p>如果用二进制版本，跳过此步。</p>
+<h3 id="下载脚本">下载脚本</h3>
+<p>方法一（不推荐）：直接下载本仓库的 <code>src</code> 文件夹。随后执行 <code>pip install -r src/requirements.txt</code> 补全依赖。</p>
+<p>方法二（推荐）：在 <a class="link" href="https://github.com/Clouder0/AnkiImporter/release"  target="_blank" rel="noopener"
+    >Releases</a> 中下载二进制版本，不需要 Python 环境，开箱即用。</p>
+<h3 id="导入测试牌组">导入测试牌组</h3>
+<p>这一步的意义在于，将几个内置的 Note 类型导入到 Anki 中。</p>
+<p>它会创建一个名为 <code>Export</code> 的牌组，还有一个名为 <code>#Export</code> 的标签。<br>
+所有导入的卡片默认都会进入 <code>Export</code> 牌组中，加上 <code>#Export</code> 的标签。随后你可以在 Anki 中批量更改它们。</p>
+<p>通过命令行参数，你可以指定导入的卡片所属的牌组、标签。例如： <code>./AnkiImporter test.md --tags tag1 tag2 --deck targetDeck</code></p>
+<p><a class="link" href="https://github.com/Clouder0/AnkiImporter/blob/main/tests/ExampleDeck.apkg"  target="_blank" rel="noopener"
+    >下载测试牌组</a> 并导入。</p>
+<p>现在安装完成了。</p>
+<h2 id="使用方法">使用方法</h2>
+<p>这是一个命令行工具。</p>
+<p>Windows 系统下, 打开 <code>cmd</code> 或者任意你喜欢的终端，执行:<br>
+<code>{yourpath}\AnkiImporter.exe {yourfile}</code><br>
+如果用源码，执行：
+<code>python -m {yourpath}\src {yourfile}</code></p>
+<p>其余平台同理。</p>
+<p>更多用法, 输入 <code>.\AnkiImporter -h</code> 之类的东西查看。</p>
+<h3 id="导出为-apkg-文件">导出为 apkg 文件</h3>
+<p>如果你想导出为 apkg 文件，使用 <code>-o filename</code> 参数。</p>
+<p>例如从 <code>test2.md</code> 生成 <code>test.apkg</code>，输入:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">python -m src tests/test2.md -o test.apkg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="笔记结构">笔记结构</h2>
+<p>被导入的笔记必须遵从一定的语法结构，才能被脚本识别。</p>
+<p>一个「块」被识别为一个笔记，块是用两个换行符分割的内容块，下面有个例子帮助你更好地理解：</p>
+<p>值得注意的是，Html 语法是支持的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">这是一个块。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这是一个  
+</span></span><span class="line"><span class="cl">多行的块
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">这也是一个**块**
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="笔记类型">笔记类型</h3>
+<h4 id="问答">问答</h4>
+<p>Anki 中最基础的类型。
+两行及以上的块，如果没有被识别为别的类型，最终会被识别为问答类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">Question.
+</span></span><span class="line"><span class="cl">Answer.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="完形填空">完形填空</h4>
+<p>另一个基础类型。
+任何块中，第一行含有 <code>**加粗文本**</code> 就会被识别为完形填空。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">This is a <span class="gs">**Cloze**</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This is another <span class="gs">**Cloze**</span>  
+</span></span><span class="line"><span class="cl">with more than one <span class="gs">**line**</span>.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This is not a Cloze.
+</span></span><span class="line"><span class="cl">But rather a <span class="gs">**Q&amp;A**</span>.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="选择题">选择题</h4>
+<p>选 A 还是选 B&hellip;这是个问题。</p>
+<p>这不是 Anki 内置的类型，但因为比较常用，被内置在本项目中。
+我导入了一个 <a class="link" href="https://github.com/ecator/anki-theme-monokaicloze-radios"  target="_blank" rel="noopener"
+    >Monokaicloze</a> 的修改版本来实现这个功能。</p>
+<p>任何块，如果第二行以 <code>A</code> 开头，就会被识别为一个选择题。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">Question:
+</span></span><span class="line"><span class="cl">A Option1
+</span></span><span class="line"><span class="cl">B Option2
+</span></span><span class="line"><span class="cl">C Option3
+</span></span><span class="line"><span class="cl">A
+</span></span><span class="line"><span class="cl">一些额外信息，类似于 Back Extra.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Question:
+</span></span><span class="line"><span class="cl">A Option1
+</span></span><span class="line"><span class="cl">B Option2
+</span></span><span class="line"><span class="cl">C Option3
+</span></span><span class="line"><span class="cl">AB
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">I just want a simple Q<span class="err">&amp;</span>A.
+</span></span><span class="line"><span class="cl"> A simple Q<span class="err">&amp;</span>A. Use space to avoid being recognized as Choices.
+</span></span><span class="line"><span class="cl">可以在第二行加一个空格来避免被识别为选择题。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="列表完形填空">列表完形填空</h4>
+<p>列表会被识别为完形填空。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">-</span> List Cloze
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> Cloze <span class="gs">**as**</span> a list
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> no need to contain a cloze in the first line
+</span></span><span class="line"><span class="cl">      <span class="k">-</span> pretty <span class="gs">**handy**</span>
+</span></span><span class="line"><span class="cl">      <span class="k">-</span> but remember this may make a card huge!
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Example List QA
+</span></span><span class="line"><span class="cl"><span class="k">-</span> A list, or an outlined format, are now supported.
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> SHJKD
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> lksfdhos
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> sdhfksaj
+</span></span><span class="line"><span class="cl">      <span class="k">-</span> dskf
+</span></span><span class="line"><span class="cl">	  <span class="k">-</span> sdkf
+</span></span><span class="line"><span class="cl">	      <span class="k">-</span> dfjs
+</span></span><span class="line"><span class="cl">	      <span class="k">-</span> dfjs
+</span></span><span class="line"><span class="cl">	  <span class="k">-</span> oipw3
+</span></span><span class="line"><span class="cl">  <span class="k">-</span> dppp
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="表格完形填空">表格完形填空</h4>
+<p>表格也会被识别为完形填空。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">Table is now supported too.
+</span></span><span class="line"><span class="cl">| Syntax      | Description | Test Text     |
+</span></span><span class="line"><span class="cl">| :---        |    :----:   |          ---: |
+</span></span><span class="line"><span class="cl">| Header      | Title       | Here&#39;s this   |
+</span></span><span class="line"><span class="cl">| Paragraph   | Text        | And more      |
+</span></span><span class="line"><span class="cl">A funny feature.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">| Table      | Cloze | is also supported |
+</span></span><span class="line"><span class="cl">| :---        |    :----:   |          ---: |
+</span></span><span class="line"><span class="cl">| H**e**ader      | Title       | Here&#39;s this   |
+</span></span><span class="line"><span class="cl">| Parag**ra**ph   | Text        | And more      |
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>更多例子, 见 <a class="link" href="https://github.com/Clouder0/AnkiImporter/tree/main/tests"  target="_blank" rel="noopener"
+    >tests</a>.</p>
+<h2 id="credit">Credit</h2>
+<ul>
+<li><a class="link" href="https://github.com/ankitects/anki"  target="_blank" rel="noopener"
+    >anki</a></li>
+<li><a class="link" href="https://github.com/FooSoft/anki-connect"  target="_blank" rel="noopener"
+    >anki-connect</a></li>
+<li><a class="link" href="https://github.com/kerrickstaley/genanki"  target="_blank" rel="noopener"
+    >genanki</a></li>
+<li><a class="link" href="https://github.com/trentm/python-markdown2"  target="_blank" rel="noopener"
+    >markdown2</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>采用 GPL v3 协议开源。
+License is available <a class="link" href="https://github.com/Clouder0/AnkiImporter/blob/main/LICENSE"  target="_blank" rel="noopener"
+    >here</a>.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/python/">python</a>
+        
+            <a href="/tags/anki/">anki</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/ankilink-complete/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">AnkiLink 完全体构想</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/adrive-deldup/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">阿里云盘删除重复文件记录</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/pixiv2eagle/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">抓取 Pixiv 元数据导入 Eagle</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/python-tutorial/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python 极速入门教程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/mit-6s081-1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">MIT 6.S081 学习记录(1)</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="46fafa/46fafa.github.io"
+        issue-term="title"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 liberal&#39;Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with 主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

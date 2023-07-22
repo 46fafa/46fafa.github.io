@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>gauss-elimination on My New Hugo Site</title>
+        <link>http://example.org/tags/gauss-elimination/</link>
+        <description>Recent content in gauss-elimination on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 10 Sep 2020 04:45:00 +0800</lastBuildDate><atom:link href="http://example.org/tags/gauss-elimination/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>[笔记]高斯消元法与矩阵求逆</title>
+        <link>http://example.org/zh-cn/post/gauss/</link>
+        <pubDate>Thu, 10 Sep 2020 04:45:00 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/gauss/</guid>
+        <description>高斯消元 高斯消元法（Gauss-Jordan elimination）是求解线性方程组的经典算法，它在当代数学中有着重要的地位和价值，是线性代数课程教学的重要组成部分。
+高斯消元法除了用于线性方程组求解外，还可以用于行列式计算、求矩阵的逆，以及其他计算机和工程方面。
+夏建明等人之前提出了应用图形处理器 (GPU) 加速求解线性方程组的高斯消元法，所提出的算法与基于 CPU 的算法相比较取得更快的运算速度。二是提出各种变异高斯消元法以满足特定工作的需要。
+高斯消元可以用于求解多元线性方程组，形如：
+$$\begin{cases} a_{1,1}x_1 + a_{1,2}x_2 + \ldots + a_{1,n}x_n = b_1 \ a_{2,1}x_1 + a_{2,2}x_2 + \ldots + a_{2,n}x_n = b_2 \ \cdots \ a_{n,1}x_1 + a_{n,2}x_2 + \ldots + a_{n,n}x_n = b_n \end{cases}$$
+实现 将各项系数转化为矩阵。
+$$\left( \begin{matrix} a_{1,1} &amp;amp; a_{1,2} &amp;amp; \cdots &amp;amp; a_{1,n} &amp;amp; b_1 \ a_{2,1} &amp;amp; a_{2,2} &amp;amp; \cdots &amp;amp; a_{2,n} &amp;amp; b_2 \ \cdots &amp;amp; \cdots &amp;amp; \cdots &amp;amp; \cdots &amp;amp; \cdots \ a_{n,1} &amp;amp; a_{n,2} &amp;amp; \cdots &amp;amp; a_{n,n} &amp;amp; b_n \end{matrix} \right)$$</description>
+        </item>
+        
+    </channel>
+</rss>

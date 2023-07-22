@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>segment-tree on My New Hugo Site</title>
+        <link>http://example.org/tags/segment-tree/</link>
+        <description>Recent content in segment-tree on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 26 Nov 2020 11:10:13 +0800</lastBuildDate><atom:link href="http://example.org/tags/segment-tree/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>NOIP2020 前练习笔记</title>
+        <link>http://example.org/zh-cn/post/noiptraining2020/</link>
+        <pubDate>Thu, 26 Nov 2020 11:10:13 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/noiptraining2020/</guid>
+        <description>P5290 [十二省联考 2019] 春节十二响 题面不是人话，翻译一下。
+给一棵树，每个点权值为 $w_i$，需要将节点分组。
+分组要求：每个组内的点，两两不存在祖先——后代关系。
+每个组的代价是组内的最大值，求最小的总代价。
+考虑对于 $u$ 相连的所有子树，每棵子树内的点都只能与非该子树内的点在同一段内，也就是说，每棵子树内的组都必须与其他子树的组结合。
+由于只与最大值有关，有一个贪心的想法：如果当前子树内某组结合后，不会改变原先的最大值，那么一定结合。
+然而需要考虑，当前子树每个组只能与其他子树每个组一一结合，何况还有当前子树内出现最大组，要求其他子树合并的情况，因此需要妥当考虑。
+可以发现，每次结合都会减少对应组代价的代价，因此：优先消去代价大的。
+两类：当前子树，其他子树，分别取出最大值，比大小，然后小的并入大的中。
+注意使用启发式合并，时间复杂度 $O(n\log n)$.
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;queue&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;cctype&amp;gt; using namespace std; const int bufSize = 1e6; #define DEBUG inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize],*p1 = buf,*p2 = buf; return p1==p2&amp;amp;&amp;amp;(p2=(p1=buf)+fread(buf,1,bufSize,stdin),p1==p2)?EOF:*p1++; } template&amp;lt;typename T&amp;gt; inline T read(T &amp;amp;r) { static char c; r = 0; for(c=nc();!</description>
+        </item>
+        <item>
+        <title>树上的边题解</title>
+        <link>http://example.org/zh-cn/post/lu141303/</link>
+        <pubDate>Thu, 19 Nov 2020 13:58:24 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/lu141303/</guid>
+        <description>题面 给一棵 $n$ 个点的树，定义 $f(l,r)$ 为：
+$\forall i \in [l,r]$，$j \in [l,r]$，都存在 $i \to j$ 的路径时，需要选择的最少树边数量。
+现在你要求出：
+$$ \sum \limits _{l=1}^n \sum \limits _{r=l}^n f(l,r) $$
+题解 枚举 $l$ 或者 $r$ 是没有前途的，时间复杂度的下界是 $O(n^2)$，并且无法在左端点移动时更新整体的答案，没有进一步优化的空间。
+因此换一个思路，考虑统计每条边的贡献。
+一条 $u \to v$ 的边，将原树分成两棵子树。该边会对答案产生贡献，当且仅当：
+$\exists i \in [l,r],j \in [l,r]$，满足 $i \in \operatorname{subtree}(u),j \in \operatorname{subtree}(v)$.
+对于一个编号序列 $1,2,3,\ldots,n$，每个编号只有两种状态：$i \in \operatorname{subtree}(u)$ 或 $i \in \operatorname{subtree}(v)$.
+选择的一个连续编号区间 $[l,r]$，钦定的边会产生贡献，当且仅当该区间内同时包含 $i \in \operatorname{subtree}(u)$ 与 $j \in \operatorname{subtree}(v)$.
+那么有一个自然的想法：维护每一段连续的相同状态的编号，即维护若干个线段 $[L,R]$ 满足 $\forall i \in [L,R], i \in \operatorname{subtree}(u \text{ or } v)$，那么对于每一条线段，只要 $l &amp;lt; L,r \ge R$ 或 $l \le L,r &amp;gt; R$ 就能满足条件。</description>
+        </item>
+        <item>
+        <title>动态DP学习笔记</title>
+        <link>http://example.org/zh-cn/post/ddp/</link>
+        <pubDate>Fri, 23 Oct 2020 16:10:28 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/ddp/</guid>
+        <description>前言 动态 DP 问题是猫锟在 WC2018 讲的黑科技，一般用来解决树上的 DP 问题，同时支持点权（边权）修改操作。
+在 NOIP2018D2T3 考察后风靡 OI 圈。
+一般来说 ，将 DP 的状态转移方程写成矩阵形式，随后通过修改矩阵来实现修改功能。
+模板例题 Link
+给一棵带点权的树，求最大独立集大小。
+定义 $f(u,0)$ 代表不选 $u$ 点，以 $u$ 为子树中最大权独立集的大小，$f(u,1)$ 为选择 $u$ 点的大小。
+容易得到状态转移方程：
+$$f(u,0) = \sum \limits _{v \in son_u} \max(f(v,0),f(v,1))$$
+$$f(u,1) = w_u + \sum \limits _{v \in son_u} f(v,0)$$
+到了修改部分。
+对这棵树进行轻重链剖分，定义 $g(u,0)$ 为 $u$ 子树内不考虑重儿子，$u$ 点不选时的最大权独立集大小。
+$$g(u,0) = \sum \limits _{v \in son_u,v \ne heavyson(u)} \max(f(v,0),f(v,1))$$
+同样定义 $g(u,1)$ 为 $u$ 子树内不考虑重儿子，$u$ 点选择时最大权独立集大小。</description>
+        </item>
+        
+    </channel>
+</rss>

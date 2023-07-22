@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='被队友带的一场比赛。
+只能说我的水平还是太低了，这种题都没法场上过掉。或者说我和 CF 终究是八字不合。
+CF1312D 给 $n,m$，求序列方案数，满足 $a_i \in [1,m]$，且 $a$ 严格单峰，$a$ 存在且仅存在一对相同的元素。
+推式子的题目。
+考虑峰值为 $p$，还需要 $n-1$ 个数，$n-2$ 个不同的值，从 $[1,p-1]$ 中选出相同值后，选其他值：$\dbinom{p-2}{n-3}$，然后排列在两侧。每个数要么在左侧，要么在右侧，而相同的值必须在异侧。
+也就是说，我们可以决定剩下的 $n-3$ 个数的左右位置。显然分配完之后，左侧、右侧的顺序是确定的。
+$$ \sum \limits _{p=1}^m (p-1) \times \dbinom{p-2}{n-3} \times 2^{n-3} $$
+特判一下，$n=2$ 时无解。
+这里需要快速计算组合数，考虑 $\dbinom{a}{b} = \dfrac{a!}{(a-b)!b!}$，计算阶乘、阶乘逆元即可。
+其实这个式子可以进一步简化。
+考虑选出 $n-2$ 个值后，最大值一定是峰值，钦定某个非最大值为重复值，然后其余值分为在左在右。
+$$ (n-2) \times \dbinom{m}{n-1} \times 2^{n-3} $$
+CF1187D 场上口胡了一个鬼畜的三维偏序。
+首先可以考虑处理出每个 $a_i$ 应当到达的位置 $to(i)$.
+每次选取相邻两个元素，实际上就可以实现类似于冒泡排序的效果。可以证明选择更长区间实现的操作，反复小操作同样能实现。
+那么就只考虑相邻交换。
+假设 $to(i) &amp;lt; i$，则要求 $i$ 一路能向左交换到 $to(i)$，路上遇到的值都要 $&amp;gt;a_i$ 才可以。特别的，如果某个 $a_j &amp;lt; a_i$，但是 $to(j) &amp;lt; to(i)$，那么可以先将 $a_j$ 往前挪走，不会对 $a_i$ 到达目标产生影响。'>
+<title>校内选拔赛补题</title>
+
+<link rel='canonical' href='http://example.org/zh-cn/post/hitsztraining2/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='校内选拔赛补题'>
+<meta property='og:description' content='被队友带的一场比赛。
+只能说我的水平还是太低了，这种题都没法场上过掉。或者说我和 CF 终究是八字不合。
+CF1312D 给 $n,m$，求序列方案数，满足 $a_i \in [1,m]$，且 $a$ 严格单峰，$a$ 存在且仅存在一对相同的元素。
+推式子的题目。
+考虑峰值为 $p$，还需要 $n-1$ 个数，$n-2$ 个不同的值，从 $[1,p-1]$ 中选出相同值后，选其他值：$\dbinom{p-2}{n-3}$，然后排列在两侧。每个数要么在左侧，要么在右侧，而相同的值必须在异侧。
+也就是说，我们可以决定剩下的 $n-3$ 个数的左右位置。显然分配完之后，左侧、右侧的顺序是确定的。
+$$ \sum \limits _{p=1}^m (p-1) \times \dbinom{p-2}{n-3} \times 2^{n-3} $$
+特判一下，$n=2$ 时无解。
+这里需要快速计算组合数，考虑 $\dbinom{a}{b} = \dfrac{a!}{(a-b)!b!}$，计算阶乘、阶乘逆元即可。
+其实这个式子可以进一步简化。
+考虑选出 $n-2$ 个值后，最大值一定是峰值，钦定某个非最大值为重复值，然后其余值分为在左在右。
+$$ (n-2) \times \dbinom{m}{n-1} \times 2^{n-3} $$
+CF1187D 场上口胡了一个鬼畜的三维偏序。
+首先可以考虑处理出每个 $a_i$ 应当到达的位置 $to(i)$.
+每次选取相邻两个元素，实际上就可以实现类似于冒泡排序的效果。可以证明选择更长区间实现的操作，反复小操作同样能实现。
+那么就只考虑相邻交换。
+假设 $to(i) &amp;lt; i$，则要求 $i$ 一路能向左交换到 $to(i)$，路上遇到的值都要 $&amp;gt;a_i$ 才可以。特别的，如果某个 $a_j &amp;lt; a_i$，但是 $to(j) &amp;lt; to(i)$，那么可以先将 $a_j$ 往前挪走，不会对 $a_i$ 到达目标产生影响。'>
+<meta property='og:url' content='http://example.org/zh-cn/post/hitsztraining2/'>
+<meta property='og:site_name' content='My New Hugo Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Zh-Cn' /><meta property='article:published_time' content='2022-10-24T01:58:33&#43;08:00'/><meta property='article:modified_time' content='2022-10-24T01:58:33&#43;08:00'/>
+<meta name="twitter:title" content="校内选拔赛补题">
+<meta name="twitter:description" content="被队友带的一场比赛。
+只能说我的水平还是太低了，这种题都没法场上过掉。或者说我和 CF 终究是八字不合。
+CF1312D 给 $n,m$，求序列方案数，满足 $a_i \in [1,m]$，且 $a$ 严格单峰，$a$ 存在且仅存在一对相同的元素。
+推式子的题目。
+考虑峰值为 $p$，还需要 $n-1$ 个数，$n-2$ 个不同的值，从 $[1,p-1]$ 中选出相同值后，选其他值：$\dbinom{p-2}{n-3}$，然后排列在两侧。每个数要么在左侧，要么在右侧，而相同的值必须在异侧。
+也就是说，我们可以决定剩下的 $n-3$ 个数的左右位置。显然分配完之后，左侧、右侧的顺序是确定的。
+$$ \sum \limits _{p=1}^m (p-1) \times \dbinom{p-2}{n-3} \times 2^{n-3} $$
+特判一下，$n=2$ 时无解。
+这里需要快速计算组合数，考虑 $\dbinom{a}{b} = \dfrac{a!}{(a-b)!b!}$，计算阶乘、阶乘逆元即可。
+其实这个式子可以进一步简化。
+考虑选出 $n-2$ 个值后，最大值一定是峰值，钦定某个非最大值为重复值，然后其余值分为在左在右。
+$$ (n-2) \times \dbinom{m}{n-1} \times 2^{n-3} $$
+CF1187D 场上口胡了一个鬼畜的三维偏序。
+首先可以考虑处理出每个 $a_i$ 应当到达的位置 $to(i)$.
+每次选取相邻两个元素，实际上就可以实现类似于冒泡排序的效果。可以证明选择更长区间实现的操作，反复小操作同样能实现。
+那么就只考虑相邻交换。
+假设 $to(i) &amp;lt; i$，则要求 $i$ 一路能向左交换到 $to(i)$，路上遇到的值都要 $&amp;gt;a_i$ 才可以。特别的，如果某个 $a_j &amp;lt; a_i$，但是 $to(j) &amp;lt; to(i)$，那么可以先将 $a_j$ 往前挪走，不会对 $a_i$ 到达目标产生影响。">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script> 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">My New Hugo Site</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/en/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/algorithm/" >
+                Algorithm
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/zh-cn/post/hitsztraining2/">校内选拔赛补题</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 24, 2022</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>被队友带的一场比赛。</p>
+<p>只能说我的水平还是太低了，这种题都没法场上过掉。或者说我和 CF 终究是八字不合。</p>
+<h2 id="cf1312d">CF1312D</h2>
+<p>给 $n,m$，求序列方案数，满足 $a_i \in [1,m]$，且 $a$ 严格单峰，$a$ 存在且仅存在一对相同的元素。</p>
+<p>推式子的题目。</p>
+<p>考虑峰值为 $p$，还需要 $n-1$ 个数，$n-2$ 个不同的值，从 $[1,p-1]$ 中选出相同值后，选其他值：$\dbinom{p-2}{n-3}$，然后排列在两侧。每个数要么在左侧，要么在右侧，而相同的值必须在异侧。</p>
+<p>也就是说，我们可以决定剩下的 $n-3$ 个数的左右位置。显然分配完之后，左侧、右侧的顺序是确定的。</p>
+<p>$$
+\sum \limits _{p=1}^m (p-1) \times \dbinom{p-2}{n-3} \times 2^{n-3}
+$$</p>
+<p>特判一下，$n=2$ 时无解。</p>
+<p>这里需要快速计算组合数，考虑 $\dbinom{a}{b} = \dfrac{a!}{(a-b)!b!}$，计算阶乘、阶乘逆元即可。</p>
+<hr>
+<p>其实这个式子可以进一步简化。</p>
+<p>考虑选出 $n-2$ 个值后，最大值一定是峰值，钦定某个非最大值为重复值，然后其余值分为在左在右。</p>
+<p>$$
+(n-2) \times \dbinom{m}{n-1} \times 2^{n-3}
+$$</p>
+<h2 id="cf1187d">CF1187D</h2>
+<p>场上口胡了一个鬼畜的三维偏序。</p>
+<p>首先可以考虑处理出每个 $a_i$ 应当到达的位置 $to(i)$.</p>
+<p>每次选取相邻两个元素，实际上就可以实现类似于冒泡排序的效果。可以证明选择更长区间实现的操作，反复小操作同样能实现。</p>
+<p>那么就只考虑相邻交换。</p>
+<p>假设 $to(i) &lt; i$，则要求 $i$ 一路能向左交换到 $to(i)$，路上遇到的值都要 $&gt;a_i$ 才可以。特别的，如果某个 $a_j &lt; a_i$，但是 $to(j) &lt; to(i)$，那么可以先将 $a_j$ 往前挪走，不会对 $a_i$ 到达目标产生影响。</p>
+<p>所以计数：</p>
+<p>$$
+\begin{cases}
+to(i) &lt; j &lt; i \
+to(j) &gt; to(i) \
+a_j &lt; a_i
+\end{cases}
+$$</p>
+<p>只要该数值非 $0$，则一定存在无法移动到目标位置的 $a_i$.</p>
+<p>可以发现这类似于一个三维偏序问题。</p>
+<p>另一种情况，若 $to(i) &gt; i$，则 $i$ 向右移动，计数：</p>
+<p>$$
+\begin{cases}
+i &lt; j &lt; to(i) \
+to(j) &lt; to(i) \
+a_j &gt; a_i
+\end{cases}
+$$</p>
+<p>同样要求为零。</p>
+<p>考虑到有不等式 $to(i) \ge i$ 恒成立，则若 $to(j) &lt; to(i)$，$j &lt; to(i)$ 也成立。因此可以转化为：</p>
+<p>$$
+\begin{cases}
+j &lt; i \
+to(i) &lt; to(j) \
+a_j &lt; a_i
+\end{cases}
+$$</p>
+<p>$$
+\begin{cases}
+i &lt; j  \
+to(j) &lt; to(i) \
+a_i &lt; a_j
+\end{cases}
+$$</p>
+<p>都不成立。<br>
+事实上，可以发现，这二者的结构多么类似啊！那其实我们只统计一侧就可以了。</p>
+<p>$$
+\begin{cases}
+j &lt; i \
+to(i) &lt; to(j) \
+a_i \ge a_j
+\end{cases}
+$$</p>
+<p>恒成立。</p>
+<p>从左往右遍历 $i$，查询 $to(j) \in [to(i), n]$ 的对应 $a_j$ 最大值 $maxx$，如果 $maxx &gt; a_i$ 成立则无解。<br>
+然后将 $i$ 插入对应位置。</p>
+<p>实际上因为这要求的是存在性问题，而不是严格的偏序计数，因此可以用这种方法解决。</p>
+<p>（马上复习 cdq 分治）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ctype.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> bufSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">char</span> <span style="color:#a6e22e">nc</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef DEBUG
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> getchar();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> buf[bufSize], <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> buf, <span style="color:#f92672">*</span>p2 <span style="color:#f92672">=</span> buf;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p1 <span style="color:#f92672">==</span> p2 <span style="color:#f92672">&amp;&amp;</span> (p2 <span style="color:#f92672">=</span> (p1 <span style="color:#f92672">=</span> buf) <span style="color:#f92672">+</span> fread(buf, <span style="color:#ae81ff">1</span>, bufSize, stdin), p1 <span style="color:#f92672">==</span> p2) <span style="color:#f92672">?</span> EOF : <span style="color:#f92672">*</span>p1<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> s)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; <span style="color:#f92672">!</span>isalpha(c); c <span style="color:#f92672">=</span> nc())
+</span></span><span style="display:flex;"><span>        ;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isalpha(c); c <span style="color:#f92672">=</span> nc()) <span style="color:#f92672">*</span>s<span style="color:#f92672">++</span> <span style="color:#f92672">=</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> T read(T<span style="color:#f92672">&amp;</span> r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> flag;
+</span></span><span style="display:flex;"><span>    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (c <span style="color:#f92672">=</span> nc(); <span style="color:#f92672">!</span>isdigit(c); c <span style="color:#f92672">=</span> nc())
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>) flag <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isdigit(c); c <span style="color:#f92672">=</span> nc()) r <span style="color:#f92672">=</span> r <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> r <span style="color:#f92672">*=</span> flag;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">3e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> T, n, a[maxn], b[maxn], to[maxn];
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> Va[maxn], Vb[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> f[maxn], tag[maxn], now;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">check</span>(<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (tag[x] <span style="color:#f92672">!=</span> now) f[x] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">30</span>, tag[x] <span style="color:#f92672">=</span> now;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">update</span>(<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> k)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//    printf(&#34;update %d %d\n&#34;,x,k);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (; x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>; x <span style="color:#f92672">-=</span> (x <span style="color:#f92672">&amp;</span> <span style="color:#f92672">-</span>x)) check(x), f[x] <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>min(f[x], k);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">ask</span>(<span style="color:#66d9ef">int</span> x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">30</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; x <span style="color:#f92672">&lt;=</span> n; x <span style="color:#f92672">+=</span> (x <span style="color:#f92672">&amp;</span> <span style="color:#f92672">-</span>x)) check(x), res <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>min(f[x], res);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    read(T);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (T<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        read(n);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) Va[i].clear(), Vb[i].clear();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) read(a[i]), Va[a[i]].push_back(i);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) read(b[i]), Vb[b[i]].push_back(i);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (Va[i].size() <span style="color:#f92672">!=</span> Vb[i].size()) <span style="color:#66d9ef">goto</span> no;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> it <span style="color:#f92672">=</span> Va[i].begin(), it2 <span style="color:#f92672">=</span> Vb[i].begin(); it <span style="color:#f92672">!=</span> Va[i].end(); <span style="color:#f92672">++</span>it, <span style="color:#f92672">++</span>it2)
+</span></span><span style="display:flex;"><span>                to[<span style="color:#f92672">*</span>it] <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>it2;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//        for(int i = 1;i&lt;=n;++i) printf(&#34;%d &#34;,to[i]);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">//        puts(&#34;&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">++</span>now;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//            printf(&#34;to %d\n&#34;,i);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#75715e">//            printf(&#34;ask %d %d\n&#34;, to[i] + 1,ask(to[i] + 1));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#66d9ef">if</span> (ask(to[i] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&lt;</span> a[i]) <span style="color:#66d9ef">goto</span> no;
+</span></span><span style="display:flex;"><span>            update(to[i], a[i]);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        puts(<span style="color:#e6db74">&#34;YES&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    no:
+</span></span><span style="display:flex;"><span>        puts(<span style="color:#e6db74">&#34;NO&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="cf1718a2">CF1718A2</h2>
+<p>给一个数组 a，选择区间 $[l,r]$，花费 $\lceil \dfrac{r-l+1}{2}\rceil$ 的代价，使区间内数 $\oplus x$，求清零的最小代价。</p>
+<p>要么进行长度为一的区间操作，要么进行长度为二的区间操作。任何更长的操作都可以由这两种操作等价，而性价比不如。</p>
+<p>如果 $[l,l+1]$ 操作了，那再对 $l+1$ 单独操作，和对 $l,l+1$ 分别单独操作是等价的。</p>
+<p>那么可以认为长度为一的操作与长度为二的操作不相交。</p>
+<p>但长度为二的操作是可以相交的。连续进行长度为二的操作，从 $l$ 到 $r$ 后，$a_r = a_l\oplus  a_{l+1} \oplus \cdots \oplus a_r$，一共进行 $r-l$ 次。如果此时 $a_r = 0$，就可以节约一次。</p>
+<p>那么我们的可选的操作就是：</p>
+<ul>
+<li>进行长度为一的操作，花费 $1$ 代价消掉 $1$ 个。</li>
+<li>进行 $k$ 次长度为二的操作。花费 $k$ 的代价，消掉 $k$ 或 $k+1$ 个。当 $a_l\oplus  a_{l+1} \oplus \cdots \oplus a_r = 0$ 时即可消掉 $k+1$ 个。</li>
+</ul>
+<p>那我们不断寻找异或和为零的段贪心即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;set&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ctype.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> bufSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">char</span> <span style="color:#a6e22e">nc</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#ifdef DEBUG
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> getchar();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> buf[bufSize], <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> buf, <span style="color:#f92672">*</span>p2 <span style="color:#f92672">=</span> buf;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p1 <span style="color:#f92672">==</span> p2 <span style="color:#f92672">&amp;&amp;</span> (p2 <span style="color:#f92672">=</span> (p1 <span style="color:#f92672">=</span> buf) <span style="color:#f92672">+</span> fread(buf, <span style="color:#ae81ff">1</span>, bufSize, stdin), p1 <span style="color:#f92672">==</span> p2) <span style="color:#f92672">?</span> EOF : <span style="color:#f92672">*</span>p1<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>s)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; <span style="color:#f92672">!</span>isalpha(c); c <span style="color:#f92672">=</span> nc());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isalpha(c); c <span style="color:#f92672">=</span> nc()) <span style="color:#f92672">*</span>s<span style="color:#f92672">++</span> <span style="color:#f92672">=</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> T read(T <span style="color:#f92672">&amp;</span>r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> flag;
+</span></span><span style="display:flex;"><span>    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (c <span style="color:#f92672">=</span> nc(); <span style="color:#f92672">!</span>isdigit(c); c <span style="color:#f92672">=</span> nc()) <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>) flag <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isdigit(c); c <span style="color:#f92672">=</span> nc()) r <span style="color:#f92672">=</span> r <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> r <span style="color:#f92672">*=</span> flag;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span>  <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> T,n, a[maxn];
+</span></span><span style="display:flex;"><span>set<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> S;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    read(T);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(T<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        read(n);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> zeronum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, pre <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, res <span style="color:#f92672">=</span> n;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) read(a[i]), zeronum <span style="color:#f92672">+=</span> <span style="color:#f92672">!</span>a[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//        for(int i = 1;i&lt;=n;++i) printf(&#34;%d &#34;,pre[i]);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">//        puts(&#34;&#34;);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (zeronum <span style="color:#f92672">==</span> n)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            puts(<span style="color:#e6db74">&#34;0&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">goto</span> end;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        S.clear();
+</span></span><span style="display:flex;"><span>        S.insert(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            pre <span style="color:#f92672">^=</span> a[i];
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (S.find(pre) <span style="color:#f92672">!=</span> S.end())
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">--</span>res, S.clear(), S.insert(<span style="color:#ae81ff">0</span>), pre <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> S.insert(pre);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, res);
+</span></span><span style="display:flex;"><span>        end:;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="cf715b">CF715B</h2>
+<p>给一张非负权图，可以修改 $0$ 权边，修改后所有边权为正数，问能否修改后使 $s \to t$ 的最短路长度为 $L$.</p>
+<p>如果存在任意不经过 $0$ 权边的 $s \to t$ 路径，满足长度小于 $L$，则不可能。</p>
+<p>然后加入零权边，把零权边改权为 $1$，跑出最短路如果 $\le L$ 则有解。</p>
+<p>接下来我们要分配边。</p>
+<p>不在最短路上的边一律分配无穷大。接下来就是要在最短路上做一个分配。</p>
+<p>可以进行反复调整，每次将当前最短路通过一条零权边调整到 $L$，其余边依然为 $1$，然后再跑最短路，再次调整。</p>
+<p>复杂度是 $O(nm\log n)$ 的。</p>
+<p>还有一种复杂度更优的方法。</p>
+<p>我们将第一到第 $p$ 条零权边设置为 $1$，剩下的无穷大，跑最短路。如果 $&gt;L$，则 $p:=p-1$，一定可以找到唯一一条关键边，使得这条边若无穷大则无解，若 $1$ 则有解。</p>
+<p>那么通过调整这条关键边，我们就能改变最短路的长度，从而找到一个解。</p>
+<p>二分这条关键边的长度即可。</p>
+<p>题解的二分真是灵活至极啊。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ctype.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;queue&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> bufSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define int long long
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">char</span> <span style="color:#a6e22e">nc</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#ifdef DEBUG
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> getchar();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> buf[bufSize], <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> buf, <span style="color:#f92672">*</span>p2 <span style="color:#f92672">=</span> buf;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p1 <span style="color:#f92672">==</span> p2 <span style="color:#f92672">&amp;&amp;</span> (p2 <span style="color:#f92672">=</span> (p1 <span style="color:#f92672">=</span> buf) <span style="color:#f92672">+</span> fread(buf, <span style="color:#ae81ff">1</span>, bufSize, stdin), p1 <span style="color:#f92672">==</span> p2) <span style="color:#f92672">?</span> EOF : <span style="color:#f92672">*</span>p1<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">char</span><span style="color:#f92672">*</span> s)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; <span style="color:#f92672">!</span>isalpha(c); c <span style="color:#f92672">=</span> nc())
+</span></span><span style="display:flex;"><span>        ;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isalpha(c); c <span style="color:#f92672">=</span> nc()) <span style="color:#f92672">*</span>s<span style="color:#f92672">++</span> <span style="color:#f92672">=</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> T read(T<span style="color:#f92672">&amp;</span> r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> flag;
+</span></span><span style="display:flex;"><span>    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (c <span style="color:#f92672">=</span> nc(); <span style="color:#f92672">!</span>isdigit(c); c <span style="color:#f92672">=</span> nc())
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>) flag <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isdigit(c); c <span style="color:#f92672">=</span> nc()) r <span style="color:#f92672">=</span> r <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> r <span style="color:#f92672">*=</span> flag;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, m, L, s, t;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">node</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> to, next, val;
+</span></span><span style="display:flex;"><span>} E[maxn <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> head[maxn], oldhead[maxn], tot;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> x, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> y, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> w)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    E[<span style="color:#f92672">++</span>tot].next <span style="color:#f92672">=</span> head[x], E[tot].to <span style="color:#f92672">=</span> y, E[tot].val <span style="color:#f92672">=</span> w, head[x] <span style="color:#f92672">=</span> tot;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> dis[maxn], vis[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> U[maxn], V[maxn], W[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dij</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    priority_queue<span style="color:#f92672">&lt;</span>pair<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> q;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) dis[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1ll</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">40</span>, vis[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    dis[s] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    q.push(make_pair(<span style="color:#f92672">-</span>dis[s], s));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>q.empty())
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> q.top().second;
+</span></span><span style="display:flex;"><span>        q.pop();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (vis[u]) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>        vis[u] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> head[u]; p; p <span style="color:#f92672">=</span> E[p].next)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> E[p].to;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (dis[v] <span style="color:#f92672">&gt;</span> dis[u] <span style="color:#f92672">+</span> E[p].val)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                dis[v] <span style="color:#f92672">=</span> dis[u] <span style="color:#f92672">+</span> E[p].val;
+</span></span><span style="display:flex;"><span>                q.push(make_pair(<span style="color:#f92672">-</span>dis[v], v));
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">signed</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    read(n), read(m), read(L), read(s), read(t);
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">++</span>s, <span style="color:#f92672">++</span>t;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        read(U[i]), read(V[i]), read(W[i]);
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">++</span>U[i], <span style="color:#f92672">++</span>V[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (W[i] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) add(U[i], V[i], W[i]), add(V[i], U[i], W[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    dij();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (dis[t] <span style="color:#f92672">&lt;</span> L)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        puts(<span style="color:#e6db74">&#34;NO&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">=</span> m, mid, ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;=</span> r)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        mid <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> old <span style="color:#f92672">=</span> tot;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) oldhead[i] <span style="color:#f92672">=</span> head[i];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> mid; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>W[i]) add(U[i], V[i], <span style="color:#ae81ff">1</span>), add(V[i], U[i], <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        dij();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (dis[t] <span style="color:#f92672">&gt;</span> L)
+</span></span><span style="display:flex;"><span>            l <span style="color:#f92672">=</span> mid <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            ans <span style="color:#f92672">=</span> mid, r <span style="color:#f92672">=</span> mid <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        tot <span style="color:#f92672">=</span> old;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) head[i] <span style="color:#f92672">=</span> oldhead[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(ans <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        puts(<span style="color:#e6db74">&#34;NO&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> ans; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>W[i]) add(U[i], V[i], <span style="color:#ae81ff">1</span>), add(V[i], U[i], <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//    printf(&#34;ans%lld\n&#34;,ans);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    l <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">=</span> L;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (l <span style="color:#f92672">&lt;=</span> r)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> old <span style="color:#f92672">=</span> tot;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) oldhead[i] <span style="color:#f92672">=</span> head[i];
+</span></span><span style="display:flex;"><span>        mid <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        add(U[ans], V[ans], mid);
+</span></span><span style="display:flex;"><span>        add(V[ans], U[ans], mid);
+</span></span><span style="display:flex;"><span>        dij();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (dis[t] <span style="color:#f92672">&gt;=</span> L)
+</span></span><span style="display:flex;"><span>            res <span style="color:#f92672">=</span> mid, r <span style="color:#f92672">=</span> mid <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            l <span style="color:#f92672">=</span> mid <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        tot <span style="color:#f92672">=</span> old;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) head[i] <span style="color:#f92672">=</span> oldhead[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    puts(<span style="color:#e6db74">&#34;YES&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (W[i])
+</span></span><span style="display:flex;"><span>            printf(<span style="color:#e6db74">&#34;%lld %lld %lld</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, U[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, V[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, W[i]);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">&lt;</span> ans)
+</span></span><span style="display:flex;"><span>                printf(<span style="color:#e6db74">&#34;%lld %lld 1</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, U[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, V[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (i <span style="color:#f92672">==</span> ans)
+</span></span><span style="display:flex;"><span>                printf(<span style="color:#e6db74">&#34;%lld %lld %lld</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, U[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, V[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, res);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>                printf(<span style="color:#e6db74">&#34;%lld %lld %lld</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, U[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, V[i] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, L <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="1695d2">1695D2</h2>
+<p>考虑链的情况，一个点就能确定一条链。</p>
+<p>现在在链上再挂上一条链，形成一个根节点度为三的树。两个点就能确定任意点。</p>
+<p>现在回到树上考虑。</p>
+<p>对于某棵子树，对于其父亲来说，它内部有多少个询问点是没有意义的，因此可以将其抽象为一个点。</p>
+<p>考虑一个类似换根的想法，以当前 $u$ 为根，如果其父亲子树中有询问点、$u$ 有 $k$ 个儿子，如果恰好有一个儿子子树是一整条链，那么只需要其余儿子子树内有询问点、父亲子树中有询问点，就可以确定这条链上任意点。</p>
+<p>将询问点放在叶子上总是比较好的。</p>
+<p>那么初始化时，我们需要叶子个数个询问点，就一定能确定任意点。一个询问点确定往上的一条链，而当两个询问点确定的链在祖先处汇聚，可以将其等价于一个询问点，从而递归、归纳证明可确定任意点。</p>
+<p>而如果有某个点，其有一个儿子子树恰好为一条链，如果有其他的儿子，那么就恰好可以节约这条链端的询问点。</p>
+<p>因为只要其余儿子子树内都有询问点，就可以将其等价为一条链挂上一个询问点，从而通过两点确定任意点。</p>
+<p>但如果没有直链儿子，就不能节约。因为如果某棵子树内没有询问点，则一定可以找到一个分叉点 $v$，使 $v$ 父亲子树内询问点对 $v$ 内部深度相同的点给出相同距离。</p>
+<p>那么从所有叶子出发，找到往上的第一个分叉点，节约之。</p>
+<p>特判链与单点。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ctype.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> bufSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">char</span> <span style="color:#a6e22e">nc</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#ifdef DEBUG
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> getchar();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> buf[bufSize], <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> buf, <span style="color:#f92672">*</span>p2 <span style="color:#f92672">=</span> buf;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p1 <span style="color:#f92672">==</span> p2 <span style="color:#f92672">&amp;&amp;</span> (p2 <span style="color:#f92672">=</span> (p1 <span style="color:#f92672">=</span> buf) <span style="color:#f92672">+</span> fread(buf, <span style="color:#ae81ff">1</span>, bufSize, stdin), p1 <span style="color:#f92672">==</span> p2) <span style="color:#f92672">?</span> EOF : <span style="color:#f92672">*</span>p1<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>s)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; <span style="color:#f92672">!</span>isalpha(c); c <span style="color:#f92672">=</span> nc());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isalpha(c); c <span style="color:#f92672">=</span> nc()) <span style="color:#f92672">*</span>s<span style="color:#f92672">++</span> <span style="color:#f92672">=</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>s <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;\0&#39;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> T read(T <span style="color:#f92672">&amp;</span>r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> flag;
+</span></span><span style="display:flex;"><span>    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (c <span style="color:#f92672">=</span> nc(); <span style="color:#f92672">!</span>isdigit(c); c <span style="color:#f92672">=</span> nc()) <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>) flag <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isdigit(c); c <span style="color:#f92672">=</span> nc()) r <span style="color:#f92672">=</span> r <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> r <span style="color:#f92672">*=</span> flag;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">4e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> T,n;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">node</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> to, next;
+</span></span><span style="display:flex;"><span>} E[maxn <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> head[maxn],tot;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>x,<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>y)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    E[<span style="color:#f92672">++</span>tot].next <span style="color:#f92672">=</span> head[x],E[tot].to <span style="color:#f92672">=</span> y,head[x] <span style="color:#f92672">=</span> tot;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> deg[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> q[maxn], qh, qt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    read(T);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(T<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        read(n);
+</span></span><span style="display:flex;"><span>        tot <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) head[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, deg[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, u, v; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) read(u), read(v), add(u, v), add(v, u), <span style="color:#f92672">++</span>deg[u], <span style="color:#f92672">++</span>deg[v];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> maxx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            puts(<span style="color:#e6db74">&#34;0&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">goto</span> end;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) maxx <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>max(maxx,deg[i]);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(maxx <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2</span>) 
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            puts(<span style="color:#e6db74">&#34;1&#34;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">goto</span> end;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        qh <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,qt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (deg[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">++</span>res, q[<span style="color:#f92672">++</span>qt] <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(qt <span style="color:#f92672">&gt;=</span> qh)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> q[qh<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>            deg[u] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> head[u];p;p<span style="color:#f92672">=</span>E[p].next)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> E[p].to;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (deg[v] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>                    deg[v] <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#f92672">--</span>res;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(deg[v] <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>                    q[<span style="color:#f92672">++</span>qt] <span style="color:#f92672">=</span> v;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;%d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, res);
+</span></span><span style="display:flex;"><span>        end:;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 My New Hugo Site
+    </section>
+    
+    <section class="powerby">
+         with 
+        
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            </main>
+        </div>
+        <script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

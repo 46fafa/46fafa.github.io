@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>exgcd on My New Hugo Site</title>
+        <link>http://example.org/tags/exgcd/</link>
+        <description>Recent content in exgcd on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 23 May 2020 13:38:12 +0800</lastBuildDate><atom:link href="http://example.org/tags/exgcd/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>拓展欧几里德算法(exgcd)学习笔记</title>
+        <link>http://example.org/zh-cn/post/exgcd/</link>
+        <pubDate>Sat, 23 May 2020 13:38:12 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/exgcd/</guid>
+        <description>拓展欧几里得算法 解不定方程 $ax + by = c$ ，可以使用拓展欧几里得算法。
+首先解 $ax + by = \gcd (a,b)$ .
+欧几里得算法 证明 $\gcd(a,b) = \gcd(b,a \bmod b)$ ：
+设 $a = g \times k_1$ ， $b = g \times k_2$ ，其中 $k_1,k_2$ 互质。
+要证明 $\gcd(a,b) = \gcd(b,a\bmod b)$ ，即证 $g = \gcd(g \times k_2, (g \times k_1 )\bmod (g \times k_2))$ .
+将 $g$ 消去，即证 $\gcd(k_2,k_1 \bmod k_2) = 1$ .
+假设有公因子 $x$ ，则：</description>
+        </item>
+        
+    </channel>
+</rss>

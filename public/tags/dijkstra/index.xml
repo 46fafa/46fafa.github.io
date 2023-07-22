@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>dijkstra on My New Hugo Site</title>
+        <link>http://example.org/tags/dijkstra/</link>
+        <description>Recent content in dijkstra on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Mon, 22 Aug 2022 12:03:16 +0800</lastBuildDate><atom:link href="http://example.org/tags/dijkstra/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Learn Dijkstra For The Last Time</title>
+        <link>http://example.org/zh-cn/post/learn-dijkstra/</link>
+        <pubDate>Mon, 22 Aug 2022 12:03:16 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/learn-dijkstra/</guid>
+        <description>Introduction Dijkstra 算法是用于求解非负权图单源最短路的经典算法。
+市面上的大部分教程都仅仅停留在「如何实现 Dijkstra 算法」的层面。从应用角度，这当然无可厚非。但理解算法本身，也不失为一件乐事。
+问自己这样几个问题：
+Dijkstra 算法的每个过程是在干什么？ Dijkstra 算法为什么是正确的？ 也许你在小学就已经能熟练的打出 Dijkstra 的板子，拿它在各大 OJ 上厮杀。
+也许你曾经随便找一篇博文，花费 10min 把代码敲熟便「学会了」Dijkstra 算法。
+That is not true.
+在我给小 OIer 们准备上最短路课程时，我才真正意识到，其实我从未理解过 Dijkstra 算法。我可以手指不停地将它敲出来，也会记录最短路径、最短路计数之类的拓展，但我不明白它的 Key Inspiration 是什么，不理解它「为什么」这么做，「为什么」是正确的。
+我振臂高呼——「Tell Me Why!!!」
+于是我花费了许多时间，在网上查找相关资料，但要么只能查到诘屈聱牙的严谨理论证明，要么就是 csdn 之流的垃圾场上千篇一律的不求甚解。
+最后，我在 Stack Overflow 上找到了一篇回答，用一个形象的比喻解决了我的困惑。以此为立足点，刷新了我对 Dijkstra 的理解。也许这算是一种「Aha! moment」.
+这便是本文的由来。
+Analogy Start With BFS 我们曾经学过 BFS(Breath-First Search，宽度优先搜索)，如果没有学过的话建议先学习一下。
+BFS 同样可以求解最短路，不过它有着更强的限制条件——「边的距离相等」，或者说，「边权为 $1$」.
+在 BFS 的过程中，每个节点「首次」被访问，即为最短路。
+这个是很好理解的，因为我们第一轮 BFS 访问的节点距离起点距离为 $1$，第二轮距离为 $2$，以此类推，首次访问某节点，就一定通过了最短的路径。
+用一个形象的比喻：每一条边就像是一根 $1m$ 长的管道，从起点开始注水，水流速度为 $1m/s$，每个结点首次被水浸泡时，对应的是时间 $t$ 最小，而 $s = vt$，那么路程也最小，即最短路。</description>
+        </item>
+        
+    </channel>
+</rss>

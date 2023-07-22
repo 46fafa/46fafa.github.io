@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>web on My New Hugo Site</title>
+        <link>http://example.org/tags/web/</link>
+        <description>Recent content in web on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 21 Aug 2022 23:22:02 +0800</lastBuildDate><atom:link href="http://example.org/tags/web/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Frontend 入门笔记第二弹(Vue) 2Days</title>
+        <link>http://example.org/zh-cn/post/web-dev-3days/</link>
+        <pubDate>Sun, 21 Aug 2022 23:22:02 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/web-dev-3days/</guid>
+        <description>上一次学习 web 开发还是在上一次。
+经过了三天的前端学习后，我终于准备开始学习 FullStack 了。
+仔细想了想，还是不要待在 comfort zone 里，干脆直接学 js 全栈，也可以提高 js 的熟练度。
+Day0 衔接上一次的 Day3.
+小学数学训练的项目暂且搁置了，等我神功小成再回来重构吧……
+这几天可能学习一下 vue 和 tailwind css(或者 bootstrap?)
+Intermedaite HTML and CSS Position
+relative，相对于原本位置的 position。通过定义 left/right/top/bottom 来确定相对位置。注意这里定义的是偏移量，即相对于其原本应在的位置的偏移。
+absolute，绝对位置，相对于 parent 的 position，通过定义 left/right/top/bottom 来确定其位置。
+note: 这里的 parent 是祖先中第一个 position 为 relative 或 absolute 的，因此使用时一般设置 parent container 的 position 为 relative. fixed，固定于屏幕上某个位置，不会随着翻页而改变。
+sticky，经常在导航栏上使用的东西。
+一个基础的 Form:
+&amp;lt;form action=&amp;#34;http://httpbin.org/post&amp;#34; method=&amp;#34;post&amp;#34;&amp;gt; &amp;lt;div&amp;gt; &amp;lt;label for=&amp;#34;first_name&amp;#34;&amp;gt;First Name:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;first_name&amp;#34; id=&amp;#34;first_name&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;label for=&amp;#34;last_name&amp;#34;&amp;gt;Last Name:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; name=&amp;#34;last_name&amp;#34; id=&amp;#34;last_name&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;div&amp;gt; &amp;lt;label for=&amp;#34;age&amp;#34;&amp;gt;Age:&amp;lt;/label&amp;gt; &amp;lt;input type=&amp;#34;number&amp;#34; name=&amp;#34;age&amp;#34; id=&amp;#34;age&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;button type=&amp;#34;submit&amp;#34;&amp;gt;Submit&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; name 是传参的名字，id 跟其他 html element 中是一个意义的。</description>
+        </item>
+        <item>
+        <title>Frontend 入门笔记</title>
+        <link>http://example.org/zh-cn/post/web-dev-3days/</link>
+        <pubDate>Fri, 19 Aug 2022 15:46:29 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/web-dev-3days/</guid>
+        <description>跟着 The Odin Project 快速入门一下网页开发。
+作为一个功底深厚闲得蛋疼的 CSer，当然是选择 Full Stack 路线啦。
+按天来记录学习内容。
+Day 1 Skip 掉 Introduction 部分。
+Prerequisites 也可以 Skip 掉。
+Git 学过也可以 Skip 掉，直接进入 HTML Foundations 部分。
+HTML Foundations HTML，全称 HyperText Markup Language，是一种标记语言，和 Markdown 是同类。
+HTML 用于定义网页的结构与内容，而不负责网页的具体显示细节。后者归 CSS 管。
+HTML 中最主要的单元是 element，一般来说由两个 tag 包裹一定的内容。
+&amp;lt;p&amp;gt;A paragraph.&amp;lt;/p&amp;gt; 可以标记属性(attributes)：
+&amp;lt;p style=&amp;#34;color:black;&amp;#34;&amp;gt;black text.&amp;lt;/p&amp;gt; HTML 文件开头标注 DOCTYPE，默认使用 HTML5.
+&amp;lt;!DOCTYPE html&amp;gt; 整个文件结构也类似于一棵树。
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; head element 用于放置 metadata，比如 title 啊 description 啊之类的。</description>
+        </item>
+        
+    </channel>
+</rss>

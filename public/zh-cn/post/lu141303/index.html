@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='题面 给一棵 $n$ 个点的树，定义 $f(l,r)$ 为：
+$\forall i \in [l,r]$，$j \in [l,r]$，都存在 $i \to j$ 的路径时，需要选择的最少树边数量。
+现在你要求出：
+$$ \sum \limits _{l=1}^n \sum \limits _{r=l}^n f(l,r) $$
+题解 枚举 $l$ 或者 $r$ 是没有前途的，时间复杂度的下界是 $O(n^2)$，并且无法在左端点移动时更新整体的答案，没有进一步优化的空间。
+因此换一个思路，考虑统计每条边的贡献。
+一条 $u \to v$ 的边，将原树分成两棵子树。该边会对答案产生贡献，当且仅当：
+$\exists i \in [l,r],j \in [l,r]$，满足 $i \in \operatorname{subtree}(u),j \in \operatorname{subtree}(v)$.
+对于一个编号序列 $1,2,3,\ldots,n$，每个编号只有两种状态：$i \in \operatorname{subtree}(u)$ 或 $i \in \operatorname{subtree}(v)$.
+选择的一个连续编号区间 $[l,r]$，钦定的边会产生贡献，当且仅当该区间内同时包含 $i \in \operatorname{subtree}(u)$ 与 $j \in \operatorname{subtree}(v)$.
+那么有一个自然的想法：维护每一段连续的相同状态的编号，即维护若干个线段 $[L,R]$ 满足 $\forall i \in [L,R], i \in \operatorname{subtree}(u \text{ or } v)$，那么对于每一条线段，只要 $l &amp;lt; L,r \ge R$ 或 $l \le L,r &amp;gt; R$ 就能满足条件。'>
+<title>树上的边题解</title>
+
+<link rel='canonical' href='http://example.org/zh-cn/post/lu141303/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='树上的边题解'>
+<meta property='og:description' content='题面 给一棵 $n$ 个点的树，定义 $f(l,r)$ 为：
+$\forall i \in [l,r]$，$j \in [l,r]$，都存在 $i \to j$ 的路径时，需要选择的最少树边数量。
+现在你要求出：
+$$ \sum \limits _{l=1}^n \sum \limits _{r=l}^n f(l,r) $$
+题解 枚举 $l$ 或者 $r$ 是没有前途的，时间复杂度的下界是 $O(n^2)$，并且无法在左端点移动时更新整体的答案，没有进一步优化的空间。
+因此换一个思路，考虑统计每条边的贡献。
+一条 $u \to v$ 的边，将原树分成两棵子树。该边会对答案产生贡献，当且仅当：
+$\exists i \in [l,r],j \in [l,r]$，满足 $i \in \operatorname{subtree}(u),j \in \operatorname{subtree}(v)$.
+对于一个编号序列 $1,2,3,\ldots,n$，每个编号只有两种状态：$i \in \operatorname{subtree}(u)$ 或 $i \in \operatorname{subtree}(v)$.
+选择的一个连续编号区间 $[l,r]$，钦定的边会产生贡献，当且仅当该区间内同时包含 $i \in \operatorname{subtree}(u)$ 与 $j \in \operatorname{subtree}(v)$.
+那么有一个自然的想法：维护每一段连续的相同状态的编号，即维护若干个线段 $[L,R]$ 满足 $\forall i \in [L,R], i \in \operatorname{subtree}(u \text{ or } v)$，那么对于每一条线段，只要 $l &amp;lt; L,r \ge R$ 或 $l \le L,r &amp;gt; R$ 就能满足条件。'>
+<meta property='og:url' content='http://example.org/zh-cn/post/lu141303/'>
+<meta property='og:site_name' content='My New Hugo Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Zh-Cn' /><meta property='article:tag' content='segment-tree' /><meta property='article:tag' content='segment-tree-merge' /><meta property='article:published_time' content='2020-11-19T13:58:24&#43;08:00'/><meta property='article:modified_time' content='2020-11-19T13:58:24&#43;08:00'/>
+<meta name="twitter:title" content="树上的边题解">
+<meta name="twitter:description" content="题面 给一棵 $n$ 个点的树，定义 $f(l,r)$ 为：
+$\forall i \in [l,r]$，$j \in [l,r]$，都存在 $i \to j$ 的路径时，需要选择的最少树边数量。
+现在你要求出：
+$$ \sum \limits _{l=1}^n \sum \limits _{r=l}^n f(l,r) $$
+题解 枚举 $l$ 或者 $r$ 是没有前途的，时间复杂度的下界是 $O(n^2)$，并且无法在左端点移动时更新整体的答案，没有进一步优化的空间。
+因此换一个思路，考虑统计每条边的贡献。
+一条 $u \to v$ 的边，将原树分成两棵子树。该边会对答案产生贡献，当且仅当：
+$\exists i \in [l,r],j \in [l,r]$，满足 $i \in \operatorname{subtree}(u),j \in \operatorname{subtree}(v)$.
+对于一个编号序列 $1,2,3,\ldots,n$，每个编号只有两种状态：$i \in \operatorname{subtree}(u)$ 或 $i \in \operatorname{subtree}(v)$.
+选择的一个连续编号区间 $[l,r]$，钦定的边会产生贡献，当且仅当该区间内同时包含 $i \in \operatorname{subtree}(u)$ 与 $j \in \operatorname{subtree}(v)$.
+那么有一个自然的想法：维护每一段连续的相同状态的编号，即维护若干个线段 $[L,R]$ 满足 $\forall i \in [L,R], i \in \operatorname{subtree}(u \text{ or } v)$，那么对于每一条线段，只要 $l &amp;lt; L,r \ge R$ 或 $l \le L,r &amp;gt; R$ 就能满足条件。">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script> 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">My New Hugo Site</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/en/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/algorithm/" >
+                Algorithm
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/zh-cn/post/lu141303/">树上的边题解</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 19, 2020</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="题面">题面</h2>
+<p>给一棵 $n$ 个点的树，定义 $f(l,r)$ 为：</p>
+<p>$\forall i \in [l,r]$，$j \in [l,r]$，都存在 $i \to j$ 的路径时，需要选择的最少树边数量。</p>
+<p>现在你要求出：</p>
+<p>$$
+\sum \limits _{l=1}^n \sum \limits _{r=l}^n f(l,r)
+$$</p>
+<h2 id="题解">题解</h2>
+<p>枚举 $l$ 或者 $r$ 是没有前途的，时间复杂度的下界是 $O(n^2)$，并且无法在左端点移动时更新整体的答案，没有进一步优化的空间。</p>
+<p>因此换一个思路，考虑统计每条边的贡献。</p>
+<p>一条 $u \to v$ 的边，将原树分成两棵子树。该边会对答案产生贡献，当且仅当：</p>
+<p>$\exists i \in [l,r],j \in [l,r]$，满足 $i \in \operatorname{subtree}(u),j \in \operatorname{subtree}(v)$.</p>
+<p>对于一个编号序列 $1,2,3,\ldots,n$，每个编号只有两种状态：$i \in \operatorname{subtree}(u)$ 或 $i \in \operatorname{subtree}(v)$.</p>
+<p>选择的一个连续编号区间 $[l,r]$，钦定的边会产生贡献，当且仅当该区间内同时包含 $i \in \operatorname{subtree}(u)$ 与 $j \in \operatorname{subtree}(v)$.</p>
+<p>那么有一个自然的想法：维护每一段连续的相同状态的编号，即维护若干个线段 $[L,R]$ 满足 $\forall i \in [L,R], i \in \operatorname{subtree}(u \text{ or } v)$，那么对于每一条线段，只要 $l &lt; L,r \ge R$ 或 $l \le L,r &gt; R$ 就能满足条件。</p>
+<p>然而不难发现，这样会算重很多贡献，容斥不太可做的样子。</p>
+<p>正难则反，统计不合法的情况数，然后用总情况数减去不合法情况统计合法情况数。</p>
+<p>一个连续编号区间 $[l,r]$ 不合法，当且仅当 $\forall i \in [l,r]$，$i \in \operatorname{subtree}(u \text{ or } v)$，可以发现当且仅当 $[l,r]$ 是求出的线段 $[L,R]$ 的连续子段，它就是不合法的。</p>
+<p>那么对于每一个连续相同状态编号区间，可以计算出它对应的不合法情况数：$\dbinom{R - L + 1}{2}$.</p>
+<p>而对于一条边，它不能产生贡献的总情况数是：$\sum \dbinom{R - L + 1}{2}$，总情况数是 $\dbinom{n}{2}$，能产生的贡献就是 $\dbinom{n}{2} - \sum \dbinom{R - L + 1}{2}$.</p>
+<p>现在只剩下一个问题：如何维护连续相同状态编号区间及其对应贡献？</p>
+<p>这个做法多多，但核心大同小异：加入一个点最多改变一条线段的贡献。</p>
+<p>例如有一种 dsu on tree 的做法，用 set 来暴力维护线段，当加入一个点时，找到对应线段更新贡献，时间复杂度 $O(n \log^2 n)$.</p>
+<p>当然可以使用线段树来维护线段，这就是一个维护连续子段的变体。</p>
+<p>假如当前搜索到 $u$ 点，定义在 $u$ 点子树内状态为 $1$，在 $u$ 点子树外状态为 $0$，以编号为下标，每个子树就有一个唯一对应的 $01$ 串。</p>
+<p>在这个 $01$ 串上，用线段树维护连续子段产生的贡献。唯一的难点就是上推操作。</p>
+<p>对于左半线段与右半线段的上推合并，仅有左半线段的右端点与右半线段的左端点拼接可能产生的贡献。因此记录左右端点开始的最长连续子段，记录左右端点的值，然后更新贡献即可。</p>
+<p>可以使用线段树合并，每个点仅会产生一次插入操作，时间复杂度 $O(n \log n)$，使用优先重儿子搜索、垃圾回收的空间优化方法，可以比较轻松地通过。</p>
+<h2 id="代码">代码</h2>
+<p>不算难码，细节也不多。为了实现方便，牺牲了一定的常数。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ctype.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> bufSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">char</span> <span style="color:#a6e22e">nc</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#ifdef DEBUG
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> getchar();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> buf[bufSize], <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> buf, <span style="color:#f92672">*</span>p2 <span style="color:#f92672">=</span> buf;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p1 <span style="color:#f92672">==</span> p2 <span style="color:#f92672">&amp;&amp;</span> (p2 <span style="color:#f92672">=</span> (p1 <span style="color:#f92672">=</span> buf) <span style="color:#f92672">+</span> fread(buf, <span style="color:#ae81ff">1</span>, bufSize, stdin), p1 <span style="color:#f92672">==</span> p2) <span style="color:#f92672">?</span> EOF : <span style="color:#f92672">*</span>p1<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> T read(T <span style="color:#f92672">&amp;</span>r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (c <span style="color:#f92672">=</span> nc(); <span style="color:#f92672">!</span>isdigit(c); c <span style="color:#f92672">=</span> nc());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isdigit(c); c <span style="color:#f92672">=</span> nc()) r <span style="color:#f92672">=</span> r <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> r;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span><span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">node</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> to, next;
+</span></span><span style="display:flex;"><span>} E[maxn <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> head[maxn], tot;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> x, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> y) { E[<span style="color:#f92672">++</span>tot].next <span style="color:#f92672">=</span> head[x], E[tot].to <span style="color:#f92672">=</span> y, head[x] <span style="color:#f92672">=</span> tot; }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">segnode</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> llen, rlen, lval, rval, ls, rs;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> val;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">isEmpty</span>() <span style="color:#66d9ef">const</span> { <span style="color:#66d9ef">return</span> llen <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>; }
+</span></span><span style="display:flex;"><span>} A[maxn <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">2</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, root[maxn],s[maxn <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">2</span>], top, ind, size[maxn], son[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">newnode</span>() { <span style="color:#66d9ef">return</span> top <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">?</span> s[top<span style="color:#f92672">--</span>] <span style="color:#f92672">:</span> <span style="color:#f92672">++</span>ind; }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">delnode</span>(<span style="color:#66d9ef">int</span> x) { <span style="color:#66d9ef">if</span> (x) A[x] <span style="color:#f92672">=</span> segnode(), s[<span style="color:#f92672">++</span>top] <span style="color:#f92672">=</span> x; }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getx</span>(<span style="color:#66d9ef">int</span> x) { <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1ll</span> <span style="color:#f92672">*</span> x <span style="color:#f92672">*</span> (x <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> segnode <span style="color:#a6e22e">makezero</span>(<span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    segnode res;
+</span></span><span style="display:flex;"><span>    res.llen <span style="color:#f92672">=</span> res.rlen <span style="color:#f92672">=</span> (r <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>), res.lval <span style="color:#f92672">=</span> res.rval <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    res.val <span style="color:#f92672">=</span> getx(res.llen);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pushup</span>(<span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r, segnode<span style="color:#f92672">&amp;</span> res, segnode ls, segnode rs)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (ls.isEmpty()) ls <span style="color:#f92672">=</span> makezero(l, mid);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (rs.isEmpty()) rs <span style="color:#f92672">=</span> makezero(mid <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, r);
+</span></span><span style="display:flex;"><span>    res.llen <span style="color:#f92672">=</span> ls.llen, res.rlen <span style="color:#f92672">=</span> rs.rlen, res.lval <span style="color:#f92672">=</span> ls.lval, res.rval <span style="color:#f92672">=</span> rs.rval;
+</span></span><span style="display:flex;"><span>    res.val <span style="color:#f92672">=</span> ls.val <span style="color:#f92672">+</span> rs.val;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (ls.rval <span style="color:#f92672">==</span> rs.lval)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        res.val <span style="color:#f92672">-=</span> getx(ls.rlen) <span style="color:#f92672">+</span> getx(rs.llen);
+</span></span><span style="display:flex;"><span>        res.val <span style="color:#f92672">+=</span> getx(ls.rlen <span style="color:#f92672">+</span> rs.llen);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (ls.llen <span style="color:#f92672">==</span> (mid <span style="color:#f92672">-</span> l <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)) res.llen <span style="color:#f92672">+=</span> rs.llen;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (rs.rlen <span style="color:#f92672">==</span> (r <span style="color:#f92672">-</span> mid)) res.rlen <span style="color:#f92672">+=</span> ls.rlen;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">modify</span>(<span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r, <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> p, <span style="color:#66d9ef">int</span> pos, <span style="color:#66d9ef">int</span> k)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span>p) p <span style="color:#f92672">=</span> newnode();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (l <span style="color:#f92672">==</span> r) <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">void</span>)(A[p].llen <span style="color:#f92672">=</span> A[p].rlen <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, A[p].lval <span style="color:#f92672">=</span> A[p].rval <span style="color:#f92672">=</span> k, A[p].val <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (pos <span style="color:#f92672">&lt;=</span> mid) modify(l, mid, A[p].ls, pos, k);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> modify(mid <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, r, A[p].rs, pos, k);
+</span></span><span style="display:flex;"><span>    pushup(l, r, A[p], A[A[p].ls], A[A[p].rs]);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">merge</span>(<span style="color:#66d9ef">int</span> l, <span style="color:#66d9ef">int</span> r, <span style="color:#66d9ef">int</span><span style="color:#f92672">&amp;</span> x, <span style="color:#66d9ef">int</span> y)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>x <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>y) <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">void</span>)(x <span style="color:#f92672">+=</span> y);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> mid <span style="color:#f92672">=</span> (l <span style="color:#f92672">+</span> r) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    merge(l, mid, A[x].ls, A[y].ls), merge(mid <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, r, A[x].rs, A[y].rs), delnode(y);
+</span></span><span style="display:flex;"><span>    pushup(l, r, A[x], A[A[x].ls], A[A[x].rs]);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> res;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs1</span>(<span style="color:#66d9ef">int</span> u, <span style="color:#66d9ef">int</span> fa)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    size[u] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> head[u]; p; p <span style="color:#f92672">=</span> E[p].next)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> E[p].to;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (v <span style="color:#f92672">==</span> fa) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>        dfs1(v, u), size[u] <span style="color:#f92672">+=</span> size[v];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (size[v] <span style="color:#f92672">&gt;</span> size[son[u]]) son[u] <span style="color:#f92672">=</span> v;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dfs2</span>(<span style="color:#66d9ef">int</span> u, <span style="color:#66d9ef">int</span> fa)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (son[u]) dfs2(son[u], u), merge(<span style="color:#ae81ff">1</span>, n, root[u], root[son[u]]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> p <span style="color:#f92672">=</span> head[u]; p; p <span style="color:#f92672">=</span> E[p].next)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> E[p].to;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (v <span style="color:#f92672">==</span> fa <span style="color:#f92672">||</span> v <span style="color:#f92672">==</span> son[u]) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>        dfs2(v, u), merge(<span style="color:#ae81ff">1</span>, n, root[u], root[v]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    modify(<span style="color:#ae81ff">1</span>, n, root[u], u, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (fa) res <span style="color:#f92672">+=</span> getx(n) <span style="color:#f92672">-</span> A[root[u]].val;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    read(n);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, a, b; i <span style="color:#f92672">&lt;</span> n; <span style="color:#f92672">++</span>i) read(a), read(b), add(a, b), add(b, a);
+</span></span><span style="display:flex;"><span>    dfs1(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>), dfs2(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;%lld</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, res);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/segment-tree/">segment-tree</a>
+        
+            <a href="/tags/segment-tree-merge/">segment-tree-merge</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title"></h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/zh-cn/post/ddp/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">动态DP学习笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 My New Hugo Site
+    </section>
+    
+    <section class="powerby">
+         with 
+        
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            </main>
+        </div>
+        <script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

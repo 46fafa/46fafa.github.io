@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>lct on My New Hugo Site</title>
+        <link>http://example.org/tags/lct/</link>
+        <description>Recent content in lct on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 23 Jan 2021 10:59:11 +0800</lastBuildDate><atom:link href="http://example.org/tags/lct/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Link Cut Tree 动态树学习笔记</title>
+        <link>http://example.org/zh-cn/post/lct/</link>
+        <pubDate>Sat, 23 Jan 2021 10:59:11 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/lct/</guid>
+        <description>简介 Link/Cut Tree 是一种数据结构，用于解决动态树问题。
+其又称 Link-Cut Tree，简称 LCT，但不叫动态树。动态树指一类问题。
+&amp;ldquo;Splay&amp;rdquo; 是 LCT 的基础，但 LCT 中的 Splay 在细节处不太一样，进行了一定的扩展。
+这是一个和 Splay 一样只需要几个核心函数就能实现一切的数据结构。
+问题引入 维护一棵树，在线询问，支持如下操作：
+修改两点间路径权值 查询两点间路径权值和 查询子树权值和 修改子树权值 断开并连接一些边，保证仍然是一棵树 如果没有最后一个操作，就是轻重链剖分的模板题。
+而有了最后一个操作，就是动态树问题。可以使用 LCT 求解。
+什么是动态树问题？
+维护一个森林，支持删边、加边，保证操作后仍是森林，维护有关信息。 一般的操作有两点连通性、两点路径权值和、连接两点、切断某条边、修改信息等。 我们回忆一下，如果没有修改树的形态的操作，轻重链剖分是如何解决此类问题的。
+对整棵树按子树大小进行剖分，重新标号。 重新标号后，在树上形成了若干以链为单位的连续区间，可以用支持区间操作的数据结构进行修改。 那么转向动态树问题，我们希望能指定一种剖分方式，让这个链式我们需要的链。
+实链剖分 实链剖分是一种动态的剖分方式。
+对于一个点连向它儿子的所有边，我们选择一条边进行剖分。
+被选择的边称为实边，其他边为虚边。
+实边连接的儿子称为实儿子。
+对于一条实边连接成的链，称为实链。
+实链剖分的剖分结果是可变的，可以灵活调整。
+我们使用 Splay 来维护实链。
+LCT 感性地说，LCT 利用若干 Splay 来维护动态的树链剖分，以期实现动态树上的区间操作。
+对于每条实链，建立一棵 Splay 来维护整条链的信息。
+辅助树(Auxiliary Tree) 性质 每棵辅助树维护的是对应的一棵原树。
+若干辅助树组成了 LCT，而 LCT 维护对应的森林。
+辅助树由多棵 Splay 组成，每棵 Splay 维护原树中的一条路径（实链）。
+中序遍历某棵 Splay，得到的点序列，对应于原树从上到下访问这条路径得到的点序列。</description>
+        </item>
+        
+    </channel>
+</rss>

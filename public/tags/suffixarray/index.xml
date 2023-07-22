@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>SuffixArray on My New Hugo Site</title>
+        <link>http://example.org/tags/suffixarray/</link>
+        <description>Recent content in SuffixArray on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 22 Jan 2021 11:04:17 +0800</lastBuildDate><atom:link href="http://example.org/tags/suffixarray/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>后缀树组学习笔记(Suffix Array)</title>
+        <link>http://example.org/zh-cn/post/sa/</link>
+        <pubDate>Fri, 22 Jan 2021 11:04:17 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/sa/</guid>
+        <description>简介 后缀数组(Suffix Array)，主要是两个数组： $sa$ 与 $rk$ .
+我们约定，后缀 $i$ 表示从 $i$ 开始的后缀。字符串下标从 $1$ 开始。
+其中， $sa[i]$ 代表所有后缀中，第 $i$ 小的后缀的编号。
+$rk[i]$ 代表后缀 $i$ 从小到大的排名。
+有： $sa[rk[i]] = i$ ， $rk[sa[i]] = i$ .
+上图是一个后缀数组的例子。
+可以发现，对于一个字符串，其所有后缀排序后，因为长度互不相同，得到的大小序列是唯一的。
+求法 一个显然的求法，就是遍历所有后缀，扔进去排序，时间复杂度 $O(n^2 \log n)$ ，缺乏实用性。
+在 OI 中，常常使用的是基于倍增和基数排序的求法，可以做到 $O(n \log n)$ 的时间复杂度。
+利用倍增思想，假设我们已经知道长度为 $w$ 的字符串的 $rk$ 数组，现在要求出长度为 $2w$ 的字符串的 $rk$ 数组。
+具体地， $rk[i]$ 此时代表 $s[i,\min(n,i + w - 1)]$ 在 ${s[i,\min(n,i+w-1]|i \in [1,n]}$ 中的排名。
+以 $rk[i]$ 为第一关键字， $rk[i + w]$ 为第二关键字，就可以求出长度为 $2w$ 的字符串的 $rk$ 数组。</description>
+        </item>
+        
+    </channel>
+</rss>

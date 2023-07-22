@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Tech on My New Hugo Site</title>
+        <link>http://example.org/categories/tech/</link>
+        <description>Recent content in Tech on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Fri, 21 Jul 2023 18:44:23 +0800</lastBuildDate><atom:link href="http://example.org/categories/tech/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>更换字体「霞鹜文楷」</title>
+        <link>http://example.org/zh-cn/post/%E6%9B%B4%E6%8D%A2%E5%8D%9A%E5%AE%A2%E5%AD%97%E4%BD%93%E4%B8%BA%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7/</link>
+        <pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/%E6%9B%B4%E6%8D%A2%E5%8D%9A%E5%AE%A2%E5%AD%97%E4%BD%93%E4%B8%BA%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7/</guid>
+        <description>看到别人博客换了字体，超级好看，我也要😊！！
+项目地址：https://github.com/lxgw/LxgwWenKai
+「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。
+这是使用的是墨语提供的教程，在配置的过程中我遇到了一些问题，感谢博主的热心解答🎉
+我的博客是部署在GitHub上，由于博客的主题文件是使用hugo-theme-stack仓库作为博客的子模块，
+根据主题stack的document说明:
+If you installed the theme through Git / Git submodule, you can modify the theme file directly and see the changes in your local site.
+However, you can not commit and push the changes directly since you don&amp;rsquo;t have the permission to push to the theme repository.
+You need to fork the theme repository and push your changes to your forked repository (change submodule&amp;rsquo;s repository url).</description>
+        </item>
+        <item>
+        <title>小米8折腾记录</title>
+        <link>http://example.org/zh-cn/post/%E5%B0%8F%E7%B1%B38%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</link>
+        <pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/%E5%B0%8F%E7%B1%B38%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</guid>
+        <description>这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。
+我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[tasker 神器],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.
+刚好前几天在小黄鱼上买的小米8到手,这里记录一下这台手机的折腾过程.
+由于本人知识水平有限,以下说法不一定正确,欢迎各位大佬评论区指正
+解BL锁(解锁会清除手机所有数据,请提前备份好重要资料) 小米手机的解锁官方给了解锁方法,只需要到浏览器搜索[小米解锁],进入这个网站点击立即解锁,下载小米解锁工具
+打开设置–我的设备全部参数–点击10下MIUI版本进入开发者模式
+回到设置–滑到最下面更多设置–开发者选项–设备解锁状态.解锁前需要先绑定点击绑定账号与设备,还要打开开发者选项中的USB调试选项
+打开刚才下载安装的小米解锁工具,根据提示在关机状态下按住音量下＋电源键进入fastboot模式(又叫bootloader模式),屏幕上出现fastboot字样就是成功进入,然后用数据线连接电脑与手机,连接成功后点击解锁,耐心等待解锁成功重启手机就好.
+小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台
+解锁成功后，设备状态变为已解锁
+给手机刷入TWRP 第一步 配置adb工具
+浏览器搜索[SDK Platform Tools],进入官网后选择对应系统的文件
+找到刚才下载的文件,复制adb.exe文件的路径,比如我就是C:\Users\ABC\platform-tools_r33.0.3-windows\platform-tools,复制该路径添加到环境变量即可
+右键我的电脑——属性——下滑找到高级系统设置——系统属性——高级——环境变量——编辑Path——新建，将刚才复制路径添加到Path变量值中,最后点击“确定”.然后win+r输入cmd,再打开的命令行中输入以下命令
+adb version 出现上图所示结果说明工具安装成功
+第二步 下载twrp 浏览器搜索[TWRP]进入官网,右上角点击devices,选择自己的设备下载对应版本即可
+第三步 刷入TWRP
+手机关机状态下按住电源键＋音量下键进入fastboot模式,然后用数据线连接手机与电脑,win+r打开cmd输入
+fastboot flash recovery 你的twrp文件位置 比如我的是这样的
+然后输入
+fastboot-reboot recovery 出现TWRP界面代表刷入成功.</description>
+        </item>
+        <item>
+        <title>计算机常识杂谈</title>
+        <link>http://example.org/zh-cn/post/cs-nous-talk/</link>
+        <pubDate>Wed, 01 Mar 2023 11:09:04 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/cs-nous-talk/</guid>
+        <description>从小接触计算机比较多的话，其实是会积累许多的「常识性内容」，这种常识很多时候会起到触类旁通、举一反三的效果。
+举一个简单的例子，在上计算机体系架构之前，自己装过台式机的同学就知道什么是 CPU、内存、硬盘、显卡、主板、BIOS 等等。即使他不曾系统学习过计算机网络，什么是 TCP、UDP、IP、端口等等也不会太陌生。
+这是常识中的专业部分。还有很多并不那么硬核，但同样会起到影响的。比如如何搜集信息、如何快速熟悉一个新上手的软件、如何使用计算机对重复性操作进行优化等等。
+当然，很多时候，积累的常识并不会体现在考试分数上。我倒是觉得平时的各种 lab、assignment 更见功底。
+学计算机的话，我觉得要尽可能地成为一个 creative problem solver，掌握技巧是必须的，但提出问题、灵活变通、精细设计同样重要。单纯的做题很多时候是在练习定式，而将定式运用于解决具体的实际问题(或者说做应用题那种感觉？)也是需要练习的。
+所以说：如果你觉得基础不如其他同学，那么很可能是缺失了计算机常识的积累。对于这个问题，积极地搜索、了解各种你缺乏的知识，保持好奇，对你所接触的事物发问，广泛涉猎了解，大概就可以了吧。当然，这不可能对你的成绩有什么立竿见影的提升。
+想想你平时接触的世界，计算机开机到进入登录界面都发生了什么？你是如何接入网络的？你如何能访问到位于地球另一端的网站？那些大型网站为什么能承载这么大的流量？文本编辑器是如何实现的？输入法为什么能够猜出我想打什么字？……这些是我即兴想到的一些问题。是的，它们之中，许多琐碎而不重要，但做一个搜索，做一些思考，也能获取些刨根问底的乐趣。说到底，知识就是在帮助我们认知、理解与改造世界。
+所以你的同学在学习课内知识的时候，或许会将学到的知识与他的常识联系起来，与表征的现实世界联系起来，进行「拓展性思考」，既加深了对知识的理解，同时也得到了理论与实践相结合的乐趣。这将给予一种做题很难得到的成就感。
+啊，似乎有点离题了。总之这就是我对所谓「计算机基础」的粗浅理解吧。其实归根结底，对症下药，在我看来，成绩差，就针对考什么、怎么考进行刻意训练，似乎才是比较自然的思路。当然情景不同，也需要具体分析。
+再说句不太好听也不太励志的话吧，有的人，怀揣着兴趣与热情，投入精力与时间，自发地了解、学习、积累了这样那样的知识，凭什么随随便便被逆袭？如果他们反而不能在评测指标中 outperform average，那么我觉得评价系统本身就是有问题的。
+不幸的是，我认识的许多学长恰恰放弃了在 GPA 上的内卷，才能获得广阔的自我发展的空间。这无疑是对教育的莫大讽刺。</description>
+        </item>
+        <item>
+        <title>Markdown 杂谈</title>
+        <link>http://example.org/zh-cn/post/markdown-talk/</link>
+        <pubDate>Tue, 28 Feb 2023 11:09:04 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/markdown-talk/</guid>
+        <description>TL;DR: Markdown 的真正价值不在于贮存，在于流通。为了实现 Markdown 的流通价值，插入网络图片是较优的选择。
+Markdown 对我而言最大的作用是作为一种类似于「标准传输协议」的东西。它支持的语法有限，语义清晰，这意味着在绝大多数平台上，它所能表达的格式都是被支持的。
+你可以将其认为是各大内容平台格式的一个公共子集。一次编写，到处发布，并且所有格式都如你所愿。
+这也是我不太喜欢 Markdown 的各种私有化拓展的原因。加上了自己的东西，就让 Markdown 失去了这种公共性，导出的时候要么损失这部分数据要么手动处理。拓展的越多，损失就越大。当拓展的功能到达一个临界点之后，反而不如直接使用私有格式了——大不了提供一个手动处理的方式嘛，比如导出为 Markdown.
+笔记软件很多使用 Markdown 也正是这个原因：它对迁移数据相当友好。
+想要让用户放弃 A 使用 B，就需要满足：B 的价值 &amp;gt; A 的价值 + A 到 B 的迁移成本。
+而大家都用 Markdown 就可以让迁移成本尽可能降低。当然，对于新的竞品 B 来说，更优的选项是支持 Markdown 导入而不支持导出，这样就可以将用户绑上自己的战车(笑
+不过用户们也不都是傻子，事实上，不涉及到过多私有格式的笔记软件基本上还是支持 Markdown 导出的。
+因此，新生代的各路笔记软件，大部分都接纳了 Markdown，为的就是讨好这些经常尝鲜迁移数据的生产力用户们。
+那么如果你按这个角度考虑，Markdown 和本地化其实关系不大，反而和数据流通关系更大。
+你想想，本地化，我 Word 文档不也本地化，我 PDF 不也本地化，只是本地化其实是很简单的。有道云笔记、为知笔记、印象笔记啥的，其实都是本地化的。本地化永久保存并不是什么特别困难的事情，只要 Windows 继续保持良好的兼容性，你也可以获得你的 Word 文档的长久陪伴。
+所以我认为 Markdown 的真正价值不在于贮存，在于流通。
+那么既然目标是数据流通，我们知道，图片可以有三种保存方式：
+本地路径 网络路径 base64 插入文中 显然把图片放在网络上是流通性最强的做法。绝大部分的内容平台都支持插入网络图片，这样就免去了导出上传图片、移动图片的烦恼。
+base64 插入文中其实也还可以，但对大图片就不太合适，而且也有潜在的兼容性问题。
+所以如果有条件的话，将图片托管在图床上，对于流通的 Markdown 文档，是不错的选择。</description>
+        </item>
+        <item>
+        <title>ChatGPT 杂谈</title>
+        <link>http://example.org/zh-cn/post/chatgpt-talk/</link>
+        <pubDate>Mon, 27 Feb 2023 11:09:04 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/chatgpt-talk/</guid>
+        <description>到了现在，情况又发生了巨大的转变，真是日新月异的时代。总之本文内容已经有所过时了。
+ChatGPT 去年的早期阶段其实已经火过一轮，为什么过完个年突然又热度飙升……这个问题是很值得考虑的。外加微软 New Bing 的上线，我觉得或许是微软入局炒作了舆论？但是看 ChatGPT 用户增长还挺稳定，所以也许只是我的阴谋论想象吧。
+那么谈到 ChatGPT 本身，作为搜索引擎使用是一种不错的想象，虽然在我的概念中它更契合「私人助理」的定位，但助理帮忙查查信息也挺正常。
+目前看来我觉得比较大的问题是信度不足，比如我询问一些内容时它非常自信地给出了错误答案，而且问题的正确答案在网上其实也能够找到。
+这引出了一个非常棘手的问题：你要如何判定 AI 生成的内容是正确的？很多时候，它一本正经地将正确与错误的内容混在一起，而要是能从中选出正确答案，我还何必问 AI 呢？
+New Bing 的溯源、不确定回答似乎在某种程度上解决了这种问题。后者或许是更有用的，毕竟如果看到信息我都要去溯源，那其实还是未能脱离人肉搜索范畴。一个例子是微软演示时 New Bing 对着财报一通分析给出的数据真假混杂，这是很麻烦的。
+就像是你和一个水平拙劣的开发者一起工作，很可能产生 1 + 1 &amp;lt; 2 的效果( 审查代码耗费的精力甚至不如直接自己写。
+这也是 AIGC 在很长时间内停留于概念、玩具阶段的原因之一。
+但在 General 话题的表现上，ChatGPT 还是很不错的。这似乎让现实离我曾经的狂想更近了一步：如果游戏中 NPC 的行为对话都采用「设定人设」后计算机自行生成的涌现式，由 AI 赋能的 NPC 就能表现出令人惊叹的鲜活性。这种幻想最早应该是追溯到小学吧，一晃眼都这么多年了，AI 也从当初的天顶星科技变成了如今的高新科技。
+普遍地来说，我认为新技术的出现往往伴随着这样的范式：默默无闻、小圈子流行、(暂时沉寂)、爆火出圈、热度回落、常态化。不过这也并非我的一家之言，大概也是拾人牙慧罢。区块链如此，VR 如此，AI 也如此。或许这就是螺旋发展，曲折上升罢。
+最后，我又想起了道格拉斯·亚当斯的科技三定律：
+任何在我出生时已经有的科技都是稀松平常的世界本来秩序的一部分。 任何在我 15-35 岁之间诞生的科技都是将会改变世界的革命性产物。 任何在我 35 岁之后诞生的科技都是违反自然规律要遭天谴的。
+Stay open, accept changes :)</description>
+        </item>
+        <item>
+        <title>从零开始的科学上网指南</title>
+        <link>http://example.org/zh-cn/post/surfing-jumpstart/</link>
+        <pubDate>Mon, 26 Sep 2022 11:09:04 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/surfing-jumpstart/</guid>
+        <description>科学上网是当代青年的必修课。
+由于某些神秘的东方力量的影响，神州大地已与外界隔着一层可悲的厚障壁了。然而，邪恶的境外势力的糖衣炮弹总是蛊惑着数不胜数的懵懂少年，让他们时时不满足于四角的天空。
+上帝或许将大门关上了，但城墙上仍有无数仁人志士留下的狗洞罅隙可供通行。猫抓老鼠的游戏经久不衰，然而在马伯庸设想的寂静之城真正到来前，我们依然能苟延残喘、岁月静好。
+科学上网，从来都是难者不会、会者不难。在全球互联网上，有着大量的科学上网相关信息，然而在局域网上，你却很难见到。这先有鸡还是先有蛋的困局，也许只有靠口口相传方能打破。
+接下来，让我们开始这趟奇妙的旅程，成为数千万睁开眼睛看世界的科学上网人士中的一员吧！
+​
+Glossary 任何一个行业都有其自身的黑话。
+身在「都可以谈，有什么不能谈」的国度，相信各位对此都已见怪不怪。语言的异化往往是对抗审查机器的一种手段，但这也在客观上造成了许多新入门槛。
+为此，我们需要先学习一些常见的黑话。
+防火墙、GFW：全程 The Great Firewall，应该是从 Great Wall 衍生出的，中文名防火长城，事实上是对神州大陆的神秘的厚障壁的概念性统称。
+翻墙(FQ、富强)：指的是通过某种手段正常访问全球互联网。也是最早期的科学上网说法。
+科学上网：在一段时间后，「翻墙」已经遭到了审查，因此使用科学上网来代称翻墙。
+VPN：最早期的翻墙工具，如今在升级的防火墙面前几乎不可用了，但这个名词偶尔还是被提起。国外依然有许多售卖 VPN 的商家，它们提供的服务不符合本土化国情，几乎都是不可使用的。
+SS：根据我国特色国情而开发的新一代科学上网工具，相比于 VPN 有着更加难以识别的特性，曾经成为了科学上网的 de-facto​ standard.
+SSR：经过了一段时间，SS 也逐渐被识别出来了，从而衍生出了改版 SSR.
+V2RAY：SSR 后兴起的又一代科学上网协议，特性是伪装性强，缺点是性能较差。
+Trojan：V2RAY 之后的又一代科学上网协议，伪装的同时也兼顾性能。
+机场：随着「科学上网」这个名词一同兴起的新一代服务商家，一般来说提供的是**订阅服务。**机场得名于 SS/SSR 的图标(纸飞机)。
+客户端：现在机场大部分并不提供软件，用户使用网上公开的通用软件进行科学上网，这种软件叫做客户端。Windows/Mac 上常用的客户端是 Clash，Android 上常用的客户端是 ClashForAndroid，iOS 上常用的客户端是 ShadowRocket/QuantumultX/Surge.
+一般来说，客户端会支持 SS/SSR/V2RAY/Trojan 等不同协议。 订阅：Subscription，在客户端上订阅某机场后，可以拉取订阅的服务器配置到本地，从而使用该机场的服务器进行科学上网。
+中转：由于国内直连国外服务器会比较缓慢，因此出现了中转服务器。用户-&amp;gt;国内中转服务器-&amp;gt;国外服务器-&amp;gt;目标网站，通过这样的方式进行访问。
+出现这种模式的本质原因是因为国内中转服务器连接国外服务器的质量高于用户直接连接的质量。 专线：一般来说常见的专线有 IPLC/IEPC，普通用户无须关心，相关信息可以查看我的往期文章关于科学上网的流行说法。
+看完上述五花八门的名词，相信你已经体会到被知识所支配的痛苦。
+无须担心，这个词汇表更大的作用是，当你在下文中遇到不懂的词时，可以往上翻阅。等到你看完全文，或许就能融会贯通了。
+Prototype 尽管现在的科学上网产业异常发达，各种各样的奇技淫巧令人目不暇接，其实本质上，都无非是这样一个模型：
+​
+而在实际应用中，这两条传输线条中间可以有很多个步骤。
+比如经典的国内中转、国外落地：
+​
+比如曾经高贵的 RixCloud(如今已跑路)：
+​
+从理论上说，这一切依然经过了 GFW 的审查，只是它可能因为没有识别出来等原因，放过了你的连接，让你能通过境外服务器作为「跳板」来访问你的目标。
+Legitimacy 因此，仅从技术层面看，科学上网没有对 GFW 做任何的干预，完全被动地接受其蹂躏，似乎是不违法的。</description>
+        </item>
+        <item>
+        <title>自建 Bitwarden</title>
+        <link>http://example.org/zh-cn/post/selfhost-bitwarden/</link>
+        <pubDate>Mon, 26 Sep 2022 10:09:04 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/selfhost-bitwarden/</guid>
+        <description>闲置的腾讯云机子，由于没有备案域名啥都干不了，于是我打算废物利用一下，建一个 Bitwarden self host instance.
+官方的 self host 对配置要求比较高，可以使用第三方的 vaultwarden 项目搭建。当然第三方可能没那么靠谱，相对而言。
+个人使用完全足够。
+vaultwarden 需要启用 https，那我们就换个端口吧，，，
+安装 vaultwarden 在 Docker 环境下非常简单。
+docker pull vaultwarden/server:latest docker run -d --name vaultwarden -v /vw-data/:/data/ -p 8080:80 vaultwarden/server:latest 这样就暴露到 8080 端口上了，用 http://ip:8080/ 就可以访问。但应当是注册不了的。
+Caddy 反代 caddy 配置 ssl 比较方便，所以选用。
+caddy 实在是太好用啦，一键配置，简单无脑。
+ubuntu/debian 系的安装：
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https curl -1sLf &amp;#39;https://dl.cloudsmith.io/public/caddy/stable/gpg.key&amp;#39; | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg curl -1sLf &amp;#39;https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt&amp;#39; | sudo tee /etc/apt/sources.</description>
+        </item>
+        <item>
+        <title>Linux 使用哈工深(HITSZ)校园 VPN 指北</title>
+        <link>http://example.org/zh-cn/post/hitsz-vpn/</link>
+        <pubDate>Tue, 16 Aug 2022 15:00:57 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/hitsz-vpn/</guid>
+        <description>经历了一些莫名其妙的问题之后，我终于连上了校园 vpn.
+安装 EasyConnect 哈工大的 vpn 大概都是基于 EasyConnect 的。可以安装 EasyConnect 的通用版本进行后续操作。
+AUR 上的 EasyConnect 有点问题，md5 校验过不了，要自己改 PKGBUILD.
+git clone https://aur.archlinux.org/easyconnect.git cd easyconnect makepkg sudo pacman -U easyconnect-***.pkg.tar.zst # 这里多半会 Fail updpkgsums # 更新 md5 makepkg sudo pacman -U easyconnect-***.pkg.tar.zst 或者直接下载官网的 deb 包自行安装。(http://download.sangfor.com.cn/download/product/sslvpn/pkg/linux_767/EasyConnect_x64_7_6_7_3.deb)
+连接 由于未知的原因，我这上 vpn.hitsz.edu.cn 啥都加载不出来。(当然也下载不了客户端(可是为什么可以下载 windows 客户端呢))
+​
+总之就是设置一下密码，按照哈尔滨工业大学深圳校区 VPN 使用指引中所说，用户名、密码初始都是学号。
+然后打开 EasyConnect，填写 Server IP. (vpn.hitsz.edu.cn)
+​
+然后填写账号密码登陆即可。
+​
+图标稳定下来就连接好了。
+​
+(中间那个)</description>
+        </item>
+        <item>
+        <title>Matrix Desktop Clients</title>
+        <link>http://example.org/en/post/matrix-clients/</link>
+        <pubDate>Sun, 13 Feb 2022 15:37:55 +0800</pubDate>
+        
+        <guid>http://example.org/en/post/matrix-clients/</guid>
+        <description>Matrix is a decentralized instant message protocol. Besides the official client 「element」, there are several third-party clients available on the market.
+Element Element is the most popular client as it&amp;rsquo;s the official one. You can use it as a webapp or install its desktop version. It&amp;rsquo;s a cross-platform client with full features.
+You can check the details here.
+The UI is elegant and supports light/dark theme. A
+However, the desktop version is wrapped by Electron, which may be heavy and not that native.</description>
+        </item>
+        <item>
+        <title>思源笔记简介</title>
+        <link>http://example.org/zh-cn/post/siyuanintro/</link>
+        <pubDate>Sat, 11 Sep 2021 12:31:48 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/siyuanintro/</guid>
+        <description>思源笔记是一款功能丰富的本地为主的个人知识管理工具(PKM)。
+本地功能全部免费 块信息系统，每个块都有独特的 id 和属性可供使用。 块引用、嵌入 SQL 查询 API 挂件块（内嵌 iframe 类似插件块） 模板支持 动态加载（优化编辑大文档时性能） 可自行搭建服务端（Docker、手机等）实现网页使用 手机伺服，用手机作为服务器运行服务端 Android App 即将开发的 PDF 标注 Markdown 语法输入 所见即所得（类似 Typora 的输入体验） $\LaTeX$ 支持。 双向链接。 类似大纲笔记的列表体验。 聚焦 zoom in/out 折叠 fold/unfold 移动列表项等 自定义主题。 多标签页设计，可分屏。 方便的图片管理。 关系图。 云端功能（付费，96/year） 端对端加密同步 专用图床，一键上传图片 其他值得一提的事情 更新非常快，开发活跃。 开发者为资深开源工作者，还是一对夫妻，，， 官网地址：https://b3log.org/siyuan/
+查看定价：https://b3log.org/siyuan/pricing.html 目前好像是 96 一年。
+仅有的付费功能： 当初有一段时间只有尊贵身份标识来着，，，
+API 小展示：
+有兴趣付费的话，可以考虑使用我的邀请码：LGNT9d9
+似乎有添加空间之类的微薄的好处，据传累积邀请 32 人即可获得永久会员。
+虽然云服务的永久会员总感觉怪怪的，，，</description>
+        </item>
+        <item>
+        <title>Docker 部署思源实现多人协作</title>
+        <link>http://example.org/zh-cn/post/docker-siyuan/</link>
+        <pubDate>Sun, 25 Jul 2021 15:42:43 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/docker-siyuan/</guid>
+        <description>前言 最近准备将协作平台从 HackMD 迁徙到思源笔记。
+这主要是因为我个人笔记使用思源，而团队笔记使用 HackMD，不免有些混乱。
+再加上思源的块信息实在是很好的平台，基于丰富的信息有很多可操作性，后续也有一定的相关的计划，所以现在打算开始迁徙。
+首先买了一台服务器、、、1v 512MB，英国，凑合用用。
+安装了 Debian10.3，准备开始操作。
+（可选操作）准备工作 一下都是可选的步骤，主要是为了安全性等考虑。
+先更新一下系统：apt update 然后 apt upgrade，更新完重启一下，如果出问题了，则重装系统、、、
+设置一下时区：timedatectl set-timezone Asia/Shanghai
+更改 SSH 端口：vim /etc/ssh/sshd_config，修改 Port 22，然后 systemctl restart sshd
+断开连接，使用新的端口重新连接。
+然后最好取消掉密码登陆。
+在本机配置 SSH 密钥，然后上传到服务器。可以参考这篇文章。
+最后配置一下防火墙，打开 SSH 端口和思源端口 6806 即可，可能你的服务商会提供安全组策略。
+部署思源 Docker 先参考这篇文章安装 Docker
+apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - add-apt-repository &amp;#34;deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable&amp;#34; apt update apt install docker-ce 然后 Docker 装好了，开始部署思源笔记。</description>
+        </item>
+        <item>
+        <title>Migrate Images to COS</title>
+        <link>http://example.org/en/post/migrate-images-to-cos/</link>
+        <pubDate>Mon, 05 Apr 2021 15:37:55 +0800</pubDate>
+        
+        <guid>http://example.org/en/post/migrate-images-to-cos/</guid>
+        <description>Till now, Github has been the home of my images in this blog. It&amp;rsquo;s reliable and cost-free, but it&amp;rsquo;s not intended to host some images. Why I would choose this solution? The main reason was that jsdelivr, a free Github proxy provider, offers CDN nodes in China Mainland, making it pretty smooth to access the images hosted on Github in China.
+As an amateur blogger, I always try to minimize the cost.</description>
+        </item>
+        <item>
+        <title>开始使用腾讯云 COS 存储图片</title>
+        <link>http://example.org/zh-cn/post/migrate-images-to-cos/</link>
+        <pubDate>Mon, 05 Apr 2021 15:37:55 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/migrate-images-to-cos/</guid>
+        <description>目前为止，我一直使用 Github 来存储图片。该方案可靠免费，但毕竟不是 Github 的本来用法，属于「滥用服务」的违规使用。此前一直使用该方案的主要原因，就是 Github 与 jsdelivr 的组合在中国表现良好，而且完全免费。
+为了降低博客成本，国内兴起了静态博客的潮流。而为了解决静态博客的图片存储问题，有人提出了 Github+jsdelivr 的组合，并且风靡一时。通过连续滥用两个免费服务，我们可以获得在中国无需备案而访问速度良好的图床。
+问题在于，这两者都不曾设想，它们竟会被当成图床滥用。Github 确实有相关限制，例如对单文件大小限制、对仓库访问量限制，而 jsdelivr 也在服务条款中写明不可用于图像存储。但在天朝，大家并不怎么在乎这些条条框框，人民群众的创造力是无限的，我甚至见过拿 Github 切片存放视频的神奇教程。更何况，一个小小的静态独立博客，占用的资源并不甚多，白嫖一下算不了什么大罪过。在中国，写博客的人大多用爱发电，不肯投入更多资金来存放图片也是情理之中。 在种种背景下，尽管这种方案似乎不被官方认可，但确实在民间流行开来。
+事实上，这样管理图片确实能满足我的需求。我的各种文章中图片含量微乎其微，离被识别为滥用还有十万八千里。但这样白嫖总有点不合规矩，所以我还是决定迁徙到 阿里云 OSS 腾讯云 COS 之类的服务上去。</description>
+        </item>
+        <item>
+        <title>Clash 教程</title>
+        <link>http://example.org/zh-cn/post/clashtutorial/</link>
+        <pubDate>Thu, 02 Apr 2020 21:10:52 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/clashtutorial/</guid>
+        <description>前言 想写一个 Clash 的教程很久了，但由于学业繁重一直都没有抽出时间。最后决定拿碎片时间来攒出这篇文章了，因此上下逻辑可能不够紧密。
+因为有很多小白不会使用 Clash 这款强大的软件，时常在群里询问相关问题，而笔者当初学习使用时也遇到了一些困难，因此想写一篇从零开始的教程。
+由于笔者也算不上对其多么精通，因此必有疏漏，欢迎各位斧正。
+笔者使用 Windows10 系统,Clash For Windows 0.9.1 替换 clashrdev v0.18.0.2 内核，subconverter 在文章部分使用 0.4.2 版本，部分使用 0.4.4 版本，应当不影响阅读。
+文章篇幅较长，请确保有足够的时间来阅读，也可先收藏，日后慢慢阅读。不是来骗收藏的
+文档 Updated at 2020-4-15 19:09:16.
+补充一些文档。
+非常详细的英文文档
+Clash 内核文档
+Nameless13 的 Clashr 教程
+F 大的 CFW 文档
+介绍 本文的主角是 Clash: A rule-based tunnel in Go.，作者为 Dreamacro，Github 地址。
+那么它与 ShadowsocksR 等类似客户端有何区别呢？笔者引用 Readme 中的 Features 进行说明。
+Features Local HTTP/HTTPS/SOCKS server with/without authentication
+VMess, Shadowsocks, Trojan (experimental), Snell protocol support for remote connections.</description>
+        </item>
+        
+    </channel>
+</rss>

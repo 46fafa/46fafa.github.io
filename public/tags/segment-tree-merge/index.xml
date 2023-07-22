@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>segment-tree-merge on My New Hugo Site</title>
+        <link>http://example.org/tags/segment-tree-merge/</link>
+        <description>Recent content in segment-tree-merge on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 19 Nov 2020 13:58:24 +0800</lastBuildDate><atom:link href="http://example.org/tags/segment-tree-merge/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>树上的边题解</title>
+        <link>http://example.org/zh-cn/post/lu141303/</link>
+        <pubDate>Thu, 19 Nov 2020 13:58:24 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/lu141303/</guid>
+        <description>题面 给一棵 $n$ 个点的树，定义 $f(l,r)$ 为：
+$\forall i \in [l,r]$，$j \in [l,r]$，都存在 $i \to j$ 的路径时，需要选择的最少树边数量。
+现在你要求出：
+$$ \sum \limits _{l=1}^n \sum \limits _{r=l}^n f(l,r) $$
+题解 枚举 $l$ 或者 $r$ 是没有前途的，时间复杂度的下界是 $O(n^2)$，并且无法在左端点移动时更新整体的答案，没有进一步优化的空间。
+因此换一个思路，考虑统计每条边的贡献。
+一条 $u \to v$ 的边，将原树分成两棵子树。该边会对答案产生贡献，当且仅当：
+$\exists i \in [l,r],j \in [l,r]$，满足 $i \in \operatorname{subtree}(u),j \in \operatorname{subtree}(v)$.
+对于一个编号序列 $1,2,3,\ldots,n$，每个编号只有两种状态：$i \in \operatorname{subtree}(u)$ 或 $i \in \operatorname{subtree}(v)$.
+选择的一个连续编号区间 $[l,r]$，钦定的边会产生贡献，当且仅当该区间内同时包含 $i \in \operatorname{subtree}(u)$ 与 $j \in \operatorname{subtree}(v)$.
+那么有一个自然的想法：维护每一段连续的相同状态的编号，即维护若干个线段 $[L,R]$ 满足 $\forall i \in [L,R], i \in \operatorname{subtree}(u \text{ or } v)$，那么对于每一条线段，只要 $l &amp;lt; L,r \ge R$ 或 $l \le L,r &amp;gt; R$ 就能满足条件。</description>
+        </item>
+        
+    </channel>
+</rss>

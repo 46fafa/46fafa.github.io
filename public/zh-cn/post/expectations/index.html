@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='前言 今天学习一下期望 DP，写点笔记。 由于概率与期望是高中数学内容，已经学过了，不再过多描述。
+模型 写转移方程时算上概率罢了，常常用逆推。
+例题 学习知识点的最好方法就是刷题。
+SPOJ Favorite Dice 给一个 $n$ 面的骰子，问每面都被抛到的期望次数。
+设 $f(i)$ 为剩余 $i$ 面要被抛到的期望次数。 $f(n) = f(n-1) &#43; 1$，第一次抛怎么抛都可以。 $f(n-1) = \dfrac{n-1}{n} \times f(n-2) &#43; \dfrac{1}{n} \times f(n-1) &#43; 1$ $f(n-2) = \dfrac{n-2}{n} \times f(n-3) &#43; \dfrac{2}{n} \times f(n-2) &#43; 1$ 依此类推，有： $f(n - i) = \dfrac{n - i}{n} \times f(n - i - 1) &#43; \dfrac{i}{n} \times f(n - i) &#43; 1$，化简得到： $\dfrac{n - i}{n} f(n-i) = \dfrac{n-i}{n} \times f(n-i-1) &#43; 1$，继续化简得到： $f(n - i) = f(n - i - 1) &#43; \dfrac{n}{n-i}$，用 $x$ 替换 $n - i$ 得到： $f(x) = f(x - 1) &#43; \dfrac{n}{x}$'>
+<title>[笔记]概率与期望</title>
+
+<link rel='canonical' href='http://example.org/zh-cn/post/expectations/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='[笔记]概率与期望'>
+<meta property='og:description' content='前言 今天学习一下期望 DP，写点笔记。 由于概率与期望是高中数学内容，已经学过了，不再过多描述。
+模型 写转移方程时算上概率罢了，常常用逆推。
+例题 学习知识点的最好方法就是刷题。
+SPOJ Favorite Dice 给一个 $n$ 面的骰子，问每面都被抛到的期望次数。
+设 $f(i)$ 为剩余 $i$ 面要被抛到的期望次数。 $f(n) = f(n-1) &#43; 1$，第一次抛怎么抛都可以。 $f(n-1) = \dfrac{n-1}{n} \times f(n-2) &#43; \dfrac{1}{n} \times f(n-1) &#43; 1$ $f(n-2) = \dfrac{n-2}{n} \times f(n-3) &#43; \dfrac{2}{n} \times f(n-2) &#43; 1$ 依此类推，有： $f(n - i) = \dfrac{n - i}{n} \times f(n - i - 1) &#43; \dfrac{i}{n} \times f(n - i) &#43; 1$，化简得到： $\dfrac{n - i}{n} f(n-i) = \dfrac{n-i}{n} \times f(n-i-1) &#43; 1$，继续化简得到： $f(n - i) = f(n - i - 1) &#43; \dfrac{n}{n-i}$，用 $x$ 替换 $n - i$ 得到： $f(x) = f(x - 1) &#43; \dfrac{n}{x}$'>
+<meta property='og:url' content='http://example.org/zh-cn/post/expectations/'>
+<meta property='og:site_name' content='My New Hugo Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Zh-Cn' /><meta property='article:tag' content='math' /><meta property='article:tag' content='expectation' /><meta property='article:tag' content='dynamic-programming' /><meta property='article:published_time' content='2020-08-20T16:03:11&#43;08:00'/><meta property='article:modified_time' content='2020-08-20T16:03:11&#43;08:00'/>
+<meta name="twitter:title" content="[笔记]概率与期望">
+<meta name="twitter:description" content="前言 今天学习一下期望 DP，写点笔记。 由于概率与期望是高中数学内容，已经学过了，不再过多描述。
+模型 写转移方程时算上概率罢了，常常用逆推。
+例题 学习知识点的最好方法就是刷题。
+SPOJ Favorite Dice 给一个 $n$ 面的骰子，问每面都被抛到的期望次数。
+设 $f(i)$ 为剩余 $i$ 面要被抛到的期望次数。 $f(n) = f(n-1) &#43; 1$，第一次抛怎么抛都可以。 $f(n-1) = \dfrac{n-1}{n} \times f(n-2) &#43; \dfrac{1}{n} \times f(n-1) &#43; 1$ $f(n-2) = \dfrac{n-2}{n} \times f(n-3) &#43; \dfrac{2}{n} \times f(n-2) &#43; 1$ 依此类推，有： $f(n - i) = \dfrac{n - i}{n} \times f(n - i - 1) &#43; \dfrac{i}{n} \times f(n - i) &#43; 1$，化简得到： $\dfrac{n - i}{n} f(n-i) = \dfrac{n-i}{n} \times f(n-i-1) &#43; 1$，继续化简得到： $f(n - i) = f(n - i - 1) &#43; \dfrac{n}{n-i}$，用 $x$ 替换 $n - i$ 得到： $f(x) = f(x - 1) &#43; \dfrac{n}{x}$">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script> 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">My New Hugo Site</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/en/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/algorithm/" >
+                Algorithm
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/zh-cn/post/expectations/">[笔记]概率与期望</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Aug 20, 2020</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="前言">前言</h2>
+<p>今天学习一下期望 DP，写点笔记。
+由于概率与期望是高中数学内容，已经学过了，不再过多描述。</p>
+<h2 id="模型">模型</h2>
+<p>写转移方程时算上概率罢了，常常用逆推。</p>
+<h2 id="例题">例题</h2>
+<p>学习知识点的最好方法就是刷题。</p>
+<h3 id="spoj-favorite-dice">SPOJ Favorite Dice</h3>
+<p>给一个 $n$ 面的骰子，问每面都被抛到的期望次数。</p>
+<p>设 $f(i)$ 为剩余 $i$ 面要被抛到的期望次数。
+$f(n) = f(n-1) + 1$，第一次抛怎么抛都可以。
+$f(n-1) = \dfrac{n-1}{n} \times f(n-2) + \dfrac{1}{n} \times f(n-1) + 1$
+$f(n-2) = \dfrac{n-2}{n} \times f(n-3) + \dfrac{2}{n} \times f(n-2) + 1$
+依此类推，有：
+$f(n - i) = \dfrac{n - i}{n} \times f(n - i - 1) + \dfrac{i}{n} \times f(n - i) + 1$，化简得到：
+$\dfrac{n - i}{n} f(n-i) = \dfrac{n-i}{n} \times f(n-i-1) + 1$，继续化简得到：
+$f(n - i) = f(n - i - 1) + \dfrac{n}{n-i}$，用 $x$ 替换 $n - i$ 得到：
+$f(x) = f(x - 1) + \dfrac{n}{x}$</p>
+<p>显然有 $f(1) = n$，递推即可。</p>
+<p>这类题型相当常见，例如一样的题还有 [SHOI2002]百事世界杯之旅。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> T,n;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>T);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(T<span style="color:#f92672">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        scanf(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>n);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">double</span> last <span style="color:#f92672">=</span> n, now <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            now <span style="color:#f92672">=</span> last <span style="color:#f92672">+</span> n <span style="color:#f92672">*</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">/</span> i;
+</span></span><span style="display:flex;"><span>            last <span style="color:#f92672">=</span> now;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        printf(<span style="color:#e6db74">&#34;%.2f</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, last);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="usaco08octbovine-bones-g">[USACO08OCT]Bovine Bones G</h3>
+<p>给三个骰子，范围分别为 $[1,a]$,$[1,b]$,$[1,c]$，求三个骰子上的数字和，哪个和出现最频繁。</p>
+<p>虽然计算期望并不严谨，但依然可以试试。</p>
+<p>数字在 $[1,a]$ 中平均分布，期望为 $\dfrac{a - 1}{2} + 1$，其余同理。</p>
+<p>可以得到整体期望为 $\dfrac{a + b + c + 3}{2}$</p>
+<p>然而问题在于，原题中的数字并非实数线性分布，而是限制在整数域内。而要计算的是出现最频繁的和，而非期望和。因此这个解法显然是有问题的。</p>
+<p>明显的问题在于可能计算出非整数期望。</p>
+<p>正确的方法应该是算事件数，即求 $x_1 + x_2 + x_3 = k$ 的方案数，如果不考虑限定范围的话，显然就是经典高中数学排列组合题，$k - 1$ 个间隔中插入两个隔板即可。</p>
+<p>限定范围后，可能可以计算出不合法数目，然后容斥一下。</p>
+<p>当然，原题数据范围奇小，直接枚举暴力即可。</p>
+<h3 id="luogup1654-osu">LuoguP1654 OSU!</h3>
+<p>给出每个位置为 $1$ 的概率，一整段长度为 $x$ 的 $1$ 对答案的贡献为 $x^3$，求期望得分。</p>
+<p>定义 $p(i)$ 为位置 $i$ 为 $1$ 的概率。</p>
+<p>考虑多一个 $1$ 对答案的贡献：$(x + 1)^3 - x^3 = 3x^2 + 3x + 1$，那么维护 $x^2$ 与 $x$ 的期望值即可进行转移。</p>
+<p>定义 $f(i)$ 为结尾连续一段的 $x$ 的期望， $g(i)$ 为结尾连续一段的 $x^2$ 的期望，$h(i)$ 为得分的期望，有：
+$f(i) = [f(i-1) + 1] \times p(i)$
+$g(i) = [g(i-1) + 2f(i-1) + 1] \times p(i)$
+$h(i) = h(i-1) + p(i) \times [3g(i-1) + 3f(i-1) + 1]$</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">double</span> p[maxn], f[maxn], g[maxn], h[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    scanf(<span style="color:#e6db74">&#34;%d&#34;</span>, <span style="color:#f92672">&amp;</span>n);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) scanf(<span style="color:#e6db74">&#34;%lf&#34;</span>, p <span style="color:#f92672">+</span> i);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        f[i] <span style="color:#f92672">=</span> (f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> p[i];
+</span></span><span style="display:flex;"><span>        g[i] <span style="color:#f92672">=</span> (g[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> p[i];
+</span></span><span style="display:flex;"><span>        h[i] <span style="color:#f92672">=</span> h[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> (<span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> g[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> f[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> p[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;%.1f&#34;</span>,h[n]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="luogup4550-收集邮票">LuoguP4550 收集邮票</h3>
+<p>买第 $k$ 张邮票需要 $k$ 元，要收集全部邮票，求期望花费。
+设 $f(i)$ 为现在取了 $i$ 张邮票，要取完剩下的邮票的期望次数。
+初始有 $f(n) = 0$，考虑转移：
+每次购买，有 $\dfrac{i}{n}$ 的概率取到有的，$\dfrac{n-i}{n}$ 的概率取到现在没有的，因此写出：
+$f(i) = \dfrac{i}{n} \times f(i) + \dfrac{n-i}{n} \times f(i+1) + 1$，化简有：
+$f(i) = f(i + 1) + \dfrac{n}{n-i}$，与上面的某题是一样的。</p>
+<p>设 $g(i)$ 为现在取了 $i$ 张邮票，要取完剩下的邮票的期望花费。
+初始有 $g(n) = 0$，考虑转移：
+有 \dfrac{i}{n} 的概率取到有的，在此之后，期望还要取的次数是 $f(i)$，考虑顺着买邮票与倒着买是相同的，相当于在此之前，买了 $f(i)$ 张，此时花费为 $f(i) + 1$，因此：此时 $g(i) = \dfrac{i}{n} \times [g(i) + f(i) + 1]$
+有 $\dfrac{n-i}{n}$ 的概率取到没有的，在此之后，期望还要取的次数为 $f(i+1)$，同理转化为买了 $f(i+1)$ 张，花费为 $f(i+1) + 1$，此时有：$g(i) = \dfrac{n-i}{n} \times [g(i+1) + f(i+1) + 1]$，合并起来有：
+$g(i) = \dfrac{i}{n} \times [g(i) + f(i) + 1] + \dfrac{n-i}{n} \times [g(i+1) + f(i+1) + 1]$，化简得：</p>
+<p>$g(i) = \dfrac{i}{n-i} \times f(i)+g(i+1)+f(i+1)+\dfrac{n}{n-i}$</p>
+<p>转移即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">double</span> f[maxn],g[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    scanf(<span style="color:#e6db74">&#34;%d&#34;</span>,<span style="color:#f92672">&amp;</span>n);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;i<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">0</span>;<span style="color:#f92672">--</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        f[i] <span style="color:#f92672">=</span> f[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.0</span> <span style="color:#f92672">*</span> n <span style="color:#f92672">/</span> (<span style="color:#ae81ff">1.0</span> <span style="color:#f92672">*</span> n <span style="color:#f92672">-</span> i);
+</span></span><span style="display:flex;"><span>        g[i] <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1.0</span> <span style="color:#f92672">*</span> i) <span style="color:#f92672">/</span> (n <span style="color:#f92672">-</span> i) <span style="color:#f92672">*</span> f[i] <span style="color:#f92672">+</span> g[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> f[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> (<span style="color:#ae81ff">1.0</span> <span style="color:#f92672">*</span> n) <span style="color:#f92672">/</span> (n <span style="color:#f92672">-</span> i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;%.2f&#34;</span>,g[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="luogup3802-小魔女帕琪">LuoguP3802 小魔女帕琪</h3>
+<p>七种物品，每种有 $a_i$ 个，每次等概率取出一个。连续 $7$ 种不同的物品会触发一次终极魔法，而不同终极魔法对应的物品可以有重合。</p>
+<p>求终极魔法触发的期望次数。</p>
+<p>先考虑前七次就触发魔法的概率：</p>
+<p>$\prod_{i=1}^7 \dfrac{a_i}{n - i + 1}$</p>
+<p>而该 $a_i$ 的顺序如何排列是不会影响触发魔法的，因此 $7!$ 种排列都是可行的。</p>
+<p>概率为：$7! \times \prod_{i=1}^7 \dfrac{a_i}{n - i + 1}$</p>
+<p>考虑将前七次拓展到所有次数，可以发现，这七次连续抽取的段无论在哪里，概率都是上式。</p>
+<p>这类似于抽签游戏，在条件概率下是公平的。严格证明如下：</p>
+<p>假定第一次取走一个 $a_1$，剩余 $n - 1$ 个球，第 $2$ 至 $8$ 个抽取满足条件的概率为：</p>
+<p>$\dfrac{a_1}{n} \times 7! \times \dfrac{a_2}{n - 1}\times \dfrac{a_3}{n - 2} \times \dfrac{a_4}{n - 3} \times \dfrac{a_5}{n - 4} \times \dfrac{a_6}{n - 5} \times \dfrac{a_7}{n - 6} \times \dfrac{a_1 - 1}{n - 7}$</p>
+<p>其余同理，将第一次取走 $a_x$ 的概率累加得到：</p>
+<p>$7! \times \prod _{i=1}^7 \dfrac{a_i}{n-i+1} \times \sum _{i=1}^7 \dfrac{a_i - 1}{n - 7}$</p>
+<p>显然最后这部分的和为 $1$，因此取走第一个物品后，开头的前七次触发魔法的概率与未取时相等。</p>
+<p>依此推广到取 $m$ 个物品时，概率都不变。直到只剩下 $7$ 个物品为止。</p>
+<p>最后答案就是：</p>
+<p>$7! \times \prod _{i=1}^7 \dfrac{a_i}{n-i+1} \times (n - 6)$</p>
+<p>需要特判零的情况，避免除数为零。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> a[<span style="color:#ae81ff">10</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> n <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">7</span>; <span style="color:#f92672">++</span>i) scanf(<span style="color:#e6db74">&#34;%lld&#34;</span>, a <span style="color:#f92672">+</span> i), n <span style="color:#f92672">+=</span> a[i];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">double</span> ans <span style="color:#f92672">=</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">6</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">4</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">*</span> (n <span style="color:#f92672">-</span> <span style="color:#ae81ff">6</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(n <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">6</span>) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        puts(<span style="color:#e6db74">&#34;0.000&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">7</span>; <span style="color:#f92672">++</span>i) ans <span style="color:#f92672">=</span> ans <span style="color:#f92672">/</span> (n <span style="color:#f92672">-</span> i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> a[i];
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;%.3f&#34;</span>, ans);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="luogup6154-游走">LuoguP6154 游走</h3>
+<p>给一个有向无环图，随机选择一条路径，求路径期望长度。</p>
+<p>假定有 $num$ 条路径，所有路径长度总和为 $len$，那么答案就是 $\dfrac{len}{num}$。</p>
+<p>考虑如何求出 $num$ 与 $len$，定义 $f(i)$ 为以 $i$ 为结尾的路径条数，定义 $g(i)$ 为以 $i$ 结尾的路径长度和。</p>
+<p>显然有 $f(v) += f(u)$，$g(v) += g(u) + f(u)$</p>
+<p>拓扑排序转移即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ctype.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> bufSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">char</span> <span style="color:#a6e22e">nc</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#ifdef DEBUG
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> getchar();
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#endif
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> buf[bufSize], <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> buf, <span style="color:#f92672">*</span>p2 <span style="color:#f92672">=</span> buf;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p1 <span style="color:#f92672">==</span> p2 <span style="color:#f92672">&amp;&amp;</span> (p2 <span style="color:#f92672">=</span> (p1 <span style="color:#f92672">=</span> buf) <span style="color:#f92672">+</span> fread(buf, <span style="color:#ae81ff">1</span>, bufSize, stdin), p1 <span style="color:#f92672">==</span> p2) <span style="color:#f92672">?</span> EOF : <span style="color:#f92672">*</span>p1<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">inline</span> T read(T <span style="color:#f92672">&amp;</span>r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">char</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> flag;
+</span></span><span style="display:flex;"><span>    flag <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, r <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (c <span style="color:#f92672">=</span> nc(); <span style="color:#f92672">!</span>isdigit(c); c <span style="color:#f92672">=</span> nc()) <span style="color:#66d9ef">if</span> (c <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;-&#39;</span>) flag <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (; isdigit(c); c <span style="color:#f92672">=</span> nc()) r <span style="color:#f92672">=</span> r <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> c <span style="color:#f92672">-</span> <span style="color:#ae81ff">48</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> r <span style="color:#f92672">*=</span> flag;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#define int long long
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> mod <span style="color:#f92672">=</span> <span style="color:#ae81ff">998244353</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> maxn <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e5</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> E[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> n, m;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> f[maxn], g[maxn], in[maxn];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> q[maxn], qh, qt;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fastpow</span>(<span style="color:#66d9ef">int</span> x,<span style="color:#66d9ef">int</span> k)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (k)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (k <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>) res <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1ll</span> <span style="color:#f92672">*</span> res <span style="color:#f92672">*</span> x) <span style="color:#f92672">%</span> mod;
+</span></span><span style="display:flex;"><span>        x <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1ll</span> <span style="color:#f92672">*</span> x <span style="color:#f92672">*</span> x) <span style="color:#f92672">%</span> mod;
+</span></span><span style="display:flex;"><span>        k <span style="color:#f92672">&gt;&gt;=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> res;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">inv</span>(<span style="color:#66d9ef">int</span> x) { <span style="color:#66d9ef">return</span> fastpow(x, mod <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>); }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">signed</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    read(n), read(m);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> x, y;
+</span></span><span style="display:flex;"><span>        read(x), read(y), E[x].push_back(y), in[y]<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    qh <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, qt <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; f[i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">++</span>i) <span style="color:#66d9ef">if</span> (in[i] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) q[<span style="color:#f92672">++</span>qt] <span style="color:#f92672">=</span> i;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span>(qt <span style="color:#f92672">&gt;=</span> qh)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> u <span style="color:#f92672">=</span> q[qh<span style="color:#f92672">++</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;::</span>iterator it <span style="color:#f92672">=</span> E[u].begin(); it <span style="color:#f92672">!=</span> E[u].end(); <span style="color:#f92672">++</span>it)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> v <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>it;
+</span></span><span style="display:flex;"><span>            (f[v] <span style="color:#f92672">+=</span> f[u]) <span style="color:#f92672">%=</span> mod;
+</span></span><span style="display:flex;"><span>            (g[v] <span style="color:#f92672">+=</span> g[u] <span style="color:#f92672">+</span> f[u]) <span style="color:#f92672">%=</span> mod;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">--</span>in[v] <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) q[<span style="color:#f92672">++</span>qt] <span style="color:#f92672">=</span> v;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sf <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,sg <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; <span style="color:#f92672">++</span>i) sf <span style="color:#f92672">=</span> (sf <span style="color:#f92672">+</span> f[i]) <span style="color:#f92672">%</span> mod, sg <span style="color:#f92672">=</span> (sg <span style="color:#f92672">+</span> g[i]) <span style="color:#f92672">%</span> mod;
+</span></span><span style="display:flex;"><span>    printf(<span style="color:#e6db74">&#34;%lld</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, (<span style="color:#ae81ff">1ll</span> <span style="color:#f92672">*</span> sg <span style="color:#f92672">*</span> inv(sf)) <span style="color:#f92672">%</span> mod);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/math/">math</a>
+        
+            <a href="/tags/expectation/">expectation</a>
+        
+            <a href="/tags/dynamic-programming/">dynamic-programming</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title"></h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/zh-cn/post/bsgs/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">BSGS(大步小步算法)解离散对数问题</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/zh-cn/post/chinese-remainder/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">中国剩余定理学习笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/zh-cn/post/euler/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">欧拉函数、欧拉定理学习笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/zh-cn/post/exgcd/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">拓展欧几里德算法(exgcd)学习笔记</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 My New Hugo Site
+    </section>
+    
+    <section class="powerby">
+         with 
+        
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            </main>
+        </div>
+        <script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

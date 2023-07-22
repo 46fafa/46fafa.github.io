@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>shell on My New Hugo Site</title>
+        <link>http://example.org/tags/shell/</link>
+        <description>Recent content in shell on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 21 Aug 2022 22:57:10 +0800</lastBuildDate><atom:link href="http://example.org/tags/shell/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>MIT Missing Semester Exercises</title>
+        <link>http://example.org/en/post/mit-missing/</link>
+        <pubDate>Sun, 21 Aug 2022 22:57:10 +0800</pubDate>
+        
+        <guid>http://example.org/en/post/mit-missing/</guid>
+        <description>1/13/20 : Course overview + the shell 1/14/20 : Shell Tools and Scripting 1/15/20 : Editors (Vim) 1/16/20 : Data Wrangling 1/21/20 : Command-line Environment 1/22/20 : Version Control (Git) 1/23/20 : Debugging and Profiling 1/27/20 : Metaprogramming 1/28/20 : Security and Cryptography 1/29/20 : Potpourri Lesson 1 For this course, you need to be using a Unix shell like Bash or ZSH. If you are on Linux or macOS, you don’t have to do anything special.</description>
+        </item>
+        
+    </channel>
+</rss>

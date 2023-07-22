@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='简介 后缀数组(Suffix Array)，主要是两个数组： $sa$ 与 $rk$ . 我们约定，后缀 $i$ 表示从 $i$ 开始的后缀。字符串下标从 $1$ 开始。 其中， $sa[i]$ 代表所有后缀'>
+<title>后缀树组学习笔记(Suffix Array)</title>
+
+<link rel='canonical' href='https://ideal30d.top/p/sa/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='后缀树组学习笔记(Suffix Array)'>
+<meta property='og:description' content='简介 后缀数组(Suffix Array)，主要是两个数组： $sa$ 与 $rk$ . 我们约定，后缀 $i$ 表示从 $i$ 开始的后缀。字符串下标从 $1$ 开始。 其中， $sa[i]$ 代表所有后缀'>
+<meta property='og:url' content='https://ideal30d.top/p/sa/'>
+<meta property='og:site_name' content='liberal&#39;Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='SuffixArray' /><meta property='article:published_time' content='2021-01-22T11:04:17&#43;08:00'/><meta property='article:modified_time' content='2021-01-22T11:04:17&#43;08:00'/>
+<meta name="twitter:site" content="@sanxun22">
+    <meta name="twitter:creator" content="@sanxun22"><meta name="twitter:title" content="后缀树组学习笔记(Suffix Array)">
+<meta name="twitter:description" content="简介 后缀数组(Suffix Array)，主要是两个数组： $sa$ 与 $rk$ . 我们约定，后缀 $i$ 表示从 $i$ 开始的后缀。字符串下标从 $1$ 开始。 其中， $sa[i]$ 代表所有后缀">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KSKRE06P26"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-KSKRE06P26', { 'anonymize_ip': false });
+}
+</script>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script> 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "light");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">liberal&#39;Blog</a></h1>
+            <h2 class="site-description">独立思考,保持清醒</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://book.douban.com/mine?status=collect'
+                        target="_blank"
+                        title="DouBan"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-douban" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 20h16" />
+  <path d="M5 4h14" />
+  <path d="M8 8h8a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-2a2 2 0 0 1 2 -2z" />
+  <path d="M16 14l-2 6" />
+  <path d="M8 17l1 3" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/46fafa'
+                        target="_blank"
+                        title="Github"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/index.xml' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="5" cy="19" r="1" />
+  <path d="M4 4a16 16 0 0 1 16 16" />
+  <path d="M4 11a9 9 0 0 1 9 9" />
+</svg>
+
+
+
+                
+                <span>订阅</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#求法">求法</a>
+      <ol>
+        <li><a href="#倍增基数排序">倍增基数排序</a></li>
+        <li><a href="#on-求法">$O(n)$ 求法</a></li>
+      </ol>
+    </li>
+    <li><a href="#后缀数组的应用">后缀数组的应用</a>
+      <ol>
+        <li><a href="#寻找最小的循环移动位置">寻找最小的循环移动位置</a></li>
+        <li><a href="#在字符串中找子串">在字符串中找子串</a></li>
+        <li><a href="#从字符串首尾取字符最小化字典序">从字符串首尾取字符最小化字典序</a></li>
+      </ol>
+    </li>
+    <li><a href="#height-数组">height 数组</a>
+      <ol>
+        <li><a href="#lcp最长公共前缀">LCP（最长公共前缀）</a></li>
+        <li><a href="#height-数组定义">height 数组定义</a></li>
+        <li><a href="#on-求-height-数组需要的一个引理">$O(n)$ 求 height 数组需要的一个引理</a></li>
+        <li><a href="#on-求-height-数组的代码实现">$O(n)$ 求 height 数组的代码实现</a></li>
+      </ol>
+    </li>
+    <li><a href="#height-数组的应用">height 数组的应用</a>
+      <ol>
+        <li><a href="#两子串最长公共前缀">两子串最长公共前缀</a></li>
+        <li><a href="#比较两子串的大小关系">比较两子串的大小关系</a></li>
+        <li><a href="#不同子串的数目">不同子串的数目</a></li>
+        <li><a href="#出现至少-k-次的子串的最大长度">出现至少 $k$ 次的子串的最大长度</a></li>
+        <li><a href="#是否有某字符串在文本串中至少不重叠地出现了两次">是否有某字符串在文本串中至少不重叠地出现了两次</a></li>
+        <li><a href="#连续的若干个相同子串">连续的若干个相同子串</a></li>
+        <li><a href="#结合并查集">结合并查集</a></li>
+        <li><a href="#结合线段树">结合线段树</a></li>
+        <li><a href="#结合单调栈">结合单调栈</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/algorithm/" >
+                Algorithm
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/sa/">后缀树组学习笔记(Suffix Array)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 22, 2021</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 8 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="简介">简介</h2>
+<p>后缀数组(Suffix Array)，主要是两个数组： $sa$ 与 $rk$ .</p>
+<p>我们约定，后缀 $i$ 表示从 $i$ 开始的后缀。字符串下标从 $1$ 开始。</p>
+<p>其中， $sa[i]$ 代表所有后缀中，第 $i$ 小的后缀的编号。<br>
+$rk[i]$ 代表后缀 $i$ 从小到大的排名。</p>
+<p>有： $sa[rk[i]] = i$ ， $rk[sa[i]] = i$ .</p>
+<hr>
+<p><img src="https://b3logfile.com/siyuan/1609132319768/assets/20210120105854-1bwc5rn.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>上图是一个后缀数组的例子。</p>
+<p>可以发现，对于一个字符串，其所有后缀排序后，因为长度互不相同，得到的大小序列是唯一的。</p>
+<h2 id="求法">求法</h2>
+<p>一个显然的求法，就是遍历所有后缀，扔进去排序，时间复杂度 $O(n^2 \log n)$ ，缺乏实用性。</p>
+<p>在 OI 中，常常使用的是基于倍增和基数排序的求法，可以做到 $O(n \log n)$ 的时间复杂度。</p>
+<hr>
+<p>利用倍增思想，假设我们已经知道长度为 $w$ 的字符串的 $rk$ 数组，现在要求出长度为 $2w$ 的字符串的 $rk$ 数组。</p>
+<p>具体地， $rk[i]$ 此时代表 $s[i,\min(n,i + w - 1)]$  在 ${s[i,\min(n,i+w-1]|i \in [1,n]}$  中的排名。</p>
+<p>以 $rk[i]$ 为第一关键字， $rk[i + w]$ 为第二关键字，就可以求出长度为 $2w$ 的字符串的 $rk$ 数组。<br>
+特别地，若 $i + w &gt; n$ 则令其为无穷小。</p>
+<p>倍增排序示意图：</p>
+<p><img src="https://b3logfile.com/siyuan/1609132319768/assets/20210120110503-1wyqfq5.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>如果使用常规的基于比较的排序算法，可以做到 $O(n \log^2 n)$ 的复杂度。</p>
+<p>而由于 $rk[i]$ 与 $n$ 同阶，往往可以采用基数排序来做到 $O(n)$ 单次排序，从而优化到 $O(n \log n)$ 的复杂度。</p>
+<hr>
+<p>这里先给出基于 <code>sort</code> 的方法，便于理解：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mf">1e6</span> <span class="o">+</span> <span class="mi">100</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">sa</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span> <span class="n">rk</span><span class="p">[</span><span class="n">maxn</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">],</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">maxn</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">cmp</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rk</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">!=</span> <span class="n">rk</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="k">return</span> <span class="n">rk</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rk</span><span class="p">[</span><span class="n">b</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">rk</span><span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">rk</span><span class="p">[</span><span class="n">b</span> <span class="o">+</span> <span class="n">w</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">rk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">w</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">w</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">w</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">sa</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sa</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">n</span><span class="p">,</span> <span class="n">cmp</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rk</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>  <span class="c1">//过程中需要用到原排名，因此拷贝一份  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">oldrk</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">==</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]]</span> <span class="o">&amp;&amp;</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span> <span class="o">==</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">])</span>  
+</span></span><span class="line"><span class="cl">                <span class="n">rk</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>  <span class="c1">//若两个子串相同，其排名需要相同  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">else</span> <span class="n">rk</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="o">++</span><span class="n">p</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d &#34;</span><span class="p">,</span> <span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="倍增基数排序">倍增基数排序</h3>
+<p>现在我们考虑如何使用基数排序进行优化。</p>
+<p>其实就是朴素的基数排序，但为了减小常数，有如下的黑科技：</p>
+<ul>
+<li>第二关键字无需计数排序。第一关键字相同时，先将 $i + w &gt; n$ 的即第二关键字无穷小的元素放入队列中，再将普通元素放入。</li>
+<li>优化计数排序的值域。每次对 $rk$ 数组进行了去重，因此可以不断缩小计数的值域。</li>
+<li>用函数 $cmp$ 来计算是否重复，优化缓存。</li>
+</ul>
+<p>我们约定：</p>
+<ul>
+<li>$sa[i]$ 表示排名第 $i$ 的后缀。</li>
+<li>$rk[i]$ 表示后缀 $i$ 的排名。</li>
+<li>$tp[i]$ 表示第二关键字排名为 $i$ 的后缀。</li>
+<li>$tax$ 为辅助基数排序所用的桶。</li>
+<li>$m$ 为当前计数排序的值域。</li>
+</ul>
+<p>先来看基数排序部分：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">RadixSort</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">tax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">tax</span><span class="p">[</span><span class="n">rk</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>          <span class="c1">//统计第一关键字排名为 i 的有多少个  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">tax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tax</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>  <span class="c1">//做前缀和方便得到全局排名  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="n">sa</span><span class="p">[</span><span class="n">tax</span><span class="p">[</span><span class="n">tp</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">tp</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>   <span class="c1">//倒序遍历，保证在第一关键字相同的中，第二关键字靠后的排名靠后  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里还是比较容易理解的，先预处理出 $tp$ 数组，然后开一个桶。</p>
+<p>对于第一关键字相同的，通过桶来分配排名。</p>
+<p>那么主体部分跟之前大概一致。<br>
+只是多了处理第二关键字序列 $tp$ 的环节。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstdio&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;  </span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span> <span class="o">=</span> <span class="mf">1e6</span> <span class="o">+</span> <span class="mi">100</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">sa</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span> <span class="n">rk</span><span class="p">[</span><span class="n">maxn</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">],</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">maxn</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">],</span> <span class="n">tax</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span> <span class="n">tp</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">RadixSort</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">M</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">tax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">tax</span><span class="p">[</span><span class="n">rk</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>          <span class="c1">//统计第一关键字排名为 i 的有多少个  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">M</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">tax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tax</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>  <span class="c1">//做前缀和方便得到全局排名  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span> <span class="n">sa</span><span class="p">[</span><span class="n">tax</span><span class="p">[</span><span class="n">rk</span><span class="p">[</span><span class="n">tp</span><span class="p">[</span><span class="n">i</span><span class="p">]]]</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">tp</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>  <span class="c1">//倒序遍历，保证在第一关键字相同的中，第二关键字靠后的排名靠后  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="kt">bool</span> <span class="nf">same</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">==</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span> <span class="o">==</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">b</span> <span class="o">+</span> <span class="n">w</span><span class="p">];</span> <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">SuffixArray</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">M</span> <span class="o">=</span> <span class="mi">300</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">rk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">tp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">RadixSort</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">;</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">w</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="n">p</span><span class="p">)</span>  <span class="c1">//reset count range  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">tp</span><span class="p">[</span><span class="o">++</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>  <span class="c1">//第二关键字为无穷小的先放入  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">w</span><span class="p">)</span> <span class="n">tp</span><span class="p">[</span><span class="o">++</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">w</span><span class="p">;</span>  <span class="c1">//初始化第二关键字  
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">RadixSort</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">oldrk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">rk</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="n">same</span><span class="p">(</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">w</span><span class="p">))</span> <span class="n">rk</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span> <span class="k">else</span> <span class="n">rk</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="o">++</span><span class="n">p</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">n</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">SuffixArray</span><span class="p">();</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s">&#34;%d &#34;</span><span class="p">,</span> <span class="n">sa</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="on-求法">$O(n)$ 求法</h3>
+<p>在一般题目中，常数较小的倍增完全够用了。<br>
+但的确还有 $O(n)$ 的求法：</p>
+<ul>
+<li>SA-IS</li>
+<li>DC3</li>
+</ul>
+<h2 id="后缀数组的应用">后缀数组的应用</h2>
+<h3 id="寻找最小的循环移动位置">寻找最小的循环移动位置</h3>
+<blockquote>
+<p>{{{<br>
+给出一个环字符串 $s$ ，从任意点出发可以得到一个字符串 $t$ ，对所有可能的 $t$ 进行排序。</p>
+<p>破环为链，将字符串 $s$ 复制一份之后，就成了后缀排序问题。我们只需要排序前 $|s|$ 位即可，可以发现对后面的位排序是没有影响的。</p>
+<p>为什么没有影响？因为 $|s|$ 位后又开始了循环，如果有不同则在之前已经被分出大小了。</p>
+<p>}}}</p>
+</blockquote>
+<p>代码看：&ldquo;这里&rdquo;</p>
+<h3 id="在字符串中找子串">在字符串中找子串</h3>
+<p>在原串 $S$  中<strong>在线</strong>匹配模式串 $T$ .</p>
+<p>如果可以离线，那么&quot;AC 自动机&quot;是一种优秀的解决方案。<br>
+而对于在线匹配，可以用后缀数组实现，单个模式串时间复杂度为 $O(|T| \log |S|)$ .</p>
+<p>我们先构造出 $S$ 的后缀数组，然后查找子串 $T$ .<br>
+如果 $T$  在 $S$ 中出现过，那么 $T$ 一定是 $S$ 的某个后缀的前缀。<br>
+求出 $sa$ 数组后，我们二分 $T$  对应的后缀，用 $O(|T|)$ 的时间复杂度进行比较。<br>
+总复杂度即 $O(|T| \log |S|)$ .</p>
+<p>这种方法还可以拓展到求模式串的出现次数，同样用二分解决。<br>
+而输出每次出现的位置也很轻松，即对应的 $sa[i]$ 为起点。</p>
+<h3 id="从字符串首尾取字符最小化字典序">从字符串首尾取字符最小化字典序</h3>
+<blockquote>
+<p>{{{<br>
+给你一个字符串，每次从首或尾取走一个字符，问能够组成的字符串中字典序最小的一个。</p>
+<p>考虑依次判断当前头尾字符应该取哪一个。<br>
+如果头尾字符不同，那么显然可以直接贪心取小的。<br>
+如果头尾字符相同，事情变得棘手起来。</p>
+<p>事实上，我们可以比较当前首字符开始的后缀与尾字符开始的前缀的字典序，然后贪心地取。<br>
+感性理解一下。</p>
+<p>问题就只剩下了求首字符开始的后缀与尾字符开始的前缀的字典序大小关系。<br>
+考虑使用后缀排序，将原串和反串放在同一个字符串里，在 $i + 1$ 位置处用某个分隔符隔开。<br>
+这样，对于位置 $ i $ ，其后缀的排名为 $ rk[i] $ ，其前缀的排名为 $ rk[2n - i + 2]$ .</p>
+<p>}}}</p>
+</blockquote>
+<p>&ldquo;例题&rdquo;</p>
+<h2 id="height-数组">height 数组</h2>
+<h3 id="lcp最长公共前缀">LCP（最长公共前缀）</h3>
+<p>最长公共前缀，顾名思义。</p>
+<p>两个字符串 $S$ 与 $T$ 的 LCP 就是最大的 $x$ 满足 $S_i = T_i (\forall i \in [1,x])$ .</p>
+<p>下文以 $\operatorname{lcp}(i,j)$ 表示后缀 $i$ 与后缀 $j$ 的最长公共前缀长度。</p>
+<h3 id="height-数组定义">height 数组定义</h3>
+<p>$height[i]  = \operatorname{lcp}(sa[i-1],sa[i])$ .</p>
+<p>具体地， $height[i]$ 即第 $i$ 名的后缀与它的前一名的后缀的最长公共前缀长度。</p>
+<p>为了方便，我们记： $h[i] = height[rk[i]]$ .<br>
+即 $h[i]$ 对应位置 $i$ 的后缀的 $height$ 值。</p>
+<p>$height[1]$ 可以视为 $0$ .</p>
+<h3 id="on-求-height-数组需要的一个引理">$O(n)$ 求 height 数组需要的一个引理</h3>
+<p>$$ h[i] \ge h[i-1] - 1  $$</p>
+<p>这乍一看是不怎么显然的。我们猜测这也用到了字符串的公共部分带来的性质。</p>
+<hr>
+<p>证明：</p>
+<p>首先有一个证明需要用到的引理。<br>
+后缀 $i$ 和后缀 $j$ 的最长公共前缀长度为： $\min {height[k] \mid rk[i] \le k \le rk[j]}$ .<br>
+先感性理解有，由于按字典序排序，那么字典序排名相差越大，相似度越低。<br>
+然后再感性理解有， $height$ 数组具有传递性，一路传递下来，不断缩紧限制，那么就是取最小值了。<br>
+具体证明可以看下面的&quot;两子串最长公共前缀&quot;部分。</p>
+<p>当 $h[i-1] - 1 = 0$ 时，即 $h[i-1] = 1$ 时，显然成立。</p>
+<p>当 $h[i-1] &gt; 1$ 时：<br>
+设后缀 $i-1$ 为 <code>aAD</code>，其中 <code>A</code> 是一个长度为 $h[i-1] - 1$ 的字符串，<code>a</code> 是一个字符，<code>D</code> 是可空字符串。<br>
+那么后缀 $i$ 就是 <code>AD</code>，即向后一位舍去首位字符。</p>
+<p>回顾一下 $height$ 数组的定义，写出：</p>
+<p>$$   \begin{aligned}   &amp; h[i] = \operatorname{lcp}(sa[rk[i] - 1],sa[rk[i]])\\   &amp; h[i-1] = \operatorname{lcp}(sa[rk[i-1] - 1],sa[rk[i-1]) \\   \end{aligned}   $$</p>
+<p>设 $sa[rk[i-1]-1]$ 是 <code>aAB</code>，其字典序小于后缀 $i-1$ ，且与后缀 $i-1$ 的最长公共前缀为 <code>aA</code>.<br>
+也就是说， $\operatorname{lcp}(i,sa[rk[i-1]-1]) = aA$ .</p>
+<p>接着， $sa[rk[i-1]-1] + 1$  是 <code>AB</code>，即后移了一位。</p>
+<p>可以发现，<code>AB</code> 的字典序一定小于 <code>AD</code>，我们通过将后缀 $i-1$ 对应的 $sa[rk[i-1] - 1]$ 的字符串右移一位对齐，而利用后缀 $i-1$ 与后缀 $i$ 的公共部分得到了相对关系。</p>
+<p>那么： $sa[rk[i-1]-1] + 1$ 的字典序小于 $sa[rk[i]]$ 的字典序。</p>
+<p>根据之前的引理：<br>
+$\operatorname{lcp}(sa[rk[i-1]-1]+1,sa[rk[i]]) = \min {height[k] \mid rk[sa[i-1]-1]+1 \le k \le rk[i]}$<br>
+当 $k=rk[ii]$ 时，就能得到：<br>
+$\operatorname{lcp}(sa[rk[i-1]-1]+1,sa[rk[i]]) \le h[i]$</p>
+<p>而我们知道， $sa[rk[i-1]-1]+1$ 是 <code>AB</code>，后缀 $i$ 是 <code>AD</code>，而 <code>A</code> 是一个长度为 $h[i-1]-1$ 的字符串。</p>
+<p>那么原命题就得证了：</p>
+<p>$$   h[i] \ge h[i-1] - 1   $$</p>
+<h3 id="on-求-height-数组的代码实现">$O(n)$ 求 height 数组的代码实现</h3>
+<p>又是均摊复杂度的代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">initHeight</span><span class="p">()</span>  
+</span></span><span class="line"><span class="cl"><span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="o">--</span><span class="n">k</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="n">s</span><span class="p">[</span><span class="n">sa</span><span class="p">[</span><span class="n">rk</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span><span class="p">])</span> <span class="o">++</span><span class="n">k</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">height</span><span class="p">[</span><span class="n">rk</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不难发现， $k$ 在每一位最多减少 $1$ ，而 $k$ 的上限是 $n$ ，那么：<br>
+$k$ 最多减少 $n$  次，最多加 $2n$ 次。<br>
+时间复杂度 $O(n)$ .</p>
+<h2 id="height-数组的应用">height 数组的应用</h2>
+<p>在 $height$ 数组的应用中，最重要的思想是：</p>
+<ul>
+<li><strong>子串是后缀的前缀</strong>。</li>
+</ul>
+<h3 id="两子串最长公共前缀">两子串最长公共前缀</h3>
+<p>$$   \operatorname{lcp}(sa[i],sa[j]) = \min {height[i,\ldots,j]}   $$</p>
+<p>感性理解在&quot;上文&quot;中已经提及，这里直接引用：</p>
+<blockquote>
+<p>首先有一个证明需要用到的引理。<br>
+后缀 $i$ 和后缀 $j$ 的最长公共前缀长度为： $\min {height[k] \mid rk[i] \le k \le rk[j]}$ .<br>
+先感性理解有，由于按字典序排序，那么字典序排名相差越大，相似度越低。<br>
+然后再感性理解有， $height$ 数组具有传递性，一路传递下来，不断缩紧限制，那么就是取最小值了。<br>
+具体证明可以看下面的((20210120133815-ni7e3if &ldquo;{{.text}}&rdquo;))部分。</p>
+</blockquote>
+<p>严谨证明可以看：<a class="link" href="https://b3logfile.com/siyuan/1609132319768/assets/%e5%90%8e%e7%bc%80%e6%95%b0%e7%bb%84.pdf"  target="_blank" rel="noopener"
+    >徐智磊的论文</a></p>
+<p>有了这个定理，两子串最长公共前缀，就可以转化为 RMQ 问题。</p>
+<h3 id="比较两子串的大小关系">比较两子串的大小关系</h3>
+<p>需要比较 $A = S[a..b]$  和 $B = S[c..d]$ 的大小关系。</p>
+<p>若 $\operatorname{lcp}(a,c) \ge \min(|A|,|B|)$ ，则 $A &lt; B \iff |A| &lt; |B|$ .<br>
+否则， $A &lt; B \iff rk[a] &lt; rk[c]$ .</p>
+<h3 id="不同子串的数目">不同子串的数目</h3>
+<p><strong>子串就是后缀的前缀</strong>。</p>
+<p>不难得知，一个字符串的子串总数是 $\dfrac{n(n+1)}{2}$ ，我们只需要减去重复的子串的数目。</p>
+<p>如果按照字典序顺序枚举后缀，每次新增的子串，就是除去已经在上一个后缀中出现过的前缀之外的前缀，也就是除了公共前缀外的前缀。<br>
+那么重复的子串数目，就是与上一个后缀的公共前缀数目，即 $height[i]$ .</p>
+<p>$$   \dfrac{n(n+1)}{2} - \sum \limits _{i=2}^n height[i]   $$</p>
+<p>例题：&ldquo;洛谷 P2408 不同子串个数&rdquo;</p>
+<h3 id="出现至少-k-次的子串的最大长度">出现至少 $k$ 次的子串的最大长度</h3>
+<p>在原串中出现至少 $k$ 次的子串的最大长度。</p>
+<p>让我们思考，<strong>子串就是后缀的前缀</strong>，而公共前缀的最长长度我们是可以求出的。<br>
+问题转化为在 $height$ 数组上连续 $k-1$ 个数的最小值的最大值，滑动窗口求解即可。</p>
+<p>例题：&ldquo;洛谷 P2852 [USACO06DEC]Milk Patterns G&rdquo;</p>
+<h3 id="是否有某字符串在文本串中至少不重叠地出现了两次">是否有某字符串在文本串中至少不重叠地出现了两次</h3>
+<h3 id="连续的若干个相同子串">连续的若干个相同子串</h3>
+<h3 id="结合并查集">结合并查集</h3>
+<h3 id="结合线段树">结合线段树</h3>
+<h3 id="结合单调栈">结合单调栈</h3>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/suffixarray/">SuffixArray</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/ccpc-2021-harbin/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ICPC 2020 银川站</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/hitsztraining2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">校内选拔赛补题</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/ccpc-2021-harbin/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">CCPC 2021 哈尔滨站</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/determinant-calc/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">化三角矩阵计算行列式的算法实现</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/abc267/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">[Atcoder]NEC Programming Contest 2022 (AtCoder Beginner Contest 267) 题解</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script src="https://utteranc.es/client.js" 
+        repo="46fafa/46fafa.github.io"
+        issue-term="title"
+        
+        crossorigin="anonymous"
+        async
+        >
+</script>
+
+<style>
+    .utterances {
+        max-width: unset;
+    }
+</style>
+
+<script>
+    let utterancesLoaded = false;
+
+    function setUtterancesTheme(theme) {
+        let utterances = document.querySelector('.utterances iframe');
+        if (utterances) {
+            utterances.contentWindow.postMessage(
+                {
+                    type: 'set-theme',
+                    theme: `github-${theme}`
+                },
+                'https://utteranc.es'
+            );
+        }
+    }
+
+    addEventListener('message', event => {
+        if (event.origin !== 'https://utteranc.es') return;
+
+        
+        utterancesLoaded = true;
+        setUtterancesTheme(document.documentElement.dataset.scheme)
+    });
+
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (!utterancesLoaded) return;
+        setUtterancesTheme(e.detail)
+    })
+</script>
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 liberal&#39;Blog
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with 主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="2.3.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+        
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

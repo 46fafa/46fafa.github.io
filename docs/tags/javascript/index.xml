@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>javascript on liberal&#39;Blog</title>
+        <link>https://ideal30d.top/tags/javascript/</link>
+        <description>Recent content in javascript on liberal&#39;Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 27 Aug 2022 16:17:03 +0800</lastBuildDate><atom:link href="https://ideal30d.top/tags/javascript/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>一种基于 OICQ 框架的自动化群员活跃指数统计方法</title>
+        <link>https://ideal30d.top/p/water-kings/</link>
+        <pubDate>Sat, 27 Aug 2022 16:17:03 +0800</pubDate>
+        
+        <guid>https://ideal30d.top/p/water-kings/</guid>
+        <description>&lt;p&gt;标题人话版：调库统计某群中群员发言次数并降序排序。&lt;/p&gt;
+&lt;p&gt;今天 &lt;del&gt;闲着没事&lt;/del&gt;忙里偷闲 打算加一下计算机科学大群里发言过的同学的 QQ 好友。&lt;/p&gt;
+&lt;p&gt;经过了手动翻找后，我备受折磨、饱感痛苦。&lt;del&gt;都是你们太能水了！&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;于是我决定写一个程序来 automate 这个无聊的重复劳动。&lt;/p&gt;
+&lt;p&gt;算法设计：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;调用 API 获取历史聊天记录&lt;/li&gt;
+&lt;li&gt;获取发言人名单列表，再去重导出即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于需求过于简单，只需要学习 OICQ 很小的一个 subset.&lt;/p&gt;
+&lt;p&gt;OICQ 基于 node.js，刚好我几天前速成前端学了 javascript，因此应当能比较快上手。&lt;/p&gt;
+&lt;h2 id=&#34;hands-on&#34;&gt;Hands On&lt;/h2&gt;
+&lt;p&gt;按照 &lt;a class=&#34;link&#34; href=&#34;https://github.com/takayama-lily/oicq&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;README&lt;/a&gt; 中的说法，使用 Template 快速创建。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone https://github.com/takayama-lily/oicq-template.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; oicq-template/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;npm i
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;根据建议阅读 node.js 入门，typescript 5 分钟上手。&lt;br&gt;
+最后我懒得读了，直接上吧。&lt;/p&gt;
+&lt;p&gt;修改 &lt;code&gt;index.js&lt;/code&gt; 中的 account，然后 &lt;code&gt;npm run dev&lt;/code&gt; 直接开始。&lt;/p&gt;
+&lt;p&gt;同 ip 下手机扫码登陆即可。&lt;/p&gt;
+&lt;h3 id=&#34;plugin-development&#34;&gt;Plugin Development&lt;/h3&gt;
+&lt;p&gt;基于需求写一个 plugin 加载就可以了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.b3logfile.com/siyuan/1609132319768/assets/image-20220827125823-crxmkvn.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;​&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;index.js&lt;/code&gt; 中加载自己的插件。&lt;/p&gt;
+&lt;p&gt;插件的操作主要都是 event based，那我希望直接获取，简单粗暴，因此参考上线问候插件：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.b3logfile.com/siyuan/1609132319768/assets/image-20220827125934-9ty2r7y.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;​&lt;/p&gt;
+&lt;p&gt;绑定 &lt;code&gt;system.online&lt;/code&gt; 事件。&lt;/p&gt;
+&lt;p&gt;我需要主动根据群号获取到 Group Instance，然后 fetch 消息记录，那么需要引入 client.&lt;/p&gt;
+&lt;p&gt;可以看到在 &lt;code&gt;index.js&lt;/code&gt; 中，调用 createClient 方法创建了 bot 变量，那么引入这个 bot 就行了。&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;client.pickGroup()&lt;/code&gt; 获取 Group Instance.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.b3logfile.com/siyuan/1609132319768/assets/image-20220827130457-ctd8x86.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;​&lt;/p&gt;
+&lt;p&gt;再调用 &lt;code&gt;getChatHistory&lt;/code&gt; 来获取历史消息记录。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.b3logfile.com/siyuan/1609132319768/assets/image-20220827130649-j28j1ei.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;​&lt;/p&gt;
+&lt;p&gt;从最后一条发言往前反复获取。&lt;/p&gt;
+&lt;p&gt;不如再顺便记录一下每个 id 的发言次数。既然如此，那把群昵称也加上吧。&lt;/p&gt;
+&lt;p&gt;写 async/await. 感觉代码写得一塌糊涂，果然对 js 还是太不熟练了。。。&lt;/p&gt;
+&lt;p&gt;大体就是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;先通过群号获得 Group 对象。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;调用 Group 对象的 getChatHistory 方法，将消息加入 msgs 数组中。记录上一次的最早消息，便于下次接着获取。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;遍历 msgs 数组，获取 sender 的 QQ 号，统计每个 QQ 号的消息条数。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;同时维护一个 QQ号 -&amp;gt; User 对象的 map，便于后续操作（获取 nickname）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;del&gt;调 QQ 号获取 User 的 API 失败的权宜之计罢了&lt;/del&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将 map 对象按消息条数降序排序。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;遍历 map，输出 用户群昵称-QQ号-发言次数。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.b3logfile.com/siyuan/1609132319768/assets/image-20220827160032-jsvh264.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;​&lt;/p&gt;
+&lt;p&gt;然后 &lt;code&gt;npm run dev&lt;/code&gt; 运行即可。&lt;/p&gt;
+&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
+&lt;p&gt;OICQ 似乎没有加好友的 API&amp;hellip;.&lt;/p&gt;
+&lt;p&gt;最终还是要手动加好友。&lt;/p&gt;
+&lt;p&gt;把前一百(30 msgs+)的都手动申请了一遍，重复体力劳动还是没有成功避免。&lt;/p&gt;
+&lt;p&gt;一共统计了 10w 条消息。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.b3logfile.com/siyuan/1609132319768/assets/image-20220827155927-dfba67e.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image&#34;
+	
+	
+&gt;​&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;我亦是水王榜前三！&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;拙劣的隐私保护。&lt;/p&gt;
+&lt;p&gt;顺便说一下，我校的各种公共事务完全没有个人隐私的意识啊，全系的姓名学号手机号乃至身份证号都一览无余。。。&lt;/p&gt;
+&lt;p&gt;盒战争风险微存。&lt;del&gt;表表主义的坏处！&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://assets.b3logfile.com/siyuan/1609132319768/assets/Cemetery94886135_p0-20220827161137-0h4v1bw.jpg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Cemetery94886135_p0&#34;
+	
+	
+&gt;​&lt;/p&gt;
+&lt;h2 id=&#34;未来方向&#34;&gt;未来方向&lt;/h2&gt;
+&lt;p&gt;虽然这个随手为之的小玩具肯定没有未来，但不妨写写缺憾。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;del&gt;断点续传&lt;/del&gt; 断点续统计。统计到一半卡一卡就前功尽弃了，有点难顶。实现这个可以定期把内存中的数据保存到硬盘上。&lt;/li&gt;
+&lt;li&gt;真正的活跃指数统计，比如持续发言加权、发言时间较近的加权等等。&lt;/li&gt;
+&lt;li&gt;基于本地 QQ 聊天记录分析，而不抓取漫游信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;完。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

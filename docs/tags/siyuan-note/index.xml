@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>siyuan-note on liberal&#39;Blog</title>
+        <link>https://ideal30d.top/tags/siyuan-note/</link>
+        <description>Recent content in siyuan-note on liberal&#39;Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 11 Sep 2021 12:31:48 +0800</lastBuildDate><atom:link href="https://ideal30d.top/tags/siyuan-note/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>思源笔记简介</title>
+        <link>https://ideal30d.top/p/siyuanintro/</link>
+        <pubDate>Sat, 11 Sep 2021 12:31:48 +0800</pubDate>
+        
+        <guid>https://ideal30d.top/p/siyuanintro/</guid>
+        <description>&lt;p&gt;思源笔记是一款功能丰富的&lt;strong&gt;本地为主&lt;/strong&gt;的&lt;strong&gt;个人知识管理工具(PKM)&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;本地功能全部免费&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;块信息系统，每个块都有独特的 id 和属性可供使用。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;块引用、嵌入&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SQL 查询&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;挂件块（内嵌 iframe 类似插件块）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模板支持&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;动态加载（优化编辑大文档时性能）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可自行搭建服务端（Docker、手机等）实现网页使用&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;手机伺服，用手机作为服务器运行服务端&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Android App&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;即将开发的 PDF 标注&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Markdown 语法输入&lt;/li&gt;
+&lt;li&gt;所见即所得（类似 Typora 的输入体验）&lt;/li&gt;
+&lt;li&gt;$\LaTeX$ 支持。&lt;/li&gt;
+&lt;li&gt;双向链接。&lt;/li&gt;
+&lt;li&gt;类似大纲笔记的列表体验。
+&lt;ul&gt;
+&lt;li&gt;聚焦 zoom in/out&lt;/li&gt;
+&lt;li&gt;折叠 fold/unfold&lt;/li&gt;
+&lt;li&gt;移动列表项等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;自定义主题。&lt;/li&gt;
+&lt;li&gt;多标签页设计，可分屏。&lt;/li&gt;
+&lt;li&gt;方便的图片管理。&lt;/li&gt;
+&lt;li&gt;关系图。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;云端功能（付费，96/year）
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;端对端加密同步&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;专用图床，一键上传图片&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;其他值得一提的事情
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;更新非常快&lt;/strong&gt;，开发活跃。&lt;/li&gt;
+&lt;li&gt;开发者为资深开源工作者，还是一对夫妻，，，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210904232404-q4trvfv.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;官网地址：&lt;a class=&#34;link&#34; href=&#34;https://b3log.org/siyuan/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://b3log.org/siyuan/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;查看定价：&lt;a class=&#34;link&#34; href=&#34;https://b3log.org/siyuan/pricing.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://b3log.org/siyuan/pricing.html &lt;/a&gt;目前好像是 96 一年。&lt;/p&gt;
+&lt;p&gt;仅有的付费功能：
+&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210904233349-7p7ixld.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;
+&lt;del&gt;当初有一段时间只有尊贵身份标识来着，，，&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;API 小展示：&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210905124629-3ndc12w.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210905124709-wz2lub4.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;有兴趣付费的话，可以考虑使用我的邀请码：LGNT9d9&lt;br&gt;
+似乎有添加空间之类的微薄的好处，据传累积邀请 32 人即可获得永久会员。&lt;/p&gt;
+&lt;p&gt;虽然云服务的永久会员总感觉怪怪的，，，&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Docker 部署思源实现多人协作</title>
+        <link>https://ideal30d.top/p/docker-siyuan/</link>
+        <pubDate>Sun, 25 Jul 2021 15:42:43 +0800</pubDate>
+        
+        <guid>https://ideal30d.top/p/docker-siyuan/</guid>
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近准备将协作平台从 HackMD 迁徙到思源笔记。&lt;br&gt;
+这主要是因为我个人笔记使用思源，而团队笔记使用 HackMD，不免有些混乱。&lt;br&gt;
+再加上思源的&lt;strong&gt;块信息&lt;/strong&gt;实在是很好的平台，基于丰富的信息有很多可操作性，后续也有一定的相关的计划，所以现在打算开始迁徙。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;首先买了一台服务器、、、1v 512MB，英国，凑合用用。&lt;/p&gt;
+&lt;p&gt;安装了 Debian10.3，准备开始操作。&lt;/p&gt;
+&lt;h2 id=&#34;可选操作准备工作&#34;&gt;（可选操作）准备工作&lt;/h2&gt;
+&lt;p&gt;一下都是可选的步骤，主要是为了安全性等考虑。&lt;/p&gt;
+&lt;p&gt;先更新一下系统：&lt;code&gt;apt update &lt;/code&gt; 然后 &lt;code&gt;apt upgrade&lt;/code&gt;，更新完重启一下，如果出问题了，则重装系统、、、&lt;/p&gt;
+&lt;p&gt;设置一下时区：&lt;code&gt;timedatectl set-timezone Asia/Shanghai&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;更改 SSH 端口：&lt;code&gt;vim /etc/ssh/sshd_config&lt;/code&gt;，修改 &lt;code&gt;Port 22&lt;/code&gt;，然后 &lt;code&gt;systemctl restart sshd&lt;/code&gt;&lt;br&gt;
+断开连接，使用新的端口重新连接。&lt;/p&gt;
+&lt;p&gt;然后最好取消掉密码登陆。&lt;br&gt;
+在本机配置 SSH 密钥，然后上传到服务器。可以参考&lt;a class=&#34;link&#34; href=&#34;https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;最后配置一下防火墙，打开 SSH 端口和思源端口 &lt;code&gt;6806&lt;/code&gt; 即可，可能你的服务商会提供安全组策略。&lt;/p&gt;
+&lt;h2 id=&#34;部署思源-docker&#34;&gt;部署思源 Docker&lt;/h2&gt;
+&lt;p&gt;先参考&lt;a class=&#34;link&#34; href=&#34;https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-debian-10&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这篇文章&lt;/a&gt;安装 Docker&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common   
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL https://download.docker.com/linux/debian/gpg &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo apt-key add -  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;add-apt-repository &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb [arch=amd64] https://download.docker.com/linux/debian &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;lsb_release -cs&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; stable&amp;#34;&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt update  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apt install docker-ce  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后 Docker 装好了，开始部署思源笔记。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker pull b3log/siyuan  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后考虑一下参数，我看的帮助文档里的参数有些过时了，可以通过 &lt;code&gt;-h&lt;/code&gt; 参数输出帮助。&lt;br&gt;
+需要注意的地方：指定 &lt;code&gt;workspace&lt;/code&gt; 的位置方便后续处理，设置授权码 &lt;code&gt;password&lt;/code&gt;，这里替换为你想设置的密码。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -v /siyuanworkspace:/siyuanworkspace -p 6806:6806 b3log/siyuan -resident -workspace /siyuanworkspace -authCode password  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;理论上换个端口会安全一点、、、&lt;/p&gt;
+&lt;p&gt;浏览器访问 &lt;code&gt;http://ip:6806:/&lt;/code&gt;，提示需要输入账号密码，账号是 &lt;code&gt;siyuan&lt;/code&gt;，密码是你刚刚设置的授权码。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210725135826-kb3nlg8.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;大功告成。&lt;/p&gt;
+&lt;p&gt;测试完毕后，可以这样运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run -d -v /siyuanworkspace:/siyuanworkspace -p 6806:6806 b3log/siyuan -resident -workspace /siyuanworkspace -authCode password  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这样在 &lt;code&gt;detached mode&lt;/code&gt; 中运行，就可以后台运行了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;试了一下，虽然用的是国外服务器，但没有什么延迟的感觉。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;可选操作绑定域名&#34;&gt;（可选操作）绑定域名&lt;/h2&gt;
+&lt;p&gt;绑定个域名好记一点、、、实际上，添加一条 &lt;code&gt;A&lt;/code&gt; 记录就可以了，没有什么额外的工作。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210725140426-dppxd17.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;可选操作使用-megasync-同步&#34;&gt;（可选操作）使用 MegaSync 同步&lt;/h2&gt;
+&lt;p&gt;我的最初目的是多人协作编辑一个笔记本，我还希望这个笔记本能被同步到本地，这样我可以在别的笔记本中引用它。&lt;/p&gt;
+&lt;p&gt;首先需要注意，在笔记本根目录下创建一个 &lt;code&gt;assets&lt;/code&gt; 文件夹，这样资源文件就会单独保存到这个文件夹，而与 Workspace 隔离开。&lt;/p&gt;
+&lt;p&gt;我现在使用的同步盘是 Mega，因此我考虑用 Mega 同步对应的文件夹到本地。可以使用 &lt;a class=&#34;link&#34; href=&#34;https://mega.nz/cmd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Mega CMD&lt;/a&gt; 进行操作。&lt;/p&gt;
+&lt;p&gt;下载好之后，通过 &lt;code&gt;scp -P port localpath root@ip:remotepath&lt;/code&gt; 进行上传。根据官网教程进行安装。&lt;/p&gt;
+&lt;p&gt;这个 MegaCMD 是个全功能客户端，我们只需要 Sync 就好了，无需过多了解。事实上有一个非常详细的 &lt;a class=&#34;link&#34; href=&#34;https://github.com/meganz/MEGAcmd/blob/master/UserGuide.md&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;UserGuide&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mega-login email password  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;登陆完成之后，准备开始同步。由于我已经在本地创建好了对应的笔记本并同步到 Mega，因此路径上需要稍作调整。&lt;br&gt;
+&lt;strong&gt;请在操作前备份。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;MEGA 路径：&lt;code&gt;/MEGAsync/SiYuan/data/Gaokao/&lt;/code&gt;&lt;br&gt;
+服务器路径：&lt;code&gt;/siyuanworkspace/data/Gaokao&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;需要注意，在同步前要创建对应的文件夹。例如 &lt;code&gt;mkdir /siyuanworkspace/data/Gaokao&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;然后开始同步。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mega-sync /siyuanworkspace/data/Gaokao /MEGAsync/SiYuan/data/Gaokao  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;稍微等待一会，进去 &lt;code&gt;ls&lt;/code&gt; 就可以看到文件全部同步过去了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210725142510-namxjjz.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;顺利同步、、、&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;大概尝试了一下，新建文档之类的是可以顺利同步过去的，但是有一定的延迟。&lt;/p&gt;
+&lt;p&gt;但是如果同时修改某个文档，是无法同步的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这不是可靠性很高的同步方案，请谨慎使用。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;可选操作打包一个第三方客户端&#34;&gt;（可选操作）打包一个第三方客户端&lt;/h2&gt;
+&lt;p&gt;曾经我写过一篇&lt;a class=&#34;link&#34; href=&#34;https://ld246.com/article/1622898305015/comment/1623135737884#comments&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;在 Linux 下使用 Nativefier 打包思源笔记&lt;/a&gt;的文章，其实这个操作在任何平台都适用。&lt;br&gt;
+对于任意的网页，我们都可以打包成一个 Electron 应用。&lt;/p&gt;
+&lt;p&gt;因此我们可以打包一个 Windows 程序分享给他人使用。（虽然我是 Linux 用户、、、）&lt;br&gt;
+这样可以做到&lt;strong&gt;类似客户端&lt;/strong&gt;的体验，比如托盘、常驻后台、单例模式之类的，详细请访问原文章吧。&lt;/p&gt;
+&lt;p&gt;这里有一个注意的点：必须使用 &lt;code&gt;http://address:6806/&lt;/code&gt; 才能正常授权。&lt;/p&gt;
+&lt;p&gt;在 Nativefier 中传入账号密码进行授权。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nativefier --name &lt;span class=&#34;s2&#34;&gt;&amp;#34;RemoteSiyuan&amp;#34;&lt;/span&gt;  -i /home/clouder/Pictures/Icons/Siyuan.ico --single-instance --tray -e 13.1.0 http://address:6806 --basic-auth-username siyuan --basic-auth-password password  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210725150827-ahb1fas.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Linux 下测试正常，转到 Windows 虚拟机测试。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://b3logfile.com/siyuan/1609132319768/assets/image-20210725151100-fkbszzp.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;看起来很正常。在 Windows 下同样损失了思源自带的标题栏，因为这是网页打包。&lt;br&gt;
+&lt;del&gt;往好处想，这也让 UI 变得更协调美观了……&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
+&lt;p&gt;实际上用 Docker 部署思源笔记的 Kernel 是非常简单的。 &lt;br&gt;
+其实直接运行 Kernel 的二进制文件是一种更简单的方法，但还是建议大家按官方文档来吧。&lt;/p&gt;
+&lt;p&gt;目前尚未投入使用，日后可能会有附加反馈。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

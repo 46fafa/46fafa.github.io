@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>codeforces on My New Hugo Site</title>
+        <link>http://example.org/tags/codeforces/</link>
+        <description>Recent content in codeforces on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 26 Nov 2020 11:10:13 +0800</lastBuildDate><atom:link href="http://example.org/tags/codeforces/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>NOIP2020 前练习笔记</title>
+        <link>http://example.org/zh-cn/post/noiptraining2020/</link>
+        <pubDate>Thu, 26 Nov 2020 11:10:13 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/noiptraining2020/</guid>
+        <description>P5290 [十二省联考 2019] 春节十二响 题面不是人话，翻译一下。
+给一棵树，每个点权值为 $w_i$，需要将节点分组。
+分组要求：每个组内的点，两两不存在祖先——后代关系。
+每个组的代价是组内的最大值，求最小的总代价。
+考虑对于 $u$ 相连的所有子树，每棵子树内的点都只能与非该子树内的点在同一段内，也就是说，每棵子树内的组都必须与其他子树的组结合。
+由于只与最大值有关，有一个贪心的想法：如果当前子树内某组结合后，不会改变原先的最大值，那么一定结合。
+然而需要考虑，当前子树每个组只能与其他子树每个组一一结合，何况还有当前子树内出现最大组，要求其他子树合并的情况，因此需要妥当考虑。
+可以发现，每次结合都会减少对应组代价的代价，因此：优先消去代价大的。
+两类：当前子树，其他子树，分别取出最大值，比大小，然后小的并入大的中。
+注意使用启发式合并，时间复杂度 $O(n\log n)$.
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;queue&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;cctype&amp;gt; using namespace std; const int bufSize = 1e6; #define DEBUG inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize],*p1 = buf,*p2 = buf; return p1==p2&amp;amp;&amp;amp;(p2=(p1=buf)+fread(buf,1,bufSize,stdin),p1==p2)?EOF:*p1++; } template&amp;lt;typename T&amp;gt; inline T read(T &amp;amp;r) { static char c; r = 0; for(c=nc();!</description>
+        </item>
+        <item>
+        <title>[Atcoder][CF]简单题选做练习笔记 2</title>
+        <link>http://example.org/zh-cn/post/atcftrain2/</link>
+        <pubDate>Tue, 17 Nov 2020 10:06:09 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/atcftrain2/</guid>
+        <description>前言 接着上篇继续刷。文章太长了被迫拆分。
+AT5759 ThREE 构造题，我最讨厌的题型之一。
+$$ p_i \times p_j \equiv 0 \pmod 3 $$
+或者：
+$$ p_i + p_j \equiv 0 \pmod 3 $$
+第一个式子，要求 $p_i \equiv 0 \pmod 3$，第二个式子要求 $p_i \equiv 1 \pmod 3$ 且 $p_j \equiv 2 \pmod 3$ 或者反过来。
+一个简单的思路就是按 $i \bmod 3$ 进行分类，然后考虑怎么做。
+然后发现这个东西特别难做，因为距离为 $3$ 还会出现跨过祖先的点对。
+但是有一点是确定的，即距离为 $3$ 的点对深度奇偶性一定不同。虽然奇偶性不同的点不一定距离为 $3$，但如果保证奇偶性不同的点都能满足，那么距离为 $3$ 当然也满足。
+于是可以按深度分类，分为 $X$ 与 $Y$，即深度为奇与偶的集合。
+需要按数量进行讨论。
+$|X|,|Y| &amp;gt; \lfloor \dfrac{n}{3} \rfloor$
+两个都比较大的时候，将 $p_i \equiv 1 \pmod 3$ 与 $p_i \equiv 2 \pmod 3$ 分别放入，再把 $p_i \equiv 0 \pmod 3$ 的塞入剩下的位置。这样对于所有的奇偶性不同的点对，都有 $p_i \equiv 0 \pmod 3$ 或者 $p_i \equiv 1 \pmod 3$ 且 $p_j \equiv 2 \pmod 3$，因此可以满足。</description>
+        </item>
+        <item>
+        <title>[Atcoder][CF]简单题选做练习笔记</title>
+        <link>http://example.org/zh-cn/post/atcftrain/</link>
+        <pubDate>Thu, 12 Nov 2020 14:33:35 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/atcftrain/</guid>
+        <description>前言 板刷题单：https://www.luogu.com.cn/training/2018#problems
+AT5741 Fusing Slimes 可以想到，每种情况都对应一个长度为 $n - 1$ 的排列。
+考虑计算每条路径被经过了多少次， 先对原数组做差分。
+记 $d(i)$ 为 $i \to i + 1$ 的长度，$f(i)$ 为 $i \to i + 1$ 的路径被经过的期望次数。
+$E = \sum \limits _{i = 1}^{n-1}d(i) \times f(i)$
+考虑如何计算 $f(i)$。
+定义 $g(j,i)$ 为点 $j$ 向右融合经过 $i \to i + 1$ 这条路径的期望次数。
+有：$f(i) = \sum \limits _{j = 1}^i g(j,i)$
+问题在于计算 $g(j,i)$，考虑 $j$ 点能顺畅地右移到 $i + 1$，那么 $[j + 1,i]$ 间的点都已经右移。
+表现在序列上，就是 $j$ 的出现位置一定在 $[j + 1,i]$ 之后。</description>
+        </item>
+        
+    </channel>
+</rss>

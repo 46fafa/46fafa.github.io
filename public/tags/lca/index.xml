@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>lca on My New Hugo Site</title>
+        <link>http://example.org/tags/lca/</link>
+        <description>Recent content in lca on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Thu, 19 Nov 2020 16:36:02 +0800</lastBuildDate><atom:link href="http://example.org/tags/lca/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>树上路径求交</title>
+        <link>http://example.org/zh-cn/post/treepathintersection/</link>
+        <pubDate>Thu, 19 Nov 2020 16:36:02 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/treepathintersection/</guid>
+        <description>正文 树上路径求交，有一个结论：
+对于 $a \to b$ 与 $c \to d$ 的路径的交，首先求出 $l_1 = \operatorname{lca}(a,c)$，$l_2 = \operatorname{lca}(a,d)$，$l_3 = \operatorname{lca}(b,c)$，$l_4 = \operatorname{lca}(b,d)$.
+然后找出其中深度最大的两个点，记为 $p_1$，$p_2$，此时：
+$p_1 \neq p_2$，两条路径一定有交，且路径交的端点为 $p_1$ 与 $p_2$. $p_1 = p_2$，$\operatorname{dep}(p) \ge \max(\operatorname{dep}(\operatorname{lca}(a,b)),\operatorname{dep}(\operatorname{lca}(c,d)))$，两条路径有交，交点为 $p$ 点。 否则无交点。 那么就可以常数巨大地用树剖等求 $\operatorname{lca}$，然后若干次询问解决。
+当然，一个可能更优的做法是转欧拉序，然后用 RMQ 来解决，偷懒用个 ST 表可以做到 $O(1)$ 处理询问，在多次询问 $\operatorname{lca}$ 时可能有一定优势。
+然而实际上优势不大，因为预处理太慢了……
+#include &amp;lt;cstdio&amp;gt; #include &amp;lt;algorithm&amp;gt; #include &amp;lt;ctype.h&amp;gt; const int bufSize = 1e6; inline char nc() { #ifdef DEBUG return getchar(); #endif static char buf[bufSize], *p1 = buf, *p2 = buf; return p1 == p2 &amp;amp;&amp;amp; (p2 = (p1 = buf) + fread(buf, 1, bufSize, stdin), p1 == p2) ?</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>siyuan-note on My New Hugo Site</title>
+        <link>http://example.org/tags/siyuan-note/</link>
+        <description>Recent content in siyuan-note on My New Hugo Site</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <lastBuildDate>Sat, 11 Sep 2021 12:31:48 +0800</lastBuildDate><atom:link href="http://example.org/tags/siyuan-note/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>思源笔记简介</title>
+        <link>http://example.org/zh-cn/post/siyuanintro/</link>
+        <pubDate>Sat, 11 Sep 2021 12:31:48 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/siyuanintro/</guid>
+        <description>思源笔记是一款功能丰富的本地为主的个人知识管理工具(PKM)。
+本地功能全部免费 块信息系统，每个块都有独特的 id 和属性可供使用。 块引用、嵌入 SQL 查询 API 挂件块（内嵌 iframe 类似插件块） 模板支持 动态加载（优化编辑大文档时性能） 可自行搭建服务端（Docker、手机等）实现网页使用 手机伺服，用手机作为服务器运行服务端 Android App 即将开发的 PDF 标注 Markdown 语法输入 所见即所得（类似 Typora 的输入体验） $\LaTeX$ 支持。 双向链接。 类似大纲笔记的列表体验。 聚焦 zoom in/out 折叠 fold/unfold 移动列表项等 自定义主题。 多标签页设计，可分屏。 方便的图片管理。 关系图。 云端功能（付费，96/year） 端对端加密同步 专用图床，一键上传图片 其他值得一提的事情 更新非常快，开发活跃。 开发者为资深开源工作者，还是一对夫妻，，， 官网地址：https://b3log.org/siyuan/
+查看定价：https://b3log.org/siyuan/pricing.html 目前好像是 96 一年。
+仅有的付费功能： 当初有一段时间只有尊贵身份标识来着，，，
+API 小展示：
+有兴趣付费的话，可以考虑使用我的邀请码：LGNT9d9
+似乎有添加空间之类的微薄的好处，据传累积邀请 32 人即可获得永久会员。
+虽然云服务的永久会员总感觉怪怪的，，，</description>
+        </item>
+        <item>
+        <title>Docker 部署思源实现多人协作</title>
+        <link>http://example.org/zh-cn/post/docker-siyuan/</link>
+        <pubDate>Sun, 25 Jul 2021 15:42:43 +0800</pubDate>
+        
+        <guid>http://example.org/zh-cn/post/docker-siyuan/</guid>
+        <description>前言 最近准备将协作平台从 HackMD 迁徙到思源笔记。
+这主要是因为我个人笔记使用思源，而团队笔记使用 HackMD，不免有些混乱。
+再加上思源的块信息实在是很好的平台，基于丰富的信息有很多可操作性，后续也有一定的相关的计划，所以现在打算开始迁徙。
+首先买了一台服务器、、、1v 512MB，英国，凑合用用。
+安装了 Debian10.3，准备开始操作。
+（可选操作）准备工作 一下都是可选的步骤，主要是为了安全性等考虑。
+先更新一下系统：apt update 然后 apt upgrade，更新完重启一下，如果出问题了，则重装系统、、、
+设置一下时区：timedatectl set-timezone Asia/Shanghai
+更改 SSH 端口：vim /etc/ssh/sshd_config，修改 Port 22，然后 systemctl restart sshd
+断开连接，使用新的端口重新连接。
+然后最好取消掉密码登陆。
+在本机配置 SSH 密钥，然后上传到服务器。可以参考这篇文章。
+最后配置一下防火墙，打开 SSH 端口和思源端口 6806 即可，可能你的服务商会提供安全组策略。
+部署思源 Docker 先参考这篇文章安装 Docker
+apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add - add-apt-repository &amp;#34;deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable&amp;#34; apt update apt install docker-ce 然后 Docker 装好了，开始部署思源笔记。</description>
+        </item>
+        
+    </channel>
+</rss>

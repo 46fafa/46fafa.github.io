@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='这是我的一个小项目，在 Github 上开源。
+这里复制了一份中文版本的 README,更多信息请到仓库中查看。
+Introduction AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。
+简单而强大的小工具。
+导入 Anki 的轮子已经被造了一车了，但 AnkiImporter 能让你耳目一新。
+遵循极简主义，AnkiImporter 采用自然语法，让你在流畅书写卡片的同时，免于纠结排版格式的问题。
+特色：
+通过 AnkiConnect 直接导入 Anki 导出为 apkg 文件 可读性佳的语法 支持 Markdown 渲染 支持 Html 语法 跨平台 发布二进制文件，免于安装 Python 环境 常用的内置 Note 类型 问答 完形填空 选择题(单选、多选) 列表完形填空 表格完形填空 易于拓展 使用这个工具，你无需牺牲原文档的可读性，就能与 Anki 对接。
+这里是一个小例子：
+问题。 答案。 一行问题。 多行答案。 第一行会被识别为问题。 如果需要多行问题，可以考虑 &amp;lt;br&amp;gt; 这样换行。 可能有点过于极客了，可读性也不是很好。 渲染 Markdown. - 列表 - 之类的东西 创建完形填空**只需要加粗**就可以**了**，有点像是**划重点**。 安装 安装 AnkiConnect 安装 AnkiConnect 拓展.'>
+<title>AnkiImporter: markdown 文件导入 Anki 的小工具</title>
+
+<link rel='canonical' href='http://example.org/zh-cn/post/anki-importer/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='AnkiImporter: markdown 文件导入 Anki 的小工具'>
+<meta property='og:description' content='这是我的一个小项目，在 Github 上开源。
+这里复制了一份中文版本的 README,更多信息请到仓库中查看。
+Introduction AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。
+简单而强大的小工具。
+导入 Anki 的轮子已经被造了一车了，但 AnkiImporter 能让你耳目一新。
+遵循极简主义，AnkiImporter 采用自然语法，让你在流畅书写卡片的同时，免于纠结排版格式的问题。
+特色：
+通过 AnkiConnect 直接导入 Anki 导出为 apkg 文件 可读性佳的语法 支持 Markdown 渲染 支持 Html 语法 跨平台 发布二进制文件，免于安装 Python 环境 常用的内置 Note 类型 问答 完形填空 选择题(单选、多选) 列表完形填空 表格完形填空 易于拓展 使用这个工具，你无需牺牲原文档的可读性，就能与 Anki 对接。
+这里是一个小例子：
+问题。 答案。 一行问题。 多行答案。 第一行会被识别为问题。 如果需要多行问题，可以考虑 &amp;lt;br&amp;gt; 这样换行。 可能有点过于极客了，可读性也不是很好。 渲染 Markdown. - 列表 - 之类的东西 创建完形填空**只需要加粗**就可以**了**，有点像是**划重点**。 安装 安装 AnkiConnect 安装 AnkiConnect 拓展.'>
+<meta property='og:url' content='http://example.org/zh-cn/post/anki-importer/'>
+<meta property='og:site_name' content='My New Hugo Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Zh-Cn' /><meta property='article:tag' content='python' /><meta property='article:tag' content='anki' /><meta property='article:published_time' content='2021-05-22T21:14:57&#43;08:00'/><meta property='article:modified_time' content='2021-05-22T21:14:57&#43;08:00'/>
+<meta name="twitter:title" content="AnkiImporter: markdown 文件导入 Anki 的小工具">
+<meta name="twitter:description" content="这是我的一个小项目，在 Github 上开源。
+这里复制了一份中文版本的 README,更多信息请到仓库中查看。
+Introduction AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。
+简单而强大的小工具。
+导入 Anki 的轮子已经被造了一车了，但 AnkiImporter 能让你耳目一新。
+遵循极简主义，AnkiImporter 采用自然语法，让你在流畅书写卡片的同时，免于纠结排版格式的问题。
+特色：
+通过 AnkiConnect 直接导入 Anki 导出为 apkg 文件 可读性佳的语法 支持 Markdown 渲染 支持 Html 语法 跨平台 发布二进制文件，免于安装 Python 环境 常用的内置 Note 类型 问答 完形填空 选择题(单选、多选) 列表完形填空 表格完形填空 易于拓展 使用这个工具，你无需牺牲原文档的可读性，就能与 Anki 对接。
+这里是一个小例子：
+问题。 答案。 一行问题。 多行答案。 第一行会被识别为问题。 如果需要多行问题，可以考虑 &amp;lt;br&amp;gt; 这样换行。 可能有点过于极客了，可读性也不是很好。 渲染 Markdown. - 列表 - 之类的东西 创建完形填空**只需要加粗**就可以**了**，有点像是**划重点**。 安装 安装 AnkiConnect 安装 AnkiConnect 拓展.">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+<script src="https://cdn.jsdelivr.net/gh/sprucejoy/cookie-consent-autoblock-gdpr/cookie-consent.js" crossorigin="anonymous"></script> 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            localStorage.setItem(colorSchemeKey, "auto");
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">My New Hugo Site</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/en/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友链</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/en/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/zh-cn/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/programming/" >
+                Programming
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/zh-cn/post/anki-importer/">AnkiImporter: markdown 文件导入 Anki 的小工具</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 22, 2021</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>这是我的一个小项目，在 <a class="link" href="https://github.com/Clouder0/AnkiImporter"  target="_blank" rel="noopener"
+    >Github</a> 上开源。<br>
+这里复制了一份中文版本的 README,更多信息请到仓库中查看。</p>
+<h2 id="introduction">Introduction</h2>
+<p>AnkiImporter 能将你的 markdown 语法文本导入到 Anki 中。<br>
+简单而强大的小工具。</p>
+<p>导入 Anki 的轮子已经被造了一车了，但 AnkiImporter 能让你耳目一新。<br>
+遵循极简主义，AnkiImporter 采用自然语法，让你在流畅书写卡片的同时，免于纠结排版格式的问题。</p>
+<p>特色：</p>
+<ul>
+<li>通过 AnkiConnect 直接导入 Anki</li>
+<li>导出为 <code>apkg</code> 文件</li>
+<li>可读性佳的语法</li>
+<li>支持 Markdown 渲染</li>
+<li>支持 Html 语法</li>
+<li>跨平台</li>
+<li>发布二进制文件，免于安装 Python 环境</li>
+<li>常用的内置 Note 类型
+<ul>
+<li>问答</li>
+<li>完形填空</li>
+<li>选择题(单选、多选)</li>
+<li>列表完形填空</li>
+<li>表格完形填空</li>
+</ul>
+</li>
+<li>易于拓展</li>
+</ul>
+<hr>
+<p>使用这个工具，你无需牺牲原文档的可读性，就能与 Anki 对接。</p>
+<p>这里是一个小例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>问题。  
+</span></span><span style="display:flex;"><span>答案。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>一行问题。  
+</span></span><span style="display:flex;"><span>多行答案。  
+</span></span><span style="display:flex;"><span>第一行会被识别为问题。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>如果需要多行问题，可以考虑 &lt;<span style="color:#f92672">br</span>&gt; 这样换行。
+</span></span><span style="display:flex;"><span>可能有点过于极客了，可读性也不是很好。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>渲染 Markdown.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> 列表
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">-</span> 之类的东西
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>创建完形填空**只需要加粗**就可以**了**，有点像是**划重点**。
+</span></span></code></pre></div><h2 id="安装">安装</h2>
+<h3 id="安装-ankiconnect">安装 AnkiConnect</h3>
+<p>安装 <a class="link" href="https://github.com/FooSoft/anki-connect"  target="_blank" rel="noopener"
+    >AnkiConnect</a> 拓展.<br>
+Code:<code>2055492159</code><br>
+详细流程见 <a class="link" href="https://github.com/FooSoft/anki-connect"  target="_blank" rel="noopener"
+    >anki-connect repo</a>.</p>
+<h3 id="安装-python">安装 Python</h3>
+<p>安装最新版的 Python.</p>
+<p>如果用二进制版本，跳过此步。</p>
+<h3 id="下载脚本">下载脚本</h3>
+<p>方法一（不推荐）：直接下载本仓库的 <code>src</code> 文件夹。随后执行 <code>pip install -r src/requirements.txt</code> 补全依赖。</p>
+<p>方法二（推荐）：在 <a class="link" href="https://github.com/Clouder0/AnkiImporter/release"  target="_blank" rel="noopener"
+    >Releases</a> 中下载二进制版本，不需要 Python 环境，开箱即用。</p>
+<h3 id="导入测试牌组">导入测试牌组</h3>
+<p>这一步的意义在于，将几个内置的 Note 类型导入到 Anki 中。</p>
+<p>它会创建一个名为 <code>Export</code> 的牌组，还有一个名为 <code>#Export</code> 的标签。<br>
+所有导入的卡片默认都会进入 <code>Export</code> 牌组中，加上 <code>#Export</code> 的标签。随后你可以在 Anki 中批量更改它们。</p>
+<p>通过命令行参数，你可以指定导入的卡片所属的牌组、标签。例如： <code>./AnkiImporter test.md --tags tag1 tag2 --deck targetDeck</code></p>
+<p><a class="link" href="https://github.com/Clouder0/AnkiImporter/blob/main/tests/ExampleDeck.apkg"  target="_blank" rel="noopener"
+    >下载测试牌组</a> 并导入。</p>
+<p>现在安装完成了。</p>
+<h2 id="使用方法">使用方法</h2>
+<p>这是一个命令行工具。</p>
+<p>Windows 系统下, 打开 <code>cmd</code> 或者任意你喜欢的终端，执行:<br>
+<code>{yourpath}\AnkiImporter.exe {yourfile}</code><br>
+如果用源码，执行：
+<code>python -m {yourpath}\src {yourfile}</code></p>
+<p>其余平台同理。</p>
+<p>更多用法, 输入 <code>.\AnkiImporter -h</code> 之类的东西查看。</p>
+<h3 id="导出为-apkg-文件">导出为 apkg 文件</h3>
+<p>如果你想导出为 apkg 文件，使用 <code>-o filename</code> 参数。</p>
+<p>例如从 <code>test2.md</code> 生成 <code>test.apkg</code>，输入:</p>
+<pre tabindex="0"><code>python -m src tests/test2.md -o test.apkg
+</code></pre><h2 id="笔记结构">笔记结构</h2>
+<p>被导入的笔记必须遵从一定的语法结构，才能被脚本识别。</p>
+<p>一个「块」被识别为一个笔记，块是用两个换行符分割的内容块，下面有个例子帮助你更好地理解：</p>
+<p>值得注意的是，Html 语法是支持的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>这是一个块。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>这是一个  
+</span></span><span style="display:flex;"><span>多行的块
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>这也是一个**块**
+</span></span></code></pre></div><h3 id="笔记类型">笔记类型</h3>
+<h4 id="问答">问答</h4>
+<p>Anki 中最基础的类型。
+两行及以上的块，如果没有被识别为别的类型，最终会被识别为问答类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Question.
+</span></span><span style="display:flex;"><span>Answer.
+</span></span></code></pre></div><h4 id="完形填空">完形填空</h4>
+<p>另一个基础类型。
+任何块中，第一行含有 <code>**加粗文本**</code> 就会被识别为完形填空。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>This is a <span style="font-weight:bold">**Cloze**</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>This is another <span style="font-weight:bold">**Cloze**</span>  
+</span></span><span style="display:flex;"><span>with more than one <span style="font-weight:bold">**line**</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>This is not a Cloze.
+</span></span><span style="display:flex;"><span>But rather a <span style="font-weight:bold">**Q&amp;A**</span>.
+</span></span></code></pre></div><h4 id="选择题">选择题</h4>
+<p>选 A 还是选 B&hellip;这是个问题。</p>
+<p>这不是 Anki 内置的类型，但因为比较常用，被内置在本项目中。
+我导入了一个 <a class="link" href="https://github.com/ecator/anki-theme-monokaicloze-radios"  target="_blank" rel="noopener"
+    >Monokaicloze</a> 的修改版本来实现这个功能。</p>
+<p>任何块，如果第二行以 <code>A</code> 开头，就会被识别为一个选择题。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Question:
+</span></span><span style="display:flex;"><span>A Option1
+</span></span><span style="display:flex;"><span>B Option2
+</span></span><span style="display:flex;"><span>C Option3
+</span></span><span style="display:flex;"><span>A
+</span></span><span style="display:flex;"><span>一些额外信息，类似于 Back Extra.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Question:
+</span></span><span style="display:flex;"><span>A Option1
+</span></span><span style="display:flex;"><span>B Option2
+</span></span><span style="display:flex;"><span>C Option3
+</span></span><span style="display:flex;"><span>AB
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>I just want a simple Q<span style="color:#960050;background-color:#1e0010">&amp;</span>A.
+</span></span><span style="display:flex;"><span> A simple Q<span style="color:#960050;background-color:#1e0010">&amp;</span>A. Use space to avoid being recognized as Choices.
+</span></span><span style="display:flex;"><span>可以在第二行加一个空格来避免被识别为选择题。
+</span></span></code></pre></div><h4 id="列表完形填空">列表完形填空</h4>
+<p>列表会被识别为完形填空。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> List Cloze
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> Cloze <span style="font-weight:bold">**as**</span> a list
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> no need to contain a cloze in the first line
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">-</span> pretty <span style="font-weight:bold">**handy**</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">-</span> but remember this may make a card huge!
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Example List QA
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> A list, or an outlined format, are now supported.
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> SHJKD
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> lksfdhos
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> sdhfksaj
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">-</span> dskf
+</span></span><span style="display:flex;"><span>	  <span style="color:#66d9ef">-</span> sdkf
+</span></span><span style="display:flex;"><span>	      <span style="color:#66d9ef">-</span> dfjs
+</span></span><span style="display:flex;"><span>	      <span style="color:#66d9ef">-</span> dfjs
+</span></span><span style="display:flex;"><span>	  <span style="color:#66d9ef">-</span> oipw3
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">-</span> dppp
+</span></span></code></pre></div><h4 id="表格完形填空">表格完形填空</h4>
+<p>表格也会被识别为完形填空。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>Table is now supported too.
+</span></span><span style="display:flex;"><span>| Syntax      | Description | Test Text     |
+</span></span><span style="display:flex;"><span>| :---        |    :----:   |          ---: |
+</span></span><span style="display:flex;"><span>| Header      | Title       | Here&#39;s this   |
+</span></span><span style="display:flex;"><span>| Paragraph   | Text        | And more      |
+</span></span><span style="display:flex;"><span>A funny feature.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>| Table      | Cloze | is also supported |
+</span></span><span style="display:flex;"><span>| :---        |    :----:   |          ---: |
+</span></span><span style="display:flex;"><span>| H**e**ader      | Title       | Here&#39;s this   |
+</span></span><span style="display:flex;"><span>| Parag**ra**ph   | Text        | And more      |
+</span></span></code></pre></div><hr>
+<p>更多例子, 见 <a class="link" href="https://github.com/Clouder0/AnkiImporter/tree/main/tests"  target="_blank" rel="noopener"
+    >tests</a>.</p>
+<h2 id="credit">Credit</h2>
+<ul>
+<li><a class="link" href="https://github.com/ankitects/anki"  target="_blank" rel="noopener"
+    >anki</a></li>
+<li><a class="link" href="https://github.com/FooSoft/anki-connect"  target="_blank" rel="noopener"
+    >anki-connect</a></li>
+<li><a class="link" href="https://github.com/kerrickstaley/genanki"  target="_blank" rel="noopener"
+    >genanki</a></li>
+<li><a class="link" href="https://github.com/trentm/python-markdown2"  target="_blank" rel="noopener"
+    >markdown2</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>采用 GPL v3 协议开源。
+License is available <a class="link" href="https://github.com/Clouder0/AnkiImporter/blob/main/LICENSE"  target="_blank" rel="noopener"
+    >here</a>.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/python/">python</a>
+        
+            <a href="/tags/anki/">anki</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title"></h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/en/post/build-anki-note-importer-in-python/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Build Anki Note Importer in Python</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/zh-cn/post/python-tutorial/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python 极速入门教程</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2023 My New Hugo Site
+    </section>
+    
+    <section class="powerby">
+         with 
+        
+    </section>
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+            </main>
+        </div>
+        <script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
