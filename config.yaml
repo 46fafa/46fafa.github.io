@@ -72,7 +72,7 @@ params:
     rssFullContent: true
     favicon: /favicon.ico
     footer:
-        since: 2020
+        since: 2022
         customText:
 
     dateFormat:
