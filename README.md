@@ -1,4 +1,3 @@
-# 46fafa.github.io
 ![background](https://img-1316473855.cos.ap-chengdu.myqcloud.com/background.webp)
 
 hi 我是liberal🤗
