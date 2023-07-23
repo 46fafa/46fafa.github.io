@@ -6,13 +6,14 @@
         <description>Recent content in Posts on liberal&#39;Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Sun, 23 Jul 2023 18:20:32 +0800</lastBuildDate><atom:link href="https://ideal30d.top/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 23 Jul 2023 18:51:39 +0800</lastBuildDate><atom:link href="https://ideal30d.top/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Test</title>
         <link>https://ideal30d.top/p/test/</link>
-        <pubDate>Sun, 23 Jul 2023 18:20:32 +0800</pubDate>
+        <pubDate>Sun, 23 Jul 2023 18:51:39 +0800</pubDate>
         
         <guid>https://ideal30d.top/p/test/</guid>
-        <description></description>
+        <description>&lt;p&gt;你好&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>简单实现文章自动化部署</title>
