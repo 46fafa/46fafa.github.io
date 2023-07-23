@@ -6,7 +6,87 @@
         <description>Recent content on liberal&#39;Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Fri, 21 Jul 2023 18:44:23 +0800</lastBuildDate><atom:link href="https://ideal30d.top/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 23 Jul 2023 18:11:40 +0800</lastBuildDate><atom:link href="https://ideal30d.top/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Test</title>
+        <link>https://ideal30d.top/p/test/</link>
+        <pubDate>Sun, 23 Jul 2023 18:11:40 +0800</pubDate>
+        
+        <guid>https://ideal30d.top/p/test/</guid>
+        <description>&lt;p&gt;hello world&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>简单实现文章自动化部署</title>
+        <link>https://ideal30d.top/p/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</link>
+        <pubDate>Sun, 23 Jul 2023 16:51:28 +0800</pubDate>
+        
+        <guid>https://ideal30d.top/p/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</guid>
+        <description>&lt;h3 id=&#34;效果展示&#34;&gt;效果展示&lt;/h3&gt;
+&lt;h3 id=&#34;起因&#34;&gt;起因&lt;/h3&gt;
+&lt;p&gt;事情的起因是我发现使用hugo构建的博客要发布文章需要经过以下几个步骤&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo new post/test.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;打开test.md编辑文章
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo    生成静态网站文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add . 将更改添加到暂存区
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m 将暂存区添加到版本库
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push 将本地的提交推送到远程仓库
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;「Quicker」 是一个通用的快捷操作工具，用于提高计算机用户的工作效率。它提供了一种简单的方式来创建自定义的快捷操作，以便快速执行常见的任务或操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前有使用「Quicker」实现浏览器外划词翻译，详情看&lt;a class=&#34;link&#34; href=&#34;https://saladict.crimx.com/native.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这篇文章&lt;/a&gt;，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了&lt;a class=&#34;link&#34; href=&#34;https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;类似的操作&lt;/a&gt;，遂白嫖&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-1316473855.cos.ap-chengdu.myqcloud.com/Quicker1.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230723174027239&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这是下载的动作，但是本地实验后发现这个动作没有&lt;code&gt;hugo&lt;/code&gt;和&lt;code&gt;git add .&lt;/code&gt;命令，于是针对自己情况对原动作作了修改&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-1316473855.cos.ap-chengdu.myqcloud.com/quicker2.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Snipaste_2023-07-23_17-54-51&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-1316473855.cos.ap-chengdu.myqcloud.com/quicker3.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230723180531905&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;使用时目录设置为博客文件的根目录&lt;/p&gt;
+&lt;p&gt;原作者不允许再次进行分享，为了方便下载，我设置了私人分享&lt;a class=&#34;link&#34; href=&#34;https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;hugo自动化&lt;/a&gt;,需要自取&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>更换字体「霞鹜文楷」</title>
         <link>https://ideal30d.top/p/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7/</link>
         <pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate>
@@ -406,13 +486,23 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
         <pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate>
         
         <guid>https://ideal30d.top/about/</guid>
-        <description>&lt;p&gt;Hi👋，我是liberal，大学本科在读,专业是智能医学工程，实际上是工科生&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&#34;https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;904662152&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;Hi👋，我是liberal，大学本科在读,专业是智能医学工程，实际上是工科生&lt;/p&gt;
 &lt;p&gt;御三家未曾谋面的粉丝😭&lt;/p&gt;
 &lt;h4 id=&#34;博客&#34;&gt;博客&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Hugo：&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://gohugo.io/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;源码:&lt;a class=&#34;link&#34; href=&#34;https://github.com/46fafa/46fafa.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;li&gt;博客文件:&lt;a class=&#34;link&#34; href=&#34;https://github.com/46fafa/46fafa.github.io&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;46fafa/46fafa.github.io&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;数码&#34;&gt;数码&lt;/h4&gt;

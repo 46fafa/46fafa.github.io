@@ -13,6 +13,8 @@ menu:
             icon: user
 ---
 
+![904662152](https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp)
+
  Hi👋，我是liberal，大学本科在读,专业是智能医学工程，实际上是工科生
 
 御三家未曾谋面的粉丝😭
@@ -20,7 +22,7 @@ menu:
 #### 博客
 
 * Hugo：[https://gohugo.io/](https://gohugo.io/)
-* 源码:[46fafa/46fafa.github.io](https://github.com/46fafa/46fafa.github.io)
+* 博客文件:[46fafa/46fafa.github.io](https://github.com/46fafa/46fafa.github.io)
 
 #### 数码
 
