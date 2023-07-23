@@ -40,6 +40,8 @@ git push 将本地的提交推送到远程仓库
 
 这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录
 
+比如我的文章根目录为`MyBlog\content\zh-cn\post`,上级目录就是`MyBlog\content\zh-cn`
+
 ![image-20230723180531905](https://img-1316473855.cos.ap-chengdu.myqcloud.com/quicker3.webp)
 
 使用时目录设置为博客文件的根目录
