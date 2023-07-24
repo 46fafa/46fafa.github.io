@@ -84,6 +84,33 @@
 &lt;p&gt;使用时目录设置为博客文件的根目录&lt;/p&gt;
 &lt;p&gt;原作者不允许再次进行分享，为了方便下载，我设置了私人分享&lt;a class=&#34;link&#34; href=&#34;https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hugo自动化&lt;/a&gt;,需要自取&lt;/p&gt;
+&lt;h3 id=&#34;简化思路&#34;&gt;简化思路&lt;/h3&gt;
+&lt;p&gt;如果不想安装「Quicker」的话，还有一个方法可以省略代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;@echo off
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;REM 运行 Hugo 命令
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;REM 运行 Git 命令
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -a -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;自动提交&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在博客根目录新建一个文本文件，将内容复制进去，然后重命名保存，后缀为&lt;code&gt;.bat&lt;/code&gt;,比如我的文件名是&lt;code&gt;auto_deploy.bat&lt;/code&gt;，每次修改文章后运行bash脚本即可发布&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -172,33 +199,6 @@
 	
 	
 &gt;&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>抖音热词</title>
-        <link>https://ideal30d.top/p/%E6%8A%96%E9%9F%B3%E7%83%AD%E8%AF%8D/</link>
-        <pubDate>Thu, 13 Apr 2023 12:34:30 +0800</pubDate>
-        
-        <guid>https://ideal30d.top/p/%E6%8A%96%E9%9F%B3%E7%83%AD%E8%AF%8D/</guid>
-        <description>&lt;p&gt;最近某音出现一个热点话题,大多是以”鼠鼠我呀…”开头,视频内容大多是表达作者对生活的烦恼,前途的担忧,主旋律都是失意,对未来的迷茫.&lt;/p&gt;
-&lt;p&gt;刷到过几个视频,作者都是高学历人才,其中有硕士博士,还看到一位教授,在这些博主的评论区,出现一些人评价博主”为赋新词强说愁”.&lt;/p&gt;
-&lt;p&gt;这句诗的出自辛弃疾的《丑奴儿·书博山道中壁》&lt;a class=&#34;link&#34; href=&#34;https://so.gushiwen.cn/mingju/juv_2efa3264f9c6.aspx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;来自古诗词网,全文复制粘贴&lt;/a&gt;]&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;《丑奴儿·书博山道中壁》&lt;/p&gt;
-&lt;p&gt;辛弃疾&lt;/p&gt;
-&lt;p&gt;少年不识愁滋味，爱上层楼。爱上层楼，为赋新词强说愁。
-而今识尽愁滋味，欲说还休。欲说还休，却道“天凉好个秋”！&lt;/p&gt;
-&lt;p&gt;译文
-人年轻的时候不懂忧愁的滋味，喜欢登高远望。喜欢登高远望，为了写出新词，没有愁而硬要说有愁。
-现在尝尽了忧愁的滋味，想说却说不出。想说却说不出，却说道：“好凉爽的一个秋天啊！”&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这句诗的大意就是年轻的时候没有愁为了写词硬说忧愁,这些评论者引用到这里应该是想表达这些博主本来没有烦恼,失意却为了用鼠鼠这个称谓强行说自己迷茫.&lt;del&gt;个人觉得还在指责他们蹭热点&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;那么,在什么样的视频底下没有出现这些评论呢,有表达生活艰难的,怀念亲人的,还有双非,专科等表达前途迷茫的这类视频下并没有出现类似的评论呢?&lt;/p&gt;
-&lt;p&gt;这些视频与上面提到的视频在内容,以及感情基调等方面差别不大,主要的差别是学历,换句话说,被讽刺的都是一些拥有高学历并表达了对未来迷茫的博主.&lt;/p&gt;
-&lt;p&gt;也就是说,评论者并不觉得这些高学历的博主不应该存在对未来的迷茫,他们未来应该尽是坦途,可是他们就不配拥有烦恼吗？就因为他们获得了超过大读书人的学历，就被剥夺了“拥有烦恼”的资格。&lt;/p&gt;
-&lt;p&gt;可能有的人只是想追求体面的活着,但是受限于某些原因无法实现,而有的人想跨越阶级,坚信读书改变命运,但是发现翻过一座山后还有山,永远也无法实现阶级的跨越,前者会有烦恼,后者也会有烦恼,这都没有问题，有问题的是本该同病相怜的人却在嘲笑群体中看上去体面的那一部分人。&lt;/p&gt;
-&lt;p&gt;这样为什么会被指责”为赋新词强说愁”.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -384,9 +384,36 @@
 </description>
         </item>
         <item>
+        <title>抖音热词</title>
+        <link>https://ideal30d.top/p/%E6%8A%96%E9%9F%B3%E7%83%AD%E8%AF%8D/</link>
+        <pubDate>Mon, 13 Mar 2023 12:34:30 +0800</pubDate>
+        
+        <guid>https://ideal30d.top/p/%E6%8A%96%E9%9F%B3%E7%83%AD%E8%AF%8D/</guid>
+        <description>&lt;p&gt;最近某音出现一个热点话题,大多是以”鼠鼠我呀…”开头,视频内容大多是表达作者对生活的烦恼,前途的担忧,主旋律都是失意,对未来的迷茫.&lt;/p&gt;
+&lt;p&gt;刷到过几个视频,作者都是高学历人才,其中有硕士博士,还看到一位教授,在这些博主的评论区,出现一些人评价博主”为赋新词强说愁”.&lt;/p&gt;
+&lt;p&gt;这句诗的出自辛弃疾的《丑奴儿·书博山道中壁》&lt;a class=&#34;link&#34; href=&#34;https://so.gushiwen.cn/mingju/juv_2efa3264f9c6.aspx&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;来自古诗词网,全文复制粘贴&lt;/a&gt;]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;《丑奴儿·书博山道中壁》&lt;/p&gt;
+&lt;p&gt;辛弃疾&lt;/p&gt;
+&lt;p&gt;少年不识愁滋味，爱上层楼。爱上层楼，为赋新词强说愁。
+而今识尽愁滋味，欲说还休。欲说还休，却道“天凉好个秋”！&lt;/p&gt;
+&lt;p&gt;译文
+人年轻的时候不懂忧愁的滋味，喜欢登高远望。喜欢登高远望，为了写出新词，没有愁而硬要说有愁。
+现在尝尽了忧愁的滋味，想说却说不出。想说却说不出，却说道：“好凉爽的一个秋天啊！”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这句诗的大意就是年轻的时候没有愁为了写词硬说忧愁,这些评论者引用到这里应该是想表达这些博主本来没有烦恼,失意却为了用鼠鼠这个称谓强行说自己迷茫.&lt;del&gt;个人觉得还在指责他们蹭热点&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;那么,在什么样的视频底下没有出现这些评论呢,有表达生活艰难的,怀念亲人的,还有双非,专科等表达前途迷茫的这类视频下并没有出现类似的评论呢?&lt;/p&gt;
+&lt;p&gt;这些视频与上面提到的视频在内容,以及感情基调等方面差别不大,主要的差别是学历,换句话说,被讽刺的都是一些拥有高学历并表达了对未来迷茫的博主.&lt;/p&gt;
+&lt;p&gt;也就是说,评论者并不觉得这些高学历的博主不应该存在对未来的迷茫,他们未来应该尽是坦途,可是他们就不配拥有烦恼吗？就因为他们获得了超过大读书人的学历，就被剥夺了“拥有烦恼”的资格。&lt;/p&gt;
+&lt;p&gt;可能有的人只是想追求体面的活着,但是受限于某些原因无法实现,而有的人想跨越阶级,坚信读书改变命运,但是发现翻过一座山后还有山,永远也无法实现阶级的跨越,前者会有烦恼,后者也会有烦恼,这都没有问题，有问题的是本该同病相怜的人却在嘲笑群体中看上去体面的那一部分人。&lt;/p&gt;
+&lt;p&gt;这样为什么会被指责”为赋新词强说愁”.&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>2022</title>
         <link>https://ideal30d.top/p/2022/</link>
-        <pubDate>Thu, 13 Apr 2023 12:33:58 +0800</pubDate>
+        <pubDate>Fri, 13 Jan 2023 12:33:58 +0800</pubDate>
         
         <guid>https://ideal30d.top/p/2022/</guid>
         <description>&lt;p&gt;年初 他们去了很远的地方冒险,那是一片由钢筋水泥铸成同时又掺杂梦想的丛林,就在最近,年轻的冒险家马上就要回来了,无论有没有战利品,他们都会回来参加一年一度的盛大节日,满载而归的勇士们通常会举行一种传统的四人竞技活动,等到战利品全部留在美好的家乡,勇士们就会带着家乡的美好祝愿继续回到那片丛林开始新的冒险之旅.——过年&lt;/p&gt;
@@ -416,7 +443,7 @@
         <item>
         <title>第一篇博客</title>
         <link>https://ideal30d.top/p/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
-        <pubDate>Wed, 12 Apr 2023 10:34:55 +0800</pubDate>
+        <pubDate>Wed, 11 Jan 2023 10:34:55 +0800</pubDate>
         
         <guid>https://ideal30d.top/p/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
         <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;

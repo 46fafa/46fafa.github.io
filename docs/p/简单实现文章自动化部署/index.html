@@ -325,6 +325,7 @@ if (!doNotTrack) {
       <ol>
         <li><a href="#效果展示">效果展示</a></li>
         <li><a href="#quicker">「Quicker」</a></li>
+        <li><a href="#简化思路">简化思路</a></li>
       </ol>
     </li>
   </ol>
@@ -478,6 +479,33 @@ if (!doNotTrack) {
 <p>使用时目录设置为博客文件的根目录</p>
 <p>原作者不允许再次进行分享，为了方便下载，我设置了私人分享<a class="link" href="https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b"  target="_blank" rel="noopener"
     >hugo自动化</a>,需要自取</p>
+<h3 id="简化思路">简化思路</h3>
+<p>如果不想安装「Quicker」的话，还有一个方法可以省略代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">@echo off
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">REM 运行 Hugo 命令
+</span></span><span class="line"><span class="cl">hugo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">REM 运行 Git 命令
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -a -m <span class="s2">&#34;自动提交&#34;</span>
+</span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在博客根目录新建一个文本文件，将内容复制进去，然后重命名保存，后缀为<code>.bat</code>,比如我的文件名是<code>auto_deploy.bat</code>，每次修改文章后运行bash脚本即可发布</p>
 
 </section>
 

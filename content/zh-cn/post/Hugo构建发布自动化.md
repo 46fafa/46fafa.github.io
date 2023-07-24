@@ -47,3 +47,21 @@ git push 将本地的提交推送到远程仓库
 使用时目录设置为博客文件的根目录
 
 原作者不允许再次进行分享，为了方便下载，我设置了私人分享[hugo自动化](https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b),需要自取
+
+### 简化思路
+
+如果不想安装「Quicker」的话，还有一个方法可以省略代码
+
+```bash
+@echo off
+
+REM 运行 Hugo 命令
+hugo
+
+REM 运行 Git 命令
+git add .
+git commit -a -m "自动提交"
+git push
+```
+
+在博客根目录新建一个文本文件，将内容复制进去，然后重命名保存，后缀为`.bat`,比如我的文件名是`auto_deploy.bat`，每次修改文章后运行bash脚本即可发布
