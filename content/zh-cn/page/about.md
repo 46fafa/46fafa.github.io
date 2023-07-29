@@ -15,7 +15,13 @@ menu:
 
 ![904662152](https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp)
 
- Hi👋，我是liberal，大学在读,专业是智能医学工程，听起来可能觉得是医学，实际上是工科生,数码产品爱好者，还喜欢效率工具，御三家未曾谋面的粉丝😭，梦想的职业是独立开发者(或许不能叫职业🤔)
+ Hi👋，我是liberal，数码爱好者，崇尚开源，追求效率工具
+
+#### 开源启蒙
+
+* [「开源之道」](https://opensourceway.community/)
+* [围绕RMS、开源、自由软件的两场“战争”](https://jhuo.ca/post/rms_return_fsf/)
+* [开源是自由的，永远](https://jhuo.ca/post/opensource_freedom_forever/)
 
 #### 博客
 
