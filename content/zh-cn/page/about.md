@@ -15,7 +15,7 @@ menu:
 
 ![904662152](https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp)
 
- Hi👋，我是liberal，数码爱好者，崇尚开源，追求效率工具
+ Hi👋，我是liberal，对新事物充满好奇，开源爱好者，学生
 
 #### 开源启蒙
 
