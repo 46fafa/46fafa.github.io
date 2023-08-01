@@ -1,6 +1,6 @@
 ![background](https://img-1316473855.cos.ap-chengdu.myqcloud.com/background.webp)
 
-Hi👋 我是liberal，大学本科在读
+Hi👋 我是liberal，开源爱好者，对一切新鲜事物保持好奇心
 
 #### 博客
 
@@ -14,7 +14,3 @@ Hi👋 我是liberal，大学本科在读
 #### 联系我
 
 📧：me19xy@gmail.com
-
-Twitter:[Les](https://twitter.com/sanxun22)
-
-欢迎来找我聊天~
