@@ -139,7 +139,7 @@ params:
                 placeholder:
 
         twikoo:
-            envId: https://lesx.top
+            envId: https://twikoo-bice-tau.vercel.app/
             region:
             path:
             lang:
