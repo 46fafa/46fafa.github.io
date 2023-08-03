@@ -58,9 +58,12 @@
     {{- end -}}
 
     <ol class="menu" id="main-menu">
+    <!--增加左边栏选中后高亮效果 -->
         {{ $currentPage := . }}
+        {{ $siteTitle := .Site.Title }}
         {{ range .Site.Menus.main }}
         {{ $active := or (eq $currentPage.Title .Name) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
+        {{ $active := or ($active) (and (eq $currentPage.Title $siteTitle ) (eq .Identifier "home")) }}
         <li {{ if $active }} class='current' {{ end }}>
             <a href='{{ .URL }}' {{ if eq .Params.newTab true }}target="_blank"{{ end }}>
                 {{ $icon := default .Pre .Params.Icon }}
