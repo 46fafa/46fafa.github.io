@@ -1,12 +1,19 @@
 {{- $ThemeVersion := "2.3.0" -}}
+{{$scratch := newScratch}}
+{{ range (where .Site.Pages "Kind" "page" )}}
+    {{$scratch.Add "total" .WordCount}}
+{{ end }}
+
 <footer class="site-footer">
+    <!--增加字数统计和文章统计-->
     <section class="copyright">
         &copy; 
         {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
             {{ .Site.Params.footer.since }} - 
         {{ end }}
-        {{ now.Format "2006" }} {{ .Site.Title }}
+        {{ now.Format "2006" }} liberal<br>写了 {{$scratch.Get "total" }}字·共 {{ len (where .Site.RegularPages "Section" "post") }}篇文章</br><span><p>
     </section>
+    
     
     <section class="powerby">
         {{ with .Site.Params.footer.customText }}
@@ -22,5 +29,7 @@
     </section>
     <!--背景增加蜘蛛网动效-->
     <script src="/js/particles.js"></script>
+
+    
 
 </footer>
