@@ -12,7 +12,7 @@
         <pubDate>Sun, 23 Jul 2023 16:51:28 +0800</pubDate>
         
         <guid>https://ideal30d.top/p/%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0%E6%96%87%E7%AB%A0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</guid>
-        <description>&lt;h3 id=&#34;效果展示&#34;&gt;效果展示&lt;/h3&gt;
+        <description>&lt;h2 id=&#34;效果展示&#34;&gt;效果展示&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://ideal30d.top/img/1.gif&#34;
 	
 	
@@ -119,7 +119,7 @@
         <pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate>
         
         <guid>https://ideal30d.top/p/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93/</guid>
-        <description>&lt;h3 id=&#34;霞鹜文楷&#34;&gt;「霞鹜文楷」&lt;/h3&gt;
+        <description>&lt;h2 id=&#34;霞鹜文楷&#34;&gt;「霞鹜文楷」&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/lxgw/LxgwWenKai/main/documentation/wenkai-1.png&#34;
 	
 	
@@ -189,7 +189,7 @@
 &lt;/div&gt;&lt;p&gt;解决方法是修改博客根目录下相同路径文件&lt;/p&gt;
 &lt;p&gt;比如我的博客主题文件目录为MyBlog\themes\hugo-theme-stack，现在修改文件的路径为MyBlog\assets\scss&lt;/p&gt;
 &lt;p&gt;修改后部署发布即可。&lt;/p&gt;
-&lt;h3 id=&#34;效果展示&#34;&gt;效果展示&lt;/h3&gt;
+&lt;h2 id=&#34;效果展示&#34;&gt;效果展示&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&#34;https://img-1316473855.cos.ap-chengdu.myqcloud.com/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;
 	
 	

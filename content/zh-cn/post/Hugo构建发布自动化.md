@@ -9,7 +9,7 @@ categories:
   - tech
 ---
 
-### 效果展示
+## 效果展示
 
 ![](/img/1.gif)
 

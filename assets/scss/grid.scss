@@ -26,13 +26,13 @@
 
         @include respond(lg) {
             max-width: 1280px;
-            --left-sidebar-max-width: 20%;
+            --left-sidebar-max-width: 25%;
             --right-sidebar-max-width: 30%;
         }
 
         @include respond(xl) {
             max-width: 1536px;
-            --left-sidebar-max-width: 15%;
+            --left-sidebar-max-width: 10%;
             --right-sidebar-max-width: 25%;
         }
     }
