@@ -587,51 +587,45 @@ if (!doNotTrack) {
      
     
         
-    <script src="https://utteranc.es/client.js" 
-        repo="46fafa/46fafa.github.io"
-        issue-term="title"
-        
-        crossorigin="anonymous"
-        async
-        >
-</script>
-
+    <script src="//cdn.jsdelivr.net/npm/twikoo@1.6.11/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
 <style>
-    .utterances {
-        max-width: unset;
+    .twikoo {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
     }
-</style>
-
-<script>
-    let utterancesLoaded = false;
-
-    function setUtterancesTheme(theme) {
-        let utterances = document.querySelector('.utterances iframe');
-        if (utterances) {
-            utterances.contentWindow.postMessage(
-                {
-                    type: 'set-theme',
-                    theme: `github-${theme}`
-                },
-                'https://utteranc.es'
-            );
-        }
+    :root[data-scheme="dark"] {
+        --twikoo-body-text-color-main: rgba(255, 255, 255, 0.9);
+        --twikoo-body-text-color: rgba(255, 255, 255, 0.7);
     }
-
-    addEventListener('message', event => {
-        if (event.origin !== 'https://utteranc.es') return;
-
-        
-        utterancesLoaded = true;
-        setUtterancesTheme(document.documentElement.dataset.scheme)
-    });
-
-    window.addEventListener('onColorSchemeChange', (e) => {
-        if (!utterancesLoaded) return;
-        setUtterancesTheme(e.detail)
-    })
+    .twikoo .el-input-group__prepend,
+    .twikoo .tk-action-icon,
+    .twikoo .tk-time,
+    .twikoo .tk-comments-count {
+        color: var(--twikoo-body-text-color);
+    }
+    .twikoo .el-input__inner,
+    .twikoo .el-textarea__inner,
+    .twikoo .tk-preview-container,
+    .twikoo .tk-content,
+    .twikoo .tk-nick,
+    .twikoo .tk-send {
+        color: var(--twikoo-body-text-color-main);
+    }
+    .twikoo .el-button{
+        color: var(--twikoo-body-text-color)!important;
+    }
+    .OwO .OwO-body {
+        background-color: var(--body-background) !important;
+        color: var(--body-text-color) !important;
+    }
+</style><script>
+    twikoo.init({
+        envId: 'http:\/\/twikoo.lesx.top\/',
+        el: '#tcomment',})
 </script>
-
 
     
 

@@ -97,7 +97,7 @@ params:
 
     comments:
         enabled: true
-        provider: utterances
+        provider: twikoo
 
         disqusjs:
             shortname:
@@ -139,7 +139,7 @@ params:
                 placeholder:
 
         twikoo:
-            envId:
+            envId: http://twikoo.lesx.top/
             region:
             path:
             lang:
