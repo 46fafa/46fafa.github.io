@@ -13,6 +13,20 @@
             </div>
         </div>
         {{ end }}
+
+        {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "tags" -}} 
+        {{- $terms := $taxonomy.Pages -}}
+        {{ if $terms }}
+        <h2 class="section-title">{{ $taxonomy.Title }}</h2>
+        <div class="subsection-list">
+            <div class="article-list--tagtile">
+                {{ range $terms }}
+                    {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "taxonomy") }}
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
     </header>
 
     {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}

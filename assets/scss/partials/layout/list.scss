@@ -50,13 +50,17 @@
 
     .article-list--tile {
         display: flex;
-        padding-bottom: 15px;
+        padding-bottom: 10px;
+        flex-wrap: wrap;
 
         article {
-            width: 250px;
-            height: 150px;
+            width: 200px;
+            height: 50px;
+            margin-left: 7px; 
             margin-right: 20px;
+            margin-top: 10px; 
             flex-shrink: 0;
+            
 
             .article-title {
                 margin: 0;
@@ -64,8 +68,38 @@
             }
 
             .article-details {
-                padding: 20px;
+                padding: 15px 22px;
             }
         }
     }
 }
+
+
+.article-list--tagtile {
+    display: flex;
+    padding-bottom: 10px;
+    flex-wrap: wrap; //实现Archive中的Tag卡片自动换行
+
+    article {
+        width: auto; //改爲200px
+        height: auto; //改爲50px
+        margin-left: 7px; 
+        margin-right: 5px; //改爲5px
+        margin-top: 7px; //新增一行
+        flex-shrink: 0;
+        box-shadow: var(--shadow-l2); //改个卡片阴影
+        background: var(--card-background);
+        border-radius: var(--tag-border-radius);
+
+        .article-title {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .article-details {
+            padding: 15px 22px;
+        }
+
+    }
+}
+
