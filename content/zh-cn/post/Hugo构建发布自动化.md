@@ -1,7 +1,7 @@
 ---
 title: "简单实现文章自动化部署"
 date: 2023-07-23T16:51:28+08:00
-slug: "简单实现文章自动化部署"
+slug: "Automated Deployment"
 type: post
 tags:
   - 教程
