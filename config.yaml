@@ -49,7 +49,7 @@ languages:
 disqusShortname: hugo-theme-stack
 
 # GA Tracking ID
-googleAnalytics: G-KSKRE06P26
+#googleAnalytics: G-KSKRE06P26
 
 
 # Theme i18n support
@@ -139,7 +139,7 @@ params:
                 placeholder:
 
         twikoo:
-            envId: https://twikoo.lesx.top
+            envId: https://twikoo.lesx.top/
             region:
             path:
             lang:
