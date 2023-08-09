@@ -32,17 +32,17 @@ git push 将本地的提交推送到远程仓库
 
 之前有使用「Quicker」实现浏览器外划词翻译，详情看[这篇文章](https://saladict.crimx.com/native.html)，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了[类似的操作](https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514)，遂白嫖
 
-![image-20230723174027239](https://img-1316473855.cos.ap-chengdu.myqcloud.com/Quicker1.webp)
+![image-20230723174027239](https://img.lesx.top/Quicker1.webp)
 
 这是下载的动作，但是本地实验后发现这个动作没有`hugo`和`git add .`命令，于是针对自己情况对原动作作了修改
 
-![Snipaste_2023-07-23_17-54-51](https://img-1316473855.cos.ap-chengdu.myqcloud.com/quicker2.webp)
+![Snipaste_2023-07-23_17-54-51](https://img.lesx.top/quicker2.webp)
 
 这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录
 
 比如我的文章根目录为`MyBlog\content\zh-cn\post`,上级目录就是`MyBlog\content\zh-cn`
 
-![image-20230723180531905](https://img-1316473855.cos.ap-chengdu.myqcloud.com/quicker3.webp)
+![image-20230723180531905](https://img.lesx.top/quicker3.webp)
 
 使用时目录设置为博客文件的根目录
 

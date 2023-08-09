@@ -165,3 +165,46 @@ html{
 	.db-card{margin:0.8rem 1rem;}
 	.db-card-comment{display: none;}
 }
+
+//友情链接双栏
+@media (min-width: 1024px) {
+  .article-list--compact.links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: none;
+      box-shadow: none;
+      
+      article {
+          background: var(--card-background);
+          border: none;
+          box-shadow: var(--shadow-l2);
+          margin-bottom: 8px;
+          border-radius: 10px;
+          &:nth-child(odd) {
+              margin-right: 8px;
+          }
+      }
+  }
+}
+
+//站点描述居中
+.site-name {
+  color: var(--accent-color);
+  text-align:center; //站点名称居中
+  font-size: 1.8rem;
+
+  @include respond(2xl) {
+      font-size: 2rem;
+  }
+}
+
+.site-description {
+  color: var(--body-text-color);
+  font-weight: normal;
+  text-align:center; //站点描述居中
+  font-size: 1.6rem;
+
+  @include respond(2xl) {
+      font-size: 1.7rem;
+  }
+}

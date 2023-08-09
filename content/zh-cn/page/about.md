@@ -15,7 +15,7 @@ menu:
 
 ![904662152](https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp)
 
- Hi👋，我是liberal，对一切新事物充满好奇
+ Hi👋，我是liberal
 
 #### 博客
 

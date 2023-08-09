@@ -2,14 +2,13 @@ baseurl: https://ideal30d.top/
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
-title: Example Site
 publishDir: docs
 
 languages:              
     zh-cn:
         contentDir: content/zh-cn
         languageName: 中文
-        title: liberal'Blog
+        title: Les'blog
         menu:
           main:
             - identifier: home
@@ -18,12 +17,6 @@ languages:
               weight: -100
               params:
                 icon: home
-            - identifier: feed
-              name: 订阅
-              url: /index.xml
-              weight: 90
-              params:
-                icon: rss
           social:
             - identifier: github
               name: Github
@@ -40,6 +33,11 @@ languages:
               url: https://www.douban.com/people/199621238
               params:
                 icon: douban
+            - identifier: feed
+              name: RSS
+              url: /index.xml
+              params:
+                icon: rss
 
 
 
