@@ -10,12 +10,26 @@ menu:
     main:
         weight: -50
         params:
-            icon: user
+            icon: user  
 ---
 
-![904662152](https://img-1316473855.cos.ap-chengdu.myqcloud.com/904662152.webp)
+## 关于我 
 
- Hi👋，我是liberal
+Hi👋，我是Les，取名字对我来说是件困难的事，所以，嗯，说不定你下次来到这里我就换了个名字😄
+
+读书，电影，音乐，游戏，编码都有涉及，~~都不精~~
+
+如果想要和我交换友链，可以参考如下格式
+
+>  - title: Les'blog
+>    description: 独立思考，保持清醒
+>    website: https://lesx.top
+>    
+>    image: https://img.lesx.top/avatar.png
+
+**我们处于一个被信息裹挟的时代，指鹿为马是常态，不要忘记思考**
+
+总之，欢迎和我交换友链欢~
 
 #### 博客
 
