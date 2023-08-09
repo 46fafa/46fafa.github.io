@@ -1,4 +1,4 @@
-![background](https://img.lesx.top/background.webp)
+![](https://img.lesx.top/background.webp)
 
 Hi👋 我是Les
 
