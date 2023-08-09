@@ -1,6 +1,6 @@
-![background](https://img-1316473855.cos.ap-chengdu.myqcloud.com/background.webp)
+![background](https://img.lesx.top/background.webp)
 
-Hi👋 我是liberal，开源爱好者，对一切新鲜事物保持好奇心
+Hi👋 我是Les
 
 #### 博客
 
