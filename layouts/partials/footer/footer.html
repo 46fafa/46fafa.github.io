@@ -11,7 +11,7 @@
         {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
             {{ .Site.Params.footer.since }} - 
         {{ end }}
-        {{ now.Format "2006" }} liberal<br>写了 {{$scratch.Get "total" }}字·共 {{ len (where .Site.RegularPages "Section" "post") }}篇文章</br><span><p>
+        {{ now.Format "2006" }}Les<br>写了 {{$scratch.Get "total" }}字·共 {{ len (where .Site.RegularPages "Section" "post") }}篇文章</br><span><p>
     </section>
     
     
