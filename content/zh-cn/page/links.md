@@ -15,8 +15,11 @@ menu:
             icon: link
 ---
 
+如果说个人博客是网络海洋中的孤岛，那么友链就是连接一个个岛屿的地图.
 
+欢迎与我交换友链~
 
-
- 我是liberal，欢迎和我交换友链✌
-
+> title: Les'blog
+> description: 独立思考，保持清醒
+> website: https://lesx.top
+> image: https://img.lesx.top/avatar.png
