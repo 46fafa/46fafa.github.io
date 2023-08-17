@@ -20,6 +20,9 @@ menu:
 欢迎与我交换友链~
 
 > title: Les'blog
+>
 > description: 独立思考，保持清醒
+>
 > website: https://lesx.top
+>
 > image: https://img.lesx.top/avatar.png
