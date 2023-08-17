@@ -190,7 +190,7 @@ params:
             site: 
 
             # Available values: summary, summary_large_image
-            card: 
+            card: summary_large_image
 
     defaultImage:
         opengraph:
