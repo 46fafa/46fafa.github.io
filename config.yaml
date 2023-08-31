@@ -6,7 +6,7 @@ publishDir: docs
 
 languages:              
     zh-cn:
-        contentDir: content/zh-cn
+        contentDir: content
         languageName: 中文
         title: Les'blog
         menu:
