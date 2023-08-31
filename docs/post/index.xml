@@ -40,7 +40,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;以xiaomi11为例简单说明一下命名方式，&lt;code&gt;xiaomi.eu_multi_MI11&lt;/code&gt;代表机型，&lt;code&gt;V14.0.10.0&lt;/code&gt;代表系统版本，这里指MIUI14&lt;/p&gt;
-&lt;p&gt;⚠️有些机型的ROM是用英文命名，比如在框选部分的下个ROM，&lt;code&gt;THOR&lt;/code&gt;代表&lt;code&gt;小米12s Ultra&lt;/code&gt;,不同机型的英文名称可以在https://xiaomirom.com/查到，如果ROM下载过慢可尝试开启科学上网。&lt;/p&gt;
+&lt;p&gt;⚠️有些机型的ROM是用英文命名，比如在框选部分的下个ROM，&lt;code&gt;THOR&lt;/code&gt;代表&lt;code&gt;小米12s Ultra&lt;/code&gt;,不同机型的英文名称可以在&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;https://xiaomirom.com/&lt;/a&gt;查到，如果ROM下载太慢请尝试科学上网。&lt;/p&gt;
 &lt;p&gt;在开始刷入之间需要在电脑上安装ADB工具，安装方式见&lt;a class=&#34;link&#34; href=&#34;https://lesx.top/p/mi8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;小米8折腾记录&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;开始刷机&#34;&gt;开始刷机&lt;/h2&gt;
