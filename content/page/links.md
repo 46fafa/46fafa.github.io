@@ -8,6 +8,10 @@ links:
     description: 垃圾佬、搬砖社畜、运维工程师
     website: https://blog.k8s.li
     image: https://blog.k8s.li/avatar.png
+  - title: 第三夏尔
+    description: 认真生活，积极摸鱼
+    website: https://thirdshire.com
+    image: https://thirdshire.com/blackcat_avatar.jpg
 menu:
     main:
         weight: -60
