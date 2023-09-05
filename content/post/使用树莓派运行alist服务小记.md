@@ -2,7 +2,8 @@
 title: "使用树莓派运行alist服务小记"
 date: 2023-09-02T22:21:41+08:00
 slug: 79525e15
-type: draft
+type: post
+draft: true
 tags:
   - 树莓派
 categories:
