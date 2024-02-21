@@ -1,4 +1,4 @@
-baseurl: https://ideal30d.top/
+baseurl: https://lesx.top
 languageCode: en-us
 theme: hugo-theme-stack
 paginate: 5
@@ -8,7 +8,7 @@ languages:
     zh-cn:
         contentDir: content
         languageName: 中文
-        title: Les'blog
+        title: kenome's blog
         menu:
           main:
             - identifier: home
