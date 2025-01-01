@@ -1,15 +1,5 @@
 @echo off
 
-
-REM 检查目录切换是否成功
-if %ERRORLEVEL% neq 0 (
-    echo 目录切换失败，错误码：%ERRORLEVEL%
-    pause
-    exit /b %ERRORLEVEL%
-) else (
-    echo 目录切换成功
-)
-
 REM 运行 Hugo 命令
 echo 正在运行 Hugo 命令...
 hugo
