@@ -35,7 +35,7 @@ if %ERRORLEVEL% neq 0 (
 )
 
 REM 推送到远程仓库
-git push -u origin main
+git push -f origin main
 if %ERRORLEVEL% neq 0 (
     echo git push 命令执行失败，错误码：%ERRORLEVEL%
     pause
