@@ -3,7 +3,7 @@ languageCode: en-us
 theme: hugo-theme-stack
 title: Example Site
 copyright: kenome
-
+publishDir: docs
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
 DefaultContentLanguage: zh-cn
