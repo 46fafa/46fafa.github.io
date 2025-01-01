@@ -46,7 +46,7 @@ if %ERRORLEVEL% neq 0 (
     echo git commit 命令执行成功
 )
 
-git push
+git push --set-upstream origin main
 if %ERRORLEVEL% neq 0 (
     echo git push 命令执行失败，错误码：%ERRORLEVEL%
     pause
