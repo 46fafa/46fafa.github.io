@@ -1,5 +1,5 @@
 @echo off
-
+chcp 65001
 REM 运行 Hugo 命令
 echo 正在运行 Hugo 命令...
 hugo
