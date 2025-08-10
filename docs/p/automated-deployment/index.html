@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="效果展示 「Quicker」 事情的起因是我发现使用hugo构建的博客要发布文章需要经过以下几个步骤\n1 2 3 4 5 6 hugo new post/test.md 打开test.md编辑文章 hugo 生成静态网站文件 git add . 将更改添加到暂存区 git commit -m 将暂存区添加到版本库 git push 将本地的提交推送到远程仓库 这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="「Quicker」 我发现使用hugo构建的博客要发布文章需要经过以下几个步骤\n1 2 3 4 5 6 hugo new post/test.md 打开test.md编辑文章 hugo 生成静态网站文件 git add . 将更改添加到暂存区 git commit -m 将暂存区添加到版本库 git push 将本地的提交推送到远程仓库 这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」\n">
 <title>简单实现文章自动化部署</title>
 
 <link rel='canonical' href='https://example.com/p/automated-deployment/'>
 
 <link rel="stylesheet" href="/scss/style.min.a0ef5a9ed9c3ae50e4358e66f57d5356b4be82523882e8be978564dd4c688476.css"><meta property='og:title' content="简单实现文章自动化部署">
-<meta property='og:description' content="效果展示 「Quicker」 事情的起因是我发现使用hugo构建的博客要发布文章需要经过以下几个步骤\n1 2 3 4 5 6 hugo new post/test.md 打开test.md编辑文章 hugo 生成静态网站文件 git add . 将更改添加到暂存区 git commit -m 将暂存区添加到版本库 git push 将本地的提交推送到远程仓库 这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」\n">
+<meta property='og:description' content="「Quicker」 我发现使用hugo构建的博客要发布文章需要经过以下几个步骤\n1 2 3 4 5 6 hugo new post/test.md 打开test.md编辑文章 hugo 生成静态网站文件 git add . 将更改添加到暂存区 git commit -m 将暂存区添加到版本库 git push 将本地的提交推送到远程仓库 这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」\n">
 <meta property='og:url' content='https://example.com/p/automated-deployment/'>
 <meta property='og:site_name' content='kenome&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='教程' /><meta property='article:published_time' content='2023-07-23T16:51:28&#43;08:00'/><meta property='article:modified_time' content='2023-07-23T16:51:28&#43;08:00'/>
 <meta name="twitter:title" content="简单实现文章自动化部署">
-<meta name="twitter:description" content="效果展示 「Quicker」 事情的起因是我发现使用hugo构建的博客要发布文章需要经过以下几个步骤\n1 2 3 4 5 6 hugo new post/test.md 打开test.md编辑文章 hugo 生成静态网站文件 git add . 将更改添加到暂存区 git commit -m 将暂存区添加到版本库 git push 将本地的提交推送到远程仓库 这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」\n">
+<meta name="twitter:description" content="「Quicker」 我发现使用hugo构建的博客要发布文章需要经过以下几个步骤\n1 2 3 4 5 6 hugo new post/test.md 打开test.md编辑文章 hugo 生成静态网站文件 git add . 将更改添加到暂存区 git commit -m 将暂存区添加到版本库 git push 将本地的提交推送到远程仓库 这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」\n">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -256,7 +256,7 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#效果展示">效果展示</a>
+    <li>
       <ol>
         <li><a href="#quicker">「Quicker」</a></li>
         <li><a href="#简化思路">简化思路</a></li>
@@ -341,17 +341,8 @@
     <section class="article-content">
     
     
-    <h2 id="效果展示">效果展示
-</h2><p><img src="/img/1.gif"
-	
-	
-	
-	loading="lazy"
-	
-	
-></p>
-<h3 id="quicker">「Quicker」
-</h3><p>事情的起因是我发现使用hugo构建的博客要发布文章需要经过以下几个步骤</p>
+    <h3 id="quicker">「Quicker」
+</h3><p>我发现使用hugo构建的博客要发布文章需要经过以下几个步骤</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -377,7 +368,7 @@
 <p>之前有使用「Quicker」实现浏览器外划词翻译，详情看<a class="link" href="https://saladict.crimx.com/native.html"  target="_blank" rel="noopener"
     >这篇文章</a>，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了<a class="link" href="https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514"  target="_blank" rel="noopener"
     >类似的操作</a>，遂白嫖</p>
-<p><img src="https://img.lesx.top/Quicker1.webp"
+<p><img src="https://r2-img.lesx.top/Quicker1.webp"
 	
 	
 	
@@ -388,7 +379,7 @@
 	
 ></p>
 <p>这是下载的动作，但是本地实验后发现这个动作没有<code>hugo</code>和<code>git add .</code>命令，于是针对自己情况对原动作作了修改</p>
-<p><img src="https://img.lesx.top/quicker2.webp"
+<p><img src="https://r2-img.lesx.top/quicker2.webp"
 	
 	
 	
@@ -400,7 +391,7 @@
 ></p>
 <p>这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录</p>
 <p>比如我的文章根目录为<code>MyBlog\content\zh-cn\post</code>,上级目录就是<code>MyBlog\content\zh-cn</code></p>
-<p><img src="https://img.lesx.top/quicker3.webp"
+<p><img src="https://r2-img.lesx.top/quicker3.webp"
 	
 	
 	
@@ -624,7 +615,7 @@
         
             2020 - 
         
-        2025 Kenome<br>写了 9027字·共 10篇文章</br><span><p>
+        2025 Kenome<br>写了 9017字·共 10篇文章</br><span><p>
     </section>
     
     

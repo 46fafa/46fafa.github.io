@@ -2,22 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2024-11-08T21:01:38+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://example.com/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://example.com/"
-                />
-  </url><url>
-    <loc>https://example.com/post/</loc>
-    <lastmod>2024-11-08T21:01:38+08:00</lastmod>
-  </url><url>
     <loc>https://example.com/tags/bitwarden/</loc>
     <lastmod>2023-12-15T00:17:06+08:00</lastmod>
   </url><url>
@@ -33,6 +17,22 @@
                 hreflang="zh-cn"
                 href="https://example.com/categories/"
                 />
+  </url><url>
+    <loc>https://example.com/</loc>
+    <lastmod>2023-12-15T00:17:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://example.com/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://example.com/"
+                />
+  </url><url>
+    <loc>https://example.com/post/</loc>
+    <lastmod>2023-12-15T00:17:06+08:00</lastmod>
   </url><url>
     <loc>https://example.com/tags/</loc>
     <lastmod>2023-12-15T00:17:06+08:00</lastmod>
