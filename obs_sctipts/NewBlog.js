@@ -21,7 +21,7 @@ function getCreateTimeAsFileName() {
 
 async function executeCommand() {
      const fileName = getCreateTimeAsFileName()+".md";
-     const { stdout, stderr } = await exec('hugo new posts/' +fileName,{cwd: app.fileManager.vault.adapter.basePath});
+     const { stdout, stderr } = await exec('hugo new post/' +fileName,{cwd: app.fileManager.vault.adapter.basePath});
      console.log('stdout:', stdout);
      console.log('stderr:', stderr);
      if (stdout) {
