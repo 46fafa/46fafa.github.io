@@ -28,7 +28,7 @@ jobs:
                 extended: true
                 
             - name: build
-              run: hugo --minify
+              run: hugo --minify --config hugo.yaml
             
             - name: deploy
               uses: peaceiris/actions-gh-pages@v3
