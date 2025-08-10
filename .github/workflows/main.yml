@@ -4,6 +4,8 @@ on:
     tags:
       - '*'
     branches: [ main ]
+permissions:
+  contents: write
  
 env:
     REGISTRY: ghcr.io
@@ -16,13 +18,13 @@ jobs:
             group: ${{ github.workflow }} - ${{ github.ref }}
         steps:
             - name: checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
               with:
                 submodules: true
                 fetch-depth: 0
                 
             - name: setup hugo
-              uses: peaceiris/actions-hugo@v2
+              uses: peaceiris/actions-hugo@v3
               with:
                 hugo-version: '0.124.1'
                 extended: true
@@ -36,3 +38,8 @@ jobs:
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
                 publish_dir: ./docs
+            - name: cache Hugo resources
+              uses: actions/cache@v3
+              with:
+                path: resources
+                key: ${{ runner.os }}-hugo-resources-${{ github.sha }}
