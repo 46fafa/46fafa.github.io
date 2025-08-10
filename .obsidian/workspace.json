@@ -150,13 +150,23 @@
               "icon": "lucide-list",
               "title": "my-first-post 的大纲"
             }
+          },
+          {
+            "id": "c488deaf0583f8dc",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
