@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>反思 on kenome&#39;s blog</title>
-        <link>https://example.com/tags/%E5%8F%8D%E6%80%9D/</link>
+        <link>http://localhost:1313/tags/%E5%8F%8D%E6%80%9D/</link>
         <description>Recent content in 反思 on kenome&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kenome</copyright>
-        <lastBuildDate>Tue, 31 Oct 2023 12:24:08 +0800</lastBuildDate><atom:link href="https://example.com/tags/%E5%8F%8D%E6%80%9D/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 31 Oct 2023 12:24:08 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%8F%8D%E6%80%9D/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>群体生活</title>
-        <link>https://example.com/p/f667b5f7/</link>
+        <link>http://localhost:1313/p/f667b5f7/</link>
         <pubDate>Tue, 31 Oct 2023 12:24:08 +0800</pubDate>
         
-        <guid>https://example.com/p/f667b5f7/</guid>
+        <guid>http://localhost:1313/p/f667b5f7/</guid>
         <description>&lt;h2 id=&#34;谚语&#34;&gt;谚语
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;一个和尚挑水喝，两个和尚抬水喝，三个和尚没水喝。&lt;/p&gt;

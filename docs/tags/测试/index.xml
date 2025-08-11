@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>测试 on kenome&#39;s blog</title>
+        <link>http://localhost:1313/tags/%E6%B5%8B%E8%AF%95/</link>
+        <description>Recent content in 测试 on kenome&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>kenome</copyright>
+        <lastBuildDate>Mon, 11 Aug 2025 12:10:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>中文标题测试</title>
+        <link>http://localhost:1313/p/%E4%B8%AD%E6%96%87%E6%A0%87%E9%A2%98%E6%B5%8B%E8%AF%95/</link>
+        <pubDate>Mon, 11 Aug 2025 12:10:21 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/%E4%B8%AD%E6%96%87%E6%A0%87%E9%A2%98%E6%B5%8B%E8%AF%95/</guid>
+        <description>&lt;p&gt;这是一个测试界面&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

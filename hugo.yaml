@@ -43,12 +43,12 @@ pagination:
     pagerSize: 4
 
 permalinks:
-    post: /p/:slug/
+    posts: /p/:slug/
     page: /:slug/
 
 params:
     mainSections:
-        - post
+        - posts
     featuredImageField: image
     rssFullContent: true
     favicon: # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
