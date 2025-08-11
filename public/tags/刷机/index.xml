@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>刷机 on kenome&#39;s blog</title>
+        <link>http://localhost:1313/tags/%E5%88%B7%E6%9C%BA/</link>
+        <description>Recent content in 刷机 on kenome&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Example Person</copyright>
+        <lastBuildDate>Thu, 10 Aug 2023 21:58:06 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%88%B7%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>小米11刷入MIUI.EU</title>
+        <link>http://localhost:1313/p/743b0d87/</link>
+        <pubDate>Thu, 10 Aug 2023 21:58:06 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/743b0d87/</guid>
+        <description>&lt;h2 id=&#34;前文&#34;&gt;前文
+&lt;/h2&gt;&lt;p&gt;不久前我写过一篇博文&lt;a class=&#34;link&#34; href=&#34;https://lesx.top/p/mi8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;小米折腾记录&lt;/a&gt;，当时是想体验类原生安卓系统，在小黄鱼购入二手小米8，本来打算记录下刷入全过程，但是自己换电池把屏幕排线弄坏了，手机开不了机了，后续内容就没有更新。&lt;/p&gt;
+&lt;p&gt;手里的主力手机一直是小米11，但是最近因为各种各样的原因用着实在是不得劲，最终决定刷机。聊刷机就不得不考虑一下数据备份的问题，这里我觉得小米自带的备份就很好用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;设置&amp;gt;我的设备&amp;gt;备份与恢复&lt;/code&gt;，选择你要备份的内容等待备份成功，成功后将&lt;code&gt;MIUI&amp;gt;backup&amp;gt;allback&lt;/code&gt;,路径下文件拷贝到电脑上，然后就可以愉快的解锁+刷机了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解锁的步骤&lt;/strong&gt;的可以看我之前的文章&lt;a class=&#34;link&#34; href=&#34;https://lesx.top/p/mi8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;小米8折腾记录&lt;/a&gt;，解锁后就可以刷机了&lt;/p&gt;
+&lt;p&gt;我之前体验过原生安卓&lt;a class=&#34;link&#34; href=&#34;https://lineageos.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LineageOS&lt;/a&gt;，与MIUI这种厂商定制的系统相比没有烦人的广告，而且相对来说定制系统使用方式或者操作逻辑更适合中国大陆用户。LineageOS用起来相当丝滑，但是我的体验并不算好，除了丝滑纯净之外并没有什么其他吸引我的点。在之前的米8上使用经常会莫名的重启，也没有找到原因。&lt;/p&gt;
+&lt;p&gt;因此我这次刷机还是倾向于定制系统 ，刚好MIUI有国际版的ROM，国际版包括主要包括欧版，俄罗斯版，印尼版等等。最后我选择的是eu版，与国行版相比它去除了广告而且精简了一些我平时不太需要的预装应用，还内置了谷歌框架。没选择EEA版是因为其预装了很多Google的app，比如谷歌地图，谷歌钱包等等。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;EU版MIUI&lt;strong&gt;是一个第三方开发项目，和官方的海外版不同，是根据官方的国行版(CN)或者官方的全球版(Global)修改而来的&lt;/strong&gt;。 常说的欧版，有的指EU版，有的指官方EEA版，它们是两个不同的版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;下载刷机包&#34;&gt;下载刷机包
+&lt;/h2&gt;&lt;p&gt;本次刷机的手机是小米11，系统为MIUI14，刷机方式为线刷，从MIUI14开始eu社区的ROM可同时支持卡刷和线刷。&lt;/p&gt;
+&lt;p&gt;刷机包可以到&lt;a class=&#34;link&#34; href=&#34;https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv14/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Xiaomi.eu Multilang MIUI ROMs Files&lt;/a&gt;,注意下载对应机型的ROM&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/miui14.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230815220645245&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;以xiaomi11为例简单说明一下命名方式，&lt;code&gt;xiaomi.eu_multi_MI11&lt;/code&gt;代表机型，&lt;code&gt;V14.0.10.0&lt;/code&gt;代表系统版本，这里指MIUI14&lt;/p&gt;
+&lt;p&gt;⚠️有些机型的ROM是用英文命名，比如在框选部分的下个ROM，&lt;code&gt;THOR&lt;/code&gt;代表&lt;code&gt;小米12s Ultra&lt;/code&gt;,不同机型的英文名称可以在&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;https://xiaomirom.com/&lt;/a&gt;查到，如果ROM下载太慢请尝试科学上网。&lt;/p&gt;
+&lt;p&gt;在开始刷入之间需要在电脑上安装ADB工具，安装方式见&lt;a class=&#34;link&#34; href=&#34;https://lesx.top/p/mi8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;小米8折腾记录&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;开始刷机&#34;&gt;开始刷机
+&lt;/h2&gt;&lt;p&gt;eu版ROM的线刷方式很简单，开机状态重启的同时按住&lt;code&gt;音量-&lt;/code&gt;，直到屏幕出现&lt;code&gt;FASTBOOT&lt;/code&gt;字样松开，然后用数据线连接电脑，解压下载的ROM到桌面(任意你喜欢的位置)，打开解压后的文件夹&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/miuirom.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230815222654964&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;因为我是Windows电脑，所以选择Windows开头的脚本，ROM提供了三个系统的线刷脚本&lt;code&gt;windows_fastboot_first_install_with_data_format.bat&lt;/code&gt;是指清除数据刷入&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;windows_fastboot_update_rom.bat&lt;/code&gt;是指保留数据刷入&lt;/p&gt;
+&lt;p&gt;这里建议使用清除数据刷入，双击脚本文件，在弹出的终端中输入y然后回车，然后等待5-8分钟(视系统状况不等)，刷入成功后手机会自动重启，能顺利进入引导页面就成功了。&lt;/p&gt;
+&lt;h2 id=&#34;注意事项&#34;&gt;注意事项
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;注意中途不要拔出数据线&lt;/li&gt;
+&lt;li&gt;刷机时拔出电话卡，避免卡在引导界面&lt;/li&gt;
+&lt;li&gt;如果拔出电话卡后依然卡在引导界面可以尝试连接Wi-Fi然后是用局域网代理，或者参考&lt;a class=&#34;link&#34; href=&#34;https://imold.wang/technology/phone/364.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;这篇文章&lt;/a&gt;，⚠️文章中提到的方法我并没有验证，稳妥起见建议使用第四种方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;跳过谷歌开机引导，https://imold.wang/technology/phone/364.html&lt;/li&gt;
+&lt;li&gt;为小米11刷入eu版MIUI,https://www.himiku.com/archives/xiaomi-eu-for-mi-11.html&lt;/li&gt;
+&lt;li&gt;小米系列MIUI刷EU系统教学,https://forum.gamer.com.tw/C.php?bsn=60559&amp;amp;snA=62124&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>小米8折腾记录</title>
+        <link>http://localhost:1313/p/mi8/</link>
+        <pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/mi8/</guid>
+        <description>&lt;p&gt;这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p&gt;
+&lt;p&gt;我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[&lt;a class=&#34;link&#34; href=&#34;https://blog.k8s.li/android-tasker.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tasker 神器&lt;/a&gt;],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p&gt;
+&lt;p&gt;刚好前几天在小黄鱼上买的小米8到手,这里记录一下这台手机的折腾过程.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小白玩家水平有限,以下说法不一定正确,欢迎指正&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;解bl锁&#34;&gt;解BL锁
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;(解锁会清除手机所有数据,请提前备份好重要资料)&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;小米手机的解锁官方给了解锁方法,只需要到浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://www.miui.com/unlock/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;小米解锁&lt;/a&gt;],进入这个网站点击立即解锁,下载小米解锁工具&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230210135242345&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开设置–我的设备全部参数–点击10下MIUI版本进入开发者模式&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;photo_2023-02-10_14-00-32&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;回到设置–滑到最下面更多设置–开发者选项–设备解锁状态.解锁前需要先绑定点击绑定账号与设备,还要打开开发者选项中的USB调试选项&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/unlock.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;photo_2023-02-17_21-00-30&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开刚才下载安装的小米解锁工具,根据提示在关机状态下按住音量下＋电源键进入fastboot模式(又叫bootloader模式),屏幕上出现fastboot字样就是成功进入,然后用数据线连接电脑与手机,连接成功后点击解锁,耐心等待解锁成功重启手机就好.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230210141005502.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230210141005502&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;解锁成功后，设备状态变为已解锁&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;photo_2023-02-10_14-04-26&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;给手机刷入twrp&#34;&gt;给手机刷入TWRP
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第一步 配置adb工具&lt;/p&gt;
+&lt;p&gt;浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;SDK Platform Tools&lt;/a&gt;],进入官网后选择对应系统的文件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217211929849.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230217&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;找到刚才下载的文件,复制adb.exe文件的路径,比如我就是&lt;code&gt;C:\Users\ABC\platform-tools_r33.0.3-windows\platform-tools&lt;/code&gt;,复制该路径添加到环境变量即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;屏幕截图 2023-02-17&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;右键我的电脑——属性——下滑找到高级系统设置——系统属性——高级——环境变量——编辑Path——新建，将刚才复制路径添加到Path变量值中,最后点击“确定”.然后&lt;code&gt;win+r&lt;/code&gt;输入&lt;code&gt;cmd&lt;/code&gt;,再打开的命令行中输入以下命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;adb&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230217&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;出现上图所示结果说明工具安装成功&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第二步 下载twrp&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://twrp.me/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;TWRP&lt;/a&gt;]进入官网,右上角点击devices,选择自己的设备下载对应版本即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230217&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第三步 刷入TWRP&lt;/p&gt;
+&lt;p&gt;手机关机状态下按住电源键＋音量下键进入&lt;code&gt;fastboot&lt;/code&gt;模式,然后用数据线连接手机与电脑,&lt;code&gt;win+r&lt;/code&gt;打开&lt;code&gt;cmd&lt;/code&gt;输入&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot flash recovery 你的twrp文件位置
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;比如我的是这样的&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image-20230217&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;然后输入&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot-reboot recovery
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;出现TWRP界面代表刷入成功.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
