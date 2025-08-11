@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on kenome's blog</title><link>https://example.com/page/</link><description>Recent content in Pages on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://example.com/page/index.xml" rel="self" type="application/rss+xml"/><item><title>归档</title><link>https://example.com/archives/</link><pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate><guid>https://example.com/archives/</guid><description/></item><item><title>友链</title><link>https://example.com/links/</link><pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate><guid>https://example.com/links/</guid><description>&lt;p>欢迎与我交换友链~&lt;/p>
+&lt;blockquote>
+&lt;p>title:kenome&amp;rsquo;s blog&lt;/p>
+&lt;p>description: 独立思考，保持清醒&lt;/p>
+&lt;p>website: &lt;a class="link" href="https://lesx.top" target="_blank" rel="noopener"
+>https://lesx.top&lt;/a>&lt;/p>
+&lt;p>image: &lt;a class="link" href="https://img.lesx.top/avatar.png" target="_blank" rel="noopener"
+>https://img.lesx.top/avatar.png&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>关于</title><link>https://example.com/about/</link><pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate><guid>https://example.com/about/</guid><description>&lt;p>Hi👋，我是kenome&lt;/p>
+&lt;p>&lt;strong>读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。——培根&lt;/strong>&lt;/p>
+&lt;p>如果想要和我交换友链，可以参考如下格式&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>title: kenome&amp;rsquo;s blog&lt;/li>
+&lt;li>description: 独立思考，保持清醒&lt;/li>
+&lt;li>website: &lt;a class="link" href="https://lesx.top" target="_blank" rel="noopener"
+>https://lesx.top&lt;/a>&lt;/li>
+&lt;li>image: &lt;a class="link" href="https://img.lesx.top/avatar.png" target="_blank" rel="noopener"
+>https://img.lesx.top/avatar.png&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="博客">博客
+&lt;/h3>&lt;ul>
+&lt;li>Hugo：&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+>https://gohugo.io/&lt;/a>&lt;/li>
+&lt;li>主题Stack:&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>CaiJimmy/hugo-theme-stack&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="联系我">联系我
+&lt;/h3>&lt;p>📧:me19xy@gmail.com&lt;/p></description></item><item><title>搜索</title><link>https://example.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.com/search/</guid><description/></item></channel></rss>
