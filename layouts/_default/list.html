@@ -83,3 +83,6 @@
 {{ define "right-sidebar" }}
     {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 {{ end }}
+<!-- DEBUG: Pager Size = {{ .Paginator.PageSize }} -->
+<!-- DEBUG: Total Pages = {{ .Paginator.TotalPages }} -->
+<!-- DEBUG: Number of Pages in Paginator = {{ len .Paginator.Pages }} -->

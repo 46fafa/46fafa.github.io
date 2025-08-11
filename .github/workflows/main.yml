@@ -18,7 +18,7 @@ jobs:
       - name: Setup Hugo # 2. 设置 Hugo 环境
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.124.1' # <--- IMPORTANT: 请将 '0.123.7' 替换为你实际使用的 Hugo 版本
+          hugo-version: '0.137.0' # <--- IMPORTANT: 请将 '0.123.7' 替换为你实际使用的 Hugo 版本
           extended: true # 如果你的 Hugo 主题使用了 SCSS/SASS，请设置为 true，否则可以删除或设置为 false
 
       - name: Build Hugo Site # 3. 构建 Hugo 静态站点
