@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "94e6a2f8025ef909",
+    "type": "split",
+    "children": [
+      {
+        "id": "95b0fcda628431b1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ab116803e0a9816",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7c224a68ded13967",
+    "type": "split",
+    "children": [
+      {
+        "id": "74196e1edf029d25",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4011e482e2547195",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "f5262913f934b9e0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "edb1733823079b2a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d79c37521e15114c",
+    "type": "split",
+    "children": [
+      {
+        "id": "65a3de1499a6857a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a3ca8ebe4614ee6b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "content/post/my-first-post.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "my-first-post 的反向链接列表"
+            }
+          },
+          {
+            "id": "8cd6cdb60ef5fe6f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "content/post/my-first-post.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "my-first-post 的出链列表"
+            }
+          },
+          {
+            "id": "cadbc86ed9c2fc47",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "1a202f3e74e89ed5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          },
+          {
+            "id": "c488deaf0583f8dc",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 351.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "c488deaf0583f8dc",
+  "lastOpenFiles": [
+    "README.md",
+    "public/archives/index.html",
+    "public/archives",
+    "public/about/index.html",
+    "public/about",
+    "public/links/index.html",
+    "public/links",
+    "public/en/tags/page/1/index.html",
+    "public/en/categories/page/1/index.html",
+    "public/en/tags/page/1",
+    "public/en/page/1/index.html",
+    "public/img/avatar_hu7163112334312182937.png",
+    "content/posts/ob测试.md",
+    "content/posts/第一篇博客.md",
+    "content/posts/抖音热词.md",
+    "content/posts/独行还是群居.md",
+    "content/posts/更换博客字体为霞鹜文楷.md",
+    "content/post/ob测试.md",
+    "content/post/2025m8d10h23m6s5.md",
+    "content/post/my-first-post.md",
+    "archetypes/default.md",
+    "content/post/就是生离死别了，我们还是兄弟.md",
+    "content/post/更换博客字体为霞鹜文楷.md",
+    "content/post/独行还是群居.md",
+    "content/post/小米8折腾记录.md",
+    "content/post/Hugo构建发布自动化.md",
+    "content/post/2022.md",
+    "content/post/2025m8d10h22m46s6.md",
+    "content/posts/2025m8d10h22m41s28.md"
+  ]
+}

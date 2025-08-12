@@ -1,5 +1,12 @@
-+++
-date = '{{ .Date }}'
-draft = true
-title = '{{ replace .File.ContentBaseName "-" " " | title }}'
-+++
+---
+title: "{{ replace .Name "-" " " | title }}"
+slug: {{ substr (md5 (printf "%s%s" .Date (replace .TranslationBaseName "-" " " | title))) 4 8 }}
+date: {{ .Date }}
+draft: false
+categories: []
+tags: []
+description: ""
+image: ""
+series: [""]
+math:true
+---

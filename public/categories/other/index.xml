@@ -66,6 +66,36 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
 &lt;/ul&gt;
 </description>
         </item>
+        <item>
+        <title>关于</title>
+        <link>http://localhost:1313/about/</link>
+        <pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate>
+        
+        <guid>http://localhost:1313/about/</guid>
+        <description>&lt;p&gt;Hi👋，我是kenome&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。——培根&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果想要和我交换友链，可以参考如下格式&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;title: kenome&amp;rsquo;s blog&lt;/li&gt;
+&lt;li&gt;description: 独立思考，保持清醒&lt;/li&gt;
+&lt;li&gt;website: &lt;a class=&#34;link&#34; href=&#34;https://lesx.top&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://lesx.top&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;image: &lt;a class=&#34;link&#34; href=&#34;https://img.lesx.top/avatar.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://img.lesx.top/avatar.png&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;博客&#34;&gt;博客
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Hugo：&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gohugo.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;主题Stack:&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;CaiJimmy/hugo-theme-stack&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;联系我&#34;&gt;联系我
+&lt;/h3&gt;&lt;p&gt;📧:me19xy@gmail.com&lt;/p&gt;
+</description>
+        </item>
         
     </channel>
 </rss>

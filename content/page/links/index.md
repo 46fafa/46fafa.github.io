@@ -1,37 +1,33 @@
 ---
-title: 友链
+title: "友链"
+date: 2021-03-27T11:57:00+08:00
+slug: "links"
+type: page
 links:
-  - title: GitHub
-    description: GitHub is the world's largest software development platform.
-    website: https://github.com
-    image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-  - title: TypeScript
-    description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
-    website: https://www.typescriptlang.org
-    image: ts-logo-128.jpg
+  - title: 木子的博客
+    description: 垃圾佬、搬砖社畜、运维工程师
+    website: https://blog.k8s.li
+    image: https://blog.k8s.li/avatar.png
+  - title: 第三夏尔
+    description: 认真生活，积极摸鱼
+    website: https://thirdshire.com
+    image: https://thirdshire.com/blackcat_avatar.jpg
 menu:
-    main: 
-        weight: -50
+    main:
+        weight: -60
         params:
             icon: link
 
-comments: false
 ---
 
-To use this feature, add `links` section to frontmatter.
+欢迎与我交换友链~
 
-This page's frontmatter:
 
-```yaml
-links:
-  - title: GitHub
-    description: GitHub is the world's largest software development platform.
-    website: https://github.com
-    image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-  - title: TypeScript
-    description: TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
-    website: https://www.typescriptlang.org
-    image: ts-logo-128.jpg
-```
 
-`image` field accepts both local and external images.
+> title:kenome's blog
+>
+> description: 独立思考，保持清醒
+>
+> website: https://lesx.top
+>
+> image: https://img.lesx.top/avatar.png
