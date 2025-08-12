@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/post/2022年终总结.md",
+                "file": "content/post/记一次pot-app插件开发.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2022年终总结"
+              "title": "记一次pot-app插件开发"
             }
           }
         ]
@@ -180,9 +180,20 @@
   },
   "active": "724ec42de24dcddb",
   "lastOpenFiles": [
-    "content/post/2022.md",
     "content/post/2022年终总结.md",
+    "public/categories/年终总结/index.xml",
+    "public/p/c6ded1a6/index.html",
+    "public/p/c6ded1a6",
+    "public/p/b177efa9/index.html",
+    "public/p/b177efa9",
+    "public/categories/年终总结/page/1/index.html",
+    "public/categories/年终总结/page/1",
+    "public/categories/年终总结/page",
+    "public/categories/年终总结/index.html",
+    "public/categories/年终总结",
+    "content/post/记一次pot-app插件开发.md",
     "content/post/第一篇博客.md",
+    "content/post/2022.md",
     "content/post/独行还是群居.md",
     "content/post/抖音热词.md",
     "content/post/Hugo构建发布自动化.md",
@@ -192,16 +203,6 @@
     "content/post/就是生离死别了，我们还是兄弟.md",
     "content/post/更换博客字体为霞鹜文楷.md",
     "README.md",
-    "public/archives/index.html",
-    "public/archives",
-    "public/about/index.html",
-    "public/about",
-    "public/links/index.html",
-    "public/links",
-    "public/en/tags/page/1/index.html",
-    "public/en/categories/page/1/index.html",
-    "public/en/tags/page/1",
-    "public/en/page/1/index.html",
     "public/img/avatar_hu7163112334312182937.png",
     "content/posts/ob测试.md",
     "content/posts/第一篇博客.md",
