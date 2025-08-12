@@ -8,5 +8,4 @@ tags: []
 description: ""
 image: ""
 series: [""]
-math:true
 ---

@@ -11,14 +11,14 @@
             "id": "724ec42de24dcddb",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "themes/hugo-theme-stack",
-                "bFile": "themes/hugo-theme-stack",
-                "aRef": ""
+                "file": "content/post/2022年终总结.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: hugo-theme-stack"
+              "icon": "lucide-file",
+              "title": "2022年终总结"
             }
           }
         ]
@@ -180,6 +180,17 @@
   },
   "active": "724ec42de24dcddb",
   "lastOpenFiles": [
+    "content/post/2022.md",
+    "content/post/2022年终总结.md",
+    "content/post/第一篇博客.md",
+    "content/post/独行还是群居.md",
+    "content/post/抖音热词.md",
+    "content/post/Hugo构建发布自动化.md",
+    "content/post/终于还是对主力机下手了.md",
+    "content/post/小米8刷机记录.md",
+    "content/post/密码管理器.md",
+    "content/post/就是生离死别了，我们还是兄弟.md",
+    "content/post/更换博客字体为霞鹜文楷.md",
     "README.md",
     "public/archives/index.html",
     "public/archives",
@@ -201,12 +212,6 @@
     "content/post/2025m8d10h23m6s5.md",
     "content/post/my-first-post.md",
     "archetypes/default.md",
-    "content/post/就是生离死别了，我们还是兄弟.md",
-    "content/post/更换博客字体为霞鹜文楷.md",
-    "content/post/独行还是群居.md",
-    "content/post/小米8折腾记录.md",
-    "content/post/Hugo构建发布自动化.md",
-    "content/post/2022.md",
     "content/post/2025m8d10h22m46s6.md",
     "content/posts/2025m8d10h22m41s28.md"
   ]
