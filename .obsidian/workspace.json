@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "95b0fcda628431b1",
+        "id": "5acd4796e9ae068a",
         "type": "tabs",
         "children": [
           {
-            "id": "0ab116803e0a9816",
+            "id": "724ec42de24dcddb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "type": "split-diff-view",
+              "state": {
+                "aFile": "themes/hugo-theme-stack",
+                "bFile": "themes/hugo-theme-stack",
+                "aRef": ""
+              },
+              "icon": "diff",
+              "title": "Diff: hugo-theme-stack"
             }
           }
         ]
@@ -174,7 +178,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c488deaf0583f8dc",
+  "active": "724ec42de24dcddb",
   "lastOpenFiles": [
     "README.md",
     "public/archives/index.html",
