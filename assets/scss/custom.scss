@@ -1,5 +1,4 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
-
 /*选中样式美化*/
 ::selection {
     color: #fff;
@@ -207,4 +206,19 @@ html{
   @include respond(2xl) {
       font-size: 1.7rem;
   }
+}
+
+// 之前的图片圆角和悬停效果 (保持不变)
+// 适用于所有文章内容中的图片，但下面的轮播特定规则会覆盖它
+.article-content img {
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.article-content img:hover {
+    transform: scale(1.03);
 }
