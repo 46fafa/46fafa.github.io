@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Other on kenome's blog</title><link>https://example.com/categories/other/</link><description>Recent content in Other on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Example Person</copyright><lastBuildDate>Fri, 11 Nov 2022 10:34:55 +0800</lastBuildDate><atom:link href="https://example.com/categories/other/index.xml" rel="self" type="application/rss+xml"/><item><title>第一篇博客</title><link>https://example.com/p/hello-blog/</link><pubDate>Fri, 11 Nov 2022 10:34:55 +0800</pubDate><guid>https://example.com/p/hello-blog/</guid><description>&lt;h2 id="起因">起因
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Other on kenome's blog</title><link>https://example.com/categories/other/</link><description>Recent content in Other on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Fri, 11 Nov 2022 10:34:55 +0800</lastBuildDate><atom:link href="https://example.com/categories/other/index.xml" rel="self" type="application/rss+xml"/><item><title>第一篇博客</title><link>https://example.com/p/hello-blog/</link><pubDate>Fri, 11 Nov 2022 10:34:55 +0800</pubDate><guid>https://example.com/p/hello-blog/</guid><description>&lt;h2 id="起因">起因
 &lt;/h2>&lt;p>学校里某日，网上冲浪，偶然发现自己在用的&lt;a class="link" href="https://limestart.cn/" target="_blank" rel="noopener"
 >青柠起始页&lt;/a>作者&lt;a class="link" href="https://maorx.cn/" target="_blank" rel="noopener"
 >毛若昕&lt;/a>的博客逛了一圈,觉得很有意思,然后通过大佬的友链访问了许多大佬的博客,之后就有了自己搭建博客的想法, 但是由于懒惰🙄,一直没有动手.直到放假闲来无事,开始动手搭建自己的博客&lt;/p>
@@ -36,25 +36,4 @@ alt="theme-Next"
 &lt;ul>
 &lt;li>将博客迁移到hugo，主题更换为&lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
 >stack&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>关于</title><link>https://example.com/about/</link><pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate><guid>https://example.com/about/</guid><description>&lt;p>Hi👋，我是kenome&lt;/p>
-&lt;p>&lt;strong>读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。——培根&lt;/strong>&lt;/p>
-&lt;p>如果想要和我交换友链，可以参考如下格式&lt;/p>
-&lt;blockquote>
-&lt;ul>
-&lt;li>title: kenome&amp;rsquo;s blog&lt;/li>
-&lt;li>description: 独立思考，保持清醒&lt;/li>
-&lt;li>website: &lt;a class="link" href="https://lesx.top" target="_blank" rel="noopener"
->https://lesx.top&lt;/a>&lt;/li>
-&lt;li>image: &lt;a class="link" href="https://img.lesx.top/avatar.png" target="_blank" rel="noopener"
->https://img.lesx.top/avatar.png&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/blockquote>
-&lt;h3 id="博客">博客
-&lt;/h3>&lt;ul>
-&lt;li>Hugo：&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
->https://gohugo.io/&lt;/a>&lt;/li>
-&lt;li>主题Stack:&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
->CaiJimmy/hugo-theme-stack&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="联系我">联系我
-&lt;/h3>&lt;p>📧:me19xy@gmail.com&lt;/p></description></item></channel></rss>
+&lt;/ul></description></item></channel></rss>

@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on kenome's blog</title><link>https://example.com/post/</link><description>Recent content in Posts on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>Example Person</copyright><lastBuildDate>Fri, 15 Dec 2023 00:17:06 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>从keepass迁移到bitwarden</title><link>https://example.com/p/b87d8224/</link><pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate><guid>https://example.com/p/b87d8224/</guid><description>&lt;h2 id="起因">起因
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on kenome's blog</title><link>https://example.com/post/</link><description>Recent content in Posts on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml"/><item><title>利用Gemini实现pot-App插件开发</title><link>https://example.com/p/c6ded1a6/</link><pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate><guid>https://example.com/p/c6ded1a6/</guid><description>&lt;p>测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del>调教AI&lt;/del>&lt;/p>
+&lt;hr>
+&lt;h2 id="pot-app">Pot-app
+&lt;/h2>&lt;p>&lt;a class="link" href="https://pot-app.com/" target="_blank" rel="noopener"
+>Pot&lt;/a>是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。
+&lt;img src="https://r2-img.lesx.top/20250816203934792.webp"
+loading="lazy"
+alt="image.png"
+>&lt;/p>
+&lt;h2 id="开发">开发
+&lt;/h2>&lt;p>我平时使用&lt;a class="link" href="https://www.maimemo.com/" target="_blank" rel="noopener"
+>墨墨背单词&lt;/a>(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class="link" href="https://github.com/pot-app/pot-app-collection-plugin-template" target="_blank" rel="noopener"
+>生词本插件模板&lt;/a>，插件结构比较简单&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>pot-app-collection-plugin-template/
+&lt;ul>
+&lt;li>info.json&lt;/li>
+&lt;li>main.js&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class="link" href="https://github.com/chriscurrycc/bob-plugin-maimemo-notebook" target="_blank" rel="noopener"
+>bob-plugin-maimemo-notebook&lt;/a>，最终实现的效果:
+&lt;img src="https://r2-img.lesx.top/20250816221019200.webp"
+loading="lazy"
+alt="image.png"
+>&lt;/p></description></item><item><title>从keepass迁移到bitwarden</title><link>https://example.com/p/b87d8224/</link><pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate><guid>https://example.com/p/b87d8224/</guid><description>&lt;h2 id="起因">起因
 &lt;/h2>&lt;p>我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code>.kdbx&lt;/code>文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p>
 &lt;p>了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p>
 &lt;p>&lt;img src="https://r2-img.lesx.top/2023/bw.webp"
@@ -482,7 +510,7 @@ alt="image-20230217"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">fastboot-reboot recovery
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>出现TWRP界面代表刷入成功.&lt;/p></description></item><item><title>2022年终总结</title><link>https://example.com/p/b177efa9/</link><pubDate>Fri, 13 Jan 2023 12:33:58 +0800</pubDate><guid>https://example.com/p/b177efa9/</guid><description>&lt;img src="https://r2-img.lesx.top/生成生肖像素画 .webp" alt="Featured image of post 2022年终总结" />&lt;blockquote>
+&lt;/div>&lt;p>出现TWRP界面代表刷入成功.&lt;/p></description></item><item><title>2022年终总结</title><link>https://example.com/p/b177efa9/</link><pubDate>Fri, 13 Jan 2023 12:33:58 +0800</pubDate><guid>https://example.com/p/b177efa9/</guid><description>&lt;blockquote>
 &lt;p>年初 他们去了很远的地方冒险,那是一片由钢筋水泥铸成同时又掺杂梦想的丛林,就在最近,年轻的冒险家马上就要回来了,无论有没有战利品,他们都会回来参加一年一度的盛大节日,满载而归的勇士们通常会举行一种传统的四人竞技活动,等到战利品全部留在美好的家乡,勇士们就会带着家乡的美好祝愿继续回到那片丛林开始新的冒险之旅.&lt;/p>
 &lt;/blockquote>
 &lt;p>现在是2023年1月13日，看着友邻们都在写年终总结，我也来总结一下今年。&lt;/p>
