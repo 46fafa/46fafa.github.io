@@ -7,7 +7,7 @@
 loading="lazy"
 alt="image.png"
 >&lt;/p>
-&lt;h2 id="开发">开发
+&lt;h2 id="开发">&lt;del>开发&lt;/del>
 &lt;/h2>&lt;p>我平时使用&lt;a class="link" href="https://www.maimemo.com/" target="_blank" rel="noopener"
 >墨墨背单词&lt;/a>(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class="link" href="https://github.com/pot-app/pot-app-collection-plugin-template" target="_blank" rel="noopener"
 >生词本插件模板&lt;/a>，插件结构比较简单&lt;/p>

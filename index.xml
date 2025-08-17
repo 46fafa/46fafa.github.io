@@ -7,7 +7,7 @@
 loading="lazy"
 alt="image.png"
 >&lt;/p>
-&lt;h2 id="开发">开发
+&lt;h2 id="开发">&lt;del>开发&lt;/del>
 &lt;/h2>&lt;p>我平时使用&lt;a class="link" href="https://www.maimemo.com/" target="_blank" rel="noopener"
 >墨墨背单词&lt;/a>(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class="link" href="https://github.com/pot-app/pot-app-collection-plugin-template" target="_blank" rel="noopener"
 >生词本插件模板&lt;/a>，插件结构比较简单&lt;/p>
@@ -580,14 +580,16 @@ alt="theme-Next"
 &lt;li>description: 独立思考，保持清醒&lt;/li>
 &lt;li>website: &lt;a class="link" href="https://lesx.top" target="_blank" rel="noopener"
 >https://lesx.top&lt;/a>&lt;/li>
-&lt;li>image: &lt;a class="link" href="https://img.lesx.top/avatar.png" target="_blank" rel="noopener"
->https://img.lesx.top/avatar.png&lt;/a>&lt;/li>
+&lt;li>image: &lt;a class="link" href="https://r2-img.lesx.top/avatar.png" target="_blank" rel="noopener"
+>https://r2-img.lesx.top/avatar.png&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/blockquote>
 &lt;h2 id="联系我">联系我
 &lt;/h2>&lt;p>📧:me19xy@gmail.com&lt;/p>
 &lt;h2 id="changelog">Changelog
 &lt;/h2>&lt;ul>
+&lt;li>2025-08:为文章内图片添加圆角边框&lt;/li>
+&lt;li>2023-07:调整利用CSS调整页面布局效果,调整友链样式为双栏&lt;/li>
 &lt;li>2022-11:迁移博客至&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
 >Hugo&lt;/a>，使用&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-s" target="_blank" rel="noopener"
 >hugo-theme-stack&lt;/a>作为主题&lt;/li>
