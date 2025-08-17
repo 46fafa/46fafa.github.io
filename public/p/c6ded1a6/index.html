@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="测试功能后本把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发调教AI\nPot-app Pot是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。 ">
-<title>记一次pot App插件开发</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发调教AI\nPot-app Pot是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。 ">
+<title>利用Gemini实现pot-App插件开发</title>
 
 <link rel='canonical' href='http://localhost:1313/p/c6ded1a6/'>
 
-<link rel="stylesheet" href="/scss/style.min.f93a7361e80d21d4978aa577f81278792c4587410f4da7c4aea3846fc7b89c02.css"><meta property='og:title' content="记一次pot App插件开发">
-<meta property='og:description' content="测试功能后本把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发调教AI\nPot-app Pot是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。 ">
+<link rel="stylesheet" href="/scss/style.min.c29c47ae171388eabf96ddf99124d973fbb5ddead5b557daaa1635c0f596cac0.css"><meta property='og:title' content="利用Gemini实现pot-App插件开发">
+<meta property='og:description' content="测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发调教AI\nPot-app Pot是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。 ">
 <meta property='og:url' content='http://localhost:1313/p/c6ded1a6/'>
 <meta property='og:site_name' content='kenome&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-08-12T22:29:12&#43;08:00'/><meta property='article:modified_time' content='2025-08-12T22:29:12&#43;08:00'/>
-<meta name="twitter:title" content="记一次pot App插件开发">
-<meta name="twitter:description" content="测试功能后本把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发调教AI\nPot-app Pot是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。 ">
+<meta name="twitter:title" content="利用Gemini实现pot-App插件开发">
+<meta name="twitter:description" content="测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发调教AI\nPot-app Pot是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。 ">
     <link rel="shortcut icon" href="https://lesx.top/img/avatar_hu7163112334312182937.png" />
 
     </head>
@@ -174,16 +174,6 @@
             </a>
         </li>
         
-        
-        <li >
-            <a href='' >
-                
-                
-                
-                <span></span>
-            </a>
-        </li>
-        
         <li class="menu-bottom-section">
             <ol class="menu">
 
@@ -236,7 +226,7 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#pot-app">Pot-app</a></li>
-    <li><a href="#开发">开发</a></li>
+    <li><a href="#开发"><del>开发</del></a></li>
   </ol>
 </nav>
         </div>
@@ -264,7 +254,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/c6ded1a6/">记一次pot App插件开发</a>
+            <a href="/p/c6ded1a6/">利用Gemini实现pot-App插件开发</a>
         </h2>
     
         
@@ -316,7 +306,7 @@
     <section class="article-content">
     
     
-    <p>测试功能后本把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发<del>调教AI</del></p>
+    <p>测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发<del>调教AI</del></p>
 <hr>
 <h2 id="pot-app">Pot-app
 </h2><p><a class="link" href="https://pot-app.com/"  target="_blank" rel="noopener"
@@ -331,7 +321,7 @@
 	
 	
 ></p>
-<h2 id="开发">开发
+<h2 id="开发"><del>开发</del>
 </h2><p>我平时使用<a class="link" href="https://www.maimemo.com/"  target="_blank" rel="noopener"
     >墨墨背单词</a>(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的<a class="link" href="https://github.com/pot-app/pot-app-collection-plugin-template"  target="_blank" rel="noopener"
     >生词本插件模板</a>，插件结构比较简单</p>
@@ -345,7 +335,7 @@
 </li>
 </ul>
 </blockquote>
-<p>虽然我不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途还参考了<a class="link" href="https://github.com/chriscurrycc/bob-plugin-maimemo-notebook"  target="_blank" rel="noopener"
+<p>虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了<a class="link" href="https://github.com/chriscurrycc/bob-plugin-maimemo-notebook"  target="_blank" rel="noopener"
     >bob-plugin-maimemo-notebook</a>，最终实现的效果:
 <img src="https://r2-img.lesx.top/20250816221019200.webp"
 	
@@ -568,8 +558,6 @@
 
     
 
-    
-
 <footer class="site-footer">
         
     <section class="copyright">
@@ -577,7 +565,7 @@
         
             2022 - 
         
-        2025<br>kenome 发表了 11 篇文章 | 总计 9241 字</br><span><p>
+        2025<br>kenome 发表了 11 篇文章 | 总计 9284 字</br><span><p>
     </section>
 
     <section class="powerby">

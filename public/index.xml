@@ -7,22 +7,13 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kenome</copyright>
-        <lastBuildDate>Sun, 17 Aug 2025 15:57:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Movie</title>
-        <link>http://localhost:1313/c0ac6b11/</link>
-        <pubDate>Sun, 17 Aug 2025 15:57:12 +0800</pubDate>
-        
-        <guid>http://localhost:1313/c0ac6b11/</guid>
-        <description>&lt;p&gt;这是我的书影音界面&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>记一次pot App插件开发</title>
+        <lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>利用Gemini实现pot-App插件开发</title>
         <link>http://localhost:1313/p/c6ded1a6/</link>
         <pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate>
         
         <guid>http://localhost:1313/p/c6ded1a6/</guid>
-        <description>&lt;p&gt;测试功能后本把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del&gt;调教AI&lt;/del&gt;&lt;/p&gt;
+        <description>&lt;p&gt;测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del&gt;调教AI&lt;/del&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;pot-app&#34;&gt;Pot-app
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pot-app.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -37,7 +28,7 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;开发&#34;&gt;开发
+&lt;h2 id=&#34;开发&#34;&gt;&lt;del&gt;开发&lt;/del&gt;
 &lt;/h2&gt;&lt;p&gt;我平时使用&lt;a class=&#34;link&#34; href=&#34;https://www.maimemo.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;墨墨背单词&lt;/a&gt;(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class=&#34;link&#34; href=&#34;https://github.com/pot-app/pot-app-collection-plugin-template&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;生词本插件模板&lt;/a&gt;，插件结构比较简单&lt;/p&gt;
@@ -51,7 +42,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;虽然我不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途还参考了&lt;a class=&#34;link&#34; href=&#34;https://github.com/chriscurrycc/bob-plugin-maimemo-notebook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class=&#34;link&#34; href=&#34;https://github.com/chriscurrycc/bob-plugin-maimemo-notebook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;bob-plugin-maimemo-notebook&lt;/a&gt;，最终实现的效果:
 &lt;img src=&#34;https://r2-img.lesx.top/20250816221019200.webp&#34;
 	
@@ -918,14 +909,16 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
 &lt;li&gt;description: 独立思考，保持清醒&lt;/li&gt;
 &lt;li&gt;website: &lt;a class=&#34;link&#34; href=&#34;https://lesx.top&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://lesx.top&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;image: &lt;a class=&#34;link&#34; href=&#34;https://img.lesx.top/avatar.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://img.lesx.top/avatar.png&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;image: &lt;a class=&#34;link&#34; href=&#34;https://r2-img.lesx.top/avatar.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://r2-img.lesx.top/avatar.png&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;联系我&#34;&gt;联系我
 &lt;/h2&gt;&lt;p&gt;📧:me19xy@gmail.com&lt;/p&gt;
 &lt;h2 id=&#34;changelog&#34;&gt;Changelog
 &lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;2025-08:为文章内图片添加圆角边框&lt;/li&gt;
+&lt;li&gt;2023-07:调整利用CSS调整页面布局效果,调整友链样式为双栏&lt;/li&gt;
 &lt;li&gt;2022-11:迁移博客至&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Hugo&lt;/a&gt;，使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-s&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hugo-theme-stack&lt;/a&gt;作为主题&lt;/li&gt;

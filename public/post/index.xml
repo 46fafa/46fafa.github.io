@@ -8,12 +8,12 @@
         <language>zh-cn</language>
         <copyright>kenome</copyright>
         <lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>记一次pot App插件开发</title>
+        <title>利用Gemini实现pot-App插件开发</title>
         <link>http://localhost:1313/p/c6ded1a6/</link>
         <pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate>
         
         <guid>http://localhost:1313/p/c6ded1a6/</guid>
-        <description>&lt;p&gt;测试功能后本把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del&gt;调教AI&lt;/del&gt;&lt;/p&gt;
+        <description>&lt;p&gt;测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del&gt;调教AI&lt;/del&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;pot-app&#34;&gt;Pot-app
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pot-app.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -42,7 +42,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;虽然我不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途还参考了&lt;a class=&#34;link&#34; href=&#34;https://github.com/chriscurrycc/bob-plugin-maimemo-notebook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class=&#34;link&#34; href=&#34;https://github.com/chriscurrycc/bob-plugin-maimemo-notebook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;bob-plugin-maimemo-notebook&lt;/a&gt;，最终实现的效果:
 &lt;img src=&#34;https://r2-img.lesx.top/20250816221019200.webp&#34;
 	

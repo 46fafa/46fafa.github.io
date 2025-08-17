@@ -186,17 +186,6 @@ html{
   }
 }
 
-//站点描述居中
-.site-name {
-  color: var(--accent-color);
-  text-align:center; //站点名称居中
-  font-size: 1.8rem;
-
-  @include respond(2xl) {
-      font-size: 2rem;
-  }
-}
-
 .site-description {
   color: var(--body-text-color);
   font-weight: normal;
@@ -218,9 +207,9 @@ html{
     margin: 0 auto;
 }
 
-.article-content img:hover {
-    transform: scale(1.02);
-}
+// .article-content img:hover {
+//     transform: scale(1.02);
+// }
 
 /* 调整图片与段落的间距 */
 img {

@@ -18,7 +18,7 @@ series:
 ## Pot-app
 [Pot](https://pot-app.com/)是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。
 ![image.png](https://r2-img.lesx.top/20250816203934792.webp)
-## 开发
+## ~~开发~~
 我平时使用[墨墨背单词](https://www.maimemo.com/)(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的[生词本插件模板](https://github.com/pot-app/pot-app-collection-plugin-template)，插件结构比较简单
 >- pot-app-collection-plugin-template/
 >	- info.json 
