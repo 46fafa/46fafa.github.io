@@ -4,7 +4,7 @@ theme: hugo-theme-stack
 title: Example Site
 copyright: kenome
 publishDir: public
-copyright: Example Person
+# copyright: © kenome
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
@@ -42,7 +42,7 @@ services:
         id:
 
 pagination:
-    pagerSize: 4
+    pagerSize: 8
 
 permalinks:
     post: /p/:slug/
@@ -53,10 +53,11 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+    favicon: https://lesx.top/img/avatar_hu7163112334312182937.png
+    # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
 
     footer:
-        since: 2020
+        since: 2022
         customText:
 
     dateFormat:
@@ -149,7 +150,30 @@ menu:
           weight: -100
           params:
               icon: home
-
+        - identifier: about
+          name: 关于
+          url: /about/
+          weight: -50
+          params:
+              icon: user
+        - identifier: archives
+          name: 归档
+          url: /archives/
+          weight: -70
+          params:
+              icon: archives
+        - identifier: search
+          name: 搜索    
+          url: /search/
+          weight: -60
+          params:
+              icon: search
+        - identifier: links
+          name: 友链
+          url: /links/
+          weight: -60
+          params:
+              icon: link
     # social:
     #     - identifier: github
     #       name: GitHub

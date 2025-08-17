@@ -1,9 +1,10 @@
 const util = require('util');
 const child_process = require('child_process');
 const exec = util.promisify(child_process.exec);
+const path = require('path'); // 新增：引入 path 模块
 
-// executeCommand 函数现在将接收 quickAddApi 作为参数
-async function executeCommand(quickAddApi) {
+// executeCommand 函数现在将接收 quickAddApi 和 app 作为参数
+async function executeCommand(quickAddApi, app) { // 确保接收 app 参数
     // 1. 提示用户输入文件名，使用 quickAddApi.inputPrompt()
     const inputFileName = await quickAddApi.inputPrompt(
         "请输入新文章的文件名:",
@@ -19,10 +20,18 @@ async function executeCommand(quickAddApi) {
     // 3. 构建完整的文件名（加上.md后缀）
     const fileName = inputFileName.trim() + ".md";
 
+    // **** 核心修改 ****
+    // 请将 'ablog' 替换为你的 Hugo 项目的实际文件夹名称
+    // 如果你的 Hugo 项目文件夹就是 'ablog'，则无需修改
+    const hugoProjectFolderName = "ablog";
+
     try {
+        // 构建 Hugo 项目的完整路径
+        const hugoProjectPath = path.join(app.fileManager.vault.adapter.basePath, hugoProjectFolderName);
+
         // 4. 执行 Hugo 命令
-        // 注意：app 对象也是通过 QuickAdd 传入的，确保你的 QuickAdd 脚本配置正确
-        const { stdout, stderr } = await exec('hugo new post/' + fileName, { cwd: app.fileManager.vault.adapter.basePath });
+        // 修正 cwd 为 Hugo 项目的根目录
+        const { stdout, stderr } = await exec('hugo new post/' + fileName, { cwd: hugoProjectPath });
 
         // 5. 处理结果并显示通知
         console.log('stdout:', stdout);
@@ -30,6 +39,9 @@ async function executeCommand(quickAddApi) {
 
         if (stdout) {
             new Notice("新博客已创建: [" + fileName + "]");
+            // 可选：在这里添加打开新文件的逻辑
+            // const newFilePath = path.join(hugoProjectPath, 'content', 'post', fileName);
+            // app.workspace.openLinkText(newFilePath, '', false); // 打开新文件
         } else {
             new Notice("新博客创建失败: " + stderr);
         }
@@ -43,9 +55,6 @@ async function executeCommand(quickAddApi) {
 // 模块导出：QuickAdd 会将 quickAddApi, app, variables 等参数传入这里
 module.exports = async (params) => {
     const { quickAddApi, app } = params; // 解构 quickAddApi 和 app
-    // 注意：app 是全局的，如果你的 Obsidian 环境已经有 app 对象，可以不需要从 params 解构
-    // 但为了确保兼容性，从 params 解构是更安全的做法。
-    // 在 QuickAdd 脚本中，你通常可以直接访问 app。
 
-    await executeCommand(quickAddApi); // 将 quickAddApi 传递给 executeCommand 函数
+    await executeCommand(quickAddApi, app); // 将 quickAddApi 和 app 传递给 executeCommand 函数
 }

@@ -12,12 +12,6 @@ links:
     description: 认真生活，积极摸鱼
     website: https://thirdshire.com
     image: https://thirdshire.com/blackcat_avatar.jpg
-menu:
-    main:
-        weight: -60
-        params:
-            icon: link
-
 ---
 
 欢迎与我交换友链~

@@ -6,8 +6,57 @@
         <description>Recent content in Tech on kenome&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Example Person</copyright>
-        <lastBuildDate>Fri, 15 Dec 2023 00:17:06 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/tech/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>kenome</copyright>
+        <lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/tech/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>记一次pot App插件开发</title>
+        <link>http://localhost:1313/p/c6ded1a6/</link>
+        <pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/c6ded1a6/</guid>
+        <description>&lt;p&gt;测试功能后本把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del&gt;调教AI&lt;/del&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;pot-app&#34;&gt;Pot-app
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pot-app.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Pot&lt;/a&gt;是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。
+&lt;img src=&#34;https://r2-img.lesx.top/20250816203934792.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;开发&#34;&gt;开发
+&lt;/h2&gt;&lt;p&gt;我平时使用&lt;a class=&#34;link&#34; href=&#34;https://www.maimemo.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;墨墨背单词&lt;/a&gt;(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class=&#34;link&#34; href=&#34;https://github.com/pot-app/pot-app-collection-plugin-template&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;生词本插件模板&lt;/a&gt;，插件结构比较简单&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;pot-app-collection-plugin-template/
+&lt;ul&gt;
+&lt;li&gt;info.json&lt;/li&gt;
+&lt;li&gt;main.js&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;虽然我不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途还参考了&lt;a class=&#34;link&#34; href=&#34;https://github.com/chriscurrycc/bob-plugin-maimemo-notebook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;bob-plugin-maimemo-notebook&lt;/a&gt;，最终实现的效果:
+&lt;img src=&#34;https://r2-img.lesx.top/20250816221019200.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;image.png&#34;
+	
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>从keepass迁移到bitwarden</title>
         <link>http://localhost:1313/p/b87d8224/</link>
         <pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate>

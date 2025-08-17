@@ -6,8 +6,17 @@
         <description>Recent content in Pages on kenome&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>Example Person</copyright>
-        <lastBuildDate>Sat, 27 Mar 2021 11:57:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>kenome</copyright>
+        <lastBuildDate>Sun, 17 Aug 2025 15:57:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Movie</title>
+        <link>http://localhost:1313/c0ac6b11/</link>
+        <pubDate>Sun, 17 Aug 2025 15:57:12 +0800</pubDate>
+        
+        <guid>http://localhost:1313/c0ac6b11/</guid>
+        <description>&lt;p&gt;这是我的书影音界面&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>友链</title>
         <link>http://localhost:1313/links/</link>
         <pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate>
@@ -30,9 +39,8 @@
         <pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate>
         
         <guid>http://localhost:1313/about/</guid>
-        <description>&lt;p&gt;Hi👋，我是kenome&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;读书不是为了雄辩和驳斥，也不是为了轻信和盲从，而是为了思考和权衡。——培根&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;如果想要和我交换友链，可以参考如下格式&lt;/p&gt;
+        <description>&lt;h2 id=&#34;交换友链&#34;&gt;交换友链
+&lt;/h2&gt;&lt;p&gt;如果想要和我交换友链，可以参考如下格式&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;title: kenome&amp;rsquo;s blog&lt;/li&gt;
@@ -43,15 +51,14 @@
     &gt;https://img.lesx.top/avatar.png&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;h3 id=&#34;博客&#34;&gt;博客
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Hugo：&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://gohugo.io/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;主题Stack:&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;CaiJimmy/hugo-theme-stack&lt;/a&gt;&lt;/li&gt;
+&lt;h2 id=&#34;联系我&#34;&gt;联系我
+&lt;/h2&gt;&lt;p&gt;📧:me19xy@gmail.com&lt;/p&gt;
+&lt;h2 id=&#34;changelog&#34;&gt;Changelog
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;2022-11:迁移博客至&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo&lt;/a&gt;，使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-s&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;hugo-theme-stack&lt;/a&gt;作为主题&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;联系我&#34;&gt;联系我
-&lt;/h3&gt;&lt;p&gt;📧:me19xy@gmail.com&lt;/p&gt;
 </description>
         </item>
         <item>

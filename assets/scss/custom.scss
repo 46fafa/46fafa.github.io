@@ -208,7 +208,6 @@ html{
   }
 }
 
-// 之前的图片圆角和悬停效果 (保持不变)
 // 适用于所有文章内容中的图片，但下面的轮播特定规则会覆盖它
 .article-content img {
     border-radius: 8px;
@@ -220,5 +219,13 @@ html{
 }
 
 .article-content img:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
+}
+
+/* 调整图片与段落的间距 */
+img {
+  /* 图片上方与前一段落的距离 */
+  margin-top: 1.5rem;
+  /* 图片下方与后一段落的距离 */
+  margin-bottom: 1.5rem;
 }
