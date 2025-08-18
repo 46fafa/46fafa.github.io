@@ -22,9 +22,10 @@
 &lt;/h2>&lt;p>📧:me19xy@gmail.com&lt;/p>
 &lt;h2 id="changelog">Changelog
 &lt;/h2>&lt;ul>
+&lt;li>2025-08:新增观影界面&lt;/li>
 &lt;li>2025-08:为文章内图片添加圆角边框&lt;/li>
 &lt;li>2023-07:调整利用CSS调整页面布局效果,调整友链样式为双栏&lt;/li>
 &lt;li>2022-11:迁移博客至&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
 >Hugo&lt;/a>，使用&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-s" target="_blank" rel="noopener"
 >hugo-theme-stack&lt;/a>作为主题&lt;/li>
-&lt;/ul></description></item><item><title>归档</title><link>https://example.com/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://example.com/archives/</guid><description/></item><item><title>搜索</title><link>https://example.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.com/search/</guid><description/></item></channel></rss>
+&lt;/ul></description></item><item><title>归档</title><link>https://example.com/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://example.com/archives/</guid><description/></item><item><title>观影</title><link>https://example.com/media/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.com/media/</guid><description/></item><item><title>搜索</title><link>https://example.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.com/search/</guid><description/></item></channel></rss>
