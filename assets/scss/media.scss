@@ -1,0 +1,349 @@
+// 引入 _article.scss (保持不变)
+@use "partials/layout/article";
+
+.media-page header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.media-page .article-content {
+    color: var(--card-text-color-main);
+}
+
+// .media-page .article-title {
+//     font-family: var(--article-font-family);
+//     font-weight: 600;
+//     margin: 0;
+//     color: var(--card-text-color-main);
+//     font-size: 2.2rem;
+
+//     @include respond(xl) {
+//         font-size: 2.4rem;
+//     }
+
+//     a {
+//         color: var(--card-text-color-main);
+
+//         &:hover {
+//             color: var(--card-text-color-main);
+//         }
+//     }
+// }
+
+/* 3. 类型按钮样式 */
+.type-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* 按钮之间的间距 */
+    margin-bottom: 30px;
+    flex-wrap: wrap; /* 允许按钮换行 */
+}
+
+.type-btn {
+    background-color: #f0f2f5;
+    border: 1px solid #dcdfe6;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #555;
+    font-weight: 600;
+    outline: none; /* 移除点击时的轮廓 */
+}
+
+.type-btn:hover {
+    background-color: #e0e2e6;
+    border-color: #b0b5bd;
+    transform: translateY(-2px); /* 轻微上浮效果 */
+}
+
+.type-btn.active {
+    background-color: #4CAF50; /* 选中状态的背景色 */
+    color: #fff;
+    border-color: #4CAF50;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3); /* 选中状态的阴影 */
+}
+
+.type-btn.active:hover {
+    background-color: #45a049; /* 选中状态下 hover 的颜色 */
+    border-color: #45a049;
+}
+
+/* 4. 媒体网格样式 */
+.media-grid {
+    display: none; /* 默认隐藏所有网格 */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* 添加透明度过渡 */
+}
+
+.media-grid.active {
+    display: block; /* 选中时显示 */
+    opacity: 1;
+}
+
+/* 5. 年份分组样式 */
+.year-group {
+    display: flex; /* 使用 Flexbox 进行年份和项目并排布局 */
+    margin-bottom: 50px; /* 每组年份间的垂直间距 */
+    align-items: flex-start; /* 顶部对齐 */
+}
+
+.year-date-column {
+    flex-shrink: 0; /* 不允许年份列收缩 */
+    width: 120px; /* 固定年份列宽度 */
+    padding-right: 30px; /* 和内容之间的间距 */
+    text-align: right;
+    position: sticky; /* 粘性定位 */
+    top: 20px; /* 距离顶部的距离 */
+    align-self: flex-start; /* 确保它粘在父容器的顶部 */
+    margin-top: 15px; /* 与卡片顶部的微调对齐 */
+}
+
+.year-display-month {
+    display: block;
+    font-size: 2em;
+    color: #777;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.year-display-year {
+    display: block;
+    font-size: 2.5em; /* 年份字体更大 */
+    font-weight: 700;
+    color: #4CAF50;
+    line-height: 1;
+}
+
+.year-items {
+    flex-grow: 1; /* 占据剩余空间 */
+    display: grid; /* 使用 Grid 布局媒体卡片 */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 自适应列宽，最小180px */
+    gap: 30px; /* 卡片之间的间距 */
+}
+
+/* 6. 媒体卡片样式 */
+.media-card {
+    background: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden; /* 确保内容在圆角内 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* 垂直堆叠海报和信息 */
+    height: 100%; /* 确保卡片高度一致 */
+}
+
+.media-card:hover {
+    transform: translateY(-5px); /* 悬停上浮效果 */
+}
+
+.media-poster {
+    width: 100%;
+    height: 270px; /* 固定海报高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0; /* 防止海报被压缩 */
+}
+
+.media-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 裁剪图片以填充容器 */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.media-card:hover .media-poster img {
+    transform: scale(1.05); /* 悬停时图片轻微放大 */
+}
+
+.no-poster {
+    font-size: 1.1em;
+    color: #888;
+    text-align: center;
+    padding: 20px;
+}
+
+.media-info {
+    padding: 10px;
+    flex-grow: 1; /* 信息区域占据剩余空间 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.media-title {
+    font-size: 1.15em;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+
+.media-meta {
+    font-size: 0.9em;
+    color: #666;
+    display: flex;
+    justify-content: flex-end; /* 评分靠右对齐 */
+    margin-top: auto; /* 推到最底部 */
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* 星星和分数之间的间距 */
+    color: #f7a01a; /* 评分颜色 */
+    font-weight: 600;
+}
+
+/* 7. 响应式调整 */
+@media (max-width: 768px) {
+    .media-page {
+        padding: 15px;
+    }
+
+    .media-page .article-title {
+        font-size: 2em;
+    }
+
+    .type-buttons {
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .type-btn {
+        padding: 8px 18px;
+        font-size: 1em;
+    }
+
+    .year-group {
+        flex-direction: column; /* 小屏幕下年份和卡片垂直堆叠 */
+        margin-bottom: 40px;
+    }
+
+    .year-date-column {
+        width: 100%; /* 占据整行 */
+        text-align: left; /* 年份左对齐 */
+        padding-right: 0;
+        margin-bottom: 20px; /* 和卡片之间的间距 */
+        position: static; /* 移除粘性定位，避免在小屏幕上引起布局问题 */
+        top: auto;
+        margin-top: 0;
+    }
+
+    .year-display-month {
+        display: inline-block; /* 月份和年份并排 */
+        margin-right: 10px;
+        font-size: 1em;
+    }
+
+    .year-display-year {
+        display: inline-block; /* 月份和年份并排 */
+        font-size: 2em;
+    }
+
+    .year-items {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* 小屏幕下卡片更小 */
+        gap: 20px;
+    }
+
+    .media-poster {
+        height: 200px; /* 小屏幕下海报高度 */
+    }
+
+    .media-card {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* 减小阴影 */
+    }
+
+    .media-title {
+        font-size: 1em;
+    }
+
+    .media-year {
+        font-size: 0.8em;
+    }
+
+    .media-info {
+        padding: 10px;
+    }
+
+    .rating {
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .type-btn {
+        padding: 6px 15px;
+        font-size: 0.9em;
+    }
+
+    .year-items {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+    }
+
+    .media-poster {
+        height: 180px;
+    }
+}
+
+/* 8. 年度统计信息样式 */
+.yearly-stats {
+    /* 布局与间距：匹配标题和按钮的间距节奏 */
+    margin: 0 auto 3px; /* 居中显示，底部留出空间与下方内容分隔 */
+    padding: 18px 25px; /* 内部填充，给内容留出足够的呼吸空间 */
+    max-width: 800px; /* 限制最大宽度，避免在超宽屏幕上拉伸过度 */
+    text-align: center; /* 文本居中，与页头和按钮组的居中风格一致 */
+
+    /* 背景与边框：呼应按钮和卡片的设计语言 */
+    background-color: var(--card-background); /* 使用主题卡片背景色 */
+    border-radius: 12px; /* 与媒体卡片圆角统一 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* 轻微阴影，与媒体卡片的阴影相近 */
+
+    /* 文本样式：继承页面主色调和字体 */
+    font-family: var(--article-font-family); /* 与标题字体统一 */
+    font-size: 3rem; /* 稍大一点，更容易阅读 */
+    color: var(--card-text-color-main); /* 使用页面主文本色变量 */
+    line-height: 1.6; /* 更好的行高，提高可读性 */
+
+    /* 动画过渡：保持页面统一的动效风格 */
+    transition: all 0.3s ease; /* 适用于未来可能添加的交互效果 */
+
+    /* 强调统计数字 */
+    span {
+        font-weight: 700; /* 让数字更粗，更突出 */
+        color: #4CAF50; /* 使用激活按钮的绿色，表示积极的统计 */
+        font-size: 1.25em; /* 相对于父文本更大，更醒目 */
+        margin: 0 4px; /* 数字与文字之间增加微小间距 */
+        display: inline-block; /* 确保 margin 和 transform 生效 */
+        transform: translateY(-1px); /* 微调基线对齐，让数字看起来更平衡 */
+    }
+}
+
+/* 9. 响应式调整 for yearly-stats */
+@media (max-width: 768px) {
+    .yearly-stats {
+        padding: 15px 20px; /* 小屏幕下减小内边距 */
+        font-size: 1.05rem; /* 字体略微缩小 */
+        margin-bottom: 25px; /* 减小底部外边距 */
+    }
+    .yearly-stats span {
+        font-size: 1.15em; /* 小屏幕下数字字体略微缩小 */
+    }
+}
+
+@media (max-width: 480px) {
+    .yearly-stats {
+        padding: 12px 15px; /* 手机端进一步减小内边距 */
+        font-size: 1rem; /* 字体适应更小屏幕 */
+        margin-bottom: 20px;
+    }
+    .yearly-stats span {
+        font-size: 1.1em; /* 手机端数字字体适应 */
+    }
+}

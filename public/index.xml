@@ -917,6 +917,7 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
 &lt;/h2&gt;&lt;p&gt;📧:me19xy@gmail.com&lt;/p&gt;
 &lt;h2 id=&#34;changelog&#34;&gt;Changelog
 &lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;2025-08:新增观影界面&lt;/li&gt;
 &lt;li&gt;2025-08:为文章内图片添加圆角边框&lt;/li&gt;
 &lt;li&gt;2023-07:调整利用CSS调整页面布局效果,调整友链样式为双栏&lt;/li&gt;
 &lt;li&gt;2022-11:迁移博客至&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -931,6 +932,14 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
         <guid>http://localhost:1313/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>观影</title>
+        <link>http://localhost:1313/media/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/media/</guid>
         <description></description>
         </item>
         <item>

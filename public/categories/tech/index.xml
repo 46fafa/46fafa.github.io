@@ -28,7 +28,7 @@
 	
 	
 &gt;&lt;/p&gt;
-&lt;h2 id=&#34;开发&#34;&gt;开发
+&lt;h2 id=&#34;开发&#34;&gt;&lt;del&gt;开发&lt;/del&gt;
 &lt;/h2&gt;&lt;p&gt;我平时使用&lt;a class=&#34;link&#34; href=&#34;https://www.maimemo.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;墨墨背单词&lt;/a&gt;(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class=&#34;link&#34; href=&#34;https://github.com/pot-app/pot-app-collection-plugin-template&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;生词本插件模板&lt;/a&gt;，插件结构比较简单&lt;/p&gt;

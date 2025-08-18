@@ -1,1 +1,0 @@
-(()=>{document.addEventListener("DOMContentLoaded",function(){var e=document.querySelectorAll(".tns-carousel");e.forEach(function(e){typeof tns!="undefined"&&e.children.length>0&&tns({container:e,items:1,slideBy:"page",autoplay:!1,autoplayButtonOutput:!1,controls:!1,nav:!0,navPosition:"bottom",loop:!0,mouseDrag:!0,touch:!0,autoplayHoverPause:!0,autoHeight:!0})})})})()
