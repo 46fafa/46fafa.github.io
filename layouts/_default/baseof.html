@@ -3,6 +3,7 @@
     <head>
         {{- partial "head/head.html" . -}}
         {{- block "head" . -}}{{ end }}
+        
     </head>
     <body class="{{ block `body-class` . }}{{ end }}">
         {{- partial "head/colorScheme" . -}}
@@ -24,5 +25,6 @@
             </main>
         </div>
         {{ partial "footer/include.html" . }}
+    <script defer src="https://umami.lesx.top/script.js" data-website-id="d33aa18a-87bc-4f59-abe9-f494d55c8535"></script>
     </body>
 </html>
