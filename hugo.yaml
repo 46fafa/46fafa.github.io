@@ -179,7 +179,7 @@ menu:
           url: /media/
           weight: -60
           params:
-              icon: user
+              icon: tv
     # social:
     #     - identifier: github
     #       name: GitHub
