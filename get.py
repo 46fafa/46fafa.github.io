@@ -13,7 +13,7 @@ def fetch_data_from_api(base_url: str, token: str, category: str) -> list:
 
     headers = {
         "accept": "application/json",
-        "Authorization": f"bearer {token}"
+        "Authorization": f"Bearer {token}"
     }
 
     all_items = []
