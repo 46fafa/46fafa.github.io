@@ -2,7 +2,7 @@ name: Fetch NeoDB Data
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每天 UTC 00:00 运行
+    - cron: '0 1,7,13,19 * * *' 
   workflow_dispatch: # 允许手动触发
 
 jobs:

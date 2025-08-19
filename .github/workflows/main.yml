@@ -5,6 +5,8 @@ on:
     branches:
       - main # 当私人仓库的 main 分支有新的 push 时触发
   workflow_dispatch:
+  schedule:
+    - cron: '* */8 * * *'
 
 jobs:
   deploy:
