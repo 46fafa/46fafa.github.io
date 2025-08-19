@@ -41,7 +41,7 @@
             {{ $totalBooks = add $totalBooks 1 }}
         {{ end }}
     {{ end }}
-<p class="yearly-stats">{{ $currentYear }}年看了<span>{{ $totalBooks }}</span>本书,<span>{{ $totalMovies }}</span>部电影,<span>{{ $totalTvs }}</span>部电视剧.</p>
+<p class="yearly-stats"><span>{{ $currentYear }}</span>年看了<span>{{ $totalBooks }}</span>本书,<span>{{ $totalMovies }}</span>部电影,<span>{{ $totalTvs }}</span>部电视剧.</p>
     {{ $firstActiveType := "movies" }} 
     <div class="type-buttons">
         <button class="type-btn{{ if eq $firstActiveType "movies" }} active{{ end }}" data-type="movies">电影</button>
