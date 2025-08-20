@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://localhost:1313/p/c6ded1a6/'>
 
-<link rel="stylesheet" href="/scss/style.min.bf04e7d4eb33bcd890336d6a8c45713012310073af3b5781bee76dd085ed9136.css"><meta property='og:title' content="利用Gemini实现pot-App插件开发">
+<link rel="stylesheet" href="/scss/style.min.36cb3dddcb38d4e7755490bfc2d2ec0ee9f8f3242464ad3869cc899b665bd429.css"><meta property='og:title' content="利用Gemini实现pot-App插件开发">
 <meta property='og:description' content="测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发调教AI\nPot-app Pot是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。 ">
 <meta property='og:url' content='http://localhost:1313/p/c6ded1a6/'>
 <meta property='og:site_name' content='kenome&#39;s blog'>
@@ -23,9 +23,7 @@
     <script>
         (function() {
             const colorSchemeKey = 'StackColorScheme';
-            if(!localStorage.getItem(colorSchemeKey)){
-                localStorage.setItem(colorSchemeKey, "auto");
-            }
+            localStorage.setItem(colorSchemeKey, "auto");
         })();
     </script><script>
     (function() {
@@ -191,26 +189,6 @@
             <ol class="menu">
 
                 
-                    <li id="dark-mode-toggle">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="8" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <circle cx="16" cy="12" r="2" />
-  <rect x="2" y="6" width="20" height="12" rx="6" />
-</svg>
-
-
-
-                        <span>暗色模式</span>
-                    </li>
-                
             </ol>
         </li>
     </ol>
@@ -324,16 +302,13 @@
 <h2 id="pot-app">Pot-app
 </h2><p><a class="link" href="https://pot-app.com/"  target="_blank" rel="noopener"
     >Pot</a>是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。
-<img src="https://r2-img.lesx.top/20250816203934792.webp"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image.png"
-	
-	
-></p>
+
+
+<div class="post-img-view">
+<a data-fancybox="gallery" href="https://r2-img.lesx.top/20250816203934792.webp">
+<img src="https://r2-img.lesx.top/20250816203934792.webp" alt="image.png"  />
+</a>
+</div></p>
 <h2 id="开发"><del>开发</del>
 </h2><p>我平时使用<a class="link" href="https://www.maimemo.com/"  target="_blank" rel="noopener"
     >墨墨背单词</a>(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的<a class="link" href="https://github.com/pot-app/pot-app-collection-plugin-template"  target="_blank" rel="noopener"
@@ -350,16 +325,13 @@
 </blockquote>
 <p>虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了<a class="link" href="https://github.com/chriscurrycc/bob-plugin-maimemo-notebook"  target="_blank" rel="noopener"
     >bob-plugin-maimemo-notebook</a>，最终实现的效果:
-<img src="https://r2-img.lesx.top/20250816221019200.webp"
-	
-	
-	
-	loading="lazy"
-	
-		alt="image.png"
-	
-	
-></p>
+
+
+<div class="post-img-view">
+<a data-fancybox="gallery" href="https://r2-img.lesx.top/20250816221019200.webp">
+<img src="https://r2-img.lesx.top/20250816221019200.webp" alt="image.png"  />
+</a>
+</div></p>
 
 </section>
 
@@ -573,6 +545,15 @@
 
     
 
+    
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
 <footer class="site-footer">
         
     <section class="copyright">
@@ -580,7 +561,7 @@
         
             2022 - 
         
-        2025<br>kenome 发表了 11 篇文章 | 总计 9298 字</br><span><p>
+        2025<br>kenome 发表了 12 篇文章 | 总计 9339 字</br><span><p>
     </section>
 
     <section class="powerby">
@@ -588,13 +569,14 @@
         主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
     </section>
 
-    
+        
     <script type="text/javascript" src="/js/particles.js"
             data-zindex="-1"
             data-opacity="0.5"
             data-color="120,120,120"
             data-count="99">
     </script>
+    
     
 </footer>
 
@@ -699,4 +681,5 @@
 
     <script defer src="https://umami.lesx.top/script.js" data-website-id="d33aa18a-87bc-4f59-abe9-f494d55c8535"></script>
     </body>
+
 </html>

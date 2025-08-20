@@ -7,7 +7,17 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kenome</copyright>
-        <lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 20 Aug 2025 11:11:45 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Test</title>
+        <link>http://localhost:1313/p/12dd5a29/</link>
+        <pubDate>Wed, 20 Aug 2025 11:11:45 +0800</pubDate>
+        
+        <guid>http://localhost:1313/p/12dd5a29/</guid>
+        <description>&lt;blockquote&gt;
+    &lt;p&gt;其实地上本没有路，走的人多了，也便成了路。&lt;/p&gt;&lt;span class=&#34;cite&#34;&gt;&lt;span&gt;― &lt;/span&gt;&lt;span&gt;鲁迅, &lt;/span&gt;&lt;a href=&#34;https://example.com&#34;&gt;&lt;cite&gt;《呐喊》&lt;/cite&gt;&lt;/a&gt;&lt;/span&gt;&lt;/blockquote&gt;
+</description>
+        </item>
+        <item>
         <title>利用Gemini实现pot-App插件开发</title>
         <link>http://localhost:1313/p/c6ded1a6/</link>
         <pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate>
@@ -18,16 +28,13 @@
 &lt;h2 id=&#34;pot-app&#34;&gt;Pot-app
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://pot-app.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Pot&lt;/a&gt;是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。
-&lt;img src=&#34;https://r2-img.lesx.top/20250816203934792.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image.png&#34;
-	
-	
-&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/20250816203934792.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/20250816203934792.webp&#34; alt=&#34;image.png&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;开发&#34;&gt;&lt;del&gt;开发&lt;/del&gt;
 &lt;/h2&gt;&lt;p&gt;我平时使用&lt;a class=&#34;link&#34; href=&#34;https://www.maimemo.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;墨墨背单词&lt;/a&gt;(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class=&#34;link&#34; href=&#34;https://github.com/pot-app/pot-app-collection-plugin-template&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -44,16 +51,13 @@
 &lt;/blockquote&gt;
 &lt;p&gt;虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class=&#34;link&#34; href=&#34;https://github.com/chriscurrycc/bob-plugin-maimemo-notebook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;bob-plugin-maimemo-notebook&lt;/a&gt;，最终实现的效果:
-&lt;img src=&#34;https://r2-img.lesx.top/20250816221019200.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image.png&#34;
-	
-	
-&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/20250816221019200.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/20250816221019200.webp&#34; alt=&#34;image.png&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -65,16 +69,13 @@
         <description>&lt;h2 id=&#34;起因&#34;&gt;起因
 &lt;/h2&gt;&lt;p&gt;我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code&gt;.kdbx&lt;/code&gt;文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p&gt;
 &lt;p&gt;了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/bw.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231215130129827&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/bw.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/bw.webp&#34; alt=&#34;image-20231215130129827&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;GitHub有大佬用rust重写了Bitwarden名为vaultwarden，对机器的要求更低，而且提供了Docker镜像，部署起来也比较方便。&lt;/p&gt;
 &lt;p&gt;vaultwarden：https://github.com/dani-garcia/vaultwarden&lt;/p&gt;
 &lt;h2 id=&#34;前置准备&#34;&gt;前置准备
@@ -209,63 +210,48 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker ps
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/docker.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231215135826570&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/docker.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/docker.webp&#34; alt=&#34;image-20231215135826570&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;出现容器名称说明容器成功运行，在这里可以使用你的服务器ip:端口号访问web页面&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231217220525482&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34; alt=&#34;image-20231217220525482&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;使用宝塔面板部署ssl以及设置反向代理&#34;&gt;使用宝塔面板部署SSL以及设置反向代理
 &lt;/h2&gt;&lt;p&gt;打开宝塔面板，点击网站-&amp;gt;添加站点，此处域名更换成你自己的域名&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/bt.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231215140236160&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/bt.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/bt.webp&#34; alt=&#34;image-20231215140236160&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;提交后点击SSL-&amp;gt;Let`s Encrypt申请证书&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/zs.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231215140439474&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/zs.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/zs.webp&#34; alt=&#34;image-20231215140439474&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;然后点击当前证书-&amp;gt;保存并启用证书，勾选强制https,不然后续会出现无法注册的问题&lt;/p&gt;
 &lt;h3 id=&#34;设置反向代理&#34;&gt;设置反向代理
 &lt;/h3&gt;&lt;p&gt;点击反向代理-&amp;gt;添加反向代理&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231217221704724&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34; alt=&#34;image-20231217221704724&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;代理名称随意，目标url填&lt;code&gt;ip:端口&lt;/code&gt;,也就是你刚才访问的url,提交后就可以使用域名访问你的vaultwarden网页了。&lt;/p&gt;
 </description>
         </item>
@@ -309,32 +295,26 @@
 &lt;/h2&gt;&lt;p&gt;本次刷机的手机是小米11，系统为MIUI14，刷机方式为线刷，从MIUI14开始eu社区的ROM可同时支持卡刷和线刷。&lt;/p&gt;
 &lt;p&gt;刷机包可以到&lt;a class=&#34;link&#34; href=&#34;https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv14/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Xiaomi.eu Multilang MIUI ROMs Files&lt;/a&gt;,注意下载对应机型的ROM&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/miui14.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230815220645245&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/miui14.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/miui14.webp&#34; alt=&#34;image-20230815220645245&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;以xiaomi11为例简单说明一下命名方式，&lt;code&gt;xiaomi.eu_multi_MI11&lt;/code&gt;代表机型，&lt;code&gt;V14.0.10.0&lt;/code&gt;代表系统版本，这里指MIUI14&lt;/p&gt;
 &lt;p&gt;⚠️有些机型的ROM是用英文命名，比如在框选部分的下个ROM，&lt;code&gt;THOR&lt;/code&gt;代表&lt;code&gt;小米12s Ultra&lt;/code&gt;,不同机型的英文名称可以在&lt;a class=&#34;link&#34; href=&#34;&#34; &gt;https://xiaomirom.com/&lt;/a&gt;查到，如果ROM下载太慢请尝试科学上网。&lt;/p&gt;
 &lt;p&gt;在开始刷入之间需要在电脑上安装ADB工具，安装方式见&lt;a class=&#34;link&#34; href=&#34;https://lesx.top/p/mi8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;小米8折腾记录&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;开始刷机&#34;&gt;开始刷机
 &lt;/h2&gt;&lt;p&gt;eu版ROM的线刷方式很简单，开机状态重启的同时按住&lt;code&gt;音量-&lt;/code&gt;，直到屏幕出现&lt;code&gt;FASTBOOT&lt;/code&gt;字样松开，然后用数据线连接电脑，解压下载的ROM到桌面(任意你喜欢的位置)，打开解压后的文件夹&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/miuirom.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230815222654964&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/miuirom.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/miuirom.webp&#34; alt=&#34;image-20230815222654964&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;因为我是Windows电脑，所以选择Windows开头的脚本，ROM提供了三个系统的线刷脚本&lt;code&gt;windows_fastboot_first_install_with_data_format.bat&lt;/code&gt;是指清除数据刷入&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;windows_fastboot_update_rom.bat&lt;/code&gt;是指保留数据刷入&lt;/p&gt;
 &lt;p&gt;这里建议使用清除数据刷入，双击脚本文件，在弹出的终端中输入y然后回车，然后等待5-8分钟(视系统状况不等)，刷入成功后手机会自动重启，能顺利进入引导页面就成功了。&lt;/p&gt;
@@ -360,16 +340,13 @@
         
         <guid>http://localhost:1313/p/bb5efac6/</guid>
         <description>&lt;h2 id=&#34;微信读书&#34;&gt;微信读书
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/%e5%be%ae%e4%bf%a1%e8%af%bb%e4%b9%a6.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;photo_2023-08-05_22-35-21&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%e5%be%ae%e4%bf%a1%e8%af%bb%e4%b9%a6.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/%e5%be%ae%e4%bf%a1%e8%af%bb%e4%b9%a6.webp&#34; alt=&#34;photo_2023-08-05_22-35-21&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;虽然放假后的空闲时间变多了，读书的效率却并没有提高许多，接近一个月才读完一本书，今天突然心血来潮，把书架里放了很久的《兄弟》读完了。&lt;/p&gt;
 &lt;p&gt;不记得在那里看到过这样句话，&lt;strong&gt;悲剧就是把美好的东西撕碎来看&lt;/strong&gt;。《兄弟》就是一个悲剧，余华老师就像是一个经验丰富的刽子手，细腻的笔触宛如凌迟般的酷刑一点点把人送入绝望，一如曾经看《活着》的感觉。&lt;/p&gt;
 &lt;h2 id=&#34;哀其不幸怒其不争&#34;&gt;哀其不幸，怒其不争
@@ -425,39 +402,30 @@
 &lt;p&gt;之前有使用「Quicker」实现浏览器外划词翻译，详情看&lt;a class=&#34;link&#34; href=&#34;https://saladict.crimx.com/native.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;这篇文章&lt;/a&gt;，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了&lt;a class=&#34;link&#34; href=&#34;https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;类似的操作&lt;/a&gt;，遂白嫖&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/Quicker1.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230723174027239&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/Quicker1.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/Quicker1.webp&#34; alt=&#34;image-20230723174027239&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;这是下载的动作，但是本地实验后发现这个动作没有&lt;code&gt;hugo&lt;/code&gt;和&lt;code&gt;git add .&lt;/code&gt;命令，于是针对自己情况对原动作作了修改&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/quicker2.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Snipaste_2023-07-23_17-54-51&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/quicker2.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/quicker2.webp&#34; alt=&#34;Snipaste_2023-07-23_17-54-51&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录&lt;/p&gt;
 &lt;p&gt;比如我的文章根目录为&lt;code&gt;MyBlog\content\zh-cn\post&lt;/code&gt;,上级目录就是&lt;code&gt;MyBlog\content\zh-cn&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/quicker3.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230723180531905&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/quicker3.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/quicker3.webp&#34; alt=&#34;image-20230723180531905&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;使用时目录设置为博客文件的根目录&lt;/p&gt;
 &lt;p&gt;原作者不允许再次进行分享，为了方便下载，我设置了私人分享&lt;a class=&#34;link&#34; href=&#34;https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hugo自动化&lt;/a&gt;,需要自取&lt;/p&gt;
@@ -497,14 +465,13 @@
         
         <guid>http://localhost:1313/p/lxgw-wenkai/</guid>
         <description>&lt;h2 id=&#34;霞鹜文楷&#34;&gt;「霞鹜文楷」
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/wenkai-1.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/wenkai-1.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/wenkai-1.webp&#34; alt=&#34;&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;看到别人博客换了字体，超级好看，我也要😊！！&lt;/p&gt;
 &lt;p&gt;项目地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/lxgw/LxgwWenKai&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/lxgw/LxgwWenKai&lt;/a&gt;&lt;/p&gt;
@@ -523,16 +490,13 @@
 &lt;p&gt;但是，&lt;strong&gt;您无法直接提交和推送更改&lt;/strong&gt;，因为您没有推送到主题存储库的权限。&lt;/p&gt;
 &lt;p&gt;您需要&lt;strong&gt;fork&lt;/strong&gt;主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;因为这个原因，按照博主文章提供的方法修改部署后没有效果&lt;img src=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230722000207898&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;因为这个原因，按照博主文章提供的方法修改部署后没有效果
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34; alt=&#34;image-20230722000207898&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;可以直接复制下面的代码&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -565,16 +529,13 @@
 &lt;p&gt;比如我的博客主题文件目录为MyBlog\themes\hugo-theme-stack，现在修改文件的路径为MyBlog\assets\scss&lt;/p&gt;
 &lt;p&gt;修改后部署发布即可。&lt;/p&gt;
 &lt;h2 id=&#34;效果展示&#34;&gt;效果展示
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230722001413058&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34; alt=&#34;image-20230722001413058&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -596,94 +557,73 @@
 &lt;li&gt;
 &lt;p&gt;小米手机的解锁官方给了解锁方法,只需要到浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://www.miui.com/unlock/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;小米解锁&lt;/a&gt;],进入这个网站点击立即解锁,下载小米解锁工具&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230210135242345&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp&#34; alt=&#34;image-20230210135242345&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;打开设置–我的设备全部参数–点击10下MIUI版本进入开发者模式&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;photo_2023-02-10_14-00-32&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp&#34; alt=&#34;photo_2023-02-10_14-00-32&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;回到设置–滑到最下面更多设置–开发者选项–设备解锁状态.解锁前需要先绑定点击绑定账号与设备,还要打开开发者选项中的USB调试选项&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/unlock.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;photo_2023-02-17_21-00-30&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/unlock.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/unlock.webp&#34; alt=&#34;photo_2023-02-17_21-00-30&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;打开刚才下载安装的小米解锁工具,根据提示在关机状态下按住音量下＋电源键进入fastboot模式(又叫bootloader模式),屏幕上出现fastboot字样就是成功进入,然后用数据线连接电脑与手机,连接成功后点击解锁,耐心等待解锁成功重启手机就好.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230210141005502.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230210141005502&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230210141005502.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230210141005502.webp&#34; alt=&#34;image-20230210141005502&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;解锁成功后，设备状态变为已解锁&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;photo_2023-02-10_14-04-26&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp&#34; alt=&#34;photo_2023-02-10_14-04-26&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;给手机刷入twrp&#34;&gt;给手机刷入TWRP
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;第一步 配置adb工具&lt;/p&gt;
 &lt;p&gt;浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;SDK Platform Tools&lt;/a&gt;],进入官网后选择对应系统的文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217211929849.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230217&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230217211929849.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217211929849.webp&#34; alt=&#34;image-20230217&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;找到刚才下载的文件,复制adb.exe文件的路径,比如我就是&lt;code&gt;C:\Users\ABC\platform-tools_r33.0.3-windows\platform-tools&lt;/code&gt;,复制该路径添加到环境变量即可&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;屏幕截图 2023-02-17&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp&#34; alt=&#34;屏幕截图 2023-02-17&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;右键我的电脑——属性——下滑找到高级系统设置——系统属性——高级——环境变量——编辑Path——新建，将刚才复制路径添加到Path变量值中,最后点击“确定”.然后&lt;code&gt;win+r&lt;/code&gt;输入&lt;code&gt;cmd&lt;/code&gt;,再打开的命令行中输入以下命令&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -697,32 +637,26 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230217&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34; alt=&#34;image-20230217&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;出现上图所示结果说明工具安装成功&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;第二步 下载twrp&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://twrp.me/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;TWRP&lt;/a&gt;]进入官网,右上角点击devices,选择自己的设备下载对应版本即可&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230217&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34; alt=&#34;image-20230217&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;第三步 刷入TWRP&lt;/p&gt;
@@ -738,16 +672,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;比如我的是这样的&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230217&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34; alt=&#34;image-20230217&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;然后输入&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -809,14 +740,13 @@
 &lt;/h2&gt;&lt;p&gt;从室友那里了解到单片机这个东西后一直也想去折腾一下,因为懒鬼的属性,拖了很久🤣,刚好最近逛博客看到一个很简单的小项目利用esp8266+sg90舵机+arduino+点灯科技实现一个关灯神器,看了一下步骤和材料都比较简单,复刻的成本不高,最近会入手试试,开学还能拿到宿舍用,彻底 解决最后一个上床的人会忘记关灯的问题(手动狗头)&lt;/p&gt;
 &lt;h2 id=&#34;中国奇谭&#34;&gt;中国奇谭
 &lt;/h2&gt;&lt;p&gt;最近网上挺火的动画,mark一下，有空去看看。
-&lt;img src=&#34;https://r2-img.lesx.top/904662152.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/904662152.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/904662152.webp&#34; alt=&#34;&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -829,16 +759,13 @@
 &lt;/h2&gt;&lt;p&gt;学校里某日，网上冲浪，偶然发现自己在用的&lt;a class=&#34;link&#34; href=&#34;https://limestart.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;青柠起始页&lt;/a&gt;作者&lt;a class=&#34;link&#34; href=&#34;https://maorx.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;毛若昕&lt;/a&gt;的博客逛了一圈,觉得很有意思,然后通过大佬的友链访问了许多大佬的博客,之后就有了自己搭建博客的想法, 但是由于懒惰🙄,一直没有动手.直到放假闲来无事,开始动手搭建自己的博客&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/1.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;img&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/1.png&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/1.png&#34; alt=&#34;img&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;方案参考&#34;&gt;方案参考
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;视频教程&lt;/strong&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1qD4y1z783/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=258020edca69c60087ab3235f74cfbbe&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -862,16 +789,13 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
 &lt;p&gt;更换主题为Next&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/theme-Next.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;theme-Next&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/theme-Next.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/theme-Next.webp&#34; alt=&#34;theme-Next&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;将博客迁移到hugo，主题更换为&lt;a class=&#34;link&#34; href=&#34;https://stack.jimmycai.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;stack&lt;/a&gt;&lt;/li&gt;
@@ -917,6 +841,7 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
 &lt;/h2&gt;&lt;p&gt;📧:me19xy@gmail.com&lt;/p&gt;
 &lt;h2 id=&#34;changelog&#34;&gt;Changelog
 &lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;2025-08:增加灯箱&lt;/li&gt;
 &lt;li&gt;2025-08:新增观影界面&lt;/li&gt;
 &lt;li&gt;2025-08:为文章内图片添加圆角边框&lt;/li&gt;
 &lt;li&gt;2023-07:调整利用CSS调整页面布局效果,调整友链样式为双栏&lt;/li&gt;

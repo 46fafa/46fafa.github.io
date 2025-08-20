@@ -16,7 +16,17 @@
         <description>&lt;h2 id=&#34;起因&#34;&gt;起因
 &lt;/h2&gt;&lt;p&gt;我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code&gt;.kdbx&lt;/code&gt;文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p&gt;
 &lt;p&gt;了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/bw.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/bw.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/bw.webp&#34; alt=&#34;image-20231215130129827&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/2023/bw.webp&#34;
 	
 	
 	
@@ -160,7 +170,17 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker ps
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/docker.webp&#34;
+&lt;/div&gt;&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/docker.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/docker.webp&#34; alt=&#34;image-20231215135826570&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/2023/docker.webp&#34;
 	
 	
 	
@@ -171,7 +191,17 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;出现容器名称说明容器成功运行，在这里可以使用你的服务器ip:端口号访问web页面&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34; alt=&#34;image-20231217220525482&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34;
 	
 	
 	
@@ -183,7 +213,17 @@
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;使用宝塔面板部署ssl以及设置反向代理&#34;&gt;使用宝塔面板部署SSL以及设置反向代理
 &lt;/h2&gt;&lt;p&gt;打开宝塔面板，点击网站-&amp;gt;添加站点，此处域名更换成你自己的域名&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/bt.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/bt.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/bt.webp&#34; alt=&#34;image-20231215140236160&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/2023/bt.webp&#34;
 	
 	
 	
@@ -194,7 +234,17 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;提交后点击SSL-&amp;gt;Let`s Encrypt申请证书&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/zs.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/zs.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/zs.webp&#34; alt=&#34;image-20231215140439474&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/2023/zs.webp&#34;
 	
 	
 	
@@ -207,7 +257,17 @@
 &lt;p&gt;然后点击当前证书-&amp;gt;保存并启用证书，勾选强制https,不然后续会出现无法注册的问题&lt;/p&gt;
 &lt;h3 id=&#34;设置反向代理&#34;&gt;设置反向代理
 &lt;/h3&gt;&lt;p&gt;点击反向代理-&amp;gt;添加反向代理&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34; alt=&#34;image-20231217221704724&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34;
 	
 	
 	

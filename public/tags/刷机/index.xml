@@ -30,7 +30,17 @@
 &lt;/h2&gt;&lt;p&gt;本次刷机的手机是小米11，系统为MIUI14，刷机方式为线刷，从MIUI14开始eu社区的ROM可同时支持卡刷和线刷。&lt;/p&gt;
 &lt;p&gt;刷机包可以到&lt;a class=&#34;link&#34; href=&#34;https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv14/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Xiaomi.eu Multilang MIUI ROMs Files&lt;/a&gt;,注意下载对应机型的ROM&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/miui14.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/miui14.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/miui14.webp&#34; alt=&#34;image-20230815220645245&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/2023/miui14.webp&#34;
 	
 	
 	
@@ -46,7 +56,17 @@
     &gt;小米8折腾记录&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;开始刷机&#34;&gt;开始刷机
 &lt;/h2&gt;&lt;p&gt;eu版ROM的线刷方式很简单，开机状态重启的同时按住&lt;code&gt;音量-&lt;/code&gt;，直到屏幕出现&lt;code&gt;FASTBOOT&lt;/code&gt;字样松开，然后用数据线连接电脑，解压下载的ROM到桌面(任意你喜欢的位置)，打开解压后的文件夹&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/2023/miuirom.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/miuirom.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/2023/miuirom.webp&#34; alt=&#34;image-20230815222654964&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/2023/miuirom.webp&#34;
 	
 	
 	
@@ -93,7 +113,17 @@
 &lt;li&gt;
 &lt;p&gt;小米手机的解锁官方给了解锁方法,只需要到浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://www.miui.com/unlock/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;小米解锁&lt;/a&gt;],进入这个网站点击立即解锁,下载小米解锁工具&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp&#34; alt=&#34;image-20230210135242345&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp&#34;
 	
 	
 	
@@ -106,7 +136,17 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;打开设置–我的设备全部参数–点击10下MIUI版本进入开发者模式&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp&#34; alt=&#34;photo_2023-02-10_14-00-32&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp&#34;
 	
 	
 	
@@ -117,7 +157,17 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;回到设置–滑到最下面更多设置–开发者选项–设备解锁状态.解锁前需要先绑定点击绑定账号与设备,还要打开开发者选项中的USB调试选项&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/unlock.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/unlock.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/unlock.webp&#34; alt=&#34;photo_2023-02-17_21-00-30&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/unlock.webp&#34;
 	
 	
 	
@@ -133,7 +183,17 @@
 &lt;blockquote&gt;
 &lt;p&gt;小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230210141005502.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230210141005502.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230210141005502.webp&#34; alt=&#34;image-20230210141005502&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230210141005502.webp&#34;
 	
 	
 	
@@ -144,7 +204,17 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;解锁成功后，设备状态变为已解锁&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp&#34; alt=&#34;photo_2023-02-10_14-04-26&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp&#34;
 	
 	
 	
@@ -160,7 +230,17 @@
 &lt;p&gt;第一步 配置adb工具&lt;/p&gt;
 &lt;p&gt;浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;SDK Platform Tools&lt;/a&gt;],进入官网后选择对应系统的文件&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217211929849.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230217211929849.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217211929849.webp&#34; alt=&#34;image-20230217&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217211929849.webp&#34;
 	
 	
 	
@@ -171,7 +251,17 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;找到刚才下载的文件,复制adb.exe文件的路径,比如我就是&lt;code&gt;C:\Users\ABC\platform-tools_r33.0.3-windows\platform-tools&lt;/code&gt;,复制该路径添加到环境变量即可&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp&#34; alt=&#34;屏幕截图 2023-02-17&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp&#34;
 	
 	
 	
@@ -194,7 +284,17 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34; alt=&#34;image-20230217&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
 	
 	
 	
@@ -210,7 +310,17 @@
 &lt;/ul&gt;
 &lt;p&gt;浏览器搜索[&lt;a class=&#34;link&#34; href=&#34;https://twrp.me/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;TWRP&lt;/a&gt;]进入官网,右上角点击devices,选择自己的设备下载对应版本即可&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34; alt=&#34;image-20230217&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
 	
 	
 	
@@ -235,7 +345,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;比如我的是这样的&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
+&lt;p&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;&gt;
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34; alt=&#34;image-20230217&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+
+
+&lt;img src=&#34;https://r2-img.lesx.top/image-20230217.webp&#34;
 	
 	
 	

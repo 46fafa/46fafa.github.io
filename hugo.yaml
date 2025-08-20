@@ -49,6 +49,7 @@ permalinks:
     page: /:slug/
 
 params:
+    fancybox: true
     mainSections:
         - post
     featuredImageField: image
@@ -128,7 +129,7 @@ params:
 
     colorScheme:
         # Display toggle
-        toggle: true
+        toggle: false
 
         # Available values: auto, light, dark
         default: auto

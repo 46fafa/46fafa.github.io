@@ -3,6 +3,13 @@
 {{ range (where .Site.Pages "Kind" "page" )}}
     {{$scratch.Add "total" .WordCount}}
 {{ end }}
+<!-- 灯箱 -->
+{{if .Page.Site.Params.fancybox }}
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+{{ end }}
+
 <footer class="site-footer">
         <!--增加字数统计和文章统计-->
     <section class="copyright">
@@ -26,13 +33,14 @@
         {{ T "footer.designedBy" (dict "Theme" $Theme "DesignedBy" $DesignedBy) | safeHTML }}
     </section>
 
-    <!-- Custom JavaScript for particles animation -->
+        <!-- Custom JavaScript for particles animation -->
     <script type="text/javascript" src="/js/particles.js"
             data-zindex="-1"
             data-opacity="0.5"
             data-color="120,120,120"
             data-count="99">
     </script>
+    
     
 </footer>
 
