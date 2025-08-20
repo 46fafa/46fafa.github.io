@@ -3,10 +3,11 @@
 &lt;h2 id="pot-app">Pot-app
 &lt;/h2>&lt;p>&lt;a class="link" href="https://pot-app.com/" target="_blank" rel="noopener"
 >Pot&lt;/a>是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。
-&lt;img src="https://r2-img.lesx.top/20250816203934792.webp"
-loading="lazy"
-alt="image.png"
->&lt;/p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/20250816203934792.webp">
+&lt;img src="https://r2-img.lesx.top/20250816203934792.webp" alt="image.png" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;h2 id="开发">&lt;del>开发&lt;/del>
 &lt;/h2>&lt;p>我平时使用&lt;a class="link" href="https://www.maimemo.com/" target="_blank" rel="noopener"
 >墨墨背单词&lt;/a>(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class="link" href="https://github.com/pot-app/pot-app-collection-plugin-template" target="_blank" rel="noopener"
@@ -23,16 +24,19 @@ alt="image.png"
 &lt;/blockquote>
 &lt;p>虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class="link" href="https://github.com/chriscurrycc/bob-plugin-maimemo-notebook" target="_blank" rel="noopener"
 >bob-plugin-maimemo-notebook&lt;/a>，最终实现的效果:
-&lt;img src="https://r2-img.lesx.top/20250816221019200.webp"
-loading="lazy"
-alt="image.png"
->&lt;/p></description></item><item><title>从keepass迁移到bitwarden</title><link>https://example.com/p/b87d8224/</link><pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate><guid>https://example.com/p/b87d8224/</guid><description>&lt;h2 id="起因">起因
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/20250816221019200.webp">
+&lt;img src="https://r2-img.lesx.top/20250816221019200.webp" alt="image.png" />
+&lt;/a>
+&lt;/div>&lt;/p></description></item><item><title>从keepass迁移到bitwarden</title><link>https://example.com/p/b87d8224/</link><pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate><guid>https://example.com/p/b87d8224/</guid><description>&lt;h2 id="起因">起因
 &lt;/h2>&lt;p>我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code>.kdbx&lt;/code>文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p>
 &lt;p>了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/2023/bw.webp"
-loading="lazy"
-alt="image-20231215130129827"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/bw.webp">
+&lt;img src="https://r2-img.lesx.top/2023/bw.webp" alt="image-20231215130129827" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>GitHub有大佬用rust重写了Bitwarden名为vaultwarden，对机器的要求更低，而且提供了Docker镜像，部署起来也比较方便。&lt;/p>
 &lt;p>vaultwarden：https://github.com/dani-garcia/vaultwarden&lt;/p>
 &lt;h2 id="前置准备">前置准备
@@ -167,33 +171,43 @@ alt="image-20231215130129827"
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker ps
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;img src="https://r2-img.lesx.top/2023/docker.webp"
-loading="lazy"
-alt="image-20231215135826570"
->&lt;/p>
+&lt;/div>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/docker.webp">
+&lt;img src="https://r2-img.lesx.top/2023/docker.webp" alt="image-20231215135826570" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>出现容器名称说明容器成功运行，在这里可以使用你的服务器ip:端口号访问web页面&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/2023/image-20231217220525482.webp"
-loading="lazy"
-alt="image-20231217220525482"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/image-20231217220525482.webp">
+&lt;img src="https://r2-img.lesx.top/2023/image-20231217220525482.webp" alt="image-20231217220525482" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;h2 id="使用宝塔面板部署ssl以及设置反向代理">使用宝塔面板部署SSL以及设置反向代理
 &lt;/h2>&lt;p>打开宝塔面板，点击网站-&amp;gt;添加站点，此处域名更换成你自己的域名&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/2023/bt.webp"
-loading="lazy"
-alt="image-20231215140236160"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/bt.webp">
+&lt;img src="https://r2-img.lesx.top/2023/bt.webp" alt="image-20231215140236160" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>提交后点击SSL-&amp;gt;Let`s Encrypt申请证书&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/2023/zs.webp"
-loading="lazy"
-alt="image-20231215140439474"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/zs.webp">
+&lt;img src="https://r2-img.lesx.top/2023/zs.webp" alt="image-20231215140439474" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>然后点击当前证书-&amp;gt;保存并启用证书，勾选强制https,不然后续会出现无法注册的问题&lt;/p>
 &lt;h3 id="设置反向代理">设置反向代理
 &lt;/h3>&lt;p>点击反向代理-&amp;gt;添加反向代理&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/2023/image-20231217221704724.webp"
-loading="lazy"
-alt="image-20231217221704724"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/image-20231217221704724.webp">
+&lt;img src="https://r2-img.lesx.top/2023/image-20231217221704724.webp" alt="image-20231217221704724" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>代理名称随意，目标url填&lt;code>ip:端口&lt;/code>,也就是你刚才访问的url,提交后就可以使用域名访问你的vaultwarden网页了。&lt;/p></description></item><item><title>小米11刷入MIUI.EU</title><link>https://example.com/p/743b0d87/</link><pubDate>Thu, 10 Aug 2023 21:58:06 +0800</pubDate><guid>https://example.com/p/743b0d87/</guid><description>&lt;h2 id="前文">前文
 &lt;/h2>&lt;p>不久前我写过一篇博文&lt;a class="link" href="https://lesx.top/p/mi8/" target="_blank" rel="noopener"
 >小米折腾记录&lt;/a>，当时是想体验类原生安卓系统，在小黄鱼购入二手小米8，本来打算记录下刷入全过程，但是自己换电池把屏幕排线弄坏了，手机开不了机了，后续内容就没有更新。&lt;/p>
@@ -211,20 +225,24 @@ alt="image-20231217221704724"
 &lt;/h2>&lt;p>本次刷机的手机是小米11，系统为MIUI14，刷机方式为线刷，从MIUI14开始eu社区的ROM可同时支持卡刷和线刷。&lt;/p>
 &lt;p>刷机包可以到&lt;a class="link" href="https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv14/" target="_blank" rel="noopener"
 >Xiaomi.eu Multilang MIUI ROMs Files&lt;/a>,注意下载对应机型的ROM&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/2023/miui14.webp"
-loading="lazy"
-alt="image-20230815220645245"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/miui14.webp">
+&lt;img src="https://r2-img.lesx.top/2023/miui14.webp" alt="image-20230815220645245" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>以xiaomi11为例简单说明一下命名方式，&lt;code>xiaomi.eu_multi_MI11&lt;/code>代表机型，&lt;code>V14.0.10.0&lt;/code>代表系统版本，这里指MIUI14&lt;/p>
 &lt;p>⚠️有些机型的ROM是用英文命名，比如在框选部分的下个ROM，&lt;code>THOR&lt;/code>代表&lt;code>小米12s Ultra&lt;/code>,不同机型的英文名称可以在&lt;a class="link" href="" >https://xiaomirom.com/&lt;/a>查到，如果ROM下载太慢请尝试科学上网。&lt;/p>
 &lt;p>在开始刷入之间需要在电脑上安装ADB工具，安装方式见&lt;a class="link" href="https://lesx.top/p/mi8/" target="_blank" rel="noopener"
 >小米8折腾记录&lt;/a>&lt;/p>
 &lt;h2 id="开始刷机">开始刷机
 &lt;/h2>&lt;p>eu版ROM的线刷方式很简单，开机状态重启的同时按住&lt;code>音量-&lt;/code>，直到屏幕出现&lt;code>FASTBOOT&lt;/code>字样松开，然后用数据线连接电脑，解压下载的ROM到桌面(任意你喜欢的位置)，打开解压后的文件夹&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/2023/miuirom.webp"
-loading="lazy"
-alt="image-20230815222654964"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/miuirom.webp">
+&lt;img src="https://r2-img.lesx.top/2023/miuirom.webp" alt="image-20230815222654964" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>因为我是Windows电脑，所以选择Windows开头的脚本，ROM提供了三个系统的线刷脚本&lt;code>windows_fastboot_first_install_with_data_format.bat&lt;/code>是指清除数据刷入&lt;/p>
 &lt;p>&lt;code>windows_fastboot_update_rom.bat&lt;/code>是指保留数据刷入&lt;/p>
 &lt;p>这里建议使用清除数据刷入，双击脚本文件，在弹出的终端中输入y然后回车，然后等待5-8分钟(视系统状况不等)，刷入成功后手机会自动重启，能顺利进入引导页面就成功了。&lt;/p>
@@ -267,21 +285,27 @@ alt="image-20230815222654964"
 &lt;p>之前有使用「Quicker」实现浏览器外划词翻译，详情看&lt;a class="link" href="https://saladict.crimx.com/native.html" target="_blank" rel="noopener"
 >这篇文章&lt;/a>，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了&lt;a class="link" href="https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514" target="_blank" rel="noopener"
 >类似的操作&lt;/a>，遂白嫖&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/Quicker1.webp"
-loading="lazy"
-alt="image-20230723174027239"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/Quicker1.webp">
+&lt;img src="https://r2-img.lesx.top/Quicker1.webp" alt="image-20230723174027239" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>这是下载的动作，但是本地实验后发现这个动作没有&lt;code>hugo&lt;/code>和&lt;code>git add .&lt;/code>命令，于是针对自己情况对原动作作了修改&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/quicker2.webp"
-loading="lazy"
-alt="Snipaste_2023-07-23_17-54-51"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/quicker2.webp">
+&lt;img src="https://r2-img.lesx.top/quicker2.webp" alt="Snipaste_2023-07-23_17-54-51" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录&lt;/p>
 &lt;p>比如我的文章根目录为&lt;code>MyBlog\content\zh-cn\post&lt;/code>,上级目录就是&lt;code>MyBlog\content\zh-cn&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/quicker3.webp"
-loading="lazy"
-alt="image-20230723180531905"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/quicker3.webp">
+&lt;img src="https://r2-img.lesx.top/quicker3.webp" alt="image-20230723180531905" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>使用时目录设置为博客文件的根目录&lt;/p>
 &lt;p>原作者不允许再次进行分享，为了方便下载，我设置了私人分享&lt;a class="link" href="https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b" target="_blank" rel="noopener"
 >hugo自动化&lt;/a>,需要自取&lt;/p>
@@ -312,9 +336,12 @@ alt="image-20230723180531905"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>在博客根目录新建一个文本文件，将内容复制进去，然后重命名保存，后缀为&lt;code>.bat&lt;/code>,比如我的文件名是&lt;code>auto_deploy.bat&lt;/code>，每次修改文章后运行bash脚本即可发布&lt;/p></description></item><item><title>更换字体「霞鹜文楷」</title><link>https://example.com/p/lxgw-wenkai/</link><pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate><guid>https://example.com/p/lxgw-wenkai/</guid><description>&lt;h2 id="霞鹜文楷">「霞鹜文楷」
-&lt;/h2>&lt;p>&lt;img src="https://r2-img.lesx.top/wenkai-1.webp"
-loading="lazy"
->&lt;/p>
+&lt;/h2>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/wenkai-1.webp">
+&lt;img src="https://r2-img.lesx.top/wenkai-1.webp" alt="" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>看到别人博客换了字体，超级好看，我也要😊！！&lt;/p>
 &lt;p>项目地址：&lt;a class="link" href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener"
 >https://github.com/lxgw/LxgwWenKai&lt;/a>&lt;/p>
@@ -333,10 +360,12 @@ loading="lazy"
 &lt;p>但是，&lt;strong>您无法直接提交和推送更改&lt;/strong>，因为您没有推送到主题存储库的权限。&lt;/p>
 &lt;p>您需要&lt;strong>fork&lt;/strong>主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p>
 &lt;/blockquote>
-&lt;p>因为这个原因，按照博主文章提供的方法修改部署后没有效果&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp"
-loading="lazy"
-alt="image-20230722000207898"
->&lt;/p>
+&lt;p>因为这个原因，按照博主文章提供的方法修改部署后没有效果
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp">
+&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp" alt="image-20230722000207898" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>可以直接复制下面的代码&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -369,10 +398,12 @@ alt="image-20230722000207898"
 &lt;p>比如我的博客主题文件目录为MyBlog\themes\hugo-theme-stack，现在修改文件的路径为MyBlog\assets\scss&lt;/p>
 &lt;p>修改后部署发布即可。&lt;/p>
 &lt;h2 id="效果展示">效果展示
-&lt;/h2>&lt;p>&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp"
-loading="lazy"
-alt="image-20230722001413058"
->&lt;/p></description></item><item><title>小米8折腾记录</title><link>https://example.com/p/mi8/</link><pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate><guid>https://example.com/p/mi8/</guid><description>&lt;p>这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p>
+&lt;/h2>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp">
+&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp" alt="image-20230722001413058" />
+&lt;/a>
+&lt;/div>&lt;/p></description></item><item><title>小米8折腾记录</title><link>https://example.com/p/mi8/</link><pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate><guid>https://example.com/p/mi8/</guid><description>&lt;p>这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p>
 &lt;p>我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[&lt;a class="link" href="https://blog.k8s.li/android-tasker.html" target="_blank" rel="noopener"
 >tasker 神器&lt;/a>],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p>
 &lt;p>刚好前几天在小黄鱼上买的小米8到手,这里记录一下这台手机的折腾过程.&lt;/p>
@@ -385,52 +416,66 @@ alt="image-20230722001413058"
 &lt;li>
 &lt;p>小米手机的解锁官方给了解锁方法,只需要到浏览器搜索[&lt;a class="link" href="https://www.miui.com/unlock/index.html" target="_blank" rel="noopener"
 >小米解锁&lt;/a>],进入这个网站点击立即解锁,下载小米解锁工具&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp"
-loading="lazy"
-alt="image-20230210135242345"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp">
+&lt;img src="https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp" alt="image-20230210135242345" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>打开设置–我的设备全部参数–点击10下MIUI版本进入开发者模式&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp"
-loading="lazy"
-alt="photo_2023-02-10_14-00-32"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp">
+&lt;img src="https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp" alt="photo_2023-02-10_14-00-32" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>回到设置–滑到最下面更多设置–开发者选项–设备解锁状态.解锁前需要先绑定点击绑定账号与设备,还要打开开发者选项中的USB调试选项&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/unlock.webp"
-loading="lazy"
-alt="photo_2023-02-17_21-00-30"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/unlock.webp">
+&lt;img src="https://r2-img.lesx.top/unlock.webp" alt="photo_2023-02-17_21-00-30" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>打开刚才下载安装的小米解锁工具,根据提示在关机状态下按住音量下＋电源键进入fastboot模式(又叫bootloader模式),屏幕上出现fastboot字样就是成功进入,然后用数据线连接电脑与手机,连接成功后点击解锁,耐心等待解锁成功重启手机就好.&lt;/p>
 &lt;blockquote>
 &lt;p>小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://r2-img.lesx.top/image-20230210141005502.webp"
-loading="lazy"
-alt="image-20230210141005502"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230210141005502.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230210141005502.webp" alt="image-20230210141005502" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>解锁成功后，设备状态变为已解锁&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp"
-loading="lazy"
-alt="photo_2023-02-10_14-04-26"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp">
+&lt;img src="https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp" alt="photo_2023-02-10_14-04-26" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;h2 id="给手机刷入twrp">给手机刷入TWRP
 &lt;/h2>&lt;ul>
 &lt;li>
 &lt;p>第一步 配置adb工具&lt;/p>
 &lt;p>浏览器搜索[&lt;a class="link" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn" target="_blank" rel="noopener"
 >SDK Platform Tools&lt;/a>],进入官网后选择对应系统的文件&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/image-20230217211929849.webp"
-loading="lazy"
-alt="image-20230217"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217211929849.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230217211929849.webp" alt="image-20230217" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>找到刚才下载的文件,复制adb.exe文件的路径,比如我就是&lt;code>C:\Users\ABC\platform-tools_r33.0.3-windows\platform-tools&lt;/code>,复制该路径添加到环境变量即可&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp"
-loading="lazy"
-alt="屏幕截图 2023-02-17"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp">
+&lt;img src="https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp" alt="屏幕截图 2023-02-17" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>右键我的电脑——属性——下滑找到高级系统设置——系统属性——高级——环境变量——编辑Path——新建，将刚才复制路径添加到Path变量值中,最后点击“确定”.然后&lt;code>win+r&lt;/code>输入&lt;code>cmd&lt;/code>,再打开的命令行中输入以下命令&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -444,20 +489,24 @@ alt="屏幕截图 2023-02-17"
 &lt;/ul>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;img src="https://r2-img.lesx.top/image-20230217.webp"
-loading="lazy"
-alt="image-20230217"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>出现上图所示结果说明工具安装成功&lt;/p>
 &lt;ul>
 &lt;li>第二步 下载twrp&lt;/li>
 &lt;/ul>
 &lt;p>浏览器搜索[&lt;a class="link" href="https://twrp.me/" target="_blank" rel="noopener"
 >TWRP&lt;/a>]进入官网,右上角点击devices,选择自己的设备下载对应版本即可&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/image-20230217.webp"
-loading="lazy"
-alt="image-20230217"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>第三步 刷入TWRP&lt;/p>
@@ -473,10 +522,12 @@ alt="image-20230217"
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>比如我的是这样的&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/image-20230217.webp"
-loading="lazy"
-alt="image-20230217"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;p>然后输入&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">

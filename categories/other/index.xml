@@ -2,10 +2,12 @@
 &lt;/h2>&lt;p>学校里某日，网上冲浪，偶然发现自己在用的&lt;a class="link" href="https://limestart.cn/" target="_blank" rel="noopener"
 >青柠起始页&lt;/a>作者&lt;a class="link" href="https://maorx.cn/" target="_blank" rel="noopener"
 >毛若昕&lt;/a>的博客逛了一圈,觉得很有意思,然后通过大佬的友链访问了许多大佬的博客,之后就有了自己搭建博客的想法, 但是由于懒惰🙄,一直没有动手.直到放假闲来无事,开始动手搭建自己的博客&lt;/p>
-&lt;p>&lt;img src="https://r2-img.lesx.top/1.png"
-loading="lazy"
-alt="img"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/1.png">
+&lt;img src="https://r2-img.lesx.top/1.png" alt="img" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;h2 id="方案参考">方案参考
 &lt;/h2>&lt;p>&lt;strong>视频教程&lt;/strong>
 &lt;a class="link" href="https://www.bilibili.com/video/BV1qD4y1z783/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=258020edca69c60087ab3235f74cfbbe" target="_blank" rel="noopener"
@@ -29,10 +31,12 @@ netlify建站参考&lt;a class="link" href="https://blog.cuijiacai.com/blog-buil
 &lt;p>更换主题为Next&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://r2-img.lesx.top/theme-Next.webp"
-loading="lazy"
-alt="theme-Next"
->&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/theme-Next.webp">
+&lt;img src="https://r2-img.lesx.top/theme-Next.webp" alt="theme-Next" />
+&lt;/a>
+&lt;/div>&lt;/p>
 &lt;ul>
 &lt;li>将博客迁移到hugo，主题更换为&lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
 >stack&lt;/a>&lt;/li>
