@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on kenome's blog</title><link>https://example.com/page/</link><description>Recent content in Pages on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Sat, 27 Mar 2021 11:57:00 +0800</lastBuildDate><atom:link href="https://example.com/page/index.xml" rel="self" type="application/rss+xml"/><item><title>友链</title><link>https://example.com/links/</link><pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate><guid>https://example.com/links/</guid><description>&lt;p>欢迎与我交换友链~&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pages on kenome's blog</title><link>https://lesx.top/page/</link><description>Recent content in Pages on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Sat, 27 Mar 2021 11:57:00 +0800</lastBuildDate><atom:link href="https://lesx.top/page/index.xml" rel="self" type="application/rss+xml"/><item><title>友链</title><link>https://lesx.top/links/</link><pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate><guid>https://lesx.top/links/</guid><description>&lt;p>欢迎与我交换友链~&lt;/p>
 &lt;blockquote>
 &lt;p>title:kenome&amp;rsquo;s blog&lt;/p>
 &lt;p>description: 独立思考，保持清醒&lt;/p>
@@ -6,7 +6,7 @@
 >https://lesx.top&lt;/a>&lt;/p>
 &lt;p>image: &lt;a class="link" href="https://img.lesx.top/avatar.png" target="_blank" rel="noopener"
 >https://img.lesx.top/avatar.png&lt;/a>&lt;/p>
-&lt;/blockquote></description></item><item><title>关于</title><link>https://example.com/about/</link><pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate><guid>https://example.com/about/</guid><description>&lt;h2 id="交换友链">交换友链
+&lt;/blockquote></description></item><item><title>关于</title><link>https://lesx.top/about/</link><pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate><guid>https://lesx.top/about/</guid><description>&lt;h2 id="交换友链">交换友链
 &lt;/h2>&lt;p>如果想要和我交换友链，可以参考如下格式&lt;/p>
 &lt;blockquote>
 &lt;ul>
@@ -29,4 +29,4 @@
 &lt;li>2022-11:迁移博客至&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
 >Hugo&lt;/a>，使用&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-s" target="_blank" rel="noopener"
 >hugo-theme-stack&lt;/a>作为主题&lt;/li>
-&lt;/ul></description></item><item><title>归档</title><link>https://example.com/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://example.com/archives/</guid><description/></item><item><title>观影</title><link>https://example.com/media/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.com/media/</guid><description/></item><item><title>搜索</title><link>https://example.com/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://example.com/search/</guid><description/></item></channel></rss>
+&lt;/ul></description></item><item><title>归档</title><link>https://lesx.top/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://lesx.top/archives/</guid><description/></item><item><title>观影</title><link>https://lesx.top/media/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lesx.top/media/</guid><description/></item><item><title>搜索</title><link>https://lesx.top/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lesx.top/search/</guid><description/></item></channel></rss>
