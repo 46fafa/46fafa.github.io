@@ -5,35 +5,31 @@
     <div class="article-content">
         {{ .Content }}
     </div>
-    {{ $moviesData := sort .Site.Data.movies "year" "desc" }}
-    {{ $tvData := sort .Site.Data.tvs "year" "desc" }}
-    {{ $booksData := sort .Site.Data.books "year" "desc" }}
+    {{ $moviesData := sort .Site.Data.movies "date" "desc" }}
+    {{ $tvData := sort .Site.Data.tvs "date" "desc" }}
+    {{ $booksData := sort .Site.Data.books "date" "desc" }}
 
-    {{/* 保留原有变量：当前年份(yyyy格式) */}}
-    {{ $currentYear := now.Format "2006" }} {{/* 2006是Hugo固定的年份参考值，用于格式化 */}}
+    {{ $currentYear := now.Format "2006" }}
 
-    {{/* 保留原有变量：统计当前年份的电影总数 */}}
     {{ $totalMovies := 0 }}
     {{ range $moviesData }}
-        {{ $itemYear := substr .year 0 4 }} {{/* 从"YYYY-MM"中截取前4位作为年份 */}}
-        {{ if eq $itemYear $currentYear }} {{/* 仅统计当前年份的内容 */}}
-            {{ $totalMovies = add $totalMovies 1 }} {{/* 计数+1 */}}
+        {{ $itemYear := substr .date 0 4 }}
+        {{ if eq $itemYear $currentYear }}
+            {{ $totalMovies = add $totalMovies 1 }}
         {{ end }}
     {{ end }}
 
-    {{/* 保留原有变量：统计当前年份的剧集总数 */}}
     {{ $totalTvs := 0 }}
     {{ range $tvData }}
-        {{ $itemYear := substr .year 0 4 }}
+        {{ $itemYear := substr .date 0 4 }}
         {{ if eq $itemYear $currentYear }}
             {{ $totalTvs = add $totalTvs 1 }}
         {{ end }}
     {{ end }}
 
-    {{/* 保留原有变量：统计当前年份的书籍总数 */}}
     {{ $totalBooks := 0 }}
     {{ range $booksData }}
-        {{ $itemYear := substr .year 0 4 }}
+        {{ $itemYear := substr .date 0 4 }}
         {{ if eq $itemYear $currentYear }}
             {{ $totalBooks = add $totalBooks 1 }}
         {{ end }}
@@ -48,21 +44,31 @@
 
     {{ if $moviesData }}
         <div class="media-grid{{ if eq $firstActiveType "movies" }} active{{ end }}" data-type="movies">
-            {{ $currentYearGroup := "" }} {{/* 改为按年份分组的变量 */}}
+            {{ $currentYearGroup := "" }}
+            {{ $yearGroups := slice }}
             {{ range $moviesData }}
-                {{ $itemYear := substr .year 0 4 }} {{/* 仅保留年份部分 */}}
+                {{ $itemYear := substr .date 0 4 }}
+                {{ if not (in $yearGroups $itemYear) }}
+                    {{ $yearGroups = $yearGroups | append $itemYear }}
+                {{ end }}
+            {{ end }}
+            
+            {{ $index := 0 }}
+            {{ range $moviesData }}
+                {{ $itemYear := substr .date 0 4 }}
                 {{ if ne $itemYear $currentYearGroup }}
                     {{ if ne $currentYearGroup "" }}
                         </div> 
                         </div> 
                     {{ end }}
                     
-                    <div class="year-group">
+                    <div class="year-group{{ if gt $index 1 }} hidden{{ end }}" data-year="{{ $itemYear }}">
                         <div class="year-date-column">
-                            <span class="year-display-year">{{ $itemYear }}</span> {{/* 仅显示年份 */}}
+                            <span class="year-display-year">{{ $itemYear }}</span>
                         </div>
                         <div class="year-items">
                     {{ $currentYearGroup = $itemYear }}
+                    {{ $index = add $index 1 }}
                 {{ end }}
                 <div class="media-card">
                     <div class="media-poster">
@@ -73,11 +79,12 @@
                         {{ end }}
                     </div>
                     <div class="media-info">
-                        <h3 class="media-title">{{ .title }} </span></h3>
+                        <h3 class="media-title">{{ .title }}</h3>
                         <div class="media-meta">
                             {{ if .rating }}
                                 <span class="rating">评分⭐ {{ printf "%.1f" .rating }}</span>
                             {{ end }}
+                            <span class="watch-date">{{ .date }}</span>
                         </div>
                     </div>
                 </div>
@@ -85,27 +92,43 @@
             {{ if ne $currentYearGroup "" }}
                 </div> 
                 </div> 
+            {{ end }}
+            
+            {{ if gt (len $yearGroups) 2 }}
+                <div class="show-more-container">
+                    <button class="show-more-btn" data-type="movies">显示更多</button>
+                </div>
             {{ end }}
         </div>
     {{ end }}
 
     {{ if $tvData }}
         <div class="media-grid{{ if eq $firstActiveType "tvs" }} active{{ end }}" data-type="tvs">
-            {{ $currentYearGroup := "" }} {{/* 改为按年份分组的变量 */}}
+            {{ $currentYearGroup := "" }}
+            {{ $yearGroups := slice }}
             {{ range $tvData }}
-                {{ $itemYear := substr .year 0 4 }} {{/* 仅保留年份部分 */}}
+                {{ $itemYear := substr .date 0 4 }}
+                {{ if not (in $yearGroups $itemYear) }}
+                    {{ $yearGroups = $yearGroups | append $itemYear }}
+                {{ end }}
+            {{ end }}
+            
+            {{ $index := 0 }}
+            {{ range $tvData }}
+                {{ $itemYear := substr .date 0 4 }}
                 {{ if ne $itemYear $currentYearGroup }}
                     {{ if ne $currentYearGroup "" }}
                         </div> 
                         </div> 
                     {{ end }}
               
-                    <div class="year-group">
+                    <div class="year-group{{ if gt $index 1 }} hidden{{ end }}" data-year="{{ $itemYear }}">
                         <div class="year-date-column">
-                            <span class="year-display-year">{{ $itemYear }}</span> {{/* 仅显示年份 */}}
+                            <span class="year-display-year">{{ $itemYear }}</span>
                         </div>
                         <div class="year-items">
                     {{ $currentYearGroup = $itemYear }}
+                    {{ $index = add $index 1 }}
                 {{ end }}
                 <div class="media-card">
                     <div class="media-poster">
@@ -116,11 +139,12 @@
                         {{ end }}
                     </div>
                     <div class="media-info">
-                        <h3 class="media-title">{{ .title }} </span></h3>
+                        <h3 class="media-title">{{ .title }}</h3>
                         <div class="media-meta">
                             {{ if .rating }}
                                 <span class="rating">⭐ {{ printf "%.1f" .rating }}</span>
                             {{ end }}
+                            <span class="watch-date">{{ .date }}</span>
                         </div>
                     </div>
                 </div>
@@ -128,27 +152,43 @@
             {{ if ne $currentYearGroup "" }}
                 </div> 
                 </div> 
+            {{ end }}
+            
+            {{ if gt (len $yearGroups) 2 }}
+                <div class="show-more-container">
+                    <button class="show-more-btn" data-type="tvs">显示更多</button>
+                </div>
             {{ end }}
         </div>
     {{ end }}
 
     {{ if $booksData }}
         <div class="media-grid{{ if eq $firstActiveType "books" }} active{{ end }}" data-type="books">
-            {{ $currentYearGroup := "" }} {{/* 改为按年份分组的变量 */}}
+            {{ $currentYearGroup := "" }}
+            {{ $yearGroups := slice }}
             {{ range $booksData }}
-                {{ $itemYear := substr .year 0 4 }} {{/* 仅保留年份部分 */}}
+                {{ $itemYear := substr .date 0 4 }}
+                {{ if not (in $yearGroups $itemYear) }}
+                    {{ $yearGroups = $yearGroups | append $itemYear }}
+                {{ end }}
+            {{ end }}
+            
+            {{ $index := 0 }}
+            {{ range $booksData }}
+                {{ $itemYear := substr .date 0 4 }}
                 {{ if ne $itemYear $currentYearGroup }}
                     {{ if ne $currentYearGroup "" }}
                         </div> 
                         </div> 
                     {{ end }}
                    
-                    <div class="year-group">
+                    <div class="year-group{{ if gt $index 1 }} hidden{{ end }}" data-year="{{ $itemYear }}">
                         <div class="year-date-column">
-                            <span class="year-display-year">{{ $itemYear }}</span> {{/* 仅显示年份 */}}
+                            <span class="year-display-year">{{ $itemYear }}</span>
                         </div>
                         <div class="year-items">
                     {{ $currentYearGroup = $itemYear }}
+                    {{ $index = add $index 1 }}
                 {{ end }}
                 <div class="media-card">
                     <div class="media-poster">
@@ -159,11 +199,12 @@
                         {{ end }}
                     </div>
                     <div class="media-info">
-                        <h3 class="media-title">{{ .title }} </span></h3>
+                        <h3 class="media-title">{{ .title }}</h3>
                         <div class="media-meta">
                             {{ if .rating }}
                                 <span class="rating">⭐ {{ printf "%.1f" .rating }}</span>
                             {{ end }}
+                            <span class="watch-date">{{ .date }}</span>
                         </div>
                     </div>
                 </div>
@@ -172,30 +213,132 @@
                 </div>
                 </div>
             {{ end }}
+            
+            {{ if gt (len $yearGroups) 2 }}
+                <div class="show-more-container">
+                    <button class="show-more-btn" data-type="books">显示更多</button>
+                </div>
+            {{ end }}
         </div>
+        {{ if not (eq .Params.comments false) }}
+        {{ partial "comments/include" . }}
+        {{ end }}
+        {{ if .Params.twikooStyle }}
+        {{end}}
+
     {{ end }}
 
+    <!-- 返回顶部按钮 HTML 结构 -->
+<button id="back-to-top" class="back-to-top-btn" aria-label="返回顶部">
+        <div class="progress-ring">
+            <svg class="progress-ring__circle" width="48" height="48" viewBox="0 0 48 48">
+                <!-- 环形背景 -->
+                <circle 
+                    class="progress-ring__background" 
+                    stroke="#eee" 
+                    stroke-width="4" 
+                    fill="transparent" 
+                    r="20" 
+                    cx="24" 
+                    cy="24"
+                />
+                <!-- 进度环形（动态变化） -->
+                <circle 
+                    class="progress-ring__progress" 
+                    stroke="#333" 
+                    stroke-width="4" 
+                    fill="transparent" 
+                    r="20" 
+                    cx="24" 
+                    cy="24"
+                    stroke-dasharray="125.6"
+                    stroke-dashoffset="125.6"
+                    stroke-linecap="round"
+                    transform="rotate(-90 24 24)"
+                />
+            </svg>
+            <!-- 箭头符号（居中） -->
+            <span class="arrow-icon">↑</span>
+        </div>
+    </button>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const typeButtons = document.querySelectorAll('.type-btn');
             const grids = document.querySelectorAll('.media-grid');
+            const showMoreButtons = document.querySelectorAll('.show-more-btn');
+            
+            // 显示指定类型的内容
             function showType(type) {
                 typeButtons.forEach(btn => btn.classList.remove('active'));
                 grids.forEach(grid => grid.classList.remove('active'));
                 const activeBtn = document.querySelector(`.type-btn[data-type="${type}"]`);
                 const activeGrid = document.querySelector(`.media-grid[data-type="${type}"]`);
 
-
                 if (activeBtn) activeBtn.classList.add('active');
                 if (activeGrid) activeGrid.classList.add('active');
             }
+            
+            // 初始显示默认类型
             const initialType = '{{ $firstActiveType }}';
             showType(initialType);
-
+            
+            // 类型切换按钮事件
             typeButtons.forEach(button => {
                 button.addEventListener('click', function() {
                     const type = this.dataset.type;
                     showType(type);
+                });
+            });
+            
+            // 显示更多按钮事件
+            showMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const type = this.dataset.type;
+                    const grid = document.querySelector(`.media-grid[data-type="${type}"]`);
+                    const hiddenGroups = grid.querySelectorAll('.year-group.hidden');
+                    
+                    // 每次显示2个年份组
+                    const groupsToShow = Math.min(2, hiddenGroups.length);
+                    
+                    for (let i = 0; i < groupsToShow; i++) {
+                        hiddenGroups[i].classList.remove('hidden');
+                    }
+                    
+                    // 如果没有更多隐藏的组了，隐藏"显示更多"按钮
+                    if (hiddenGroups.length <= groupsToShow) {
+                        this.style.display = 'none';
+                    }
+                });
+            });
+
+            // 返回顶部按钮逻辑
+            const backToTopBtn = document.getElementById('back-to-top');
+            const progressCircle = document.querySelector('.progress-ring__progress');
+            const circleCircumference = 125.6; // 圆周长 = 2*π*r = 2*3.14*20
+
+            // 监听页面滚动，更新按钮显示/隐藏和进度条
+            window.addEventListener('scroll', function() {
+                // 计算滚动进度（0~1）：当前滚动距离 / 可滚动总距离
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollProgress = scrollTop / scrollHeight;
+
+                // 更新进度环：stroke-dashoffset = 周长 * (1 - 进度)
+                progressCircle.style.strokeDashoffset = circleCircumference * (1 - scrollProgress);
+
+                // 滚动超过 300px 时显示按钮，否则隐藏
+                if (scrollTop > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+
+            // 点击按钮返回顶部（平滑滚动）
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 平滑滚动效果
                 });
             });
         });

@@ -2,6 +2,10 @@ import requests
 import yaml
 import os
 from datetime import datetime
+# from dotenv import load_dotenv
+
+# # 新增：加载 .env 文件中的环境变量
+# load_dotenv()
 
 # --- 配置部分 ---
 NEODB_API_BASE_URL = "https://neodb.social/api/me/shelf/complete"  # 基础API URL
@@ -10,7 +14,6 @@ CATEGORIES = ["movie", "tv", "book"]  # 需要获取的媒体类型
 PAGE_SIZE = 100  # 每页获取的数据量
 
 def fetch_data_from_api(base_url: str, token: str, category: str) -> list:
-
     headers = {
         "accept": "application/json",
         "Authorization": f"Bearer {token}"
@@ -50,10 +53,8 @@ def fetch_data_from_api(base_url: str, token: str, category: str) -> list:
         except requests.exceptions.HTTPError as http_err:
             print(f"HTTP 错误发生: {http_err}")
             if page == 1:
-
                 break
             else:
-
                 print(f"第 {page} 页请求失败，跳过该页")
                 break
 
@@ -64,25 +65,24 @@ def fetch_data_from_api(base_url: str, token: str, category: str) -> list:
     print(f"{category} 数据获取完成，共获取 {len(all_items)} 条数据")
     return all_items
 
-def format_year_month(created_time: str) -> str:
+def format_date(created_time: str) -> str:
     """
-    将 created_time 格式化为 YYYY-MM 格式。
+    将 created_time 格式化为 YYYY-MM-DD 格式（保留年月日）。
     """
     if not created_time or not isinstance(created_time, str):
         return None
 
     try:
-
+        # 处理ISO格式时间（如带时区的格式）
         dt = datetime.fromisoformat(created_time.replace('Z', '+00:00'))
-        return dt.strftime("%Y-%m")
+        return dt.strftime("%Y-%m-%d")  # 改为年月日格式
     except ValueError:
-
-        if len(created_time) >= 7:
-            return created_time[:7]
+        # 处理非ISO格式，但包含至少10个字符的情况（YYYY-MM-DD长度为10）
+        if len(created_time) >= 10:
+            return created_time[:10]  # 截取前10个字符（如2023-10-05）
         return None
 
 def process_raw_data(raw_items: list, category_name: str) -> list:
-
     processed_category_items = []
 
     print(f"正在处理 {len(raw_items)} 条 {category_name} 数据...")
@@ -94,27 +94,27 @@ def process_raw_data(raw_items: list, category_name: str) -> list:
 
         item = entry['item']
 
-        # 提取年月
+        # 提取完整日期（年月日）
         created_time = entry.get('created_time')
-        year_month = format_year_month(created_time)
+        date = format_date(created_time)  # 调用修改后的日期格式化函数
 
-        if not year_month:
-            print(f"警告: 无法从 {created_time} 提取年月，跳过 {category_name} 条目: {item.get('title', '未知标题')}")
+        if not date:
+            print(f"警告: 无法从 {created_time} 提取日期，跳过 {category_name} 条目: {item.get('title', '未知标题')}")
             continue
 
         processed_entry = {
             'title': item.get('title'),
             'cover': item.get('cover_image_url'),
             'rating': item.get('rating'),
-            'year': year_month,  # 使用处理后的年月格式
-
+            'date': date,  # 字段名从year改为date，更符合实际内容
         }
 
         processed_category_items.append(processed_entry)
 
+    # 按日期降序排序（最新的在前）
     processed_category_items = sorted(
         processed_category_items,
-        key=lambda x: x.get('year', '0000-00'),
+        key=lambda x: x.get('date', '0000-00-00'),
         reverse=True
     )
 
@@ -122,7 +122,6 @@ def process_raw_data(raw_items: list, category_name: str) -> list:
     return processed_category_items
 
 def save_to_yaml(data: list, filename: str):
-
     print(f"正在将数据保存到 {filename}...")
 
     try:
@@ -140,7 +139,6 @@ def save_to_yaml(data: list, filename: str):
         print(f"保存 YAML 文件时发生未知错误: {e}")
 
 def main():
-
     neodb_auth_token = os.environ.get("NEODB_AUTH_TOKEN")
     if not neodb_auth_token:
         print("错误: 环境变量 NEODB_AUTH_TOKEN 未设置。请设置此环境变量。")
@@ -152,11 +150,9 @@ def main():
     }
 
     for category in CATEGORIES:
-
         raw_items = fetch_data_from_api(NEODB_API_BASE_URL, neodb_auth_token, category)
 
         if raw_items:
-
             processed_category_list = process_raw_data(raw_items, category)
             all_processed_data_for_stats[category] = processed_category_list  # 存储用于统计
 
@@ -170,13 +166,12 @@ def main():
         items_count = len(all_processed_data_for_stats[category])
         print(f"{category.capitalize()} 类别包含 {items_count} 条处理后数据")
         if items_count > 0:
-            # 由于数据已按年份降序排列，第一个是最新，最后一个是最早
-            latest_year = all_processed_data_for_stats[category][0].get('year', '未知')
-            earliest_year = all_processed_data_for_stats[category][-1].get('year', '未知')
-            print(f"  时间范围: {earliest_year} 到 {latest_year}")
+            # 由于数据已按日期降序排列，第一个是最新，最后一个是最早
+            latest_date = all_processed_data_for_stats[category][0].get('date', '未知')
+            earliest_date = all_processed_data_for_stats[category][-1].get('date', '未知')
+            print(f"  时间范围: {earliest_date} 到 {latest_date}")
         else:
             print(f"  无数据")
 
 if __name__ == "__main__":
     main()
-
