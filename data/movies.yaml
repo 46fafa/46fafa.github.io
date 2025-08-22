@@ -72,7 +72,7 @@
   date: '2023-09-13'
 - title: 猫狗大战2：珍珠猫复仇
   cover: https://neodb.social/m/movie/2021/09/21bac6df9b-6cf6-4c88-808d-e33d483af369.jpg
-  rating: 6.1
+  rating: 6.2
   date: '2023-09-12'
 - title: 猫狗大战
   cover: https://neodb.social/m/movie/2021/09/157b9b9930-8cb1-46c8-804e-9fedea488c6c.jpg
@@ -210,3 +210,7 @@
   cover: https://neodb.social/m/item/tmdb_movie/2025/01/20/baef0c81-b856-4abc-b925-257083bb160b.jpg
   rating: 7.8
   date: '2022-04-08'
+- title: 十二生肖
+  cover: https://neodb.social/m/movie/2021/09/1560da3e01-10a9-47ac-9c41-689f7e336520.jpg
+  rating: 6.0
+  date: '2016-04-22'
