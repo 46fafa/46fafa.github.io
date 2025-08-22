@@ -15,7 +15,7 @@
     <section class="copyright">
         &copy; 
         {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
-            {{ .Site.Params.footer.since }} - 
+            {{ .Site.Params.footer.since }} - kenome All Rights Reserved.
         {{ end }}
         {{ now.Format "2006" }}<br>{{ .Site.Copyright }} 发表了 {{ len (where .Site.RegularPages "Section" "post") }} 篇文章 | 总计 {{$scratch.Get "total" }} 字</br><span><p>
     </section>

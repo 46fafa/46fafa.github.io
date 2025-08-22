@@ -10,7 +10,7 @@
     color: var(--card-text-color-main);
 }
 
-/* 3. 类型按钮样式 */
+/* 类型按钮样式 */
 .type-buttons {
     display: flex;
     justify-content: center;
@@ -50,7 +50,7 @@
     border-color: #45a049;
 }
 
-/* 4. 媒体网格样式 */
+/* 媒体网格样式 */
 .media-grid {
     display: none; /* 默认隐藏所有网格 */
     opacity: 0;
@@ -62,7 +62,7 @@
     opacity: 1;
 }
 
-/* 5. 年份分组样式 */
+/* 年份分组样式 */
 .year-group {
     display: flex; /* 使用 Flexbox 进行年份和项目并排布局 */
     margin-bottom: 50px; /* 每组年份间的垂直间距 */
@@ -80,14 +80,6 @@
     margin-top: 15px; /* 与卡片顶部的微调对齐 */
 }
 
-.year-display-month {
-    display: block;
-    font-size: 2em;
-    color: #777;
-    margin-bottom: 5px;
-    font-weight: 500;
-}
-
 .year-display-year {
     display: block;
     font-size: 2.5em; /* 年份字体更大 */
@@ -103,7 +95,7 @@
     gap: 30px; /* 卡片之间的间距 */
 }
 
-/* 6. 媒体卡片样式 */
+/* 媒体卡片样式 */
 .media-card {
     background: var(--card-background);
     border-radius: 12px;
@@ -113,10 +105,6 @@
     flex-direction: column; /* 垂直堆叠海报和信息 */
     height: 100%; /* 确保卡片高度一致 */
 }
-
-// .media-card:hover {
-//     transform: translateY(-5px); /* 悬停上浮效果 */
-// }
 
 .media-poster {
     width: 100%;
@@ -134,12 +122,7 @@
     height: 100%;
     object-fit: cover; /* 裁剪图片以填充容器 */
     display: block;
-    // transition: transform 0.3s ease;
 }
-
-// .media-card:hover .media-poster img {
-//     transform: scale(1.05); /* 悬停时图片轻微放大 */
-// }
 
 .no-poster {
     font-size: 1.1em;
@@ -180,7 +163,7 @@
     font-weight: 600;
 }
 
-/* 7. 响应式调整 */
+/* 响应式调整 */
 @media (max-width: 768px) {
     .media-page {
         padding: 15px;
@@ -215,14 +198,8 @@
         margin-top: 0;
     }
 
-    .year-display-month {
-        display: inline-block; /* 月份和年份并排 */
-        margin-right: 10px;
-        font-size: 1em;
-    }
-
     .year-display-year {
-        display: inline-block; /* 月份和年份并排 */
+        display: inline-block; /* 年份单独显示 */
         font-size: 2em;
     }
 
@@ -241,14 +218,6 @@
 
     .media-title {
         font-size: 1em;
-    }
-
-    .media-year {
-        font-size: 0.8em;
-    }
-
-    .media-info {
-        padding: 10px;
     }
 
     .rating {
@@ -272,7 +241,7 @@
     }
 }
 
-/* 8. 年度统计信息样式 */
+/* 年度统计信息样式 */
 .yearly-stats {
     /* 布局与间距：匹配标题和按钮的间距节奏 */
     margin: 0 auto 3px; /* 居中显示，底部留出空间与下方内容分隔 */
@@ -305,7 +274,7 @@
     }
 }
 
-/* 9. 响应式调整 for yearly-stats */
+/* 响应式调整 for yearly-stats */
 @media (max-width: 768px) {
     .yearly-stats {
         padding: 15px 20px; /* 小屏幕下减小内边距 */

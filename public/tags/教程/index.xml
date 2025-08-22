@@ -46,20 +46,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/Quicker1.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/Quicker1.webp&#34; alt=&#34;image-20230723174027239&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/Quicker1.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230723174027239&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;这是下载的动作，但是本地实验后发现这个动作没有&lt;code&gt;hugo&lt;/code&gt;和&lt;code&gt;git add .&lt;/code&gt;命令，于是针对自己情况对原动作作了修改&lt;/p&gt;
 &lt;p&gt;
 
@@ -67,20 +54,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/quicker2.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/quicker2.webp&#34; alt=&#34;Snipaste_2023-07-23_17-54-51&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/quicker2.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;Snipaste_2023-07-23_17-54-51&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录&lt;/p&gt;
 &lt;p&gt;比如我的文章根目录为&lt;code&gt;MyBlog\content\zh-cn\post&lt;/code&gt;,上级目录就是&lt;code&gt;MyBlog\content\zh-cn&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;
@@ -89,20 +63,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/quicker3.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/quicker3.webp&#34; alt=&#34;image-20230723180531905&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/quicker3.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230723180531905&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;使用时目录设置为博客文件的根目录&lt;/p&gt;
 &lt;p&gt;原作者不允许再次进行分享，为了方便下载，我设置了私人分享&lt;a class=&#34;link&#34; href=&#34;https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hugo自动化&lt;/a&gt;,需要自取&lt;/p&gt;
@@ -148,18 +109,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/wenkai-1.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/wenkai-1.webp&#34; alt=&#34;&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/wenkai-1.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;看到别人博客换了字体，超级好看，我也要😊！！&lt;/p&gt;
 &lt;p&gt;项目地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/lxgw/LxgwWenKai&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/lxgw/LxgwWenKai&lt;/a&gt;&lt;/p&gt;
@@ -184,20 +134,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34; alt=&#34;image-20230722000207898&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230722000207898&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;可以直接复制下面的代码&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -236,20 +173,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34; alt=&#34;image-20230722001413058&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20230722001413058&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 </description>
         </item>
         

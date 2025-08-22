@@ -9,10 +9,10 @@
     {{ $tvData := sort .Site.Data.tvs "year" "desc" }}
     {{ $booksData := sort .Site.Data.books "year" "desc" }}
 
-        {{/* 2. 定义当前年份变量（yyyy格式） */}}
+    {{/* 保留原有变量：当前年份(yyyy格式) */}}
     {{ $currentYear := now.Format "2006" }} {{/* 2006是Hugo固定的年份参考值，用于格式化 */}}
 
-    {{/* 3. 统计当前年份的电影总数 */}}
+    {{/* 保留原有变量：统计当前年份的电影总数 */}}
     {{ $totalMovies := 0 }}
     {{ range $moviesData }}
         {{ $itemYear := substr .year 0 4 }} {{/* 从"YYYY-MM"中截取前4位作为年份 */}}
@@ -21,7 +21,7 @@
         {{ end }}
     {{ end }}
 
-    {{/* 4. 统计当前年份的剧集总数 */}}
+    {{/* 保留原有变量：统计当前年份的剧集总数 */}}
     {{ $totalTvs := 0 }}
     {{ range $tvData }}
         {{ $itemYear := substr .year 0 4 }}
@@ -30,7 +30,7 @@
         {{ end }}
     {{ end }}
 
-    {{/* 5. 统计当前年份的书籍总数 */}}
+    {{/* 保留原有变量：统计当前年份的书籍总数 */}}
     {{ $totalBooks := 0 }}
     {{ range $booksData }}
         {{ $itemYear := substr .year 0 4 }}
@@ -48,21 +48,21 @@
 
     {{ if $moviesData }}
         <div class="media-grid{{ if eq $firstActiveType "movies" }} active{{ end }}" data-type="movies">
-            {{ $currentYearMovie := "" }} 
+            {{ $currentYearGroup := "" }} {{/* 改为按年份分组的变量 */}}
             {{ range $moviesData }}
-                {{ if ne .year $currentYearMovie }}
-                    {{ if ne $currentYearMovie "" }}
+                {{ $itemYear := substr .year 0 4 }} {{/* 仅保留年份部分 */}}
+                {{ if ne $itemYear $currentYearGroup }}
+                    {{ if ne $currentYearGroup "" }}
                         </div> 
                         </div> 
                     {{ end }}
                     
                     <div class="year-group">
                         <div class="year-date-column">
-                            <span class="year-display-month">{{ substr .year 5 2 }}</span>
-                            <span class="year-display-year">{{ substr .year 0 4 }}</span>
+                            <span class="year-display-year">{{ $itemYear }}</span> {{/* 仅显示年份 */}}
                         </div>
                         <div class="year-items">
-                    {{ $currentYearMovie = .year }}
+                    {{ $currentYearGroup = $itemYear }}
                 {{ end }}
                 <div class="media-card">
                     <div class="media-poster">
@@ -82,7 +82,7 @@
                     </div>
                 </div>
             {{ end }}
-            {{ if ne $currentYearMovie "" }}
+            {{ if ne $currentYearGroup "" }}
                 </div> 
                 </div> 
             {{ end }}
@@ -91,21 +91,21 @@
 
     {{ if $tvData }}
         <div class="media-grid{{ if eq $firstActiveType "tvs" }} active{{ end }}" data-type="tvs">
-            {{ $currentYearTv := "" }} 
+            {{ $currentYearGroup := "" }} {{/* 改为按年份分组的变量 */}}
             {{ range $tvData }}
-                {{ if ne .year $currentYearTv }}
-                    {{ if ne $currentYearTv "" }}
+                {{ $itemYear := substr .year 0 4 }} {{/* 仅保留年份部分 */}}
+                {{ if ne $itemYear $currentYearGroup }}
+                    {{ if ne $currentYearGroup "" }}
                         </div> 
                         </div> 
                     {{ end }}
               
                     <div class="year-group">
                         <div class="year-date-column">
-                            <span class="year-display-month">{{ substr .year 5 2 }}</span>
-                            <span class="year-display-year">{{ substr .year 0 4 }}</span>
+                            <span class="year-display-year">{{ $itemYear }}</span> {{/* 仅显示年份 */}}
                         </div>
                         <div class="year-items">
-                    {{ $currentYearTv = .year }}
+                    {{ $currentYearGroup = $itemYear }}
                 {{ end }}
                 <div class="media-card">
                     <div class="media-poster">
@@ -125,7 +125,7 @@
                     </div>
                 </div>
             {{ end }}
-            {{ if ne $currentYearTv "" }}
+            {{ if ne $currentYearGroup "" }}
                 </div> 
                 </div> 
             {{ end }}
@@ -134,21 +134,21 @@
 
     {{ if $booksData }}
         <div class="media-grid{{ if eq $firstActiveType "books" }} active{{ end }}" data-type="books">
-            {{ $currentYearBook := "" }} 
+            {{ $currentYearGroup := "" }} {{/* 改为按年份分组的变量 */}}
             {{ range $booksData }}
-                {{ if ne .year $currentYearBook }}
-                    {{ if ne $currentYearBook "" }}
+                {{ $itemYear := substr .year 0 4 }} {{/* 仅保留年份部分 */}}
+                {{ if ne $itemYear $currentYearGroup }}
+                    {{ if ne $currentYearGroup "" }}
                         </div> 
                         </div> 
                     {{ end }}
                    
                     <div class="year-group">
                         <div class="year-date-column">
-                            <span class="year-display-month">{{ substr .year 5 2 }}</span>
-                            <span class="year-display-year">{{ substr .year 0 4 }}</span>
+                            <span class="year-display-year">{{ $itemYear }}</span> {{/* 仅显示年份 */}}
                         </div>
                         <div class="year-items">
-                    {{ $currentYearBook = .year }}
+                    {{ $currentYearGroup = $itemYear }}
                 {{ end }}
                 <div class="media-card">
                     <div class="media-poster">
@@ -168,7 +168,7 @@
                     </div>
                 </div>
             {{ end }}
-            {{ if ne $currentYearBook "" }}
+            {{ if ne $currentYearGroup "" }}
                 </div>
                 </div>
             {{ end }}

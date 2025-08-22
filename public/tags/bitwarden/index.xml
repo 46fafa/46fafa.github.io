@@ -22,20 +22,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/bw.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/2023/bw.webp&#34; alt=&#34;image-20231215130129827&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/2023/bw.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231215130129827&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;GitHub有大佬用rust重写了Bitwarden名为vaultwarden，对机器的要求更低，而且提供了Docker镜像，部署起来也比较方便。&lt;/p&gt;
 &lt;p&gt;vaultwarden：https://github.com/dani-garcia/vaultwarden&lt;/p&gt;
 &lt;h2 id=&#34;前置准备&#34;&gt;前置准备
@@ -176,20 +163,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/docker.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/2023/docker.webp&#34; alt=&#34;image-20231215135826570&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/2023/docker.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231215135826570&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;出现容器名称说明容器成功运行，在这里可以使用你的服务器ip:端口号访问web页面&lt;/p&gt;
 &lt;p&gt;
 
@@ -197,20 +171,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34; alt=&#34;image-20231217220525482&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217220525482.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231217220525482&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;h2 id=&#34;使用宝塔面板部署ssl以及设置反向代理&#34;&gt;使用宝塔面板部署SSL以及设置反向代理
 &lt;/h2&gt;&lt;p&gt;打开宝塔面板，点击网站-&amp;gt;添加站点，此处域名更换成你自己的域名&lt;/p&gt;
 &lt;p&gt;
@@ -219,20 +180,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/bt.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/2023/bt.webp&#34; alt=&#34;image-20231215140236160&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/2023/bt.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231215140236160&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;提交后点击SSL-&amp;gt;Let`s Encrypt申请证书&lt;/p&gt;
 &lt;p&gt;
 
@@ -240,20 +188,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/zs.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/2023/zs.webp&#34; alt=&#34;image-20231215140439474&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/2023/zs.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231215140439474&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;然后点击当前证书-&amp;gt;保存并启用证书，勾选强制https,不然后续会出现无法注册的问题&lt;/p&gt;
 &lt;h3 id=&#34;设置反向代理&#34;&gt;设置反向代理
 &lt;/h3&gt;&lt;p&gt;点击反向代理-&amp;gt;添加反向代理&lt;/p&gt;
@@ -263,20 +198,7 @@
 &lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34;&gt;
 &lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34; alt=&#34;image-20231217221704724&#34;  /&gt;
 &lt;/a&gt;
-&lt;/div&gt;
-
-
-
-&lt;img src=&#34;https://r2-img.lesx.top/2023/image-20231217221704724.webp&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;image-20231217221704724&#34;
-	
-	
-&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;代理名称随意，目标url填&lt;code&gt;ip:端口&lt;/code&gt;,也就是你刚才访问的url,提交后就可以使用域名访问你的vaultwarden网页了。&lt;/p&gt;
 </description>
         </item>

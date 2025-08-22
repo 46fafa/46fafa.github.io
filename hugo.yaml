@@ -1,4 +1,4 @@
-baseurl: https://example.com/
+baseurl: https://lesx.top/
 languageCode: zh-cn
 theme: hugo-theme-stack
 title: Example Site
@@ -23,6 +23,11 @@ languages:
             sidebar:
                 emoji: 🍥
                 subtitle: 独立思考,保持清醒
+                avatar:
+                    enabled: true
+                    local: true
+                    src: img/avatar.png
+                
     # en:
     #     languageName: English
     #     title: kenome's blog
@@ -65,13 +70,13 @@ params:
         published: 2006-01-02
         lastUpdated: 2006-01-02 15:04 MST
 
-    sidebar:
-        emoji: 🍥
-        subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        avatar:
-            enabled: true
-            local: true
-            src: img/avatar.png
+    # sidebar:
+    #     emoji: 🍥
+    #     subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    #     avatar:
+    #         enabled: true
+    #         local: true
+    #         src: img/avatar.png
 
     # 文章相关设置，例如数学公式、目录、阅读时间和许可信息
     article:
