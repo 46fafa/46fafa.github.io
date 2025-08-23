@@ -1,11 +1,3 @@
-- title: 黄金时代
-  cover: https://neodb.social/m/book/2021/09/1788112afc-a98c-41f5-bffd-bd55c6a949bf.jpg
-  rating: 8.8
-  date: '2025-08-19'
-- title: 许三观卖血记
-  cover: https://neodb.social/m/book/2021/09/160a0fd39c-cf27-4f35-a603-4bcf5ba14258.jpg
-  rating: 9.0
-  date: '2025-08-08'
 - title: 活着
   cover: https://neodb.social/m/book/2021/09/1561f352a4-5276-4846-8e22-9287f21efd02.jpg
   rating: 9.2
@@ -18,6 +10,10 @@
   cover: https://neodb.social/m/book/2021/09/166465b453-93a1-4bd9-a46d-9d2afaba50b8.jpg
   rating: 8.2
   date: '2024-01-26'
+- title: 太白金星有点烦
+  cover: https://neodb.social/m/item/doubanbook/2023/05/29/cc933957-9ec9-4c69-a74d-23f7e3a52ef0.jpg
+  rating: 8.3
+  date: '2023-12-21'
 - title: 长安的荔枝
   cover: https://neodb.social/m/book/2022/10/2573823f61-b01b-40a3-926a-f2563cbd989a.jpg
   rating: 7.8
@@ -34,6 +30,10 @@
   cover: https://neodb.social/m/book/2021/09/1655e2a603-09a5-49ea-a942-f91b656d81fa.jpg
   rating: 8.0
   date: '2023-08-06'
+- title: 鲜衣怒马少年时-唐宋诗人的诗酒江湖
+  cover: https://neodb.social/m/book/2022/04/28d3206d38-f145-4a6e-969b-eea007f44890.jpg
+  rating: null
+  date: '2023-05-07'
 - title: 三体Ⅲ
   cover: https://neodb.social/m/book/2021/09/130fa4ab47-716a-4f11-b6ef-a7d173fcecc7.jpg
   rating: 8.8
@@ -46,6 +46,14 @@
   cover: https://neodb.social/m/item/bangumi/2024/12/22/184db1d2-e3a0-4e55-8111-464c00d8e8c8.jpg
   rating: 8.6
   date: '2023-03-22'
+- title: 许三观卖血记
+  cover: https://neodb.social/m/book/2021/09/160a0fd39c-cf27-4f35-a603-4bcf5ba14258.jpg
+  rating: 9.0
+  date: '2023-03-14'
+- title: 孔乙己
+  cover: https://neodb.social/m/book/2022/01/232710215f-15be-414e-8f98-2ee4a613a991.jpg
+  rating: 9.0
+  date: '2023-02-23'
 - title: 人性的弱点
   cover: https://neodb.social/m/book/2021/09/20541e0164-099a-44fc-9fc2-cd19e52f5cc8.jpg
   rating: 7.0
@@ -70,3 +78,19 @@
   cover: https://neodb.social/m/book/2021/10/24d14e2511-034a-4399-a83c-0b7d9fcf4071.jpg
   rating: 9.2
   date: '2022-05-09'
+- title: 黄金时代
+  cover: https://neodb.social/m/book/2021/09/1788112afc-a98c-41f5-bffd-bd55c6a949bf.jpg
+  rating: 8.7
+  date: '2021-08-19'
+- title: 龙族Ⅱ
+  cover: https://neodb.social/m/book/2021/09/17fc1814dd-6c56-4325-a2f6-4b2fd7e09bec.jpg
+  rating: 8.1
+  date: '2019-08-22'
+- title: 龙族 Ⅲ 黑月之潮（上）Dragon Raja III The Dark Moon Tide (Volume 1)
+  cover: https://neodb.social/m/book/2021/09/160f8ff7c2-fb07-42af-b543-6da88430406c.jpg
+  rating: 7.5
+  date: '2019-07-20'
+- title: 龙族Ⅰ
+  cover: https://neodb.social/m/book/2021/09/15b668a208-5639-42b5-9619-7cf69988e609.jpg
+  rating: 7.6
+  date: '2019-04-20'

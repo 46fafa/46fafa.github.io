@@ -2,10 +2,10 @@ import requests
 import yaml
 import os
 from datetime import datetime
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-# # 新增：加载 .env 文件中的环境变量
-# load_dotenv()
+# 新增：加载 .env 文件中的环境变量
+load_dotenv()
 
 # --- 配置部分 ---
 NEODB_API_BASE_URL = "https://neodb.social/api/me/shelf/complete"  # 基础API URL
