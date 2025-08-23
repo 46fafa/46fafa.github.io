@@ -227,40 +227,6 @@
         {{end}}
 
     {{ end }}
-
-    <!-- 返回顶部按钮 HTML 结构 -->
-<button id="back-to-top" class="back-to-top-btn" aria-label="返回顶部">
-        <div class="progress-ring">
-            <svg class="progress-ring__circle" width="48" height="48" viewBox="0 0 48 48">
-                <!-- 环形背景 -->
-                <circle 
-                    class="progress-ring__background" 
-                    stroke="#eee" 
-                    stroke-width="4" 
-                    fill="transparent" 
-                    r="20" 
-                    cx="24" 
-                    cy="24"
-                />
-                <!-- 进度环形（动态变化） -->
-                <circle 
-                    class="progress-ring__progress" 
-                    stroke="#333" 
-                    stroke-width="4" 
-                    fill="transparent" 
-                    r="20" 
-                    cx="24" 
-                    cy="24"
-                    stroke-dasharray="125.6"
-                    stroke-dashoffset="125.6"
-                    stroke-linecap="round"
-                    transform="rotate(-90 24 24)"
-                />
-            </svg>
-            <!-- 箭头符号（居中） -->
-            <span class="arrow-icon">↑</span>
-        </div>
-    </button>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const typeButtons = document.querySelectorAll('.type-btn');
@@ -308,37 +274,6 @@
                     if (hiddenGroups.length <= groupsToShow) {
                         this.style.display = 'none';
                     }
-                });
-            });
-
-            // 返回顶部按钮逻辑
-            const backToTopBtn = document.getElementById('back-to-top');
-            const progressCircle = document.querySelector('.progress-ring__progress');
-            const circleCircumference = 125.6; // 圆周长 = 2*π*r = 2*3.14*20
-
-            // 监听页面滚动，更新按钮显示/隐藏和进度条
-            window.addEventListener('scroll', function() {
-                // 计算滚动进度（0~1）：当前滚动距离 / 可滚动总距离
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollProgress = scrollTop / scrollHeight;
-
-                // 更新进度环：stroke-dashoffset = 周长 * (1 - 进度)
-                progressCircle.style.strokeDashoffset = circleCircumference * (1 - scrollProgress);
-
-                // 滚动超过 300px 时显示按钮，否则隐藏
-                if (scrollTop > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
-
-            // 点击按钮返回顶部（平滑滚动）
-            backToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' // 平滑滚动效果
                 });
             });
         });

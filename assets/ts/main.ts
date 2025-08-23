@@ -28,6 +28,32 @@ let Stack = {
         }
 
         /**
+         * Back to top button functionality
+         */
+        const backToTopButton = document.createElement('button');
+        backToTopButton.className = 'back-to-top';
+        backToTopButton.innerHTML = '↑';
+        backToTopButton.setAttribute('aria-label', '返回顶部');
+        document.body.appendChild(backToTopButton);
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll to top when clicked
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        /**
          * Add linear gradient background to tile style article
          */
         const articleTile = document.querySelector('.article-list--tile');

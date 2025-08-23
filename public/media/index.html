@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://localhost:1313/media/'>
 
-<link rel="stylesheet" href="/scss/style.min.3e26589c36b71e11ceb107346c876dd93d8e3d9552ce89834e831929d42d3183.css"><meta property='og:title' content="观影">
+<link rel="stylesheet" href="/scss/style.min.bd230504b3326560514ae8359471c91dd1bb74f7759dbad39934fb24ebb135ad.css"><meta property='og:title' content="观影">
 <meta property='og:description' content="">
 <meta property='og:url' content='http://localhost:1313/media/'>
 <meta property='og:site_name' content='kenome&#39;s blog'>
@@ -3355,40 +3355,6 @@
         
 
     
-
-    
-<button id="back-to-top" class="back-to-top-btn" aria-label="返回顶部">
-        <div class="progress-ring">
-            <svg class="progress-ring__circle" width="48" height="48" viewBox="0 0 48 48">
-                
-                <circle 
-                    class="progress-ring__background" 
-                    stroke="#eee" 
-                    stroke-width="4" 
-                    fill="transparent" 
-                    r="20" 
-                    cx="24" 
-                    cy="24"
-                />
-                
-                <circle 
-                    class="progress-ring__progress" 
-                    stroke="#333" 
-                    stroke-width="4" 
-                    fill="transparent" 
-                    r="20" 
-                    cx="24" 
-                    cy="24"
-                    stroke-dasharray="125.6"
-                    stroke-dashoffset="125.6"
-                    stroke-linecap="round"
-                    transform="rotate(-90 24 24)"
-                />
-            </svg>
-            
-            <span class="arrow-icon">↑</span>
-        </div>
-    </button>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const typeButtons = document.querySelectorAll('.type-btn');
@@ -3438,37 +3404,6 @@
                     }
                 });
             });
-
-            
-            const backToTopBtn = document.getElementById('back-to-top');
-            const progressCircle = document.querySelector('.progress-ring__progress');
-            const circleCircumference = 125.6; 
-
-            
-            window.addEventListener('scroll', function() {
-                
-                const scrollTop = window.scrollY || document.documentElement.scrollTop;
-                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrollProgress = scrollTop / scrollHeight;
-
-                
-                progressCircle.style.strokeDashoffset = circleCircumference * (1 - scrollProgress);
-
-                
-                if (scrollTop > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
-
-            
-            backToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth' 
-                });
-            });
         });
     </script>
 
@@ -3478,7 +3413,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.496d0c34d89b5797cf9c20346f0b224a00e95b878c059fedb7463f67b929513a.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.a25c5af94138bfcbf532afab1f7516b9f471cdaea924bc0532ea42db916174d9.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
