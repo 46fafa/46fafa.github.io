@@ -6,10 +6,13 @@ from dotenv import load_dotenv
 
 # 新增：加载 .env 文件中的环境变量
 load_dotenv()
+import os
+print(os.environ.get('HTTP_PROXY'))
+print(os.environ.get('HTTPS_PROXY'))
 
 # --- 配置部分 ---
 NEODB_API_BASE_URL = "https://neodb.social/api/me/shelf/complete"  # 基础API URL
-OUTPUT_BASE_DIR = "data"  
+OUTPUT_BASE_DIR = "data"
 CATEGORIES = ["movie", "tv", "book"]  # 需要获取的媒体类型
 PAGE_SIZE = 100  # 每页获取的数据量
 
@@ -29,7 +32,7 @@ def fetch_data_from_api(base_url: str, token: str, category: str) -> list:
 
         try:
             response = requests.get(api_url, headers=headers)
-            response.raise_for_status()  
+            response.raise_for_status()
 
             response_data = response.json()
 
@@ -107,6 +110,8 @@ def process_raw_data(raw_items: list, category_name: str) -> list:
             'cover': item.get('cover_image_url'),
             'rating': item.get('rating'),
             'date': date,  # 字段名从year改为date，更符合实际内容
+            'comment_text': entry.get('comment_text'),  # 新增字段
+            'rating_grade': entry.get('rating_grade'),  # 新增字段
         }
 
         processed_category_items.append(processed_entry)
@@ -142,7 +147,7 @@ def main():
     neodb_auth_token = os.environ.get("NEODB_AUTH_TOKEN")
     if not neodb_auth_token:
         print("错误: 环境变量 NEODB_AUTH_TOKEN 未设置。请设置此环境变量。")
-        exit(1) 
+        exit(1)
     all_processed_data_for_stats = {
         "movie": [],
         "tv": [],
@@ -156,7 +161,7 @@ def main():
             processed_category_list = process_raw_data(raw_items, category)
             all_processed_data_for_stats[category] = processed_category_list  # 存储用于统计
 
-            output_filename = os.path.join(OUTPUT_BASE_DIR, f"{category}s.yaml")
+            output_filename = os.path.join(OUTPUT_BASE_DIR, f"{category}.yaml")
             save_to_yaml(processed_category_list, output_filename)
         else:
             print(f"未获取到有效 {category} 数据")

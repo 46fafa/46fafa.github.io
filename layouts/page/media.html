@@ -5,48 +5,48 @@
     <div class="article-content">
         {{ .Content }}
     </div>
-    {{ $moviesData := sort .Site.Data.movies "date" "desc" }}
-    {{ $tvData := sort .Site.Data.tvs "date" "desc" }}
-    {{ $booksData := sort .Site.Data.books "date" "desc" }}
+    {{ $movieData := sort .Site.Data.movie "date" "desc" }}
+    {{ $tvData := sort .Site.Data.tv "date" "desc" }}
+    {{ $bookData := sort .Site.Data.book "date" "desc" }}
 
     {{ $currentYear := now.Format "2006" }}
 
-    {{ $totalMovies := 0 }}
-    {{ range $moviesData }}
+    {{ $totalmovie := 0 }}
+    {{ range $movieData }}
         {{ $itemYear := substr .date 0 4 }}
         {{ if eq $itemYear $currentYear }}
-            {{ $totalMovies = add $totalMovies 1 }}
+            {{ $totalmovie = add $totalmovie 1 }}
         {{ end }}
     {{ end }}
 
-    {{ $totalTvs := 0 }}
+    {{ $totaltv := 0 }}
     {{ range $tvData }}
         {{ $itemYear := substr .date 0 4 }}
         {{ if eq $itemYear $currentYear }}
-            {{ $totalTvs = add $totalTvs 1 }}
+            {{ $totaltv = add $totaltv 1 }}
         {{ end }}
     {{ end }}
 
-    {{ $totalBooks := 0 }}
-    {{ range $booksData }}
+    {{ $totalbook := 0 }}
+    {{ range $bookData }}
         {{ $itemYear := substr .date 0 4 }}
         {{ if eq $itemYear $currentYear }}
-            {{ $totalBooks = add $totalBooks 1 }}
+            {{ $totalbook = add $totalbook 1 }}
         {{ end }}
     {{ end }}
-<p class="yearly-stats"><span>{{ $currentYear }}</span>年看了<span>{{ $totalBooks }}</span>本书,<span>{{ $totalMovies }}</span>部电影,<span>{{ $totalTvs }}</span>部电视剧.</p>
-    {{ $firstActiveType := "movies" }} 
+<p class="yearly-stats"><span>{{ $currentYear }}</span>年看了<span>{{ $totalbook }}</span>本书,<span>{{ $totalmovie }}</span>部电影,<span>{{ $totaltv }}</span>部电视剧.</p>
+    {{ $firstActiveType := "movie" }} 
     <div class="type-buttons">
-        <button class="type-btn{{ if eq $firstActiveType "movies" }} active{{ end }}" data-type="movies">电影</button>
-        <button class="type-btn{{ if eq $firstActiveType "tvs" }} active{{ end }}" data-type="tvs">剧集</button>
-        <button class="type-btn{{ if eq $firstActiveType "books" }} active{{ end }}" data-type="books">书籍</button>
+        <button class="type-btn{{ if eq $firstActiveType "movie" }} active{{ end }}" data-type="movie">电影</button>
+        <button class="type-btn{{ if eq $firstActiveType "tv" }} active{{ end }}" data-type="tv">剧集</button>
+        <button class="type-btn{{ if eq $firstActiveType "book" }} active{{ end }}" data-type="book">书籍</button>
     </div>
 
-    {{ if $moviesData }}
-        <div class="media-grid{{ if eq $firstActiveType "movies" }} active{{ end }}" data-type="movies">
+    {{ if $movieData }}
+        <div class="media-grid{{ if eq $firstActiveType "movie" }} active{{ end }}" data-type="movie">
             {{ $currentYearGroup := "" }}
             {{ $yearGroups := slice }}
-            {{ range $moviesData }}
+            {{ range $movieData }}
                 {{ $itemYear := substr .date 0 4 }}
                 {{ if not (in $yearGroups $itemYear) }}
                     {{ $yearGroups = $yearGroups | append $itemYear }}
@@ -54,7 +54,7 @@
             {{ end }}
             
             {{ $index := 0 }}
-            {{ range $moviesData }}
+            {{ range $movieData }}
                 {{ $itemYear := substr .date 0 4 }}
                 {{ if ne $itemYear $currentYearGroup }}
                     {{ if ne $currentYearGroup "" }}
@@ -96,14 +96,14 @@
             
             {{ if gt (len $yearGroups) 2 }}
                 <div class="show-more-container">
-                    <button class="show-more-btn" data-type="movies">显示更多</button>
+                    <button class="show-more-btn" data-type="movie">显示更多</button>
                 </div>
             {{ end }}
         </div>
     {{ end }}
 
     {{ if $tvData }}
-        <div class="media-grid{{ if eq $firstActiveType "tvs" }} active{{ end }}" data-type="tvs">
+        <div class="media-grid{{ if eq $firstActiveType "tv" }} active{{ end }}" data-type="tv">
             {{ $currentYearGroup := "" }}
             {{ $yearGroups := slice }}
             {{ range $tvData }}
@@ -156,17 +156,17 @@
             
             {{ if gt (len $yearGroups) 2 }}
                 <div class="show-more-container">
-                    <button class="show-more-btn" data-type="tvs">显示更多</button>
+                    <button class="show-more-btn" data-type="tv">显示更多</button>
                 </div>
             {{ end }}
         </div>
     {{ end }}
 
-    {{ if $booksData }}
-        <div class="media-grid{{ if eq $firstActiveType "books" }} active{{ end }}" data-type="books">
+    {{ if $bookData }}
+        <div class="media-grid{{ if eq $firstActiveType "book" }} active{{ end }}" data-type="book">
             {{ $currentYearGroup := "" }}
             {{ $yearGroups := slice }}
-            {{ range $booksData }}
+            {{ range $bookData }}
                 {{ $itemYear := substr .date 0 4 }}
                 {{ if not (in $yearGroups $itemYear) }}
                     {{ $yearGroups = $yearGroups | append $itemYear }}
@@ -174,7 +174,7 @@
             {{ end }}
             
             {{ $index := 0 }}
-            {{ range $booksData }}
+            {{ range $bookData }}
                 {{ $itemYear := substr .date 0 4 }}
                 {{ if ne $itemYear $currentYearGroup }}
                     {{ if ne $currentYearGroup "" }}
@@ -216,7 +216,7 @@
             
             {{ if gt (len $yearGroups) 2 }}
                 <div class="show-more-container">
-                    <button class="show-more-btn" data-type="books">显示更多</button>
+                    <button class="show-more-btn" data-type="book">显示更多</button>
                 </div>
             {{ end }}
         </div>
