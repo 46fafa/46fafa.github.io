@@ -1,97 +1,91 @@
 {{ $dbUrl := .Get 0 }}
 {{ $dbApiUrl := "" }}
 
-{{ if ( findRE `^.*neodb\.social\/.*` $dbUrl ) }}
-    {{ $dbPath := replaceRE `.*neodb.social\/(.*\/.*)` "$1" $dbUrl }}
-    {{ $dbApiUrl = print "https://neodb.social/api/" $dbPath }}
+{{ if (findRE `^.*neodb\.social\/.*` $dbUrl) }}
+  {{ $dbPath := replaceRE `.*neodb.social\/(.*\/.*)` "$1" $dbUrl }}
+  {{ $dbApiUrl = print "https://neodb.social/api/" $dbPath }}
 {{ else }}
-    {{ $dbApiUrl = print "https://neodb.social/api/catalog/fetch?url=" $dbUrl }}
+  {{ $dbApiUrl = print "https://neodb.social/api/catalog/fetch?url=" $dbUrl }}
 {{ end }}
 
 {{ with resources.GetRemote $dbApiUrl }}
-    {{ with .Err }}
-        {{ if hugo.IsServer }}
-            {{ warnf "Failed to fetch neodb content, Please check if NeoDB is reachable: %s" . }}
-            <p style="text-align: center;"><small>远程获取内容失败，请检查 NeoDB 是否可达。</small></p>
-        {{ else }}
-            {{ errorf "Failed to fetch neodb content, Please check if NeoDB is reachable: %s" . }}
-        {{ end }}
+  {{ with .Err }}
+    {{ if hugo.IsServer }}
+      {{ warnf "Failed to fetch neodb content, Please check if NeoDB is reachable: %s" . }}
+      <p style="text-align: center;"><small>远程获取内容失败，请检查 NeoDB 是否可达。</small></p>
     {{ else }}
-        {{ $dbFetch := transform.Unmarshal . }}
-
-        {{/* === 提取 title 和 category 用于匹配本地数据 === */}}
-        {{ $title := $dbFetch.title | default "" }}
-        {{ $category := $dbFetch.category | default "book" }} {{/* 默认使用 book 类别 */}}
-
-        {{/* === 从 data/<category>.yaml 中获取列表 === */}}
-        {{ $yamlData := index site.Data $category }}
-        {{ $matched := where $yamlData "title" $title | first 1 }}
-
-        {{ if eq (len $matched) 1 }}
-            {{ $item := index $matched 0 }}
-
-            {{/* 替换字段：统一使用本地 YAML 的数据 */}}
-            {{ $title = $item.title }}
-            {{ $cover := $item.cover }}
-            {{ $brief := $item.comment_text }}
-            {{ $rating := $item.rating_grade }}
-
-            <div class="db-card">
-                <div class="db-card-subject">
-                    <div class="db-card-post">
-                        <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $cover }}">
-                    </div>
-                    <div class="db-card-content">
-                        <div class="db-card-title">
-                            <a href="{{ $dbUrl }}" class="cute" target="_blank" rel="noreferrer">{{ $title }}</a>
-                        </div>
-                        <div class="rating">
-                            {{ if $rating }}
-                                <div class="stars-container">
-                                    <div class="stars-background"></div>
-                                    <div class="stars-foreground" style="width:{{ mul 10 $rating }}%"></div>
-                                </div>
-                                <span class="rating_nums">{{ $rating }}</span>
-                            {{ else }}
-                                <span class="rating_nums" style="color:#737373;">暂无评分</span>
-                            {{ end }}
-                        </div>
-                        <div class="db-card-abstract">{{ $brief }}</div>
-                    </div>
-                    <div class="db-card-cate">{{ $category }}</div>
-                </div>
-            </div>
-
-        {{ else }}
-            {{/* fallback: 本地数据未匹配，使用远程原始数据 */}}
-
-            {{ $rating := $dbFetch.rating | default 0 }}
-
-            <div class="db-card">
-                <div class="db-card-subject">
-                    <div class="db-card-post">
-                        <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $dbFetch.cover_image_url }}">
-                    </div>
-                    <div class="db-card-content">
-                        <div class="db-card-title">
-                            <a href="{{ $dbUrl }}" class="cute" target="_blank" rel="noreferrer">{{ $dbFetch.title }}</a>
-                        </div>
-                        <div class="rating">
-                            {{ if $dbFetch.rating }}
-                                <div class="stars-container">
-                                    <div class="stars-background"></div>
-                                    <div class="stars-foreground" style="width:{{ mul 10 $rating }}%"></div>
-                                </div>
-                                <span class="rating_nums">{{ $rating }}</span>
-                            {{ else }}
-                                <span class="rating_nums" style="color:#737373;">评分人数不足</span>
-                            {{ end }}
-                        </div>
-                        <div class="db-card-abstract">{{ $dbFetch.brief }}</div>
-                    </div>
-                    <div class="db-card-cate">{{ $dbFetch.category }}</div>
-                </div>
-            </div>
-        {{ end }}
+      {{ errorf "Failed to fetch neodb content, Please check if NeoDB is reachable: %s" . }}
     {{ end }}
+  {{ else }}
+    {{ $dbFetch := transform.Unmarshal . }}
+
+    {{ $title := $dbFetch.title | default "" }}
+    {{ $category := $dbFetch.category | default "book" }}
+
+    {{ $yamlData := index site.Data $category }}
+    {{ $matched := where $yamlData "title" $title | first 1 }}
+
+    {{ if eq (len $matched) 1 }}
+      {{ $item := index $matched 0 }}
+
+      {{ $title = $item.title }}
+      {{ $cover := $item.cover }}
+      {{ $brief := $item.comment_text }}
+      {{ $rating := $item.rating_grade }}
+
+      <div class="db-card">
+        <div class="db-card-subject">
+          <div class="db-card-post">
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $cover }}">
+          </div>
+          <div class="db-card-content">
+            <div class="db-card-title">
+              <a href="{{ $dbUrl }}" class="cute" target="_blank" rel="noreferrer">{{ $title }}</a>
+            </div>
+            <div class="rating">
+              {{ if $rating }}
+                <span class="allstardark">
+                  <span class="allstarlight" style="width:{{ mul 10 $rating }}%"></span>
+                </span>
+                <span class="rating_nums">{{ $rating }}</span>
+              {{ else }}
+                <span class="rating_nums" style="color:#737373;">暂无评分</span>
+              {{ end }}
+            </div>
+            <div class="db-card-abstract">{{ $brief }}</div>
+          </div>
+          <div class="db-card-cate">{{ $category }}</div>
+        </div>
+      </div>
+
+    {{ else }}
+      {{/* fallback: 使用远程原始数据 */}}
+      {{ $rating := $dbFetch.rating | default 0 }}
+
+      <div class="db-card">
+        <div class="db-card-subject">
+          <div class="db-card-post">
+            <img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $dbFetch.cover_image_url }}">
+          </div>
+          <div class="db-card-content">
+            <div class="db-card-title">
+              <a href="{{ $dbUrl }}" class="cute" target="_blank" rel="noreferrer">{{ $dbFetch.title }}</a>
+            </div>
+            <div class="rating">
+              {{ if $rating }}
+                <span class="allstardark">
+                  <span class="allstarlight" style="width:{{ mul 10 $rating }}%"></span>
+                </span>
+                <span class="rating_nums">{{ $rating }}</span>
+              {{ else }}
+                <span class="rating_nums" style="color:#737373;">暂无评分</span>
+              {{ end }}
+            </div>
+            <div class="db-card-abstract">{{ $dbFetch.brief }}</div>
+          </div>
+          <div class="db-card-cate">{{ $dbFetch.category }}</div>
+        </div>
+      </div>
+    {{ end }}
+  {{ end }}
 {{ end }}
