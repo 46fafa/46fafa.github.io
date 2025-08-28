@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>刷机 on kenome&#39;s blog</title>
-        <link>https://lesx.top/tags/%E5%88%B7%E6%9C%BA/</link>
+        <link>http://localhost:1313/tags/%E5%88%B7%E6%9C%BA/</link>
         <description>Recent content in 刷机 on kenome&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kenome</copyright>
-        <lastBuildDate>Thu, 10 Aug 2023 21:58:06 +0800</lastBuildDate><atom:link href="https://lesx.top/tags/%E5%88%B7%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 10 Aug 2023 21:58:06 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%88%B7%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>小米11刷入MIUI.EU</title>
-        <link>https://lesx.top/p/743b0d87/</link>
+        <link>http://localhost:1313/p/743b0d87/</link>
         <pubDate>Thu, 10 Aug 2023 21:58:06 +0800</pubDate>
         
-        <guid>https://lesx.top/p/743b0d87/</guid>
+        <guid>http://localhost:1313/p/743b0d87/</guid>
         <description>&lt;h2 id=&#34;前文&#34;&gt;前文
 &lt;/h2&gt;&lt;p&gt;不久前我写过一篇博文&lt;a class=&#34;link&#34; href=&#34;https://lesx.top/p/mi8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;小米折腾记录&lt;/a&gt;，当时是想体验类原生安卓系统，在小黄鱼购入二手小米8，本来打算记录下刷入全过程，但是自己换电池把屏幕排线弄坏了，手机开不了机了，后续内容就没有更新。&lt;/p&gt;
@@ -70,10 +70,10 @@
         </item>
         <item>
         <title>小米8折腾记录</title>
-        <link>https://lesx.top/p/mi8/</link>
+        <link>http://localhost:1313/p/mi8/</link>
         <pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate>
         
-        <guid>https://lesx.top/p/mi8/</guid>
+        <guid>http://localhost:1313/p/mi8/</guid>
         <description>&lt;p&gt;这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p&gt;
 &lt;p&gt;我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[&lt;a class=&#34;link&#34; href=&#34;https://blog.k8s.li/android-tasker.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;tasker 神器&lt;/a&gt;],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p&gt;

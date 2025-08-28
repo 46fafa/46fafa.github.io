@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>教程 on kenome&#39;s blog</title>
-        <link>https://lesx.top/tags/%E6%95%99%E7%A8%8B/</link>
+        <link>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</link>
         <description>Recent content in 教程 on kenome&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kenome</copyright>
-        <lastBuildDate>Sun, 23 Jul 2023 16:51:28 +0800</lastBuildDate><atom:link href="https://lesx.top/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 23 Jul 2023 16:51:28 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>简单实现文章自动化部署</title>
-        <link>https://lesx.top/p/automated-deployment/</link>
+        <link>http://localhost:1313/p/automated-deployment/</link>
         <pubDate>Sun, 23 Jul 2023 16:51:28 +0800</pubDate>
         
-        <guid>https://lesx.top/p/automated-deployment/</guid>
+        <guid>http://localhost:1313/p/automated-deployment/</guid>
         <description>&lt;h3 id=&#34;quicker&#34;&gt;「Quicker」
 &lt;/h3&gt;&lt;p&gt;我发现使用hugo构建的博客要发布文章需要经过以下几个步骤&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -98,10 +98,10 @@
         </item>
         <item>
         <title>更换字体「霞鹜文楷」</title>
-        <link>https://lesx.top/p/lxgw-wenkai/</link>
+        <link>http://localhost:1313/p/lxgw-wenkai/</link>
         <pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate>
         
-        <guid>https://lesx.top/p/lxgw-wenkai/</guid>
+        <guid>http://localhost:1313/p/lxgw-wenkai/</guid>
         <description>&lt;h2 id=&#34;霞鹜文楷&#34;&gt;「霞鹜文楷」
 &lt;/h2&gt;&lt;p&gt;
 

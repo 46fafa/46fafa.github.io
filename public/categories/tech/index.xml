@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tech on kenome&#39;s blog</title>
-        <link>https://lesx.top/categories/tech/</link>
+        <link>http://localhost:1313/categories/tech/</link>
         <description>Recent content in Tech on kenome&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kenome</copyright>
-        <lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="https://lesx.top/categories/tech/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/tech/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>利用Gemini实现pot-App插件开发</title>
-        <link>https://lesx.top/p/c6ded1a6/</link>
+        <link>http://localhost:1313/p/c6ded1a6/</link>
         <pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate>
         
-        <guid>https://lesx.top/p/c6ded1a6/</guid>
+        <guid>http://localhost:1313/p/c6ded1a6/</guid>
         <description>&lt;p&gt;测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del&gt;调教AI&lt;/del&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;pot-app&#34;&gt;Pot-app
@@ -52,10 +52,10 @@
         </item>
         <item>
         <title>从keepass迁移到bitwarden</title>
-        <link>https://lesx.top/p/b87d8224/</link>
+        <link>http://localhost:1313/p/b87d8224/</link>
         <pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate>
         
-        <guid>https://lesx.top/p/b87d8224/</guid>
+        <guid>http://localhost:1313/p/b87d8224/</guid>
         <description>&lt;h2 id=&#34;起因&#34;&gt;起因
 &lt;/h2&gt;&lt;p&gt;我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code&gt;.kdbx&lt;/code&gt;文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p&gt;
 &lt;p&gt;了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p&gt;
@@ -247,10 +247,10 @@
         </item>
         <item>
         <title>小米11刷入MIUI.EU</title>
-        <link>https://lesx.top/p/743b0d87/</link>
+        <link>http://localhost:1313/p/743b0d87/</link>
         <pubDate>Thu, 10 Aug 2023 21:58:06 +0800</pubDate>
         
-        <guid>https://lesx.top/p/743b0d87/</guid>
+        <guid>http://localhost:1313/p/743b0d87/</guid>
         <description>&lt;h2 id=&#34;前文&#34;&gt;前文
 &lt;/h2&gt;&lt;p&gt;不久前我写过一篇博文&lt;a class=&#34;link&#34; href=&#34;https://lesx.top/p/mi8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;小米折腾记录&lt;/a&gt;，当时是想体验类原生安卓系统，在小黄鱼购入二手小米8，本来打算记录下刷入全过程，但是自己换电池把屏幕排线弄坏了，手机开不了机了，后续内容就没有更新。&lt;/p&gt;
@@ -308,10 +308,10 @@
         </item>
         <item>
         <title>简单实现文章自动化部署</title>
-        <link>https://lesx.top/p/automated-deployment/</link>
+        <link>http://localhost:1313/p/automated-deployment/</link>
         <pubDate>Sun, 23 Jul 2023 16:51:28 +0800</pubDate>
         
-        <guid>https://lesx.top/p/automated-deployment/</guid>
+        <guid>http://localhost:1313/p/automated-deployment/</guid>
         <description>&lt;h3 id=&#34;quicker&#34;&gt;「Quicker」
 &lt;/h3&gt;&lt;p&gt;我发现使用hugo构建的博客要发布文章需要经过以下几个步骤&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -397,10 +397,10 @@
         </item>
         <item>
         <title>更换字体「霞鹜文楷」</title>
-        <link>https://lesx.top/p/lxgw-wenkai/</link>
+        <link>http://localhost:1313/p/lxgw-wenkai/</link>
         <pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate>
         
-        <guid>https://lesx.top/p/lxgw-wenkai/</guid>
+        <guid>http://localhost:1313/p/lxgw-wenkai/</guid>
         <description>&lt;h2 id=&#34;霞鹜文楷&#34;&gt;「霞鹜文楷」
 &lt;/h2&gt;&lt;p&gt;
 
@@ -477,10 +477,10 @@
         </item>
         <item>
         <title>小米8折腾记录</title>
-        <link>https://lesx.top/p/mi8/</link>
+        <link>http://localhost:1313/p/mi8/</link>
         <pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate>
         
-        <guid>https://lesx.top/p/mi8/</guid>
+        <guid>http://localhost:1313/p/mi8/</guid>
         <description>&lt;p&gt;这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p&gt;
 &lt;p&gt;我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[&lt;a class=&#34;link&#34; href=&#34;https://blog.k8s.li/android-tasker.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;tasker 神器&lt;/a&gt;],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p&gt;

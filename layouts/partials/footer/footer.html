@@ -15,9 +15,9 @@
     <section class="copyright">
         &copy; 
         {{ if and (.Site.Params.footer.since) (ne .Site.Params.footer.since (int (now.Format "2006"))) }}
-            {{ .Site.Params.footer.since }} - kenome All Rights Reserved.
-        {{ end }} kenome All Rights Reserved.
-        {{ now.Format "2006" }}<br>{{ .Site.Copyright }} 发表了 {{ len (where .Site.RegularPages "Section" "post") }} 篇文章 | 总计 {{$scratch.Get "total" }} 字</br><span><p>
+            {{ .Site.Params.footer.since }} - 
+        {{ end }} 
+        {{ now.Format "2006" }} kenome All Rights Reserved. <br>{{ .Site.Copyright }} 发布了 {{ len (where .Site.RegularPages "Section" "post") }} 篇文章 | 总计 {{$scratch.Get "total" }} 字</br><span><p>
     </section>
 
     <section class="powerby">
