@@ -1,7 +1,6 @@
 baseurl: https://lesx.top/
 languageCode: zh-cn
 theme: hugo-theme-stack
-# title: Example Site
 copyright: kenome
 publishDir: public
 # copyright: © kenome
