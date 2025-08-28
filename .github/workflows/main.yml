@@ -1,5 +1,4 @@
 name: Deploy
-
 on:
   push:
     branches:
@@ -34,6 +33,6 @@ jobs:
           external_repository: 46fafa/46fafa.github.io # <--- IMPORTANT: 你的公共部署仓库地址
           publish_dir: ./public # Hugo 构建的默认输出目录
           publish_branch: main # <--- IMPORTANT: 你的公共部署仓库的发布分支（对于用户/组织页面通常是 main）
-          commit_message: "Deploy Hugo site from 46fafa/blog@${{ github.sha }}" # 提交信息，方便追溯
+          commit_message: "Deploy from 46fafa/blog@${{ github.sha }}" # 提交信息，方便追溯
           user_name: 'github-actions[bot]' # 提交者名称，可以是你自己的 GitHub 用户名
           user_email: 'github-actions[bot]@users.noreply.github.com' # 提交者邮箱
