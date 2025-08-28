@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on kenome&#39;s blog</title>
-        <link>http://localhost:1313/page/</link>
+        <link>https://lesx.top/page/</link>
         <description>Recent content in Pages on kenome&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kenome</copyright>
-        <lastBuildDate>Sat, 27 Mar 2021 11:57:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 Mar 2021 11:57:00 +0800</lastBuildDate><atom:link href="https://lesx.top/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>友链</title>
-        <link>http://localhost:1313/links/</link>
+        <link>https://lesx.top/links/</link>
         <pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/links/</guid>
+        <guid>https://lesx.top/links/</guid>
         <description>&lt;p&gt;欢迎与我交换友链~&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;title:kenome&amp;rsquo;s blog&lt;/p&gt;
@@ -26,10 +26,10 @@
         </item>
         <item>
         <title>关于</title>
-        <link>http://localhost:1313/about/</link>
+        <link>https://lesx.top/about/</link>
         <pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate>
         
-        <guid>http://localhost:1313/about/</guid>
+        <guid>https://lesx.top/about/</guid>
         <description>&lt;h2 id=&#34;交换友链&#34;&gt;交换友链
 &lt;/h2&gt;&lt;p&gt;如果想要和我交换友链，可以参考如下格式&lt;/p&gt;
 &lt;blockquote&gt;
@@ -58,26 +58,26 @@
         </item>
         <item>
         <title>归档</title>
-        <link>http://localhost:1313/archives/</link>
+        <link>https://lesx.top/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
+        <guid>https://lesx.top/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>观影</title>
-        <link>http://localhost:1313/media/</link>
+        <link>https://lesx.top/media/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/media/</guid>
+        <guid>https://lesx.top/media/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>http://localhost:1313/search/</link>
+        <link>https://lesx.top/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/search/</guid>
+        <guid>https://lesx.top/search/</guid>
         <description></description>
         </item>
         

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>kenome&#39;s blog</title>
-        <link>http://localhost:1313/</link>
+        <link>https://lesx.top/</link>
         <description>Recent content on kenome&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>kenome</copyright>
-        <lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="https://lesx.top/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>利用Gemini实现pot-App插件开发</title>
-        <link>http://localhost:1313/p/c6ded1a6/</link>
+        <link>https://lesx.top/p/c6ded1a6/</link>
         <pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/c6ded1a6/</guid>
+        <guid>https://lesx.top/p/c6ded1a6/</guid>
         <description>&lt;p&gt;测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del&gt;调教AI&lt;/del&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;pot-app&#34;&gt;Pot-app
@@ -52,10 +52,10 @@
         </item>
         <item>
         <title>从keepass迁移到bitwarden</title>
-        <link>http://localhost:1313/p/b87d8224/</link>
+        <link>https://lesx.top/p/b87d8224/</link>
         <pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/b87d8224/</guid>
+        <guid>https://lesx.top/p/b87d8224/</guid>
         <description>&lt;h2 id=&#34;起因&#34;&gt;起因
 &lt;/h2&gt;&lt;p&gt;我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code&gt;.kdbx&lt;/code&gt;文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p&gt;
 &lt;p&gt;了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p&gt;
@@ -247,10 +247,10 @@
         </item>
         <item>
         <title>小米11刷入MIUI.EU</title>
-        <link>http://localhost:1313/p/743b0d87/</link>
+        <link>https://lesx.top/p/743b0d87/</link>
         <pubDate>Thu, 10 Aug 2023 21:58:06 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/743b0d87/</guid>
+        <guid>https://lesx.top/p/743b0d87/</guid>
         <description>&lt;h2 id=&#34;前文&#34;&gt;前文
 &lt;/h2&gt;&lt;p&gt;不久前我写过一篇博文&lt;a class=&#34;link&#34; href=&#34;https://lesx.top/p/mi8/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;小米折腾记录&lt;/a&gt;，当时是想体验类原生安卓系统，在小黄鱼购入二手小米8，本来打算记录下刷入全过程，但是自己换电池把屏幕排线弄坏了，手机开不了机了，后续内容就没有更新。&lt;/p&gt;
@@ -308,10 +308,10 @@
         </item>
         <item>
         <title>就算生离死别了，我们还是兄弟</title>
-        <link>http://localhost:1313/p/bb5efac6/</link>
+        <link>https://lesx.top/p/bb5efac6/</link>
         <pubDate>Sat, 05 Aug 2023 22:27:36 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/bb5efac6/</guid>
+        <guid>https://lesx.top/p/bb5efac6/</guid>
         <description>&lt;h2 id=&#34;微信读书&#34;&gt;微信读书
 &lt;/h2&gt;&lt;p&gt;
 
@@ -344,10 +344,10 @@
         </item>
         <item>
         <title>简单实现文章自动化部署</title>
-        <link>http://localhost:1313/p/automated-deployment/</link>
+        <link>https://lesx.top/p/automated-deployment/</link>
         <pubDate>Sun, 23 Jul 2023 16:51:28 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/automated-deployment/</guid>
+        <guid>https://lesx.top/p/automated-deployment/</guid>
         <description>&lt;h3 id=&#34;quicker&#34;&gt;「Quicker」
 &lt;/h3&gt;&lt;p&gt;我发现使用hugo构建的博客要发布文章需要经过以下几个步骤&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -433,10 +433,10 @@
         </item>
         <item>
         <title>更换字体「霞鹜文楷」</title>
-        <link>http://localhost:1313/p/lxgw-wenkai/</link>
+        <link>https://lesx.top/p/lxgw-wenkai/</link>
         <pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/lxgw-wenkai/</guid>
+        <guid>https://lesx.top/p/lxgw-wenkai/</guid>
         <description>&lt;h2 id=&#34;霞鹜文楷&#34;&gt;「霞鹜文楷」
 &lt;/h2&gt;&lt;p&gt;
 
@@ -513,10 +513,10 @@
         </item>
         <item>
         <title>小米8折腾记录</title>
-        <link>http://localhost:1313/p/mi8/</link>
+        <link>https://lesx.top/p/mi8/</link>
         <pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/mi8/</guid>
+        <guid>https://lesx.top/p/mi8/</guid>
         <description>&lt;p&gt;这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p&gt;
 &lt;p&gt;我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[&lt;a class=&#34;link&#34; href=&#34;https://blog.k8s.li/android-tasker.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;tasker 神器&lt;/a&gt;],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p&gt;
@@ -666,10 +666,10 @@
         </item>
         <item>
         <title>2022年终总结</title>
-        <link>http://localhost:1313/p/b177efa9/</link>
+        <link>https://lesx.top/p/b177efa9/</link>
         <pubDate>Fri, 13 Jan 2023 12:33:58 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/b177efa9/</guid>
+        <guid>https://lesx.top/p/b177efa9/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;年初 他们去了很远的地方冒险,那是一片由钢筋水泥铸成同时又掺杂梦想的丛林,就在最近,年轻的冒险家马上就要回来了,无论有没有战利品,他们都会回来参加一年一度的盛大节日,满载而归的勇士们通常会举行一种传统的四人竞技活动,等到战利品全部留在美好的家乡,勇士们就会带着家乡的美好祝愿继续回到那片丛林开始新的冒险之旅.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -695,10 +695,10 @@
         </item>
         <item>
         <title>第一篇博客</title>
-        <link>http://localhost:1313/p/hello-blog/</link>
+        <link>https://lesx.top/p/hello-blog/</link>
         <pubDate>Fri, 11 Nov 2022 10:34:55 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/hello-blog/</guid>
+        <guid>https://lesx.top/p/hello-blog/</guid>
         <description>&lt;h2 id=&#34;起因&#34;&gt;起因
 &lt;/h2&gt;&lt;p&gt;学校里某日，网上冲浪，偶然发现自己在用的&lt;a class=&#34;link&#34; href=&#34;https://limestart.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;青柠起始页&lt;/a&gt;作者&lt;a class=&#34;link&#34; href=&#34;https://maorx.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -748,10 +748,10 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
         </item>
         <item>
         <title>友链</title>
-        <link>http://localhost:1313/links/</link>
+        <link>https://lesx.top/links/</link>
         <pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/links/</guid>
+        <guid>https://lesx.top/links/</guid>
         <description>&lt;p&gt;欢迎与我交换友链~&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;title:kenome&amp;rsquo;s blog&lt;/p&gt;
@@ -765,10 +765,10 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
         </item>
         <item>
         <title>关于</title>
-        <link>http://localhost:1313/about/</link>
+        <link>https://lesx.top/about/</link>
         <pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate>
         
-        <guid>http://localhost:1313/about/</guid>
+        <guid>https://lesx.top/about/</guid>
         <description>&lt;h2 id=&#34;交换友链&#34;&gt;交换友链
 &lt;/h2&gt;&lt;p&gt;如果想要和我交换友链，可以参考如下格式&lt;/p&gt;
 &lt;blockquote&gt;
@@ -797,26 +797,26 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
         </item>
         <item>
         <title>归档</title>
-        <link>http://localhost:1313/archives/</link>
+        <link>https://lesx.top/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/archives/</guid>
+        <guid>https://lesx.top/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>观影</title>
-        <link>http://localhost:1313/media/</link>
+        <link>https://lesx.top/media/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/media/</guid>
+        <guid>https://lesx.top/media/</guid>
         <description></description>
         </item>
         <item>
         <title>搜索</title>
-        <link>http://localhost:1313/search/</link>
+        <link>https://lesx.top/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/search/</guid>
+        <guid>https://lesx.top/search/</guid>
         <description></description>
         </item>
         
