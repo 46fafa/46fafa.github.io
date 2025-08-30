@@ -1,0 +1,44 @@
+{{ $data := .data }}
+{{ $type := .type }}
+{{ $firstActiveType := .firstActiveType }}
+
+{{ $currentYearGroup := "" }}
+{{ $yearGroups := slice }}
+
+{{ range $data }}
+    {{ $itemYear := substr .date 0 4 }}
+    {{ if not (in $yearGroups $itemYear) }}
+        {{ $yearGroups = $yearGroups | append $itemYear }}
+    {{ end }}
+{{ end }}
+
+{{ $index := 0 }}
+{{ range $data }}
+    {{ $itemYear := substr .date 0 4 }}
+    {{ if ne $itemYear $currentYearGroup }}
+        {{ if ne $currentYearGroup "" }}
+            </div> 
+            </div> 
+        {{ end }}
+        
+        <div class="year-group{{ if gt $index 1 }} hidden{{ end }}" data-year="{{ $itemYear }}">
+            <div class="year-date-column">
+                <span class="year-display-year">{{ $itemYear }}</span>
+            </div>
+            <div class="year-items">
+        {{ $currentYearGroup = $itemYear }}
+        {{ $index = add $index 1 }}
+    {{ end }}
+    {{ partial "media/card" . }}
+{{ end }}
+
+{{ if ne $currentYearGroup "" }}
+    </div> 
+    </div> 
+{{ end }}
+
+{{ if gt (len $yearGroups) 2 }}
+    <div class="show-more-container">
+        <button class="show-more-btn" data-type="{{ $type }}">显示更多</button>
+    </div>
+{{ end }}

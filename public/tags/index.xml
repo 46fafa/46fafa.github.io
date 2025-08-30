@@ -16,6 +16,14 @@
         <description></description>
         </item>
         <item>
+        <title>反思</title>
+        <link>http://localhost:1313/tags/%E5%8F%8D%E6%80%9D/</link>
+        <pubDate>Tue, 31 Oct 2023 12:24:08 +0800</pubDate>
+        
+        <guid>http://localhost:1313/tags/%E5%8F%8D%E6%80%9D/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>刷机</title>
         <link>http://localhost:1313/tags/%E5%88%B7%E6%9C%BA/</link>
         <pubDate>Thu, 10 Aug 2023 21:58:06 +0800</pubDate>
@@ -39,6 +47,18 @@
         <guid>http://localhost:1313/tags/%E6%95%99%E7%A8%8B/</guid>
         <description></description>
         </item>
+        <item>
+        <title>思考</title>
+        <link>http://localhost:1313/tags/%E6%80%9D%E8%80%83/</link>
+        <pubDate>Mon, 13 Mar 2023 12:34:30 +0800</pubDate>
+        
+        <guid>http://localhost:1313/tags/%E6%80%9D%E8%80%83/</guid>
+        <description></description>
+        </item>
         
     </channel>
+    <follow_challenge>
+    <feedId>65267366307477504</feedId>
+    <userId>60837020821039104</userId>
+    </follow_challenge>
 </rss>

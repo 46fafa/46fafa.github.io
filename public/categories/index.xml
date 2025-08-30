@@ -16,6 +16,14 @@
         <description></description>
         </item>
         <item>
+        <title>杂记</title>
+        <link>http://localhost:1313/categories/%E6%9D%82%E8%AE%B0/</link>
+        <pubDate>Tue, 31 Oct 2023 12:24:08 +0800</pubDate>
+        
+        <guid>http://localhost:1313/categories/%E6%9D%82%E8%AE%B0/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>读书笔记</title>
         <link>http://localhost:1313/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Sat, 05 Aug 2023 22:27:36 +0800</pubDate>
@@ -41,4 +49,8 @@
         </item>
         
     </channel>
+    <follow_challenge>
+    <feedId>65267366307477504</feedId>
+    <userId>60837020821039104</userId>
+    </follow_challenge>
 </rss>

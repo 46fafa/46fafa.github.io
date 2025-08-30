@@ -1,0 +1,18 @@
+<div class="media-card">
+    <div class="media-poster">
+        {{ if .cover }}
+            <img src="{{ .cover }}" alt="{{ .title }}" loading="lazy">
+        {{ else }}
+            <div class="no-poster">No Cover Available</div>
+        {{ end }}
+    </div>
+    <div class="media-info">
+        <h3 class="media-title">{{ .title }}</h3>
+        <div class="media-meta">
+            {{ if .rating }}
+                <span class="rating">⭐ {{ printf "%.1f" .rating }}</span>
+            {{ end }}
+            <span class="watch-date">{{ .date }}</span>
+        </div>
+    </div>
+</div>
