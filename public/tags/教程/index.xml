@@ -35,8 +35,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;「Quicker」 是一个通用的快捷操作工具，用于提高计算机用户的工作效率。它提供了一种简单的方式来创建自定义的快捷操作，以便快速执行常见的任务或操作。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;「Quicker」 是一个通用的快捷操作工具，用于提高计算机用户的工作效率。它提供了一种简单的方式来创建自定义的快捷操作，以便快速执行常见的任务或操作。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;之前有使用「Quicker」实现浏览器外划词翻译，详情看&lt;a class=&#34;link&#34; href=&#34;https://saladict.crimx.com/native.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;这篇文章&lt;/a&gt;，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了&lt;a class=&#34;link&#34; href=&#34;https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;类似的操作&lt;/a&gt;，遂白嫖&lt;/p&gt;
@@ -114,8 +113,7 @@
 &lt;p&gt;项目地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/lxgw/LxgwWenKai&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/lxgw/LxgwWenKai&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这是使用的是&lt;a class=&#34;link&#34; href=&#34;%28https://moyu.ee/p/hugo-stack/#%e5%ad%97%e4%bd%93%e8%b0%83%e6%95%b4%29&#34; &gt;墨语&lt;/a&gt;提供的教程，在配置的过程中我遇到了一些问题，感谢博主的热心解答🎉&lt;/p&gt;
 &lt;p&gt;我的博客是部署在GitHub上，由于博客的主题文件是使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hugo-theme-stack&lt;/a&gt;仓库作为博客的子模块，&lt;/p&gt;
@@ -126,8 +124,7 @@
 &lt;p&gt;You need to &lt;strong&gt;fork&lt;/strong&gt; the theme repository and push your changes to your forked repository (change submodule&amp;rsquo;s repository url). Then, you can commit those changes to your site repository.&lt;/p&gt;
 &lt;p&gt;如果你通过 Git/Git 子模块安装了主题，可以直接修改主题文件，在本地站点中查看更改。&lt;/p&gt;
 &lt;p&gt;但是，&lt;strong&gt;您无法直接提交和推送更改&lt;/strong&gt;，因为您没有推送到主题存储库的权限。&lt;/p&gt;
-&lt;p&gt;您需要&lt;strong&gt;fork&lt;/strong&gt;主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;您需要&lt;strong&gt;fork&lt;/strong&gt;主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;因为这个原因，按照博主文章提供的方法修改部署后没有效果
 
 &lt;div class=&#34;post-img-view&#34;&gt;

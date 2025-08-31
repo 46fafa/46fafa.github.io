@@ -37,8 +37,7 @@
 &lt;li&gt;main.js&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
 &lt;p&gt;虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class=&#34;link&#34; href=&#34;https://github.com/chriscurrycc/bob-plugin-maimemo-notebook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;bob-plugin-maimemo-notebook&lt;/a&gt;，最终实现的效果:
 
@@ -253,8 +252,7 @@
         <guid>http://localhost:1313/p/f667b5f7/</guid>
         <description>&lt;h2 id=&#34;谚语&#34;&gt;谚语
 &lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;一个和尚挑水喝，两个和尚抬水喝，三个和尚没水喝。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;一个和尚挑水喝，两个和尚抬水喝，三个和尚没水喝。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这是书上看的谚语，那时候没能理解这句话的意思，最近经历了一件事似乎感悟到一点真义。&lt;/p&gt;
 &lt;p&gt;大学住的是六人间，由于没有单独的洗衣机，每次洗衣服只能拿到公共洗衣房。悲催的是我们住在五楼，本该是公共洗衣房的区域被改成了露台，以至于想洗衣服只能提到四楼去。夏天一个人的衣服少，所以都是凑够几个人的衣服才提下去洗，这时候一般是大家自觉提衣服下去洗，刚开始还好，每个人还是挺自觉的，一般装够一桶就会提下去洗，也是那个人负责提回来。但自觉是经不起考验的，后来慢慢大家都懒得提下去，往往等到桶装不下了，才会提衣服下去洗。&lt;/p&gt;
 &lt;p&gt;用过公共洗衣机的都知道它的卫生条件有多差，有的人总喜欢把袜子，内衣裤都混在一起洗，大家都苦不堪言，而且反映上去也没有什么效果，所以我们寝室买了一台洗衣机放在宿舍。刚开始我们洗完了晾衣服的时候顺手会把其他舍友的衣服一起晾了，也是靠自觉，所以像前面说的那样也出现问题了，大家都变得不自觉，每次洗完了都不及时晾衣服，等到第二天洗衣服时发现头一天的还没晾起来，所以后来大家规定自己的衣服自己晾。&lt;/p&gt;
@@ -279,8 +277,7 @@
     &gt;LineageOS&lt;/a&gt;，与MIUI这种厂商定制的系统相比没有烦人的广告，而且相对来说定制系统使用方式或者操作逻辑更适合中国大陆用户。LineageOS用起来相当丝滑，但是我的体验并不算好，除了丝滑纯净之外并没有什么其他吸引我的点。在之前的米8上使用经常会莫名的重启，也没有找到原因。&lt;/p&gt;
 &lt;p&gt;因此我这次刷机还是倾向于定制系统 ，刚好MIUI有国际版的ROM，国际版包括主要包括欧版，俄罗斯版，印尼版等等。最后我选择的是eu版，与国行版相比它去除了广告而且精简了一些我平时不太需要的预装应用，还内置了谷歌框架。没选择EEA版是因为其预装了很多Google的app，比如谷歌地图，谷歌钱包等等。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;EU版MIUI&lt;strong&gt;是一个第三方开发项目，和官方的海外版不同，是根据官方的国行版(CN)或者官方的全球版(Global)修改而来的&lt;/strong&gt;。 常说的欧版，有的指EU版，有的指官方EEA版，它们是两个不同的版本。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;EU版MIUI&lt;strong&gt;是一个第三方开发项目，和官方的海外版不同，是根据官方的国行版(CN)或者官方的全球版(Global)修改而来的&lt;/strong&gt;。 常说的欧版，有的指EU版，有的指官方EEA版，它们是两个不同的版本。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;下载刷机包&#34;&gt;下载刷机包
 &lt;/h2&gt;&lt;p&gt;本次刷机的手机是小米11，系统为MIUI14，刷机方式为线刷，从MIUI14开始eu社区的ROM可同时支持卡刷和线刷。&lt;/p&gt;
 &lt;p&gt;刷机包可以到&lt;a class=&#34;link&#34; href=&#34;https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv14/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -350,12 +347,10 @@
 &lt;h2 id=&#34;就是生离死别了我们还是兄弟&#34;&gt;就是生离死别了，我们还是兄弟
 &lt;/h2&gt;&lt;p&gt;宋钢知道李光头和林红的事后，没有责怪他们任何人，留给他们的信中也没有流露出丝毫愤怒。但也许就是这样的性格，对家人的包容，让林红和李光头都肆无忌惮，没有考虑过这一切的后果&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;她觉得和李光头有这样的三个月应该足够了，等到宋钢回来后，她就会加倍地去爱护宋钢，她了解宋钢，这是世界上最善良的男人，不管她做了什么对不起宋钢的事，宋钢都会一如既往地爱着她。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;她觉得和李光头有这样的三个月应该足够了，等到宋钢回来后，她就会加倍地去爱护宋钢，她了解宋钢，这是世界上最善良的男人，不管她做了什么对不起宋钢的事，宋钢都会一如既往地爱着她。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这句话不用多说，光看这里怒气值已经升至顶峰&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这次做爱完了以后，他们从此不再做爱了。李光头挥着手说：“我就把你还给宋钢啦！”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;这次做爱完了以后，他们从此不再做爱了。李光头挥着手说：“我就把你还给宋钢啦！”&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;李光头觉得自己只是“借”宋钢的老婆，所以才会“还”，他前面对宋钢的行为，让人觉得他们真是兄弟，可是他后面做的事，兄弟这两个字又显得无比讽刺。&lt;/p&gt;
 </description>
         </item>
@@ -387,8 +382,7 @@
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;「Quicker」 是一个通用的快捷操作工具，用于提高计算机用户的工作效率。它提供了一种简单的方式来创建自定义的快捷操作，以便快速执行常见的任务或操作。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;「Quicker」 是一个通用的快捷操作工具，用于提高计算机用户的工作效率。它提供了一种简单的方式来创建自定义的快捷操作，以便快速执行常见的任务或操作。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;之前有使用「Quicker」实现浏览器外划词翻译，详情看&lt;a class=&#34;link&#34; href=&#34;https://saladict.crimx.com/native.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;这篇文章&lt;/a&gt;，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了&lt;a class=&#34;link&#34; href=&#34;https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;类似的操作&lt;/a&gt;，遂白嫖&lt;/p&gt;
@@ -466,8 +460,7 @@
 &lt;p&gt;项目地址：&lt;a class=&#34;link&#34; href=&#34;https://github.com/lxgw/LxgwWenKai&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/lxgw/LxgwWenKai&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这是使用的是&lt;a class=&#34;link&#34; href=&#34;%28https://moyu.ee/p/hugo-stack/#%e5%ad%97%e4%bd%93%e8%b0%83%e6%95%b4%29&#34; &gt;墨语&lt;/a&gt;提供的教程，在配置的过程中我遇到了一些问题，感谢博主的热心解答🎉&lt;/p&gt;
 &lt;p&gt;我的博客是部署在GitHub上，由于博客的主题文件是使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hugo-theme-stack&lt;/a&gt;仓库作为博客的子模块，&lt;/p&gt;
@@ -478,8 +471,7 @@
 &lt;p&gt;You need to &lt;strong&gt;fork&lt;/strong&gt; the theme repository and push your changes to your forked repository (change submodule&amp;rsquo;s repository url). Then, you can commit those changes to your site repository.&lt;/p&gt;
 &lt;p&gt;如果你通过 Git/Git 子模块安装了主题，可以直接修改主题文件，在本地站点中查看更改。&lt;/p&gt;
 &lt;p&gt;但是，&lt;strong&gt;您无法直接提交和推送更改&lt;/strong&gt;，因为您没有推送到主题存储库的权限。&lt;/p&gt;
-&lt;p&gt;您需要&lt;strong&gt;fork&lt;/strong&gt;主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;您需要&lt;strong&gt;fork&lt;/strong&gt;主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;因为这个原因，按照博主文章提供的方法修改部署后没有效果
 
 &lt;div class=&#34;post-img-view&#34;&gt;
@@ -539,8 +531,7 @@
     &gt;tasker 神器&lt;/a&gt;],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p&gt;
 &lt;p&gt;刚好前几天在小黄鱼上买的小米8到手,这里记录一下这台手机的折腾过程.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;小白玩家水平有限,以下说法不一定正确,欢迎指正&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;小白玩家水平有限,以下说法不一定正确,欢迎指正&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;解bl锁&#34;&gt;解BL锁
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;(解锁会清除手机所有数据,请提前备份好重要资料)&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -576,8 +567,7 @@
 &lt;li&gt;
 &lt;p&gt;打开刚才下载安装的小米解锁工具,根据提示在关机状态下按住音量下＋电源键进入fastboot模式(又叫bootloader模式),屏幕上出现fastboot字样就是成功进入,然后用数据线连接电脑与手机,连接成功后点击解锁,耐心等待解锁成功重启手机就好.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;
 
 &lt;div class=&#34;post-img-view&#34;&gt;
@@ -700,8 +690,7 @@
 而今识尽愁滋味，欲说还休。欲说还休，却道“天凉好个秋”！&lt;/p&gt;
 &lt;p&gt;译文
 人年轻的时候不懂忧愁的滋味，喜欢登高远望。喜欢登高远望，为了写出新词，没有愁而硬要说有愁。
-现在尝尽了忧愁的滋味，想说却说不出。想说却说不出，却说道：“好凉爽的一个秋天啊！”&lt;/p&gt;
-&lt;/blockquote&gt;
+现在尝尽了忧愁的滋味，想说却说不出。想说却说不出，却说道：“好凉爽的一个秋天啊！”&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这句诗的大意就是年轻的时候没有愁为了写词硬说忧愁,这些评论者引用到这里应该是想表达这些博主本来没有烦恼,失意却为了用鼠鼠这个称谓强行说自己迷茫.&lt;del&gt;个人觉得还在指责他们蹭热点&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;那么,在什么样的视频底下没有出现这些评论呢,有表达生活艰难的,怀念亲人的,还有双非,专科等表达前途迷茫的这类视频下并没有出现类似的评论呢?&lt;/p&gt;
 &lt;p&gt;这些视频与上面提到的视频在内容,以及感情基调等方面差别不大,主要的差别是学历,换句话说,被讽刺的都是一些拥有高学历并表达了对未来迷茫的博主.&lt;/p&gt;
@@ -717,8 +706,7 @@
         
         <guid>http://localhost:1313/p/b177efa9/</guid>
         <description>&lt;blockquote&gt;
-&lt;p&gt;年初 他们去了很远的地方冒险,那是一片由钢筋水泥铸成同时又掺杂梦想的丛林,就在最近,年轻的冒险家马上就要回来了,无论有没有战利品,他们都会回来参加一年一度的盛大节日,满载而归的勇士们通常会举行一种传统的四人竞技活动,等到战利品全部留在美好的家乡,勇士们就会带着家乡的美好祝愿继续回到那片丛林开始新的冒险之旅.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;年初 他们去了很远的地方冒险,那是一片由钢筋水泥铸成同时又掺杂梦想的丛林,就在最近,年轻的冒险家马上就要回来了,无论有没有战利品,他们都会回来参加一年一度的盛大节日,满载而归的勇士们通常会举行一种传统的四人竞技活动,等到战利品全部留在美好的家乡,勇士们就会带着家乡的美好祝愿继续回到那片丛林开始新的冒险之旅.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;现在是2023年1月13日，看着友邻们都在写年终总结，我也来总结一下今年。&lt;/p&gt;
 &lt;h2 id=&#34;博客&#34;&gt;博客
 &lt;/h2&gt;&lt;p&gt;建立了自己的第一个博客，使用Hexo+GitHub，刚开始想搭建博客是觉得拥有一个自己的网站很酷，仅此而已，后来通过许多博主的友链见识了许多的站点，创作者们在自己的小窝中畅所欲言，自由的表达观点。从各式各样的博客中，阅读他/她们写下的文字，我收获了很多。&lt;/p&gt;
@@ -772,8 +760,7 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
 &lt;p&gt;&lt;strong&gt;使用主题&lt;a class=&#34;link&#34; href=&#34;https://github.com/theme-nexmoe/hexo-theme-nexmoe&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Nexmoe&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;图片丢失&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;图片丢失&lt;/p&gt;&lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;更换主题为Next&lt;/p&gt;
@@ -805,8 +792,7 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
 &lt;p&gt;website: &lt;a class=&#34;link&#34; href=&#34;https://lesx.top&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://lesx.top&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;image: &lt;a class=&#34;link&#34; href=&#34;https://img.lesx.top/avatar.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://img.lesx.top/avatar.png&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+    &gt;https://img.lesx.top/avatar.png&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 </description>
         </item>
         <item>
@@ -825,8 +811,7 @@ netlify建站参考&lt;a class=&#34;link&#34; href=&#34;https://blog.cuijiacai.c
     &gt;https://lesx.top&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;image: &lt;a class=&#34;link&#34; href=&#34;https://r2-img.lesx.top/avatar.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://r2-img.lesx.top/avatar.png&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;联系我&#34;&gt;联系我
 &lt;/h2&gt;&lt;p&gt;📧:me19xy@gmail.com&lt;/p&gt;
 &lt;h2 id=&#34;changelog&#34;&gt;Changelog

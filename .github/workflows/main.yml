@@ -36,4 +36,4 @@ jobs:
           commit_message: "Deploy from 46fafa/blog@${{ github.sha }}" # 提交信息，方便追溯
           user_name: 'github-actions[bot]' # 提交者名称，可以是你自己的 GitHub 用户名
           user_email: 'github-actions[bot]@users.noreply.github.com' # 提交者邮箱
-          force_orphan: true
+          # force_orphan: true

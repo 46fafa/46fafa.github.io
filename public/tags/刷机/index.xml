@@ -24,8 +24,7 @@
     &gt;LineageOS&lt;/a&gt;，与MIUI这种厂商定制的系统相比没有烦人的广告，而且相对来说定制系统使用方式或者操作逻辑更适合中国大陆用户。LineageOS用起来相当丝滑，但是我的体验并不算好，除了丝滑纯净之外并没有什么其他吸引我的点。在之前的米8上使用经常会莫名的重启，也没有找到原因。&lt;/p&gt;
 &lt;p&gt;因此我这次刷机还是倾向于定制系统 ，刚好MIUI有国际版的ROM，国际版包括主要包括欧版，俄罗斯版，印尼版等等。最后我选择的是eu版，与国行版相比它去除了广告而且精简了一些我平时不太需要的预装应用，还内置了谷歌框架。没选择EEA版是因为其预装了很多Google的app，比如谷歌地图，谷歌钱包等等。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;EU版MIUI&lt;strong&gt;是一个第三方开发项目，和官方的海外版不同，是根据官方的国行版(CN)或者官方的全球版(Global)修改而来的&lt;/strong&gt;。 常说的欧版，有的指EU版，有的指官方EEA版，它们是两个不同的版本。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;EU版MIUI&lt;strong&gt;是一个第三方开发项目，和官方的海外版不同，是根据官方的国行版(CN)或者官方的全球版(Global)修改而来的&lt;/strong&gt;。 常说的欧版，有的指EU版，有的指官方EEA版，它们是两个不同的版本。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;下载刷机包&#34;&gt;下载刷机包
 &lt;/h2&gt;&lt;p&gt;本次刷机的手机是小米11，系统为MIUI14，刷机方式为线刷，从MIUI14开始eu社区的ROM可同时支持卡刷和线刷。&lt;/p&gt;
 &lt;p&gt;刷机包可以到&lt;a class=&#34;link&#34; href=&#34;https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv14/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -79,8 +78,7 @@
     &gt;tasker 神器&lt;/a&gt;],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p&gt;
 &lt;p&gt;刚好前几天在小黄鱼上买的小米8到手,这里记录一下这台手机的折腾过程.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;小白玩家水平有限,以下说法不一定正确,欢迎指正&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;小白玩家水平有限,以下说法不一定正确,欢迎指正&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;解bl锁&#34;&gt;解BL锁
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;(解锁会清除手机所有数据,请提前备份好重要资料)&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
@@ -116,8 +114,7 @@
 &lt;li&gt;
 &lt;p&gt;打开刚才下载安装的小米解锁工具,根据提示在关机状态下按住音量下＋电源键进入fastboot模式(又叫bootloader模式),屏幕上出现fastboot字样就是成功进入,然后用数据线连接电脑与手机,连接成功后点击解锁,耐心等待解锁成功重启手机就好.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;
 
 &lt;div class=&#34;post-img-view&#34;&gt;
