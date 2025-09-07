@@ -1,0 +1,15 @@
+{
+  "uploadByClipSwitch": true,
+  "uploader": "PicGo",
+  "uploadServer": "https://pic.lesx.top/upload?key=cEg6a2YTSE",
+  "deleteServer": "https://pic.lesx.top/delete?key=cEg6a2YTSE",
+  "imageSizeSuffix": "",
+  "picgoCorePath": "",
+  "workOnNetWork": false,
+  "fixPath": false,
+  "applyImage": false,
+  "newWorkBlackDomains": "",
+  "deleteSource": true,
+  "imageDesc": "origin",
+  "remoteServerMode": true
+}

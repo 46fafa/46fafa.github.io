@@ -1,0 +1,220 @@
+{
+  "main": {
+    "id": "dd6a716e6d740ef0",
+    "type": "split",
+    "children": [
+      {
+        "id": "e4a4a6b87be564e3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "51f11e65f7ec2d6e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c8ce9965e0f5c7fe",
+    "type": "split",
+    "children": [
+      {
+        "id": "982677ec3784621a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cc0dd9ee90533cf1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "69457e8746b2078c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          },
+          {
+            "id": "5a06c7e694cfad11",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "712c959a71bbf9ce",
+    "type": "split",
+    "children": [
+      {
+        "id": "faf74ec573c5125b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "82b58d8cbe12c92c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "考研数学/基础30讲.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "基础30讲 的反向链接列表"
+            }
+          },
+          {
+            "id": "59bd7518be68eaff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "考研数学/张宇高数回顾.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "张宇高数回顾 的出链列表"
+            }
+          },
+          {
+            "id": "15735605af4e162a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "5a38ccdef679042c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:创建新数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "5a06c7e694cfad11",
+  "lastOpenFiles": [
+    "ablog/content/post/密码管理器.md",
+    "ablog/content/post/利用Gemini实现pot-App插件开发.md",
+    "ablog/content/post/就是生离死别了，我们还是兄弟.md",
+    "ablog/content/post/更换博客字体为霞鹜文楷.md",
+    "ablog/content/post/独行还是群居.md",
+    "ablog/content/post/抖音热词.md",
+    "ablog/content/post/第一篇博客.md",
+    "ablog/content/post/2022年终总结.md",
+    "考研数学/基础30讲.md",
+    "摘抄/偷拍犯的自白.md",
+    "摘抄/诗.md",
+    "摘抄/摘抄.md",
+    "摘抄/文案.md",
+    "考研数学/assets/Pasted image 20250830161021.png",
+    "考研数学/assets/积分中值定理.png",
+    "考研数学/assets/牛顿-莱布尼兹公式证明.png",
+    "考研数学/assets/结论.png",
+    "考研数学/assets/基础30讲.canvas",
+    "考研数学/assets/例6.13.png",
+    "考研数学/assets/例6.6.png",
+    "考研数学/assets/f(x)存在和f'(x)存在的区别.png",
+    "考研数学/assets/164页.png",
+    "考研数学/assets/163页.png",
+    "未命名 1.base",
+    "未命名.base",
+    "ablog/content/post/新购买的服务器应该设置些什么.md",
+    "ablog/content/post/test.md",
+    "考研数学/assets/Pasted image 20250816204844.png",
+    "ablog/content/post/Hugo构建发布自动化.md",
+    "ablog/data/movies.yaml",
+    "ablog/get.py",
+    "ablog/layouts/page/movies.html",
+    "ablog/layouts/page/movie.html",
+    "ablog/public/movies/index.html",
+    "ablog/public/movies",
+    "ablog/content/page/movie/index.md",
+    "ablog/content/page/movie",
+    "ablog/data/neodb_movie_shelf.yaml",
+    "ablog/content/page/about/index.zh-cn.md",
+    "().md",
+    "ablog/content/post/TEST.md",
+    "ablog/content/post/生活.md",
+    "未命名.canvas",
+    "ablog/content/post/终于还是对主力机下手了.md",
+    "ablog/content/post/小米8刷机记录.md",
+    "ablog/themes/hugo-theme-stack/exampleSite/content/post/rich-content/index.md",
+    "ablog/themes/hugo-theme-stack/exampleSite/content/post/placeholder-text/index.md",
+    "未命名 1.canvas",
+    "论文/未命名.canvas"
+  ]
+}

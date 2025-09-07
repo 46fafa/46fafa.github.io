@@ -7,7 +7,7 @@ categories:
   - tech
 tags: 
 description: 
-image: 
+image:
 series:
   - ""
 ---
@@ -20,11 +20,13 @@ series:
 ![image.png](https://r2-img.lesx.top/20250816203934792.webp)
 ## ~~开发~~
 我平时使用[墨墨背单词](https://www.maimemo.com/)(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的[生词本插件模板](https://github.com/pot-app/pot-app-collection-plugin-template)，插件结构比较简单
->- pot-app-collection-plugin-template/
->	- info.json 
->	- main.js
+
+```
+├── pot-app-collection-plugin-template
+│   ├── info.json
+│   └── main.js
+```
 
 虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了[bob-plugin-maimemo-notebook](https://github.com/chriscurrycc/bob-plugin-maimemo-notebook)，最终实现的效果:
 ![image.png](https://r2-img.lesx.top/20250816221019200.webp)
-
 

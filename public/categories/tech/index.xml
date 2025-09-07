@@ -29,15 +29,15 @@
 &lt;/h2&gt;&lt;p&gt;我平时使用&lt;a class=&#34;link&#34; href=&#34;https://www.maimemo.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;墨墨背单词&lt;/a&gt;(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class=&#34;link&#34; href=&#34;https://github.com/pot-app/pot-app-collection-plugin-template&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;生词本插件模板&lt;/a&gt;，插件结构比较简单&lt;/p&gt;
-&lt;blockquote&gt;
+&lt;p&gt;pot-app-collection-plugin-template/&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;pot-app-collection-plugin-template/
-&lt;ul&gt;
-&lt;li&gt;info.json&lt;/li&gt;
-&lt;li&gt;main.js&lt;/li&gt;
-&lt;/ul&gt;
+&lt;li&gt;
+&lt;p&gt;info.json&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;li&gt;
+&lt;p&gt;main.js&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class=&#34;link&#34; href=&#34;https://github.com/chriscurrycc/bob-plugin-maimemo-notebook&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;bob-plugin-maimemo-notebook&lt;/a&gt;，最终实现的效果:
 
