@@ -1,40 +1,20 @@
 {
   "choices": [
     {
-      "id": "b003e08e-81c3-413d-be2c-9fbaa62f6813",
+      "id": "092a907e-b68c-4713-8983-79dabe80a11a",
       "name": "新建博客",
       "type": "Macro",
       "command": false,
       "runOnStartup": false,
       "macro": {
         "name": "新建博客",
-        "id": "8c464a84-0546-4b1c-b5f4-6acbf888b01e",
+        "id": "ebc80cb1-5b31-46ef-8c98-2052634234e5",
         "commands": [
           {
             "name": "NewBlog",
             "type": "UserScript",
-            "id": "918d2156-e73a-4bd7-984f-1b7a308fb825",
-            "path": "ablog/obs_sctipts/NewBlog.js",
-            "settings": {}
-          }
-        ]
-      }
-    },
-    {
-      "id": "af490b99-5e28-4aa7-a3e3-516df7629719",
-      "name": "预览博客",
-      "type": "Macro",
-      "command": false,
-      "runOnStartup": false,
-      "macro": {
-        "name": "预览博客",
-        "id": "6229b535-11f8-481d-bef1-c93dd5087e82",
-        "commands": [
-          {
-            "name": "review",
-            "type": "UserScript",
-            "id": "736e464e-9dca-4588-a392-135a901bd63d",
-            "path": "ablog/obs_sctipts/review.js",
+            "id": "1839cb01-aa7f-417f-81b8-e70e7aa8bbfb",
+            "path": "obs_scripts/NewBlog.js",
             "settings": {}
           }
         ]
@@ -45,7 +25,9 @@
   "devMode": false,
   "templateFolderPath": "",
   "announceUpdates": true,
-  "version": "2.1.0",
+  "version": "2.2.1",
+  "globalVariables": {},
+  "onePageInputEnabled": false,
   "disableOnlineFeatures": true,
   "enableRibbonIcon": false,
   "showCaptureNotification": true,
