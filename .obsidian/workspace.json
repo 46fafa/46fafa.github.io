@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e4a4a6b87be564e3",
+        "id": "907c2e6a315be7d1",
         "type": "tabs",
         "children": [
           {
-            "id": "51f11e65f7ec2d6e",
+            "id": "ab16e4fbe73cbcda",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "content/post/2022年终总结.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "2022年终总结"
             }
           }
         ]
@@ -139,20 +143,31 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "content/post/2022年终总结.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "2022年终总结 的大纲"
+            }
+          },
+          {
+            "id": "fe48057d14062920",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 356.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -162,11 +177,15 @@
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "command-palette:打开命令面板": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "5a06c7e694cfad11",
+  "active": "ab16e4fbe73cbcda",
   "lastOpenFiles": [
+    "obs_scripts/review.js",
+    "obs_scripts/NewBlog.js",
+    "obs_scripts",
     "ablog/content/post/密码管理器.md",
     "ablog/content/post/利用Gemini实现pot-App插件开发.md",
     "ablog/content/post/就是生离死别了，我们还是兄弟.md",
@@ -203,8 +222,6 @@
     "ablog/public/movies/index.html",
     "ablog/public/movies",
     "ablog/content/page/movie/index.md",
-    "ablog/content/page/movie",
-    "ablog/data/neodb_movie_shelf.yaml",
     "ablog/content/page/about/index.zh-cn.md",
     "().md",
     "ablog/content/post/TEST.md",
