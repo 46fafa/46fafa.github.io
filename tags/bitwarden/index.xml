@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bitwarden on kenome's blog</title><link>https://lesx.top/tags/bitwarden/</link><description>Recent content in Bitwarden on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Fri, 15 Dec 2023 00:17:06 +0800</lastBuildDate><atom:link href="https://lesx.top/tags/bitwarden/index.xml" rel="self" type="application/rss+xml"/><item><title>从keepass迁移到bitwarden</title><link>https://lesx.top/p/b87d8224/</link><pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate><guid>https://lesx.top/p/b87d8224/</guid><description>&lt;h2 id="起因">起因
+&lt;/h2>&lt;p>我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code>.kdbx&lt;/code>文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p>
+&lt;p>了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/bw.webp">
+&lt;img src="https://r2-img.lesx.top/2023/bw.webp" alt="image-20231215130129827" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>GitHub有大佬用rust重写了Bitwarden名为vaultwarden，对机器的要求更低，而且提供了Docker镜像，部署起来也比较方便。&lt;/p>
+&lt;p>vaultwarden：https://github.com/dani-garcia/vaultwarden&lt;/p>
+&lt;h2 id="前置准备">前置准备
+&lt;/h2>&lt;ul>
+&lt;li>一台闲置VPS&lt;/li>
+&lt;/ul>
+&lt;p>vaultwarden对于资源占用很低，各大厂商的入门机器就够用了。&lt;/p>
+&lt;ul>
+&lt;li>宝塔面板&lt;/li>
+&lt;/ul>
+&lt;p>我的建议是使用宝塔面板辅助管理，后面配置反向代理、SSL之类的也很方便。宝塔面板安装需要一台纯净的VPS，建议购买后立即安装(会用Nginx等配置的可以忽略)&lt;/p>
+&lt;ul>
+&lt;li>docker和docker-compose&lt;/li>
+&lt;li>一个有效域名(如果你不打算使用ip:端口访问的话)&lt;/li>
+&lt;/ul>
+&lt;h2 id="部署服务">部署服务
+&lt;/h2>&lt;h3 id="安装docker和docker-compose">安装Docker和Docker-compose
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">docker -v
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker-compose -v
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>安装完毕后分别输入命令，如果输出版本信息说明安装成功。&lt;/p>
+&lt;h3 id="设置域名dns">设置域名DNS
+&lt;/h3>&lt;p>在你的域名管理处添加一条DNS记录，指向你服务器的ip地址&lt;/p>
+&lt;h3 id="创建数据文件夹">创建数据文件夹
+&lt;/h3>&lt;p>首先在你喜欢的位置创建一个文件夹，里面用来存放vaulwarden的数据文件，方便后期备份。我这里是在主目录下创建vaultwarden文件夹。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ~
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir vaultwarden &amp;amp;&amp;amp; cd vaultwarden
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>创建docker-compose.yml文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">vim docker-compose.yml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>打开文件后按&lt;code>i&lt;/code>进入输入模式，将下面内容写入&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">version: &amp;#34;3&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">services:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> vaultwarden:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: vaultwarden/server:latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> container_name: vaultwarden
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: always
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#端口映射，可自行修改8080端口
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &amp;#34;6666:80&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &amp;#34;3012:3012&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> volumes:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#映射目录位置，可选
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./bw-data:/data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#这里的目录可以换成你创建的目录，比如我的是~/vaultwarden
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#后台管理登陆密码
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ADMIN_TOKEN=Password
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#域名配置，刚才设置了DNS的域名
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - DOMAIN=https://example.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#禁用显示密码提示
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - SHOW_PASSWORD_HINT=false
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#是否开启注册，自用的话自己搭建好注册后改成false
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - SIGNUPS_ALLOWED=false
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#启用WebSocket通知
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - WEBSOCKET_ENABLED=true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#是否开启Web客户端
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - WEB_VAULT_ENABLED=true
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>写入完毕后按&lt;code>Esc&lt;/code>,然后输入&lt;code>:wq&lt;/code>保存退出&lt;/p>
+&lt;h3 id="启动项目">启动项目
+&lt;/h3>&lt;p>确保docker-compose.yml中的信息无误后，启动项目&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker-compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后查看容器是否运行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker ps
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/docker.webp">
+&lt;img src="https://r2-img.lesx.top/2023/docker.webp" alt="image-20231215135826570" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>出现容器名称说明容器成功运行，在这里可以使用你的服务器ip:端口号访问web页面&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/image-20231217220525482.webp">
+&lt;img src="https://r2-img.lesx.top/2023/image-20231217220525482.webp" alt="image-20231217220525482" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="使用宝塔面板部署ssl以及设置反向代理">使用宝塔面板部署SSL以及设置反向代理
+&lt;/h2>&lt;p>打开宝塔面板，点击网站-&amp;gt;添加站点，此处域名更换成你自己的域名&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/bt.webp">
+&lt;img src="https://r2-img.lesx.top/2023/bt.webp" alt="image-20231215140236160" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>提交后点击SSL-&amp;gt;Let`s Encrypt申请证书&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/zs.webp">
+&lt;img src="https://r2-img.lesx.top/2023/zs.webp" alt="image-20231215140439474" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>然后点击当前证书-&amp;gt;保存并启用证书，勾选强制https,不然后续会出现无法注册的问题&lt;/p>
+&lt;h3 id="设置反向代理">设置反向代理
+&lt;/h3>&lt;p>点击反向代理-&amp;gt;添加反向代理&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/image-20231217221704724.webp">
+&lt;img src="https://r2-img.lesx.top/2023/image-20231217221704724.webp" alt="image-20231217221704724" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>代理名称随意，目标url填&lt;code>ip:端口&lt;/code>,也就是你刚才访问的url,提交后就可以使用域名访问你的vaultwarden网页了。&lt;/p></description></item></channel><follow_challenge><feedId>65267366307477504</feedId><userId>60837020821039104</userId></follow_challenge></rss>

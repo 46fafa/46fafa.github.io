@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kenome's blog</title><link>https://lesx.top/</link><description>Recent content on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="https://lesx.top/index.xml" rel="self" type="application/rss+xml"/><item><title>利用Gemini实现pot-App插件开发</title><link>https://lesx.top/p/c6ded1a6/</link><pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate><guid>https://lesx.top/p/c6ded1a6/</guid><description>&lt;p>测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del>调教AI&lt;/del>&lt;/p>
+&lt;hr>
+&lt;h2 id="pot-app">Pot-app
+&lt;/h2>&lt;p>&lt;a class="link" href="https://pot-app.com/" target="_blank" rel="noopener"
+>Pot&lt;/a>是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/20250816203934792.webp">
+&lt;img src="https://r2-img.lesx.top/20250816203934792.webp" alt="image.png" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="开发">&lt;del>开发&lt;/del>
+&lt;/h2>&lt;p>我平时使用&lt;a class="link" href="https://www.maimemo.com/" target="_blank" rel="noopener"
+>墨墨背单词&lt;/a>(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class="link" href="https://github.com/pot-app/pot-app-collection-plugin-template" target="_blank" rel="noopener"
+>生词本插件模板&lt;/a>，插件结构比较简单&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">├── pot-app-collection-plugin-template
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ ├── info.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">│ └── main.js
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class="link" href="https://github.com/chriscurrycc/bob-plugin-maimemo-notebook" target="_blank" rel="noopener"
+>bob-plugin-maimemo-notebook&lt;/a>，最终实现的效果:
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/20250816221019200.webp">
+&lt;img src="https://r2-img.lesx.top/20250816221019200.webp" alt="image.png" />
+&lt;/a>
+&lt;/div>&lt;/p></description></item><item><title>从keepass迁移到bitwarden</title><link>https://lesx.top/p/b87d8224/</link><pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate><guid>https://lesx.top/p/b87d8224/</guid><description>&lt;h2 id="起因">起因
+&lt;/h2>&lt;p>我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code>.kdbx&lt;/code>文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p>
+&lt;p>了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/bw.webp">
+&lt;img src="https://r2-img.lesx.top/2023/bw.webp" alt="image-20231215130129827" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>GitHub有大佬用rust重写了Bitwarden名为vaultwarden，对机器的要求更低，而且提供了Docker镜像，部署起来也比较方便。&lt;/p>
+&lt;p>vaultwarden：https://github.com/dani-garcia/vaultwarden&lt;/p>
+&lt;h2 id="前置准备">前置准备
+&lt;/h2>&lt;ul>
+&lt;li>一台闲置VPS&lt;/li>
+&lt;/ul>
+&lt;p>vaultwarden对于资源占用很低，各大厂商的入门机器就够用了。&lt;/p>
+&lt;ul>
+&lt;li>宝塔面板&lt;/li>
+&lt;/ul>
+&lt;p>我的建议是使用宝塔面板辅助管理，后面配置反向代理、SSL之类的也很方便。宝塔面板安装需要一台纯净的VPS，建议购买后立即安装(会用Nginx等配置的可以忽略)&lt;/p>
+&lt;ul>
+&lt;li>docker和docker-compose&lt;/li>
+&lt;li>一个有效域名(如果你不打算使用ip:端口访问的话)&lt;/li>
+&lt;/ul>
+&lt;h2 id="部署服务">部署服务
+&lt;/h2>&lt;h3 id="安装docker和docker-compose">安装Docker和Docker-compose
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">docker -v
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">docker-compose -v
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>安装完毕后分别输入命令，如果输出版本信息说明安装成功。&lt;/p>
+&lt;h3 id="设置域名dns">设置域名DNS
+&lt;/h3>&lt;p>在你的域名管理处添加一条DNS记录，指向你服务器的ip地址&lt;/p>
+&lt;h3 id="创建数据文件夹">创建数据文件夹
+&lt;/h3>&lt;p>首先在你喜欢的位置创建一个文件夹，里面用来存放vaulwarden的数据文件，方便后期备份。我这里是在主目录下创建vaultwarden文件夹。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd ~
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mkdir vaultwarden &amp;amp;&amp;amp; cd vaultwarden
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>创建docker-compose.yml文件&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">vim docker-compose.yml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>打开文件后按&lt;code>i&lt;/code>进入输入模式，将下面内容写入&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">version: &amp;#34;3&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">services:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> vaultwarden:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> image: vaultwarden/server:latest
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> container_name: vaultwarden
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> restart: always
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ports:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#端口映射，可自行修改8080端口
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &amp;#34;6666:80&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - &amp;#34;3012:3012&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> volumes:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#映射目录位置，可选
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ./bw-data:/data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#这里的目录可以换成你创建的目录，比如我的是~/vaultwarden
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> environment:
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#后台管理登陆密码
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - ADMIN_TOKEN=Password
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#域名配置，刚才设置了DNS的域名
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - DOMAIN=https://example.com
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#禁用显示密码提示
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - SHOW_PASSWORD_HINT=false
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#是否开启注册，自用的话自己搭建好注册后改成false
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - SIGNUPS_ALLOWED=false
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#启用WebSocket通知
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - WEBSOCKET_ENABLED=true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#是否开启Web客户端
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> - WEB_VAULT_ENABLED=true
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>写入完毕后按&lt;code>Esc&lt;/code>,然后输入&lt;code>:wq&lt;/code>保存退出&lt;/p>
+&lt;h3 id="启动项目">启动项目
+&lt;/h3>&lt;p>确保docker-compose.yml中的信息无误后，启动项目&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker-compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后查看容器是否运行&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo docker ps
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/docker.webp">
+&lt;img src="https://r2-img.lesx.top/2023/docker.webp" alt="image-20231215135826570" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>出现容器名称说明容器成功运行，在这里可以使用你的服务器ip:端口号访问web页面&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/image-20231217220525482.webp">
+&lt;img src="https://r2-img.lesx.top/2023/image-20231217220525482.webp" alt="image-20231217220525482" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="使用宝塔面板部署ssl以及设置反向代理">使用宝塔面板部署SSL以及设置反向代理
+&lt;/h2>&lt;p>打开宝塔面板，点击网站-&amp;gt;添加站点，此处域名更换成你自己的域名&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/bt.webp">
+&lt;img src="https://r2-img.lesx.top/2023/bt.webp" alt="image-20231215140236160" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>提交后点击SSL-&amp;gt;Let`s Encrypt申请证书&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/zs.webp">
+&lt;img src="https://r2-img.lesx.top/2023/zs.webp" alt="image-20231215140439474" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>然后点击当前证书-&amp;gt;保存并启用证书，勾选强制https,不然后续会出现无法注册的问题&lt;/p>
+&lt;h3 id="设置反向代理">设置反向代理
+&lt;/h3>&lt;p>点击反向代理-&amp;gt;添加反向代理&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/image-20231217221704724.webp">
+&lt;img src="https://r2-img.lesx.top/2023/image-20231217221704724.webp" alt="image-20231217221704724" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>代理名称随意，目标url填&lt;code>ip:端口&lt;/code>,也就是你刚才访问的url,提交后就可以使用域名访问你的vaultwarden网页了。&lt;/p></description></item><item><title>小米11刷入MIUI.EU</title><link>https://lesx.top/p/743b0d87/</link><pubDate>Thu, 10 Aug 2023 21:58:06 +0800</pubDate><guid>https://lesx.top/p/743b0d87/</guid><description>&lt;h2 id="前文">前文
+&lt;/h2>&lt;p>不久前我写过一篇博文&lt;a class="link" href="https://lesx.top/p/mi8/" target="_blank" rel="noopener"
+>小米折腾记录&lt;/a>，当时是想体验类原生安卓系统，在小黄鱼购入二手小米8，本来打算记录下刷入全过程，但是自己换电池把屏幕排线弄坏了，手机开不了机了，后续内容就没有更新。&lt;/p>
+&lt;p>手里的主力手机一直是小米11，但是最近因为各种各样的原因用着实在是不得劲，最终决定刷机。聊刷机就不得不考虑一下数据备份的问题，这里我觉得小米自带的备份就很好用。&lt;/p>
+&lt;p>&lt;code>设置&amp;gt;我的设备&amp;gt;备份与恢复&lt;/code>，选择你要备份的内容等待备份成功，成功后将&lt;code>MIUI&amp;gt;backup&amp;gt;allback&lt;/code>,路径下文件拷贝到电脑上，然后就可以愉快的解锁+刷机了。&lt;/p>
+&lt;p>&lt;strong>解锁的步骤&lt;/strong>的可以看我之前的文章&lt;a class="link" href="https://lesx.top/p/mi8/" target="_blank" rel="noopener"
+>小米8折腾记录&lt;/a>，解锁后就可以刷机了&lt;/p>
+&lt;p>我之前体验过原生安卓&lt;a class="link" href="https://lineageos.org/" target="_blank" rel="noopener"
+>LineageOS&lt;/a>，与MIUI这种国内厂商定制的系统相比没有烦人的广告，而且相对来说定制系统使用方式或者操作逻辑更适合中国大陆用户。LineageOS用起来相当丝滑，但是我的体验并不算好，除了丝滑纯净之外并没有什么其他吸引我的点。在之前的米8上使用经常会莫名的重启，也没有找到原因。&lt;/p>
+&lt;p>因此我这次刷机还是倾向于定制系统 ，刚好MIUI有国际版的ROM，国际版包括主要包括欧版，俄罗斯版，印尼版等等。最后我选择的是eu版，与国行版相比它去除了广告而且精简了一些我平时不太需要的预装应用，还内置了谷歌框架。没选择EEA版是因为其预装了很多Google的app，比如谷歌地图，谷歌钱包等等。&lt;/p>
+&lt;blockquote>
+&lt;p>EU版MIUI&lt;strong>是一个第三方开发项目，和官方的海外版不同，是根据官方的国行版(CN)或者官方的全球版(Global)修改而来的&lt;/strong>。 常说的欧版，有的指EU版，有的指官方EEA版，它们是两个不同的版本。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="下载刷机包">下载刷机包
+&lt;/h2>&lt;p>本次刷机的手机是小米11，系统为MIUI14，刷机方式为线刷，从MIUI14开始eu社区的ROM可同时支持卡刷和线刷。&lt;/p>
+&lt;p>刷机包可以到&lt;a class="link" href="https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv14/" target="_blank" rel="noopener"
+>Xiaomi.eu Multilang MIUI ROMs Files&lt;/a>,注意下载对应机型的ROM&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/miui14.webp">
+&lt;img src="https://r2-img.lesx.top/2023/miui14.webp" alt="image-20230815220645245" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>以xiaomi11为例简单说明一下命名方式，&lt;code>xiaomi.eu_multi_MI11&lt;/code>代表机型，&lt;code>V14.0.10.0&lt;/code>代表系统版本，这里指MIUI14&lt;/p>
+&lt;p>⚠️有些机型的ROM是用英文命名，比如在框选部分的下个ROM，&lt;code>THOR&lt;/code>代表&lt;code>小米12s Ultra&lt;/code>,不同机型的英文名称可以在&lt;a class="link" href="" >https://xiaomirom.com/&lt;/a>查到，如果ROM下载太慢请尝试科学上网。&lt;/p>
+&lt;p>在开始刷入之间需要在电脑上安装ADB工具，安装方式见&lt;a class="link" href="https://lesx.top/p/mi8/" target="_blank" rel="noopener"
+>小米8折腾记录&lt;/a>&lt;/p>
+&lt;h2 id="开始刷机">开始刷机
+&lt;/h2>&lt;p>eu版ROM的线刷方式很简单，开机状态重启的同时按住&lt;code>音量-&lt;/code>，直到屏幕出现&lt;code>FASTBOOT&lt;/code>字样松开，然后用数据线连接电脑，解压下载的ROM到桌面(任意你喜欢的位置)，打开解压后的文件夹&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/miuirom.webp">
+&lt;img src="https://r2-img.lesx.top/2023/miuirom.webp" alt="image-20230815222654964" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>因为我是Windows电脑，所以选择Windows开头的脚本，ROM提供了三个系统的线刷脚本&lt;code>windows_fastboot_first_install_with_data_format.bat&lt;/code>是指清除数据刷入&lt;/p>
+&lt;p>&lt;code>windows_fastboot_update_rom.bat&lt;/code>是指保留数据刷入&lt;/p>
+&lt;p>这里建议使用清除数据刷入，双击脚本文件，在弹出的终端中输入y然后回车，然后等待5-8分钟(视系统状况不等)，刷入成功后手机会自动重启，能顺利进入引导页面就成功了。&lt;/p>
+&lt;h2 id="注意事项">注意事项
+&lt;/h2>&lt;ul>
+&lt;li>注意中途不要拔出数据线&lt;/li>
+&lt;li>刷机时拔出电话卡，避免卡在引导界面&lt;/li>
+&lt;li>如果拔出电话卡后依然卡在引导界面可以尝试连接Wi-Fi然后是用局域网代理，或者参考&lt;a class="link" href="https://imold.wang/technology/phone/364.html" target="_blank" rel="noopener"
+>这篇文章&lt;/a>，⚠️文章中提到的方法我并没有验证，稳妥起见建议使用第四种方法&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考资料">参考资料
+&lt;/h2>&lt;ol>
+&lt;li>跳过谷歌开机引导，https://imold.wang/technology/phone/364.html&lt;/li>
+&lt;li>为小米11刷入eu版MIUI,https://www.himiku.com/archives/xiaomi-eu-for-mi-11.html&lt;/li>
+&lt;li>小米系列MIUI刷EU系统教学,https://forum.gamer.com.tw/C.php?bsn=60559&amp;amp;snA=62124&lt;/li>
+&lt;/ol></description></item><item><title>就算生离死别了，我们还是兄弟</title><link>https://lesx.top/p/bb5efac6/</link><pubDate>Sat, 05 Aug 2023 22:27:36 +0800</pubDate><guid>https://lesx.top/p/bb5efac6/</guid><description>&lt;h2 id="微信读书">微信读书
+&lt;/h2>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%e5%be%ae%e4%bf%a1%e8%af%bb%e4%b9%a6.webp">
+&lt;img src="https://r2-img.lesx.top/%e5%be%ae%e4%bf%a1%e8%af%bb%e4%b9%a6.webp" alt="photo_2023-08-05_22-35-21" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>虽然放假后的空闲时间变多了，读书的效率却并没有提高许多，接近一个月才读完一本书，今天突然心血来潮，把书架里放了很久的《兄弟》读完了。&lt;/p>
+&lt;p>不记得在那里看到过这样句话，&lt;strong>悲剧就是把美好的东西撕碎来看&lt;/strong>。《兄弟》就是一个悲剧，余华老师就像是一个经验丰富的刽子手，细腻的笔触宛如凌迟般的酷刑一点点把人送入绝望，一如曾经看《活着》的感觉。&lt;/p>
+&lt;h2 id="哀其不幸怒其不争">哀其不幸，怒其不争
+&lt;/h2>&lt;p>文中最让我惋惜的角色是宋钢，他继承了宋凡平的聪明体贴，这也是林红选择他的原因，可是宋凡平还没来得及教他更多的道理就去世了，宋钢没有学会他父亲面对不幸时候的坚毅勇敢，他只学会了好好爱别人，没学会好好爱自己，他的性格是造成他最后不幸结局的主要问题。&lt;/p>
+&lt;p>但是却无法责怪他，他的所作所为都是在为林红，为他们的家考虑，当他伤痕累累的回到家乡，发现自己唯一的兄弟和自己最爱的妻子搞到一起，他也没有责怪他们任何一个人，连死了都不愿意毁坏李光头送给他的那副眼镜，他的死亡也像他活着那样谦卑。&lt;/p>
+&lt;h2 id="人具有多面性">人具有多面性
+&lt;/h2>&lt;p>李光头是最复杂的人物，他坚强乐观，机敏聪慧，忠诚义气，他无耻下流，背信弃义，冷酷无情，他身上的每一个优点和每一个缺点都被放大到极致，瑕不掩瑜，瑜不掩瑕，他是一个让读者在阅读的过程中不断讨厌又不断喜欢的一个角色。&lt;/p>
+&lt;p>李光头从小就展现出异于常人的能力&amp;ndash;对人性的把握，他从厕所偷窥被抓去游街，千夫所指，所有的男人和女人都唾弃他，女人唾弃他是感到害怕，担心被偷窥的人是自己，男人唾弃他是为了满足自身虚伪的道德感，如果他们有机会，他们或许也会做出同样的事，这点从书中的描写可以看出来。&lt;/p>
+&lt;p>李光头利用偷窥来的秘密和男人们交换，满足了男人们的欲望，也满足了自己的胃，这里他是为了自己。但是他为了让李兰能更舒服的到乡下， 用秘密交换来板车，摇椅，油布伞，舒舒服服的送李兰去乡下扫墓，这里他是为了李兰。&lt;/p>
+&lt;p>李光头的优点和缺点都很明显，但是可以确定的是， 他为了达成自己的目的可以不择手段，不在乎别人的感受。后面宋钢远走他乡打工，李光头知道林红是自己兄弟妻子的情况下，依然用揭幕的借口接走林红，强行和她发生关系，这里虽然也有林红半推半就的原因，但确实里李光头的强势让这一切发生。&lt;/p>
+&lt;h2 id="就是生离死别了我们还是兄弟">就是生离死别了，我们还是兄弟
+&lt;/h2>&lt;p>宋钢知道李光头和林红的事后，没有责怪他们任何人，留给他们的信中也没有流露出丝毫愤怒。但也许就是这样的性格，对家人的包容，让林红和李光头都肆无忌惮，没有考虑过这一切的后果&lt;/p>
+&lt;blockquote>
+&lt;p>她觉得和李光头有这样的三个月应该足够了，等到宋钢回来后，她就会加倍地去爱护宋钢，她了解宋钢，这是世界上最善良的男人，不管她做了什么对不起宋钢的事，宋钢都会一如既往地爱着她。&lt;/p>
+&lt;/blockquote>
+&lt;p>这句话不用多说，光看这里怒气值已经升至顶峰&lt;/p>
+&lt;blockquote>
+&lt;p>这次做爱完了以后，他们从此不再做爱了。李光头挥着手说：“我就把你还给宋钢啦！”&lt;/p>
+&lt;/blockquote>
+&lt;p>李光头觉得自己只是“借”宋钢的老婆，所以才会“还”，他前面对宋钢的行为，让人觉得他们真是兄弟，可是他后面做的事，兄弟这两个字又显得无比讽刺。&lt;/p></description></item><item><title>简单实现文章自动化部署</title><link>https://lesx.top/p/automated-deployment/</link><pubDate>Sun, 23 Jul 2023 16:51:28 +0800</pubDate><guid>https://lesx.top/p/automated-deployment/</guid><description>&lt;h3 id="quicker">「Quicker」
+&lt;/h3>&lt;p>我发现使用hugo构建的博客要发布文章需要经过以下几个步骤&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hugo new post/test.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">打开test.md编辑文章
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo 生成静态网站文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add . 将更改添加到暂存区
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m 将暂存区添加到版本库
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push 将本地的提交推送到远程仓库
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」&lt;/p>
+&lt;blockquote>
+&lt;p>「Quicker」 是一个通用的快捷操作工具，用于提高计算机用户的工作效率。它提供了一种简单的方式来创建自定义的快捷操作，以便快速执行常见的任务或操作。&lt;/p>
+&lt;/blockquote>
+&lt;p>之前有使用「Quicker」实现浏览器外划词翻译，详情看&lt;a class="link" href="https://saladict.crimx.com/native.html" target="_blank" rel="noopener"
+>这篇文章&lt;/a>，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了&lt;a class="link" href="https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514" target="_blank" rel="noopener"
+>类似的操作&lt;/a>，遂白嫖&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/Quicker1.webp">
+&lt;img src="https://r2-img.lesx.top/Quicker1.webp" alt="image-20230723174027239" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>这是下载的动作，但是本地实验后发现这个动作没有&lt;code>hugo&lt;/code>和&lt;code>git add .&lt;/code>命令，于是针对自己情况对原动作作了修改&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/quicker2.webp">
+&lt;img src="https://r2-img.lesx.top/quicker2.webp" alt="Snipaste_2023-07-23_17-54-51" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录&lt;/p>
+&lt;p>比如我的文章根目录为&lt;code>MyBlog\content\zh-cn\post&lt;/code>,上级目录就是&lt;code>MyBlog\content\zh-cn&lt;/code>&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/quicker3.webp">
+&lt;img src="https://r2-img.lesx.top/quicker3.webp" alt="image-20230723180531905" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>使用时目录设置为博客文件的根目录&lt;/p>
+&lt;p>原作者不允许再次进行分享，为了方便下载，我设置了私人分享&lt;a class="link" href="https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b" target="_blank" rel="noopener"
+>hugo自动化&lt;/a>,需要自取&lt;/p>
+&lt;h3 id="简化思路">简化思路
+&lt;/h3>&lt;p>如果不想安装「Quicker」的话，还有一个方法可以省略代码&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">@echo off
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REM 运行 Hugo 命令
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REM 运行 Git 命令
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -a -m &lt;span class="s2">&amp;#34;自动提交&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在博客根目录新建一个文本文件，将内容复制进去，然后重命名保存，后缀为&lt;code>.bat&lt;/code>,比如我的文件名是&lt;code>auto_deploy.bat&lt;/code>，每次修改文章后运行bash脚本即可发布&lt;/p></description></item><item><title>更换字体「霞鹜文楷」</title><link>https://lesx.top/p/lxgw-wenkai/</link><pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate><guid>https://lesx.top/p/lxgw-wenkai/</guid><description>&lt;h2 id="霞鹜文楷">「霞鹜文楷」
+&lt;/h2>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/wenkai-1.webp">
+&lt;img src="https://r2-img.lesx.top/wenkai-1.webp" alt="" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>看到别人博客换了字体，超级好看，我也要😊！！&lt;/p>
+&lt;p>项目地址：&lt;a class="link" href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener"
+>https://github.com/lxgw/LxgwWenKai&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。&lt;/p>
+&lt;/blockquote>
+&lt;p>这是使用的是&lt;a class="link" href="%28https://moyu.ee/p/hugo-stack/#%e5%ad%97%e4%bd%93%e8%b0%83%e6%95%b4%29" >墨语&lt;/a>提供的教程，在配置的过程中我遇到了一些问题，感谢博主的热心解答🎉&lt;/p>
+&lt;p>我的博客是部署在GitHub上，由于博客的主题文件是使用&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>hugo-theme-stack&lt;/a>仓库作为博客的子模块，&lt;/p>
+&lt;blockquote>
+&lt;p>根据主题stack的document说明:&lt;/p>
+&lt;p>If you installed the theme through Git / Git submodule, you can modify the theme file directly and see the changes in your local site.&lt;/p>
+&lt;p>However, &lt;strong>you can not commit and push the changes directly&lt;/strong> since you don&amp;rsquo;t have the permission to push to the theme repository.&lt;/p>
+&lt;p>You need to &lt;strong>fork&lt;/strong> the theme repository and push your changes to your forked repository (change submodule&amp;rsquo;s repository url). Then, you can commit those changes to your site repository.&lt;/p>
+&lt;p>如果你通过 Git/Git 子模块安装了主题，可以直接修改主题文件，在本地站点中查看更改。&lt;/p>
+&lt;p>但是，&lt;strong>您无法直接提交和推送更改&lt;/strong>，因为您没有推送到主题存储库的权限。&lt;/p>
+&lt;p>您需要&lt;strong>fork&lt;/strong>主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p>
+&lt;/blockquote>
+&lt;p>因为这个原因，按照博主文章提供的方法修改部署后没有效果
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp">
+&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp" alt="image-20230722000207898" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>可以直接复制下面的代码&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">@import url(&amp;#39;https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css&amp;#39;);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">@import url(&amp;#39;https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css&amp;#39;);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="p">:&lt;/span>&lt;span class="n">root&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">--&lt;/span>&lt;span class="n">zh&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s1">&amp;#39;LXGW WenKai Lite&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">--&lt;/span>&lt;span class="n">base&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">var&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">--&lt;/span>&lt;span class="n">zh&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">sans&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">serif&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">--&lt;/span>&lt;span class="n">code&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s1">&amp;#39;Cascadia Code&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">var&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">--&lt;/span>&lt;span class="n">zh&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">monospace&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>解决方法是修改博客根目录下相同路径文件&lt;/p>
+&lt;p>比如我的博客主题文件目录为MyBlog\themes\hugo-theme-stack，现在修改文件的路径为MyBlog\assets\scss&lt;/p>
+&lt;p>修改后部署发布即可。&lt;/p>
+&lt;h2 id="效果展示">效果展示
+&lt;/h2>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp">
+&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp" alt="image-20230722001413058" />
+&lt;/a>
+&lt;/div>&lt;/p></description></item><item><title>小米8折腾记录</title><link>https://lesx.top/p/mi8/</link><pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate><guid>https://lesx.top/p/mi8/</guid><description>&lt;p>这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p>
+&lt;p>我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[&lt;a class="link" href="https://blog.k8s.li/android-tasker.html" target="_blank" rel="noopener"
+>tasker 神器&lt;/a>],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p>
+&lt;p>刚好前几天在小黄鱼上买的小米8到手,这里记录一下这台手机的折腾过程.&lt;/p>
+&lt;blockquote>
+&lt;p>小白玩家水平有限,以下说法不一定正确,欢迎指正&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="解bl锁">解BL锁
+&lt;/h2>&lt;p>&lt;strong>(解锁会清除手机所有数据,请提前备份好重要资料)&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>小米手机的解锁官方给了解锁方法,只需要到浏览器搜索[&lt;a class="link" href="https://www.miui.com/unlock/index.html" target="_blank" rel="noopener"
+>小米解锁&lt;/a>],进入这个网站点击立即解锁,下载小米解锁工具&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp">
+&lt;img src="https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp" alt="image-20230210135242345" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>打开设置–我的设备全部参数–点击10下MIUI版本进入开发者模式&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp">
+&lt;img src="https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp" alt="photo_2023-02-10_14-00-32" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>回到设置–滑到最下面更多设置–开发者选项–设备解锁状态.解锁前需要先绑定点击绑定账号与设备,还要打开开发者选项中的USB调试选项&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/unlock.webp">
+&lt;img src="https://r2-img.lesx.top/unlock.webp" alt="photo_2023-02-17_21-00-30" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>打开刚才下载安装的小米解锁工具,根据提示在关机状态下按住音量下＋电源键进入fastboot模式(又叫bootloader模式),屏幕上出现fastboot字样就是成功进入,然后用数据线连接电脑与手机,连接成功后点击解锁,耐心等待解锁成功重启手机就好.&lt;/p>
+&lt;blockquote>
+&lt;p>小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p>
+&lt;/blockquote>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230210141005502.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230210141005502.webp" alt="image-20230210141005502" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>解锁成功后，设备状态变为已解锁&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp">
+&lt;img src="https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp" alt="photo_2023-02-10_14-04-26" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="给手机刷入twrp">给手机刷入TWRP
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>第一步 配置adb工具&lt;/p>
+&lt;p>浏览器搜索[&lt;a class="link" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn" target="_blank" rel="noopener"
+>SDK Platform Tools&lt;/a>],进入官网后选择对应系统的文件&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217211929849.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230217211929849.webp" alt="image-20230217" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>找到刚才下载的文件,复制adb.exe文件的路径,比如我就是&lt;code>C:\Users\ABC\platform-tools_r33.0.3-windows\platform-tools&lt;/code>,复制该路径添加到环境变量即可&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp">
+&lt;img src="https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp" alt="屏幕截图 2023-02-17" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>右键我的电脑——属性——下滑找到高级系统设置——系统属性——高级——环境变量——编辑Path——新建，将刚才复制路径添加到Path变量值中,最后点击“确定”.然后&lt;code>win+r&lt;/code>输入&lt;code>cmd&lt;/code>,再打开的命令行中输入以下命令&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">adb&lt;/span> &lt;span class="n">version&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>出现上图所示结果说明工具安装成功&lt;/p>
+&lt;ul>
+&lt;li>第二步 下载twrp&lt;/li>
+&lt;/ul>
+&lt;p>浏览器搜索[&lt;a class="link" href="https://twrp.me/" target="_blank" rel="noopener"
+>TWRP&lt;/a>]进入官网,右上角点击devices,选择自己的设备下载对应版本即可&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>第三步 刷入TWRP&lt;/p>
+&lt;p>手机关机状态下按住电源键＋音量下键进入&lt;code>fastboot&lt;/code>模式,然后用数据线连接手机与电脑,&lt;code>win+r&lt;/code>打开&lt;code>cmd&lt;/code>输入&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">fastboot flash recovery 你的twrp文件位置
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>比如我的是这样的&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp">
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>然后输入&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">fastboot-reboot recovery
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>出现TWRP界面代表刷入成功.&lt;/p></description></item><item><title>2022年终总结</title><link>https://lesx.top/p/b177efa9/</link><pubDate>Fri, 13 Jan 2023 12:33:58 +0800</pubDate><guid>https://lesx.top/p/b177efa9/</guid><description>&lt;blockquote>
+&lt;p>年初 他们去了很远的地方冒险,那是一片由钢筋水泥铸成同时又掺杂梦想的丛林,就在最近,年轻的冒险家马上就要回来了,无论有没有战利品,他们都会回来参加一年一度的盛大节日,满载而归的勇士们通常会举行一种传统的四人竞技活动,等到战利品全部留在美好的家乡,勇士们就会带着家乡的美好祝愿继续回到那片丛林开始新的冒险之旅.&lt;/p>
+&lt;/blockquote>
+&lt;p>今天是2023年1月13日，看着友邻都在写年终总结，刚好最近不知道写点什么，于是跟随友邻脚步写一个年终总结。&lt;/p>
+&lt;h2 id="博客">博客
+&lt;/h2>&lt;p>建立了自己的第一个博客，使用Hexo+GitHub，刚开始想搭建博客是觉得拥有一个自己的网站很酷，仅此而已，后来通过许多博主的友链见识了许多的站点，创作者们在自己的小窝中畅所欲言，自由的表达观点。从各式各样的博客中，阅读他/她们写下的文字，我收获了很多。&lt;/p>
+&lt;h2 id="疫情">疫情
+&lt;/h2>&lt;p>今年最大事件就是疫情政策的变化吧,行程码下线了年初时还是坚定防疫不动摇,年末就彻底放开了,本以为全面放开后能刺激消费,恢复实体经济,结果是大家都害怕感染,躲在家里不出来,也有人疯狂买买买,不过不是在商店而是药店.&lt;/p>
+&lt;h2 id="错失奖学金">错失奖学金
+&lt;/h2>&lt;p>大一综测有点低,本来没有想要拿奖学金，这次评选试着去申请，没想到还可以，就是综测差了一点，还是有点遗憾。&lt;/p>
+&lt;h2 id="单片机">单片机
+&lt;/h2>&lt;p>从室友那里了解到单片机这个东西后一直也想去折腾一下,因为懒鬼的属性,拖了很久🤣,刚好最近逛博客看到一个很简单的小项目利用esp8266+sg90舵机+arduino+点灯科技实现一个关灯神器,看了一下步骤和材料都比较简单,复刻的成本不高,最近会入手试试,开学还能拿到宿舍用,彻底 解决最后一个上床的人会忘记关灯的问题(手动狗头)&lt;/p>
+&lt;h2 id="中国奇谭">中国奇谭
+&lt;/h2>&lt;p>最近网上挺火的动画,mark一下，有空去看看。
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/904662152.webp">
+&lt;img src="https://r2-img.lesx.top/904662152.webp" alt="" />
+&lt;/a>
+&lt;/div>&lt;/p></description></item><item><title>第一篇博客</title><link>https://lesx.top/p/hello-blog/</link><pubDate>Fri, 11 Nov 2022 10:34:55 +0800</pubDate><guid>https://lesx.top/p/hello-blog/</guid><description>&lt;h2 id="起因">起因
+&lt;/h2>&lt;p>学校里某日，网上冲浪，偶然发现自己在用的&lt;a class="link" href="https://limestart.cn/" target="_blank" rel="noopener"
+>青柠起始页&lt;/a>作者&lt;a class="link" href="https://maorx.cn/" target="_blank" rel="noopener"
+>毛若昕&lt;/a>的博客逛了一圈,觉得很有意思,然后通过大佬的友链访问了许多大佬的博客,之后就有了自己搭建博客的想法, 但是由于懒惰🙄,一直没有动手.直到放假闲来无事,开始动手搭建自己的博客&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/1.png">
+&lt;img src="https://r2-img.lesx.top/1.png" alt="img" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="方案参考">方案参考
+&lt;/h2>&lt;p>&lt;strong>视频教程&lt;/strong>
+&lt;a class="link" href="https://www.bilibili.com/video/BV1qD4y1z783/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=258020edca69c60087ab3235f74cfbbe" target="_blank" rel="noopener"
+>爱扑bug的熊&lt;/a> 和&lt;a class="link" href="https://www.bilibili.com/video/BV1G84y1B7NH/?spm_id_from=333.788&amp;amp;vd_source=258020edca69c60087ab3235f74cfbbe" target="_blank" rel="noopener"
+>–Fomalhaut&lt;/a>两位up主的视频&lt;/p>
+&lt;p>&lt;strong>图文教程&lt;/strong>
+其中&lt;strong>hexo+github&lt;/strong>部署步骤的图文教程参考&lt;a class="link" href="https://www.fomal.cc/posts/e593433d.html" target="_blank" rel="noopener"
+>–Fomalhaut的博客&lt;/a>
+netlify建站参考&lt;a class="link" href="https://blog.cuijiacai.com/blog-building/" target="_blank" rel="noopener"
+>爱扑bug的熊的博客&lt;/a>&lt;/p>
+&lt;h2 id="效果图展示">效果图展示
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>使用主题&lt;a class="link" href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank" rel="noopener"
+>Nexmoe&lt;/a>&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>图片丢失&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>更换主题为Next&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/theme-Next.webp">
+&lt;img src="https://r2-img.lesx.top/theme-Next.webp" alt="theme-Next" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>将博客迁移到hugo，主题更换为&lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+>stack&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>友链</title><link>https://lesx.top/links/</link><pubDate>Sat, 27 Mar 2021 11:57:00 +0800</pubDate><guid>https://lesx.top/links/</guid><description>&lt;p>欢迎与我交换友链~&lt;/p>
+&lt;blockquote>
+&lt;p>title:kenome&amp;rsquo;s blog&lt;/p>
+&lt;p>description: 独立思考，保持清醒&lt;/p>
+&lt;p>website: &lt;a class="link" href="https://lesx.top" target="_blank" rel="noopener"
+>https://lesx.top&lt;/a>&lt;/p>
+&lt;p>image: &lt;a class="link" href="https://img.lesx.top/avatar.png" target="_blank" rel="noopener"
+>https://img.lesx.top/avatar.png&lt;/a>&lt;/p>
+&lt;/blockquote></description></item><item><title>关于</title><link>https://lesx.top/about/</link><pubDate>Sat, 27 Mar 2021 11:16:22 +0800</pubDate><guid>https://lesx.top/about/</guid><description>&lt;h2 id="交换友链">交换友链
+&lt;/h2>&lt;p>如果想要和我交换友链，可以参考如下格式&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>title: kenome&amp;rsquo;s blog&lt;/li>
+&lt;li>description: 独立思考，保持清醒&lt;/li>
+&lt;li>website: &lt;a class="link" href="https://lesx.top" target="_blank" rel="noopener"
+>https://lesx.top&lt;/a>&lt;/li>
+&lt;li>image: &lt;a class="link" href="https://r2-img.lesx.top/avatar.png" target="_blank" rel="noopener"
+>https://r2-img.lesx.top/avatar.png&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="联系我">联系我
+&lt;/h2>&lt;p>📧:me19xy@gmail.com&lt;/p>
+&lt;h2 id="changelog">Changelog
+&lt;/h2>&lt;ul>
+&lt;li>2025-08:增加灯箱&lt;/li>
+&lt;li>2025-08:新增观影界面&lt;/li>
+&lt;li>2025-08:为文章内图片添加圆角边框&lt;/li>
+&lt;li>2023-07:调整利用CSS调整页面布局效果,调整友链样式为双栏&lt;/li>
+&lt;li>2022-11:迁移博客至&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+>Hugo&lt;/a>，使用&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-s" target="_blank" rel="noopener"
+>hugo-theme-stack&lt;/a>作为主题&lt;/li>
+&lt;/ul></description></item><item><title>归档</title><link>https://lesx.top/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://lesx.top/archives/</guid><description/></item><item><title>观影</title><link>https://lesx.top/media/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lesx.top/media/</guid><description/></item><item><title>搜索</title><link>https://lesx.top/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lesx.top/search/</guid><description/></item></channel><follow_challenge><feedId>65267366307477504</feedId><userId>60837020821039104</userId></follow_challenge></rss>

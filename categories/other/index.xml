@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Other on kenome's blog</title><link>https://lesx.top/categories/other/</link><description>Recent content in Other on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Fri, 11 Nov 2022 10:34:55 +0800</lastBuildDate><atom:link href="https://lesx.top/categories/other/index.xml" rel="self" type="application/rss+xml"/><item><title>第一篇博客</title><link>https://lesx.top/p/hello-blog/</link><pubDate>Fri, 11 Nov 2022 10:34:55 +0800</pubDate><guid>https://lesx.top/p/hello-blog/</guid><description>&lt;h2 id="起因">起因
+&lt;/h2>&lt;p>学校里某日，网上冲浪，偶然发现自己在用的&lt;a class="link" href="https://limestart.cn/" target="_blank" rel="noopener"
+>青柠起始页&lt;/a>作者&lt;a class="link" href="https://maorx.cn/" target="_blank" rel="noopener"
+>毛若昕&lt;/a>的博客逛了一圈,觉得很有意思,然后通过大佬的友链访问了许多大佬的博客,之后就有了自己搭建博客的想法, 但是由于懒惰🙄,一直没有动手.直到放假闲来无事,开始动手搭建自己的博客&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/1.png">
+&lt;img src="https://r2-img.lesx.top/1.png" alt="img" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="方案参考">方案参考
+&lt;/h2>&lt;p>&lt;strong>视频教程&lt;/strong>
+&lt;a class="link" href="https://www.bilibili.com/video/BV1qD4y1z783/?spm_id_from=333.337.search-card.all.click&amp;amp;vd_source=258020edca69c60087ab3235f74cfbbe" target="_blank" rel="noopener"
+>爱扑bug的熊&lt;/a> 和&lt;a class="link" href="https://www.bilibili.com/video/BV1G84y1B7NH/?spm_id_from=333.788&amp;amp;vd_source=258020edca69c60087ab3235f74cfbbe" target="_blank" rel="noopener"
+>–Fomalhaut&lt;/a>两位up主的视频&lt;/p>
+&lt;p>&lt;strong>图文教程&lt;/strong>
+其中&lt;strong>hexo+github&lt;/strong>部署步骤的图文教程参考&lt;a class="link" href="https://www.fomal.cc/posts/e593433d.html" target="_blank" rel="noopener"
+>–Fomalhaut的博客&lt;/a>
+netlify建站参考&lt;a class="link" href="https://blog.cuijiacai.com/blog-building/" target="_blank" rel="noopener"
+>爱扑bug的熊的博客&lt;/a>&lt;/p>
+&lt;h2 id="效果图展示">效果图展示
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>使用主题&lt;a class="link" href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank" rel="noopener"
+>Nexmoe&lt;/a>&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>图片丢失&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>更换主题为Next&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/theme-Next.webp">
+&lt;img src="https://r2-img.lesx.top/theme-Next.webp" alt="theme-Next" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;ul>
+&lt;li>将博客迁移到hugo，主题更换为&lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+>stack&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel><follow_challenge><feedId>65267366307477504</feedId><userId>60837020821039104</userId></follow_challenge></rss>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>教程 on kenome's blog</title><link>https://lesx.top/tags/%E6%95%99%E7%A8%8B/</link><description>Recent content in 教程 on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Sun, 23 Jul 2023 16:51:28 +0800</lastBuildDate><atom:link href="https://lesx.top/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>简单实现文章自动化部署</title><link>https://lesx.top/p/automated-deployment/</link><pubDate>Sun, 23 Jul 2023 16:51:28 +0800</pubDate><guid>https://lesx.top/p/automated-deployment/</guid><description>&lt;h3 id="quicker">「Quicker」
+&lt;/h3>&lt;p>我发现使用hugo构建的博客要发布文章需要经过以下几个步骤&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">hugo new post/test.md
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">打开test.md编辑文章
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo 生成静态网站文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add . 将更改添加到暂存区
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m 将暂存区添加到版本库
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push 将本地的提交推送到远程仓库
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」&lt;/p>
+&lt;blockquote>
+&lt;p>「Quicker」 是一个通用的快捷操作工具，用于提高计算机用户的工作效率。它提供了一种简单的方式来创建自定义的快捷操作，以便快速执行常见的任务或操作。&lt;/p>
+&lt;/blockquote>
+&lt;p>之前有使用「Quicker」实现浏览器外划词翻译，详情看&lt;a class="link" href="https://saladict.crimx.com/native.html" target="_blank" rel="noopener"
+>这篇文章&lt;/a>，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了&lt;a class="link" href="https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514" target="_blank" rel="noopener"
+>类似的操作&lt;/a>，遂白嫖&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/Quicker1.webp">
+&lt;img src="https://r2-img.lesx.top/Quicker1.webp" alt="image-20230723174027239" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>这是下载的动作，但是本地实验后发现这个动作没有&lt;code>hugo&lt;/code>和&lt;code>git add .&lt;/code>命令，于是针对自己情况对原动作作了修改&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/quicker2.webp">
+&lt;img src="https://r2-img.lesx.top/quicker2.webp" alt="Snipaste_2023-07-23_17-54-51" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录&lt;/p>
+&lt;p>比如我的文章根目录为&lt;code>MyBlog\content\zh-cn\post&lt;/code>,上级目录就是&lt;code>MyBlog\content\zh-cn&lt;/code>&lt;/p>
+&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/quicker3.webp">
+&lt;img src="https://r2-img.lesx.top/quicker3.webp" alt="image-20230723180531905" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>使用时目录设置为博客文件的根目录&lt;/p>
+&lt;p>原作者不允许再次进行分享，为了方便下载，我设置了私人分享&lt;a class="link" href="https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b" target="_blank" rel="noopener"
+>hugo自动化&lt;/a>,需要自取&lt;/p>
+&lt;h3 id="简化思路">简化思路
+&lt;/h3>&lt;p>如果不想安装「Quicker」的话，还有一个方法可以省略代码&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">@echo off
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REM 运行 Hugo 命令
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">REM 运行 Git 命令
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git add .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -a -m &lt;span class="s2">&amp;#34;自动提交&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在博客根目录新建一个文本文件，将内容复制进去，然后重命名保存，后缀为&lt;code>.bat&lt;/code>,比如我的文件名是&lt;code>auto_deploy.bat&lt;/code>，每次修改文章后运行bash脚本即可发布&lt;/p></description></item><item><title>更换字体「霞鹜文楷」</title><link>https://lesx.top/p/lxgw-wenkai/</link><pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate><guid>https://lesx.top/p/lxgw-wenkai/</guid><description>&lt;h2 id="霞鹜文楷">「霞鹜文楷」
+&lt;/h2>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/wenkai-1.webp">
+&lt;img src="https://r2-img.lesx.top/wenkai-1.webp" alt="" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>看到别人博客换了字体，超级好看，我也要😊！！&lt;/p>
+&lt;p>项目地址：&lt;a class="link" href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener"
+>https://github.com/lxgw/LxgwWenKai&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。&lt;/p>
+&lt;/blockquote>
+&lt;p>这是使用的是&lt;a class="link" href="%28https://moyu.ee/p/hugo-stack/#%e5%ad%97%e4%bd%93%e8%b0%83%e6%95%b4%29" >墨语&lt;/a>提供的教程，在配置的过程中我遇到了一些问题，感谢博主的热心解答🎉&lt;/p>
+&lt;p>我的博客是部署在GitHub上，由于博客的主题文件是使用&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+>hugo-theme-stack&lt;/a>仓库作为博客的子模块，&lt;/p>
+&lt;blockquote>
+&lt;p>根据主题stack的document说明:&lt;/p>
+&lt;p>If you installed the theme through Git / Git submodule, you can modify the theme file directly and see the changes in your local site.&lt;/p>
+&lt;p>However, &lt;strong>you can not commit and push the changes directly&lt;/strong> since you don&amp;rsquo;t have the permission to push to the theme repository.&lt;/p>
+&lt;p>You need to &lt;strong>fork&lt;/strong> the theme repository and push your changes to your forked repository (change submodule&amp;rsquo;s repository url). Then, you can commit those changes to your site repository.&lt;/p>
+&lt;p>如果你通过 Git/Git 子模块安装了主题，可以直接修改主题文件，在本地站点中查看更改。&lt;/p>
+&lt;p>但是，&lt;strong>您无法直接提交和推送更改&lt;/strong>，因为您没有推送到主题存储库的权限。&lt;/p>
+&lt;p>您需要&lt;strong>fork&lt;/strong>主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p>
+&lt;/blockquote>
+&lt;p>因为这个原因，按照博主文章提供的方法修改部署后没有效果
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp">
+&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp" alt="image-20230722000207898" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;p>可以直接复制下面的代码&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">@import url(&amp;#39;https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css&amp;#39;);
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">@import url(&amp;#39;https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css&amp;#39;);
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="p">:&lt;/span>&lt;span class="n">root&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">--&lt;/span>&lt;span class="n">zh&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s1">&amp;#39;LXGW WenKai Lite&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">--&lt;/span>&lt;span class="n">base&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="k">var&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">--&lt;/span>&lt;span class="n">zh&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">sans&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">serif&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">--&lt;/span>&lt;span class="n">code&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s1">&amp;#39;Cascadia Code&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="k">var&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="o">--&lt;/span>&lt;span class="n">zh&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">font&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">family&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="n">monospace&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>解决方法是修改博客根目录下相同路径文件&lt;/p>
+&lt;p>比如我的博客主题文件目录为MyBlog\themes\hugo-theme-stack，现在修改文件的路径为MyBlog\assets\scss&lt;/p>
+&lt;p>修改后部署发布即可。&lt;/p>
+&lt;h2 id="效果展示">效果展示
+&lt;/h2>&lt;p>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp">
+&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp" alt="image-20230722001413058" />
+&lt;/a>
+&lt;/div>&lt;/p></description></item></channel><follow_challenge><feedId>65267366307477504</feedId><userId>60837020821039104</userId></follow_challenge></rss>
