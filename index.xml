@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kenome's blog</title><link>https://lesx.top/</link><description>Recent content on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="https://lesx.top/index.xml" rel="self" type="application/rss+xml"/><item><title>利用Gemini实现pot-App插件开发</title><link>https://lesx.top/p/c6ded1a6/</link><pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate><guid>https://lesx.top/p/c6ded1a6/</guid><description>&lt;p>测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del>调教AI&lt;/del>&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kenome's blog</title><link>https://lesx.top/</link><description>Recent content on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Sun, 14 Sep 2025 22:41:10 +0800</lastBuildDate><atom:link href="https://lesx.top/index.xml" rel="self" type="application/rss+xml"/><item><title>我使用的自部署服务</title><link>https://lesx.top/p/a4db49f5/</link><pubDate>Sun, 14 Sep 2025 22:41:10 +0800</pubDate><guid>https://lesx.top/p/a4db49f5/</guid><description>&lt;img src="https://r2-img.lesx.top/2025/09/fca726.webp" alt="Featured image of post 我使用的自部署服务" />&lt;h2 id="bitwardenvaultwarden">Bitwarden(Vaultwarden)
+&lt;/h2>&lt;p>Vaultwarden(以下简称vm)是替代的Bitwarden客户端API服务器实现，用Rust编写，与官方 Bitwarden 客户端兼容，基本官方提供的服务都能使用。得益于官方提供的多端服务，配合自部署服务可以实现密码在iOS、Android、PC、iPad多端实时同步，支持密码生成、2FA等服务，其余的功能我暂时没用上。
+之前我使用过keepass，相比而言我觉得vw的同步更及时，填充功能更好用，&lt;del>颜值更高&lt;/del>
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2025/09/2af5c0.webp">
+&lt;img src="https://r2-img.lesx.top/2025/09/2af5c0.webp" alt="Pasted image 20250921221826" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="umami">umami
+&lt;/h2>&lt;p>Umami 是一款开源的、以隐私为中心的网站统计工具，本站也是使用umami作为访问量统计工具，&lt;del>虽然也没几个访问量&lt;/del>，本身的追踪脚本非常轻量，仅2kb，还支持访客分析，对于想要知晓本站访问量的bloger是一款很棒的工具。
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2025/09/43b827.webp">
+&lt;img src="https://r2-img.lesx.top/2025/09/43b827.webp" alt="Pasted image 20250921222813" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="linkwarden">linkwarden
+&lt;/h2>&lt;p>这是一个书签管理工具，我常用来收藏阅读的优秀的博客、教程等内容，防止找不到，支持浏览器插件、iPhone快捷方式添加收藏，可以将收藏的内容保存成PDF，防止内容被和谐找不到，尤其在中文互联网，不知道文章就触发了什么违禁词导致的违规下架。
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2025/09/405ca4.webp">
+&lt;img src="https://r2-img.lesx.top/2025/09/405ca4.webp" alt="Pasted image 20250921224333" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="piclist-core">Piclist-core
+&lt;/h2>&lt;p>Piclist是著名图床工具picgo的衍生版本，Piclist-core可以部署在服务器上通过接口调用上传图片，配合obsidian的插件Image auto upload即可实现在obsidian中插入图片时自动上传，不用额外复制插入。
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2025/09/8241f0.webp">
+&lt;img src="https://r2-img.lesx.top/2025/09/8241f0.webp" alt="Pasted image 20250921224807" />
+&lt;/a>
+&lt;/div>&lt;/p>
+&lt;h2 id="uptime-kuma">uptime-kuma
+&lt;/h2>&lt;p>以下简称uk,uk是一款自部署服务监控工具，支持多种主流的监控类型，包括 HTTP (s)、TCP Port、Ping、DNS、Steam Game Server、Docker Container 等，支持telegram、discord等通知工具，用于掌握服务的存活状况。别忘了监控你的监控工具哦~
+&lt;div class="post-img-view">
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2025/09/7c2c96.webp">
+&lt;img src="https://r2-img.lesx.top/2025/09/7c2c96.webp" alt="Pasted image 20250921223528" />
+&lt;/a>
+&lt;/div>&lt;/p></description></item><item><title>利用Gemini实现pot-App插件开发</title><link>https://lesx.top/p/c6ded1a6/</link><pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate><guid>https://lesx.top/p/c6ded1a6/</guid><description>&lt;p>测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del>调教AI&lt;/del>&lt;/p>
 &lt;hr>
 &lt;h2 id="pot-app">Pot-app
 &lt;/h2>&lt;p>&lt;a class="link" href="https://pot-app.com/" target="_blank" rel="noopener"
