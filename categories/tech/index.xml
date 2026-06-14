@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tech on kenome's blog</title><link>https://lesx.top/categories/tech/</link><description>Recent content in Tech on kenome's blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><copyright>kenome</copyright><lastBuildDate>Tue, 12 Aug 2025 22:29:12 +0800</lastBuildDate><atom:link href="https://lesx.top/categories/tech/index.xml" rel="self" type="application/rss+xml"/><item><title>利用Gemini实现pot-App插件开发</title><link>https://lesx.top/p/c6ded1a6/</link><pubDate>Tue, 12 Aug 2025 22:29:12 +0800</pubDate><guid>https://lesx.top/p/c6ded1a6/</guid><description>&lt;p&gt;测试功能后本想把插件提交到官方插件仓库的，提交的时候才发现早有人实现这个功能了，只是作者还没处理合并请求🤣，在这里记录下这次开发&lt;del&gt;调教AI&lt;/del&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="pot-app"&gt;Pot-app
+&lt;/h2&gt;&lt;p&gt;&lt;a class="link" href="https://pot-app.com/" target="_blank" rel="noopener"
+&gt;Pot&lt;/a&gt;是一个带有OCR功能的跨平台划词翻译软件，并且内置有插件系统，有丰富的官方插件，还可以自己开发插件，基本满足了我对翻译软件的需求。
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/20250816203934792.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/20250816203934792.webp" alt="image.png" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 id="开发"&gt;&lt;del&gt;开发&lt;/del&gt;
+&lt;/h2&gt;&lt;p&gt;我平时使用&lt;a class="link" href="https://www.maimemo.com/" target="_blank" rel="noopener"
+&gt;墨墨背单词&lt;/a&gt;(以下简称墨墨)，在墨墨设置看见开放了API，于是想到写一个插件将Pot翻译的生词导入墨墨复习，翻看了Pot插件仓库提供的&lt;a class="link" href="https://github.com/pot-app/pot-app-collection-plugin-template" target="_blank" rel="noopener"
+&gt;生词本插件模板&lt;/a&gt;，插件结构比较简单&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;├── pot-app-collection-plugin-template
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ ├── info.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;│ └── main.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;虽然不懂JavaScript,还好有AI，直接把需求喂给AI，然后调教了几轮，很快就实现了功能，中途参考了&lt;a class="link" href="https://github.com/chriscurrycc/bob-plugin-maimemo-notebook" target="_blank" rel="noopener"
+&gt;bob-plugin-maimemo-notebook&lt;/a&gt;，最终实现的效果:
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/20250816221019200.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/20250816221019200.webp" alt="image.png" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>从keepass迁移到bitwarden</title><link>https://lesx.top/p/b87d8224/</link><pubDate>Fri, 15 Dec 2023 00:17:06 +0800</pubDate><guid>https://lesx.top/p/b87d8224/</guid><description>&lt;h2 id="起因"&gt;起因
+&lt;/h2&gt;&lt;p&gt;我之前的密码管理方案是keepass+OneDrive，keepass是一个开源免费的密码管理器，拥有全平台客户端，数据库&lt;code&gt;.kdbx&lt;/code&gt;文件存储在本地，通过云盘实现全平台数据同步，数据完全掌握在自己手中。但是在使用的过程中遇到一个问题——同步不及时。比如我在电脑上添加了一个密码，等一会在手机上想要填充这个密码却找不到，于是萌生了迁移的想法。&lt;/p&gt;
+&lt;p&gt;了解到Bitwarden支持自托管，刚好手里有一台闲置的VPS，于是决定自部署一个Bitwarden。官方版本对于服务器的要求较高。&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/bw.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/2023/bw.webp" alt="image-20231215130129827" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;GitHub有大佬用rust重写了Bitwarden名为vaultwarden，对机器的要求更低，而且提供了Docker镜像，部署起来也比较方便。&lt;/p&gt;
+&lt;p&gt;vaultwarden：https://github.com/dani-garcia/vaultwarden&lt;/p&gt;
+&lt;h2 id="前置准备"&gt;前置准备
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;一台闲置VPS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;vaultwarden对于资源占用很低，各大厂商的入门机器就够用了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;宝塔面板&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我的建议是使用宝塔面板辅助管理，后面配置反向代理、SSL之类的也很方便。宝塔面板安装需要一台纯净的VPS，建议购买后立即安装(会用Nginx等配置的可以忽略)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;docker和docker-compose&lt;/li&gt;
+&lt;li&gt;一个有效域名(如果你不打算使用ip:端口访问的话)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="部署服务"&gt;部署服务
+&lt;/h2&gt;&lt;h3 id="安装docker和docker-compose"&gt;安装Docker和Docker-compose
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker -v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker-compose -v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;安装完毕后分别输入命令，如果输出版本信息说明安装成功。&lt;/p&gt;
+&lt;h3 id="设置域名dns"&gt;设置域名DNS
+&lt;/h3&gt;&lt;p&gt;在你的域名管理处添加一条DNS记录，指向你服务器的ip地址&lt;/p&gt;
+&lt;h3 id="创建数据文件夹"&gt;创建数据文件夹
+&lt;/h3&gt;&lt;p&gt;首先在你喜欢的位置创建一个文件夹，里面用来存放vaulwarden的数据文件，方便后期备份。我这里是在主目录下创建vaultwarden文件夹。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mkdir vaultwarden &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; vaultwarden
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;创建docker-compose.yml文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vim docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;打开文件后按&lt;code&gt;i&lt;/code&gt;进入输入模式，将下面内容写入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;version: &lt;span class="s2"&gt;&amp;#34;3&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;services:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; vaultwarden:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; image: vaultwarden/server:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; container_name: vaultwarden
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; restart: always
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ports:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#端口映射，可自行修改8080端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - &lt;span class="s2"&gt;&amp;#34;6666:80&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - &lt;span class="s2"&gt;&amp;#34;3012:3012&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; volumes:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#映射目录位置，可选&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - ./bw-data:/data
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#这里的目录可以换成你创建的目录，比如我的是~/vaultwarden&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; environment:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#后台管理登陆密码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - &lt;span class="nv"&gt;ADMIN_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;Password
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#域名配置，刚才设置了DNS的域名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - &lt;span class="nv"&gt;DOMAIN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://example.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#禁用显示密码提示&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - &lt;span class="nv"&gt;SHOW_PASSWORD_HINT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#是否开启注册，自用的话自己搭建好注册后改成false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - &lt;span class="nv"&gt;SIGNUPS_ALLOWED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#启用WebSocket通知&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - &lt;span class="nv"&gt;WEBSOCKET_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#是否开启Web客户端&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; - &lt;span class="nv"&gt;WEB_VAULT_ENABLED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;写入完毕后按&lt;code&gt;Esc&lt;/code&gt;,然后输入&lt;code&gt;:wq&lt;/code&gt;保存退出&lt;/p&gt;
+&lt;h3 id="启动项目"&gt;启动项目
+&lt;/h3&gt;&lt;p&gt;确保docker-compose.yml中的信息无误后，启动项目&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo docker-compose up -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后查看容器是否运行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sudo docker ps
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/docker.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/2023/docker.webp" alt="image-20231215135826570" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;出现容器名称说明容器成功运行，在这里可以使用你的服务器ip:端口号访问web页面&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/image-20231217220525482.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/2023/image-20231217220525482.webp" alt="image-20231217220525482" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 id="使用宝塔面板部署ssl以及设置反向代理"&gt;使用宝塔面板部署SSL以及设置反向代理
+&lt;/h2&gt;&lt;p&gt;打开宝塔面板，点击网站-&amp;gt;添加站点，此处域名更换成你自己的域名&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/bt.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/2023/bt.webp" alt="image-20231215140236160" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;提交后点击SSL-&amp;gt;Let`s Encrypt申请证书&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/zs.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/2023/zs.webp" alt="image-20231215140439474" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;然后点击当前证书-&amp;gt;保存并启用证书，勾选强制https,不然后续会出现无法注册的问题&lt;/p&gt;
+&lt;h3 id="设置反向代理"&gt;设置反向代理
+&lt;/h3&gt;&lt;p&gt;点击反向代理-&amp;gt;添加反向代理&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/image-20231217221704724.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/2023/image-20231217221704724.webp" alt="image-20231217221704724" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;代理名称随意，目标url填&lt;code&gt;ip:端口&lt;/code&gt;,也就是你刚才访问的url,提交后就可以使用域名访问你的vaultwarden网页了。&lt;/p&gt;</description></item><item><title>小米11刷入MIUI.EU</title><link>https://lesx.top/p/743b0d87/</link><pubDate>Thu, 10 Aug 2023 21:58:06 +0800</pubDate><guid>https://lesx.top/p/743b0d87/</guid><description>&lt;h2 id="前文"&gt;前文
+&lt;/h2&gt;&lt;p&gt;不久前我写过一篇博文&lt;a class="link" href="https://lesx.top/p/mi8/" target="_blank" rel="noopener"
+&gt;小米折腾记录&lt;/a&gt;，当时是想体验类原生安卓系统，在小黄鱼购入二手小米8，本来打算记录下刷入全过程，但是自己换电池把屏幕排线弄坏了，手机开不了机了，后续内容就没有更新。&lt;/p&gt;
+&lt;p&gt;手里的主力手机一直是小米11，但是最近因为各种各样的原因用着实在是不得劲，最终决定刷机。聊刷机就不得不考虑一下数据备份的问题，这里我觉得小米自带的备份就很好用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;设置&amp;gt;我的设备&amp;gt;备份与恢复&lt;/code&gt;，选择你要备份的内容等待备份成功，成功后将&lt;code&gt;MIUI&amp;gt;backup&amp;gt;allback&lt;/code&gt;,路径下文件拷贝到电脑上，然后就可以愉快的解锁+刷机了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解锁的步骤&lt;/strong&gt;的可以看我之前的文章&lt;a class="link" href="https://lesx.top/p/mi8/" target="_blank" rel="noopener"
+&gt;小米8折腾记录&lt;/a&gt;，解锁后就可以刷机了&lt;/p&gt;
+&lt;p&gt;我之前体验过原生安卓&lt;a class="link" href="https://lineageos.org/" target="_blank" rel="noopener"
+&gt;LineageOS&lt;/a&gt;，与MIUI这种国内厂商定制的系统相比没有烦人的广告，而且相对来说定制系统使用方式或者操作逻辑更适合中国大陆用户。LineageOS用起来相当丝滑，但是我的体验并不算好，除了丝滑纯净之外并没有什么其他吸引我的点。在之前的米8上使用经常会莫名的重启，也没有找到原因。&lt;/p&gt;
+&lt;p&gt;因此我这次刷机还是倾向于定制系统 ，刚好MIUI有国际版的ROM，国际版包括主要包括欧版，俄罗斯版，印尼版等等。最后我选择的是eu版，与国行版相比它去除了广告而且精简了一些我平时不太需要的预装应用，还内置了谷歌框架。没选择EEA版是因为其预装了很多Google的app，比如谷歌地图，谷歌钱包等等。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;EU版MIUI&lt;strong&gt;是一个第三方开发项目，和官方的海外版不同，是根据官方的国行版(CN)或者官方的全球版(Global)修改而来的&lt;/strong&gt;。 常说的欧版，有的指EU版，有的指官方EEA版，它们是两个不同的版本。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="下载刷机包"&gt;下载刷机包
+&lt;/h2&gt;&lt;p&gt;本次刷机的手机是小米11，系统为MIUI14，刷机方式为线刷，从MIUI14开始eu社区的ROM可同时支持卡刷和线刷。&lt;/p&gt;
+&lt;p&gt;刷机包可以到&lt;a class="link" href="https://sourceforge.net/projects/xiaomi-eu-multilang-miui-roms/files/xiaomi.eu/MIUI-STABLE-RELEASES/MIUIv14/" target="_blank" rel="noopener"
+&gt;Xiaomi.eu Multilang MIUI ROMs Files&lt;/a&gt;,注意下载对应机型的ROM&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/miui14.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/2023/miui14.webp" alt="image-20230815220645245" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;以xiaomi11为例简单说明一下命名方式，&lt;code&gt;xiaomi.eu_multi_MI11&lt;/code&gt;代表机型，&lt;code&gt;V14.0.10.0&lt;/code&gt;代表系统版本，这里指MIUI14&lt;/p&gt;
+&lt;p&gt;⚠️有些机型的ROM是用英文命名，比如在框选部分的下个ROM，&lt;code&gt;THOR&lt;/code&gt;代表&lt;code&gt;小米12s Ultra&lt;/code&gt;,不同机型的英文名称可以在&lt;a class="link" href="" &gt;https://xiaomirom.com/&lt;/a&gt;查到，如果ROM下载太慢请尝试科学上网。&lt;/p&gt;
+&lt;p&gt;在开始刷入之间需要在电脑上安装ADB工具，安装方式见&lt;a class="link" href="https://lesx.top/p/mi8/" target="_blank" rel="noopener"
+&gt;小米8折腾记录&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="开始刷机"&gt;开始刷机
+&lt;/h2&gt;&lt;p&gt;eu版ROM的线刷方式很简单，开机状态重启的同时按住&lt;code&gt;音量-&lt;/code&gt;，直到屏幕出现&lt;code&gt;FASTBOOT&lt;/code&gt;字样松开，然后用数据线连接电脑，解压下载的ROM到桌面(任意你喜欢的位置)，打开解压后的文件夹&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/2023/miuirom.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/2023/miuirom.webp" alt="image-20230815222654964" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;因为我是Windows电脑，所以选择Windows开头的脚本，ROM提供了三个系统的线刷脚本&lt;code&gt;windows_fastboot_first_install_with_data_format.bat&lt;/code&gt;是指清除数据刷入&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;windows_fastboot_update_rom.bat&lt;/code&gt;是指保留数据刷入&lt;/p&gt;
+&lt;p&gt;这里建议使用清除数据刷入，双击脚本文件，在弹出的终端中输入y然后回车，然后等待5-8分钟(视系统状况不等)，刷入成功后手机会自动重启，能顺利进入引导页面就成功了。&lt;/p&gt;
+&lt;h2 id="注意事项"&gt;注意事项
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;注意中途不要拔出数据线&lt;/li&gt;
+&lt;li&gt;刷机时拔出电话卡，避免卡在引导界面&lt;/li&gt;
+&lt;li&gt;如果拔出电话卡后依然卡在引导界面可以尝试连接Wi-Fi然后是用局域网代理，或者参考&lt;a class="link" href="https://imold.wang/technology/phone/364.html" target="_blank" rel="noopener"
+&gt;这篇文章&lt;/a&gt;，⚠️文章中提到的方法我并没有验证，稳妥起见建议使用第四种方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="参考资料"&gt;参考资料
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;跳过谷歌开机引导，https://imold.wang/technology/phone/364.html&lt;/li&gt;
+&lt;li&gt;为小米11刷入eu版MIUI,https://www.himiku.com/archives/xiaomi-eu-for-mi-11.html&lt;/li&gt;
+&lt;li&gt;小米系列MIUI刷EU系统教学,https://forum.gamer.com.tw/C.php?bsn=60559&amp;amp;snA=62124&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>简单实现文章自动化部署</title><link>https://lesx.top/p/automated-deployment/</link><pubDate>Sun, 23 Jul 2023 16:51:28 +0800</pubDate><guid>https://lesx.top/p/automated-deployment/</guid><description>&lt;h3 id="quicker"&gt;「Quicker」
+&lt;/h3&gt;&lt;p&gt;我发现使用hugo构建的博客要发布文章需要经过以下几个步骤&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo new post/test.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;打开test.md编辑文章
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo 生成静态网站文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add . 将更改添加到暂存区
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m 将暂存区添加到版本库
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push 将本地的提交推送到远程仓库
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这实在太麻烦了，我想有没有工具能简化这个步骤，省略输入代码的过程，然后想到「Quicker」&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;「Quicker」 是一个通用的快捷操作工具，用于提高计算机用户的工作效率。它提供了一种简单的方式来创建自定义的快捷操作，以便快速执行常见的任务或操作。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前有使用「Quicker」实现浏览器外划词翻译，详情看&lt;a class="link" href="https://saladict.crimx.com/native.html" target="_blank" rel="noopener"
+&gt;这篇文章&lt;/a&gt;，本来想自己设计一个流程，在「Quicker」的动作库中搜索后发现已经有人分享了&lt;a class="link" href="https://getquicker.net/Sharedaction?code=6d5ed8b0-1549-4ae4-7bba-08db42e60514" target="_blank" rel="noopener"
+&gt;类似的操作&lt;/a&gt;，遂白嫖&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/Quicker1.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/Quicker1.webp" alt="image-20230723174027239" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;这是下载的动作，但是本地实验后发现这个动作没有&lt;code&gt;hugo&lt;/code&gt;和&lt;code&gt;git add .&lt;/code&gt;命令，于是针对自己情况对原动作作了修改&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/quicker2.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/quicker2.webp" alt="Snipaste_2023-07-23_17-54-51" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;这是修改后的动作，要运用到自己博客，只需要将框选路径换成自己文章的位置，⚠️第二个框的路径在文章根目录的上级目录&lt;/p&gt;
+&lt;p&gt;比如我的文章根目录为&lt;code&gt;MyBlog\content\zh-cn\post&lt;/code&gt;,上级目录就是&lt;code&gt;MyBlog\content\zh-cn&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/quicker3.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/quicker3.webp" alt="image-20230723180531905" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;使用时目录设置为博客文件的根目录&lt;/p&gt;
+&lt;p&gt;原作者不允许再次进行分享，为了方便下载，我设置了私人分享&lt;a class="link" href="https://getquicker.net/Sharedaction?code=380d9cbc-3b01-4a38-b3fc-08db8a70701b" target="_blank" rel="noopener"
+&gt;hugo自动化&lt;/a&gt;,需要自取&lt;/p&gt;
+&lt;h3 id="简化思路"&gt;简化思路
+&lt;/h3&gt;&lt;p&gt;如果不想安装「Quicker」的话，还有一个方法可以省略代码&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;@echo off
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;REM 运行 Hugo 命令
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hugo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;REM 运行 Git 命令
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -a -m &lt;span class="s2"&gt;&amp;#34;自动提交&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;在博客根目录新建一个文本文件，将内容复制进去，然后重命名保存，后缀为&lt;code&gt;.bat&lt;/code&gt;,比如我的文件名是&lt;code&gt;auto_deploy.bat&lt;/code&gt;，每次修改文章后运行bash脚本即可发布&lt;/p&gt;</description></item><item><title>更换字体「霞鹜文楷」</title><link>https://lesx.top/p/lxgw-wenkai/</link><pubDate>Fri, 21 Jul 2023 18:44:23 +0800</pubDate><guid>https://lesx.top/p/lxgw-wenkai/</guid><description>&lt;h2 id="霞鹜文楷"&gt;「霞鹜文楷」
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/wenkai-1.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/wenkai-1.webp" alt="" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;看到别人博客换了字体，超级好看，我也要😊！！&lt;/p&gt;
+&lt;p&gt;项目地址：&lt;a class="link" href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener"
+&gt;https://github.com/lxgw/LxgwWenKai&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;「霞鹜文楷」是一款开源中文字体，基于 FONTWORKS 出品字体 Klee One 衍生。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是使用的是&lt;a class="link" href="%28https://moyu.ee/p/hugo-stack/#%e5%ad%97%e4%bd%93%e8%b0%83%e6%95%b4%29" &gt;墨语&lt;/a&gt;提供的教程，在配置的过程中我遇到了一些问题，感谢博主的热心解答🎉&lt;/p&gt;
+&lt;p&gt;我的博客是部署在GitHub上，由于博客的主题文件是使用&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener"
+&gt;hugo-theme-stack&lt;/a&gt;仓库作为博客的子模块，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;根据主题stack的document说明:&lt;/p&gt;
+&lt;p&gt;If you installed the theme through Git / Git submodule, you can modify the theme file directly and see the changes in your local site.&lt;/p&gt;
+&lt;p&gt;However, &lt;strong&gt;you can not commit and push the changes directly&lt;/strong&gt; since you don&amp;rsquo;t have the permission to push to the theme repository.&lt;/p&gt;
+&lt;p&gt;You need to &lt;strong&gt;fork&lt;/strong&gt; the theme repository and push your changes to your forked repository (change submodule&amp;rsquo;s repository url). Then, you can commit those changes to your site repository.&lt;/p&gt;
+&lt;p&gt;如果你通过 Git/Git 子模块安装了主题，可以直接修改主题文件，在本地站点中查看更改。&lt;/p&gt;
+&lt;p&gt;但是，&lt;strong&gt;您无法直接提交和推送更改&lt;/strong&gt;，因为您没有推送到主题存储库的权限。&lt;/p&gt;
+&lt;p&gt;您需要&lt;strong&gt;fork&lt;/strong&gt;主题存储库并将更改推送到分支存储库（更改子模块的存储库 URL）。然后，您可以将这些更改提交到站点存储库。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为这个原因，按照博主文章提供的方法修改部署后没有效果
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E5%AD%97%E4%BD%93%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp" alt="image-20230722000207898" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;可以直接复制下面的代码&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;@import url(&amp;#39;https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css&amp;#39;);
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;@import url(&amp;#39;https://cdn.jsdelivr.net/npm/@fontsource/cascadia-code@4.2.1/index.min.css&amp;#39;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;zh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;LXGW WenKai Lite&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;base&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;zh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;sans&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;serif&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Cascadia Code&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;zh&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;font&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;family&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;monospace&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;解决方法是修改博客根目录下相同路径文件&lt;/p&gt;
+&lt;p&gt;比如我的博客主题文件目录为MyBlog\themes\hugo-theme-stack，现在修改文件的路径为MyBlog\assets\scss&lt;/p&gt;
+&lt;p&gt;修改后部署发布即可。&lt;/p&gt;
+&lt;h2 id="效果展示"&gt;效果展示
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/%E6%9B%B4%E6%8D%A2%E9%9C%9E%E9%B9%9C%E6%96%87%E6%A5%B7.webp" alt="image-20230722001413058" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>小米8折腾记录</title><link>https://lesx.top/p/mi8/</link><pubDate>Thu, 13 Apr 2023 12:34:10 +0800</pubDate><guid>https://lesx.top/p/mi8/</guid><description>&lt;p&gt;这个寒假折腾了一些东西,比如说博客,基于Esp8266的关灯神器.还有一些东西简单看了一下,比如说Magisk,root,twrp.这些东西概括起来就是两个字—刷机。&lt;/p&gt;
+&lt;p&gt;我在初中时期简单接触过刷机.当时只会把稳定版刷成开发版(红米note2),获取root权限,然后弄xp框架下载了一大堆乱七八糟的模块.后来换手机感觉就懒得折腾了.逛博客时看到Reimu大佬的一篇文章[&lt;a class="link" href="https://blog.k8s.li/android-tasker.html" target="_blank" rel="noopener"
+&gt;tasker 神器&lt;/a&gt;],然后又看了许多安卓神器的妙用.于是我又萌生了刷机的念头.&lt;/p&gt;
+&lt;p&gt;刚好前几天在小黄鱼上买的小米8到手,这里记录一下这台手机的折腾过程.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小白玩家水平有限,以下说法不一定正确,欢迎指正&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="解bl锁"&gt;解BL锁
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;(解锁会清除手机所有数据,请提前备份好重要资料)&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;小米手机的解锁官方给了解锁方法,只需要到浏览器搜索[&lt;a class="link" href="https://www.miui.com/unlock/index.html" target="_blank" rel="noopener"
+&gt;小米解锁&lt;/a&gt;],进入这个网站点击立即解锁,下载小米解锁工具&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/%E8%A7%A3%E9%94%81.webp" alt="image-20230210135242345" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开设置–我的设备全部参数–点击10下MIUI版本进入开发者模式&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/photo_2023-02-10_14-00-32.webp" alt="photo_2023-02-10_14-00-32" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;回到设置–滑到最下面更多设置–开发者选项–设备解锁状态.解锁前需要先绑定点击绑定账号与设备,还要打开开发者选项中的USB调试选项&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/unlock.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/unlock.webp" alt="photo_2023-02-17_21-00-30" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开刚才下载安装的小米解锁工具,根据提示在关机状态下按住音量下＋电源键进入fastboot模式(又叫bootloader模式),屏幕上出现fastboot字样就是成功进入,然后用数据线连接电脑与手机,连接成功后点击解锁,耐心等待解锁成功重启手机就好.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小米手机一般绑定账号与设备七天后才能解锁,且一个月只能解锁一台&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230210141005502.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/image-20230210141005502.webp" alt="image-20230210141005502" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;解锁成功后，设备状态变为已解锁&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/photo_2023-02-10_14-04-26.webp" alt="photo_2023-02-10_14-04-26" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2 id="给手机刷入twrp"&gt;给手机刷入TWRP
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第一步 配置adb工具&lt;/p&gt;
+&lt;p&gt;浏览器搜索[&lt;a class="link" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn" target="_blank" rel="noopener"
+&gt;SDK Platform Tools&lt;/a&gt;],进入官网后选择对应系统的文件&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217211929849.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/image-20230217211929849.webp" alt="image-20230217" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;找到刚才下载的文件,复制adb.exe文件的路径,比如我就是&lt;code&gt;C:\Users\ABC\platform-tools_r33.0.3-windows\platform-tools&lt;/code&gt;,复制该路径添加到环境变量即可&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-02-17%20212634.webp" alt="屏幕截图 2023-02-17" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;右键我的电脑——属性——下滑找到高级系统设置——系统属性——高级——环境变量——编辑Path——新建，将刚才复制路径添加到Path变量值中,最后点击“确定”.然后&lt;code&gt;win+r&lt;/code&gt;输入&lt;code&gt;cmd&lt;/code&gt;,再打开的命令行中输入以下命令&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;adb&lt;/span&gt; &lt;span class="n"&gt;version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;出现上图所示结果说明工具安装成功&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第二步 下载twrp&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;浏览器搜索[&lt;a class="link" href="https://twrp.me/" target="_blank" rel="noopener"
+&gt;TWRP&lt;/a&gt;]进入官网,右上角点击devices,选择自己的设备下载对应版本即可&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第三步 刷入TWRP&lt;/p&gt;
+&lt;p&gt;手机关机状态下按住电源键＋音量下键进入&lt;code&gt;fastboot&lt;/code&gt;模式,然后用数据线连接手机与电脑,&lt;code&gt;win+r&lt;/code&gt;打开&lt;code&gt;cmd&lt;/code&gt;输入&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fastboot flash recovery 你的twrp文件位置
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;比如我的是这样的&lt;/p&gt;
+&lt;p&gt;
+&lt;div class="post-img-view"&gt;
+&lt;a data-fancybox="gallery" href="https://r2-img.lesx.top/image-20230217.webp"&gt;
+&lt;img src="https://r2-img.lesx.top/image-20230217.webp" alt="image-20230217" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;然后输入&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fastboot-reboot recovery
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;出现TWRP界面代表刷入成功.&lt;/p&gt;</description></item></channel><follow_challenge><feedId>65267366307477504</feedId><userId>60837020821039104</userId></follow_challenge></rss>
